@@ -1,5 +1,7 @@
 package com.example.demo.util;
 
+import com.example.demo.domain.User;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -11,6 +13,7 @@ import java.util.Arrays;
 
 @Aspect
 @Component
+@Slf4j
 public class MyAspect {
 
     @Pointcut(value = "execution(* com.example.demo..*(..))")
@@ -20,18 +23,17 @@ public class MyAspect {
 
     @Around("method()")
     public Object syncLogInfo(ProceedingJoinPoint pjp) {
-        Object proceed = null;
+        Object response = null;
         Class<?> targetClass = pjp.getTarget().getClass();
         Signature signature = pjp.getSignature();
         String targetFunctionName = signature.getName();
         String targetClassName = targetClass.getSimpleName();
-        String msg = String.format("%s#%s 任务执行开始,args=%s", targetClassName, targetFunctionName, Arrays.toString(pjp.getArgs()));
-        System.out.println(msg);
+        log.info("{}#{} 任务执行开始,args={}", targetClassName, targetFunctionName, Arrays.toString(pjp.getArgs()));
         try {
-            proceed = pjp.proceed();
+            response = pjp.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-        return proceed;
+        return response;
     }
 }
