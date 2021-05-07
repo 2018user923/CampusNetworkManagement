@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <select id="getUserById" resultType="User">
+        select *
+        from user_table
+        where Id = #{id}
+    </select>
+
+    <select id="getUserByCollegeNum" resultType="User">
+        select *
+        from user_table
+        where college_num = #{collegeNum}
+    </select>
+
+    <update id="updateUser">
+        update user_table
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="passWord != null">pass_Word = #{passWord},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="idCard != null">id_card = #{idCard},</if>
+            <if test="collegeNum != null">college_Num = #{collegeNum},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+        </trim>
+        where Id = #{id}
+    </update>
+
+    <delete id="deleteUserById">
+        delete
+        from user_table
+        where Id = #{id}
+    </delete>
+
+    <!--
+     useGeneratedKeys="true" ：设置是否使用baiJDBC的getGenereatedKeys方法获取主键并赋值到keyProperty设置的领域模型属性中。
+    （适用于mysql、sqlserver数据库，oracle不能使用，使用selectkey子节点做）
+
+    keyProperty：赋值的对象的属性名称。
+    -->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into user_table(user_name, pass_word, phone, email, id_card, college_num, avatar)
+        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{collegeNum}, #{avatar});
+    </insert>
+
+
+</mapper>

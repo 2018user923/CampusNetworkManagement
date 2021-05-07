@@ -1,0 +1,55 @@
+spring:
+  # 关闭模板引擎的缓存。
+  thymeleaf:
+    cache: false
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC
+    password: wztcyy2.2
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      # 是否支持多文件上传。默认为 true
+      enabled: true
+      # 上传文件的临时目录。
+      location:
+      # 上传文件最大为 1M （默认值 1M 根据自身业务自行控制即可）
+      max-file-size: 1048576
+      # 上传请求最大为 10M（默认值10M 根据自身业务自行控制即可）
+      max-request-size: 10485760
+  mail:
+    username: 247702560@qq.com
+    password: smeqqkpyqgobbgij
+    host: smtp.qq.com
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: # 如果未单独配置默认为空即可
+    timeout: 1000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.domain
+  configuration:
+    map-underscore-to-camel-case: true
+
+user:
+  images:
+    # 用户头像上传的文件目录。  默认
+    path: D:/main/JavaCode/demo/src/main/resources/static/images/userImages
+    # 当用户没有头像的时候，默认使用的图片
+    default: D:/main/JavaCode/demo/src/main/resources/static/images/layout_img/user_img.jpg
+  time:
+    pattern: yyyy-MM-dd HH:mm:ss
+  spend:
+    # 每小时收费比例
+    proportion: 0.18
