@@ -1,0 +1,113 @@
+2021-05-08 17:42:13.744 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 18956 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-08 17:42:13.745 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-08 17:42:13.785 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 17:42:13.785 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 17:42:14.374 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-08 17:42:14.377 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-08 17:42:14.395 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2021-05-08 17:42:15.008 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-08 17:42:15.017 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-08 17:42:15.017 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-08 17:42:15.017 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-08 17:42:15.078 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-08 17:42:15.078 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1291 ms
+2021-05-08 17:42:15.236 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-08 17:42:15.329 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-08 17:42:15.531 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$4ffda636#CreateRandom 任务执行开始,args=[]
+2021-05-08 17:42:15.560 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$4ffda636#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-05-08 17:42:15.783 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$4ffda636#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@1876e713]
+2021-05-08 17:42:16.154 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 17:42:16.296 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-08 17:42:16.320 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$4ffda636#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@72b6d46f]
+2021-05-08 17:42:16.844 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-08 17:42:16.879 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-08 17:42:16.917 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-08 17:42:16.931 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.54 seconds (JVM running for 4.346)
+2021-05-08 17:42:23.525 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 17:42:23.525 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-08 17:42:23.526 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-08 18:08:22.323 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 4064 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-08 18:08:22.326 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-08 18:08:22.354 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 18:08:22.354 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 18:08:22.793 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-08 18:08:22.795 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-08 18:08:22.817 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2021-05-08 18:08:23.268 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-08 18:08:23.274 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-08 18:08:23.274 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-08 18:08:23.274 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-08 18:08:23.320 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-08 18:08:23.320 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 965 ms
+2021-05-08 18:08:23.415 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-08 18:08:23.480 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-08 18:08:23.614 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$94f617b3#CreateRandom 任务执行开始,args=[]
+2021-05-08 18:08:23.638 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$94f617b3#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-05-08 18:08:23.756 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$94f617b3#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@44ecac91]
+2021-05-08 18:08:23.982 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 18:08:24.060 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-08 18:08:24.075 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$94f617b3#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@54cfc5e2]
+2021-05-08 18:08:24.411 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-08 18:08:24.435 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-08 18:08:24.459 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-08 18:08:24.469 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.443 seconds (JVM running for 3.043)
+2021-05-08 18:08:35.062 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 18:08:35.062 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-08 18:08:35.062 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-05-08 18:20:52.958 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 20304 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-08 18:20:52.960 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-08 18:20:52.990 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 18:20:52.990 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 18:20:53.447 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-08 18:20:53.449 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-08 18:20:53.471 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-05-08 18:20:53.951 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-08 18:20:53.957 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-08 18:20:53.958 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-08 18:20:53.958 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-08 18:20:54.002 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-08 18:20:54.003 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1012 ms
+2021-05-08 18:20:54.110 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-08 18:20:54.170 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-08 18:20:54.284 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$bda06c2f#CreateRandom 任务执行开始,args=[]
+2021-05-08 18:20:54.302 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$bda06c2f#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-05-08 18:20:54.409 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$bda06c2f#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@16f5f93f]
+2021-05-08 18:20:54.595 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 18:20:54.663 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-08 18:20:54.676 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$bda06c2f#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@31ed5044]
+2021-05-08 18:20:54.930 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-08 18:20:54.956 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-08 18:20:54.977 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-08 18:20:54.987 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.358 seconds (JVM running for 2.952)
+2021-05-08 18:21:00.887 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 18:21:00.887 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-08 18:21:00.887 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-05-08 18:42:13.250 [http-nio-8080-exec-5] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-05-08 20:09:14.352 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 17836 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-08 20:09:14.354 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-08 20:09:14.388 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-08 20:09:14.389 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-08 20:09:14.815 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-08 20:09:14.816 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-08 20:09:14.830 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-05-08 20:09:15.269 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-08 20:09:15.275 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-08 20:09:15.275 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-08 20:09:15.275 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-08 20:09:15.323 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-08 20:09:15.324 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 935 ms
+2021-05-08 20:09:15.424 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-08 20:09:15.478 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-08 20:09:15.590 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#CreateRandom 任务执行开始,args=[]
+2021-05-08 20:09:15.608 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-05-08 20:09:15.713 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@6f57891]
+2021-05-08 20:09:15.925 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 20:09:15.979 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-08 20:09:15.989 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@296d5487]
+2021-05-08 20:09:16.200 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-08 20:09:16.218 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-08 20:09:16.233 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-08 20:09:16.241 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.236 seconds (JVM running for 2.895)
+2021-05-08 20:09:18.527 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 20:09:18.527 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-08 20:09:18.528 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
