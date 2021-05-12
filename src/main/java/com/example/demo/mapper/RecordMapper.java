@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.domain.Record;
+import com.example.demo.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

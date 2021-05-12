@@ -111,3 +111,62 @@
 2021-05-08 20:09:18.527 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-05-08 20:09:18.527 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2021-05-08 20:09:18.528 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-08 20:50:23.350 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-08 20:50:23.379 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-05-08 20:50:23.380 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-05-08 20:50:23.474 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 17836 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-08 20:50:23.475 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-08 20:50:23.622 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-08 20:50:23.622 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-08 20:50:23.624 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-08 20:50:23.718 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-08 20:50:23.719 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-08 20:50:23.719 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-08 20:50:23.719 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-08 20:50:23.732 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-08 20:50:23.732 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 255 ms
+2021-05-08 20:50:23.763 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-08 20:50:23.775 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-05-08 20:50:23.827 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#CreateRandom 任务执行开始,args=[]
+2021-05-08 20:50:23.837 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-05-08 20:50:23.859 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@6f8fd18e]
+2021-05-08 20:50:23.956 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 20:50:23.981 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-08 20:50:23.990 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@268ea114]
+2021-05-08 20:50:24.113 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-08 20:50:24.124 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-08 20:50:24.127 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-08 20:50:24.131 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.685 seconds (JVM running for 2470.784)
+2021-05-08 20:50:24.132 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-08 20:50:25.547 [Thread-8] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-08 20:50:25.549 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-05-08 20:50:25.549 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-05-08 20:50:25.603 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 17836 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-08 20:50:25.603 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-08 20:50:25.701 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-08 20:50:25.701 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-08 20:50:25.703 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-08 20:50:25.777 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-08 20:50:25.778 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-08 20:50:25.778 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-08 20:50:25.778 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-08 20:50:25.795 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-08 20:50:25.795 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 190 ms
+2021-05-08 20:50:25.824 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-08 20:50:25.832 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-05-08 20:50:25.875 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#CreateRandom 任务执行开始,args=[]
+2021-05-08 20:50:25.883 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-05-08 20:50:25.900 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@2cb6ec73]
+2021-05-08 20:50:25.973 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-08 20:50:25.994 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-08 20:50:25.999 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$29bacd0e#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@6b189026]
+2021-05-08 20:50:26.102 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-08 20:50:26.113 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-08 20:50:26.116 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-08 20:50:26.119 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.537 seconds (JVM running for 2472.773)
+2021-05-08 20:50:26.119 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-08 20:51:29.292 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-08 20:51:29.292 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-08 20:51:29.293 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-08 20:51:42.241 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#updateUser 任务执行开始,args=[User(id=null, userName=关羽, passWord=abc,abc, phone=null, email=247702560@qq.com, idCard=null, collegeNum=null, avatar=null)]
+2021-05-08 20:51:52.444 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#updateUser 任务执行开始,args=[User(id=null, userName=关羽, passWord=AAA,BBB, phone=null, email=247702560@qq.com, idCard=null, collegeNum=null, avatar=null)]

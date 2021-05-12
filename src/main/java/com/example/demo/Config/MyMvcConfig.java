@@ -10,9 +10,13 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
@@ -26,12 +30,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
-
         registry.addViewController("/blank").setViewName("blank");
         registry.addViewController("/form").setViewName("form");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/tab").setViewName("tab");
-        registry.addViewController("/table").setViewName("table");
         registry.addViewController("/ui").setViewName("ui");
     }
 
@@ -73,4 +75,21 @@ public class MyMvcConfig implements WebMvcConfigurer {
         return template;
     }
 
+    /**
+     * 添加拦截器
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new HandlerInterceptor() {
+            @Override
+            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+                Object loginUser = request.getSession().getAttribute("user");
+                if (loginUser == null) {
+                    request.getRequestDispatcher("/index").forward(request, response);
+                    return false;
+                }
+                return true;
+            }
+        }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login");
+    }
 }

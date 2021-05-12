@@ -18,10 +18,12 @@
     <update id="updateRecord">
         update record_table
         <trim prefix="set" suffixOverrides=",">
+            <if test="collegeNum != null">college_num = #{collegeNum},</if>
             <if test="signIn != null">sign_In = #{signIn},</if>
-            <if test="signOut != null">sign_Out = #{signOut},</if>
+            <if test="signOut != null">sign_out = #{signOut},</if>
+            <if test="costData != null">cost_data = #{costData},</if>
             <if test="balance != null">balance = #{balance},</if>
-            <if test="collegeNum != null">college_Num = #{collegeNum},</if>
+            <if test="costMoney != null">cost_Money = #{costMoney},</if>
         </trim>
         where Id = #{id}
     </update>
@@ -35,13 +37,10 @@
     <!--
      useGeneratedKeys="true" ：设置是否使用baiJDBC的getGenereatedKeys方法获取主键并赋值到keyProperty设置的领域模型属性中。
     （适用于mysql、sqlserver数据库，oracle不能使用，使用selectkey子节点做）
-
     keyProperty：赋值的对象的属性名称。
     -->
     <insert id="insertRecord" useGeneratedKeys="true" keyProperty="id">
         insert into record_table(sign_in, sign_out, balance, college_num)
         values (#{signIn}, #{signOut}, #{balance}, #{collegeNum})
     </insert>
-
-
 </mapper>

@@ -12,21 +12,24 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.crypto.EncryptedPrivateKeyInfo;
 import java.util.Date;
 
 @RestController
 @Slf4j
 public class DataSourceController {
+    /*用户持久层服务*/
     @Resource
-    private UserMapper userMapper;
+    private UserMapper userDataService;
 
+    /*默认的头像地址*/
     @Value("${user.images.path}")
     private String userImagesPath;
 
+    /*工具类*/
     @Resource
     private MyUtil myUtil;
 
+    /*redis 缓存*/
     @Resource
     private RedisUtil cache;
 
@@ -37,17 +40,9 @@ public class DataSourceController {
      */
     @GetMapping("/getUserById/{id}")
     User getUserById(@PathVariable("id") Integer id) {
-        return userMapper.getUserById(id);
+        return userDataService.getUserById(id);
     }
 
-    /**
-     * @param user 管理员信息。
-     */
-//    @PostMapping("/insertUser")
-//    User insertUser(User user) {
-//        userMapper.insertUser(user);
-//        return user;
-//    }
     @PostMapping("/updateUser")
     User updateUser(User user) {
 //        userMapper.updateUser(user);
@@ -59,14 +54,9 @@ public class DataSourceController {
         return myUtil.getCureTime();
     }
 
-    @PostMapping("/login")
-    String login(User user) {
-        return "";
-    }
-
     @PostMapping("/register")
     User register(User user) {
-        int primaryKey = userMapper.insertUser(user);
+        int primaryKey = userDataService.insertUser(user);
         user.setId(primaryKey);
         UserLoginInfo info = UserLoginInfo.builder().loginInTime(new Date()).user(user).build();
         cache.hset(EncryptionKey.userLoginInfo, String.valueOf(primaryKey), JSON.toJSON(info));
