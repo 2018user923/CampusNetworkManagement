@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="form-horizontal" id="login_formTwo">
+    <div class="tab_css" id="tab2_content">
+        <div class="col-md-12">
+            <div class="form-group" style="position: relative;">
+                <i class="glyphicon glyphicon-user"></i>
+                <input style="padding-left:36px;" class="form-control required" type="text"
+                       placeholder="手机号" id="phone" name="phone" autofocus="autofocus" maxlength="20"
+                       required/>
+            </div>
+            <div class="form-group" style="position: relative;">
+                <i class="glyphicon glyphicon-lock"></i>
+                <input style="padding-left:36px;" class="form-control required" type="password"
+                       placeholder="请输入验证码" id="code" name="code" maxlength="20" required/>
+                <span class="codeBtn" id="second">获取验证码</span>
+            </div>
+            <span id="login_msg" style="display:none;color:red;"></span>
+            <div class="form-group" style="margin-top: 0;">
+                <button type="submit" class="btn loginBtnTwo" name="submit">登录</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

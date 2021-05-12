@@ -24,10 +24,9 @@
         var clock = '';
         var nums = 60;
         var btn;
-
         function sendCode(thisBtn) {
             //获取登录的用户名
-            var userName = $("#login_userName").val();
+            // var userName = $("#login_userName").val();
             //调用服务端发送短信服务,给用户发送短信验证码
             /*            $.ajax({
                             //发送短信的请求方式
@@ -39,10 +38,11 @@
                             //返回结果
                             success:function(){}
                         });*/
-            alert('已发送绑定邮箱验证码，可使用验证码登录。')
+            thisBtn.value = 111
+            alert('已发送绑定邮箱验证码')
             btn = thisBtn;
-            btn.disabled = true; //将按钮置为不可点击
-            btn.value = nums + '秒后重新获取';
+            thisBtn.disabled = true//将按钮置为不可点击
+            thisBtn.value = nums + '秒后重新获取'
             clock = setInterval(doLoop, 1000); //一秒执行一次,这是一个定时器
         }
 
@@ -57,8 +57,11 @@
                 nums = 60; //重置时间
             }
         }
-    </script>
 
+        function checkRegister() {
+            alert('检查是否注册成功!')
+        }
+    </script>
 
 </head>
 <body>
@@ -100,6 +103,7 @@
             <div class="clear"></div>
         </form>
     </div>
+
     <div class="clear"></div>
 </div>
 
@@ -110,7 +114,7 @@
             <div class="agileits-2">
                 <h2>登录</h2>
             </div>
-            <form action="#" method="post">
+            <form action="/login" method="post">
                 <div class="w3-user">
                     <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
                     <input type="text" name="userName" placeholder="用户名" required="" id="login_userName">
@@ -118,12 +122,11 @@
                 <div class="clear"></div>
                 <div class="w3-psw">
                     <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                    <input type="password" name="password" placeholder="密码" required="">
+                    <input type="password" name="passWord" placeholder="密码" required="">
                 </div>
                 <div class="clear"></div>
                 <div class="signin">
                     <input type="submit" value="登录">
-<!--                    <input type="button" onclick="sendCode(this)" value="邮箱登录"/>-->
                 </div>
                 <div class="clear"></div>
             </form>
@@ -137,34 +140,27 @@
             <div class="agileits-2">
                 <h2>注册</h2>
             </div>
-            <form action="#" method="post">
+            <form action="/register" method="post">
                 <div class="w3-user">
                     <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
-                    <input type="text" name="userName" placeholder="用户名" required="">
+                    <input type="text" name="userName" placeholder="用户名" required="" id="re_userName"/>
                 </div>
                 <div class="clear"></div>
                 <div class="w3-email">
                     <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <input type="email" name="email" placeholder="邮箱" required=""/>
+                    <input type="email" name="email" placeholder="邮箱" required="" id="re_email"/>
                 </div>
                 <div class="clear"></div>
                 <div class="w3-psw">
                     <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                    <input type="password" name="password" placeholder="密码" required="">
-                </div>
-                <div class="w3-cpsw">
-                    <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                    <input type="password" name="password" placeholder="确认密码" required="">
+                    <input type="password" name="passWord" placeholder="密码" required="" id="re_passWord">
                 </div>
                 <div class="clear"></div>
-                <div class="w3l-check">
-                    <input type="checkbox" class="checkbox">
-                    <span><a href="#">同意条款和条件</a></span>
+                <div>
+                    <input onclick="sendCode()" type="button" value="获取手机验证码"/>
+                    <input style="width:160px" type="text"/>
                 </div>
-                <div class="clear"></div>
-                <div class="signin">
-                    <input type="submit" value="注册">
-                </div>
+                <input type="submit" value="注册"/>
                 <div class="clear"></div>
             </form>
         </div>
@@ -188,7 +184,6 @@
             removalDelay: 300,
             mainClass: 'my-mfp-zoom-in'
         });
-
     });
 </script>
 

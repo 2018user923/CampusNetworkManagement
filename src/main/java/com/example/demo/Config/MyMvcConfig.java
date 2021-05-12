@@ -24,12 +24,15 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/index").setViewName("index");
         registry.addViewController("/").setViewName("index");
-        registry.addViewController("/map").setViewName("map");
-        registry.addViewController("/registered").setViewName("registered");
-        registry.addViewController("/file").setViewName("file");
+        registry.addViewController("/index").setViewName("index");
+
+        registry.addViewController("/blank").setViewName("blank");
+        registry.addViewController("/form").setViewName("form");
+        registry.addViewController("/main").setViewName("main");
+        registry.addViewController("/tab").setViewName("tab");
+        registry.addViewController("/table").setViewName("table");
+        registry.addViewController("/ui").setViewName("ui");
     }
 
     @Bean("random")
