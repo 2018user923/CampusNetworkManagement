@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -71,8 +72,8 @@ public class ResponseController {
     public ModelAndView table(HttpSession session) {
         ModelAndView res = new ModelAndView();
         User user = (User) session.getAttribute("user");
-
-
+        List<Record> records = recordService.getRecordsByUserName(user.getUserName());
+        res.addObject("records", records);
         res.setViewName("table");
         return res;
     }

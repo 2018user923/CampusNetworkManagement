@@ -50,12 +50,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 4.0</td>
-                                    <td>Win 95+</td>
-                                    <td class="center">4</td>
-                                    <td class="center">X</td>
+                                <tr class="odd gradeX" th:each="record:${records}">
+                                    <td class="center"
+                                        th:text="${#dates.format(record.getSignIn(), 'yyyy-MM-dd hh:MM:ss')}"></td>
+                                    <td class="center"
+                                        th:text="${#dates.format(record.getSignOut(), 'yyyy-MM-dd hh:MM:ss')}"></td>
+                                    <td class="center" th:text="${record.getCostData() / 1048576} + 'Mb'"></td>
+                                    <td class="center" th:text="${record.getBalance()}"></td>
+                                    <td class="center" th:text="${record.getCostMoney()}"></td>
                                 </tr>
                                 </tbody>
                             </table>
