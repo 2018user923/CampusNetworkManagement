@@ -1,8 +1,9 @@
 package com.example.demo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
-import com.example.demo.domain.Record;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,10 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Map;
 import java.util.Random;
 
 @SpringBootTest
@@ -39,6 +43,9 @@ class DemoApplicationTests {
     @Value("${user.images.default}")
     private String userImagesDefault;
 
+    @Value(("${python.netWorkTraffic}"))
+    private String netWorkTrafficPath;
+
     @Resource
     private RecordMapper recordMapper;
 
@@ -51,52 +58,30 @@ class DemoApplicationTests {
     }
 
     @Test
-    void testDataBase() {
-//        User user = new User();
-//        user.setEmail("247702560@qq.com");
-//        user.setUserName("TuQi");
-//        user.setPassWord("123");
-//        user.setPhone("181");
-//        user.setCollegeNum("201711110");
-//        user.setIdCard("360421");
-//        user.setAvatar("123666");
-//        userMapper.insertUser(user);
-//        System.out.println(user);
-//        user.setId(1);
-//        user.setEmail("110");
-//        user.setPassWord("12344");
-//        userMapper.updateUser(user);
-//        System.out.println(userMapper.getUserById(user.getId()));
-//        userMapper.deleteUserById(1);
-//        System.out.println("查询的结果为 : " + userMapper.getUserById(1));
-        System.out.println(userMapper.getUserByCollegeNum("201711110"));
+    void testPythonScript() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command(netWorkTrafficPath);
+        processBuilder.redirectErrorStream(true);
+        try {
+            //启动进程
+            Process start = processBuilder.start();
+            //获取输入流
+            InputStream inputStream = start.getInputStream();
+            //转成字符输入流
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "gbk");
+            int len = -1;
+            char[] c = new char[1024];
+            StringBuffer outputString = new StringBuffer();
+            //读取进程输入流中的内容
+            while ((len = inputStreamReader.read(c)) != -1) {
+                String s = new String(c, 0, len);
+                outputString.append(s);
+            }
+            JSONObject jsonObject = JSON.parseObject(outputString.toString());
+            System.out.println(jsonObject);
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    @Test
-    void testFile() {
-        File file = new File(userImagesDefault);
-        System.out.println(file.getAbsoluteFile());
-    }
-
-    @Test
-    void testDateTime() {
-        String cureTime = myUtil.getCureTime();
-        Record record = new Record();
-        //      测试插入数据.
-        record.setBalance(1882L);
-        record.setSignIn(cureTime);
-        record.setSignOut(cureTime);
-        record.setCollegeNum("201822222");
-        recordMapper.insertRecord(record);
-    }
-
-    @Test
-    void testCache() {
-        cache.hset("zhangsan","name","111000",10);
-        cache.del("hello");
-        System.out.println(cache.hget("zhangsan","name"));
-        System.out.println(cache.hget("zhangsan","111000"));
-        System.out.println(cache.get("name"));
-    }
-
 }

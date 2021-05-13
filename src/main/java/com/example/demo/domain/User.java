@@ -16,6 +16,5 @@ public class User {
     private String phone; //电话
     private String email; // 邮箱
     private String idCard; // 身份证.
-    private String collegeNum; // 学号
     private String avatar; //头像的 url 地址
 }

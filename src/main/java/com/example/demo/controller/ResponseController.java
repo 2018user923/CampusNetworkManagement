@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
+import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
@@ -14,10 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Controller
 @Slf4j
@@ -25,6 +28,10 @@ public class ResponseController {
     /*用户持久层服务*/
     @Resource
     private UserMapper userDataService;
+
+    /*消费记录服务*/
+    @Resource
+    private RecordMapper recordService;
 
     /*默认的头像地址*/
     @Value("${user.images.path}")
@@ -50,9 +57,9 @@ public class ResponseController {
             user.setAvatar(userImagesDefault);
         } else {
             // 存储照片的绝对路径。
-            String absSolutePath = userImagesPath + "/" + user.getCollegeNum();
-            file.transferTo(new File(absSolutePath));
-            user.setAvatar(absSolutePath);
+//            String absSolutePath = userImagesPath + "/" + user.getCollegeNum();
+//            file.transferTo(new File(absSolutePath));
+//            user.setAvatar(absSolutePath);
         }
         //将数据插入数据库中。
         userDataService.insertUser(user);
@@ -61,8 +68,11 @@ public class ResponseController {
     }
 
     @GetMapping("/table")
-    public ModelAndView a() {
+    public ModelAndView table(HttpSession session) {
         ModelAndView res = new ModelAndView();
+        User user = (User) session.getAttribute("user");
+
+
         res.setViewName("table");
         return res;
     }
@@ -70,10 +80,19 @@ public class ResponseController {
     /**
      * 登录系统
      */
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public String login(User user, HttpSession session) {
-        log.info("user = " + JSON.toJSONString(user));
         //todo 中级步骤需要校验是否登录成功,待编写。
+        User userByUserName = userDataService.getUserByUserName(user.getUserName());
+        if (userByUserName == null || !userByUserName.getPassWord().equals(user.getPassWord())) {
+            return "/index";
+        }
+        user = userByUserName;
+        //将流量数据存入缓存
+        JSONObject netInfo = myUtil.getNetInfo();
+        netInfo.put("signIn", new Date());
+        cache.hset(EncryptionKey.netData, String.valueOf(user.getId()), netInfo);
+        //将user对象存入 session 中.
         session.setAttribute("user", user);
         return "/main";
     }
@@ -82,11 +101,45 @@ public class ResponseController {
      * 退出系统
      */
     @RequestMapping("/logOut")
-    public ModelAndView logOut(HttpServletRequest request, User user) {
+    public ModelAndView logOut(HttpSession session) {
         //todo 这里后续需要编写一些异常处理
+        User user = (User) session.getAttribute("user");
+        session.removeAttribute("user");
+        log.info(JSON.toJSONString(user));
+
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, String.valueOf(user.getId()));
+
+        Record record = new Record();
+        record.setUserName(user.getUserName());
+        record.setSignIn(json.getDate("signIn"));
+        record.setSignOut(new Date());
+
+        JSONObject curNetInfo = myUtil.getNetInfo();
+        BigDecimal curData = curNetInfo.getBigDecimal("getData");
+        BigDecimal preNetData = json.getBigDecimal("getData");
+
+        record.setCostData(curData.subtract(preNetData));
+        recordService.insertRecord(record);
+        //移除该用户的信息
         ModelAndView res = new ModelAndView();
-        request.getSession().removeAttribute("user");
-        cache.hdel(EncryptionKey.userLoginInfo, String.valueOf(user.getId()));
+        cache.hdel(EncryptionKey.netData, String.valueOf(user.getId()));
+        res.setViewName("/index");
         return res;
+    }
+
+    @PostMapping("/register")
+    public String register(User user, HttpSession session) {
+        //todo 在这之前需要判断是否注册成功。
+        //注册用户
+        int primaryKey = userDataService.insertUser(user);
+        user.setId(primaryKey);
+        //将流量数据存入缓存
+        JSONObject netInfo = myUtil.getNetInfo();
+        netInfo.put("signIn", new Date());
+
+        cache.hset(EncryptionKey.netData, String.valueOf(primaryKey), netInfo);
+        //将user对象存入 session 中.
+        session.setAttribute("user", user);
+        return "/main";
     }
 }

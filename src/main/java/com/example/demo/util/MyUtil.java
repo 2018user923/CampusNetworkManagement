@@ -1,5 +1,7 @@
 package com.example.demo.util;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -7,6 +9,9 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -26,6 +31,9 @@ public class MyUtil {
 
     @Value("${user.spend.proportion}")
     private Double proportion;
+
+    @Value(("${python.netWorkTraffic}"))
+    private String netWorkTrafficPath;
 
     @Resource
     private DateTimeFormatter dateTimeFormatter;
@@ -79,5 +87,33 @@ public class MyUtil {
         return spend;
     }
 
-
+    /**
+     * 调用python 脚本获取流量数据
+     *
+     * @return
+     */
+    public JSONObject getNetInfo() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        StringBuffer outputString = new StringBuffer();
+        processBuilder.command(netWorkTrafficPath);
+        processBuilder.redirectErrorStream(true);
+        JSONObject res = new JSONObject();
+        try {
+            Process start = processBuilder.start();
+            InputStream inputStream = start.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "gbk");
+            int len = -1;
+            char[] c = new char[1024];
+            //读取进程输入流中的内容
+            while ((len = inputStreamReader.read(c)) != -1) {
+                String s = new String(c, 0, len);
+                outputString.append(s);
+            }
+            res = JSON.parseObject(outputString.toString());
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
 }

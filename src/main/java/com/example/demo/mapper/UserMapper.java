@@ -12,12 +12,6 @@ public interface UserMapper {
     User getUserById(Integer id);
 
     /**
-     * @param collegeNum 学号
-     * @return 从数据库中查询到的 User 对象。
-     */
-    User getUserByCollegeNum(String collegeNum);
-
-    /**
      * @param user 待更新的对象
      * @return 如果更新成功返回 1 ，否则返回 0
      */
@@ -34,4 +28,7 @@ public interface UserMapper {
      * @return 返回的是主键信息。
      */
     int insertUser(User user);
+
+    /*根据用户名查询User*/
+    User getUserByUserName(String userName);
 }

@@ -15,11 +15,6 @@ public interface RecordMapper {
     Record getRecordById(Integer id);
 
     /**
-     * 根据 学号 从数据库中查询对应的记录。
-     */
-    List<Record> getRecordsByCollegeNum(String collegeNum);
-
-    /**
      * @param record 待更新的对象
      * @return 如果更新成功返回 1 ，否则返回 0
      */
@@ -37,4 +32,8 @@ public interface RecordMapper {
      */
     int insertRecord(Record record);
 
+    /**
+     * 查询该用户的所有消费记录
+     */
+    List<Record> getRecordsByUserName(String userName);
 }

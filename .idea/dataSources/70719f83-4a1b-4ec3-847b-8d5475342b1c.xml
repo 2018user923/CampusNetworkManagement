@@ -4499,9 +4499,9 @@ SELECT|sys.sys_config
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1098" parent="364" name="college_num">
+    <column id="1098" parent="364" name="user_name">
       <Position>2</Position>
-      <Comment>学号</Comment>
+      <Comment>用户名</Comment>
       <DataType>varchar(15)|0s</DataType>
     </column>
     <column id="1099" parent="364" name="sign_in">
@@ -4517,23 +4517,22 @@ SELECT|sys.sys_config
     <column id="1101" parent="364" name="cost_data">
       <Position>5</Position>
       <Comment>使用的流量</Comment>
-      <DataType>int|0s</DataType>
+      <DataType>bigint|0s</DataType>
     </column>
     <column id="1102" parent="364" name="balance">
       <Position>6</Position>
       <Comment>余额</Comment>
-      <DataType>int|0s</DataType>
+      <DataType>bigint|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="1103" parent="364" name="cost_Money">
       <Position>7</Position>
       <Comment>消费金额</Comment>
-      <DataType>int|0s</DataType>
+      <DataType>bigint|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <index id="1104" parent="364" name="user_table_college_num_uindex">
-      <ColNames>college_num</ColNames>
-      <Unique>1</Unique>
+    <index id="1104" parent="364" name="user_table_user_name_uindex">
+      <ColNames>user_name</ColNames>
       <Type>btree</Type>
     </index>
     <key id="1105" parent="364" name="PRIMARY">
@@ -4541,83 +4540,65 @@ SELECT|sys.sys_config
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="1106" parent="364" name="user_table_college_num_uindex">
-      <ColNames>college_num</ColNames>
-      <UnderlyingIndexName>user_table_college_num_uindex</UnderlyingIndexName>
-    </key>
-    <column id="1107" parent="365" name="id">
+    <column id="1106" parent="365" name="id">
       <Position>1</Position>
       <Comment>主键</Comment>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1108" parent="365" name="user_name">
+    <column id="1107" parent="365" name="user_name">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="1109" parent="365" name="pass_word">
+    <column id="1108" parent="365" name="pass_word">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <column id="1110" parent="365" name="phone">
+    <column id="1109" parent="365" name="phone">
       <Position>4</Position>
       <Comment>电话</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="1111" parent="365" name="email">
+    <column id="1110" parent="365" name="email">
       <Position>5</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <column id="1112" parent="365" name="id_card">
+    <column id="1111" parent="365" name="id_card">
       <Position>6</Position>
       <Comment>身份证</Comment>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <column id="1113" parent="365" name="college_num">
+    <column id="1112" parent="365" name="avatar">
       <Position>7</Position>
-      <Comment>学号</Comment>
-      <DataType>varchar(15)|0s</DataType>
-    </column>
-    <column id="1114" parent="365" name="avatar">
-      <Position>8</Position>
       <Comment>头像url地址</Comment>
       <DataType>varchar(200)|0s</DataType>
     </column>
-    <index id="1115" parent="365" name="user_table_phone_uindex">
+    <index id="1113" parent="365" name="user_table_phone_uindex">
       <ColNames>phone</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1116" parent="365" name="user_table_id_card_uindex">
+    <index id="1114" parent="365" name="user_table_id_card_uindex">
       <ColNames>id_card</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1117" parent="365" name="user_table_college_num_uindex">
-      <ColNames>college_num</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="1118" parent="365" name="PRIMARY">
+    <key id="1115" parent="365" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="1119" parent="365" name="user_table_phone_uindex">
+    <key id="1116" parent="365" name="user_table_phone_uindex">
       <ColNames>phone</ColNames>
       <UnderlyingIndexName>user_table_phone_uindex</UnderlyingIndexName>
     </key>
-    <key id="1120" parent="365" name="user_table_id_card_uindex">
+    <key id="1117" parent="365" name="user_table_id_card_uindex">
       <ColNames>id_card</ColNames>
       <UnderlyingIndexName>user_table_id_card_uindex</UnderlyingIndexName>
-    </key>
-    <key id="1121" parent="365" name="user_table_college_num_uindex">
-      <ColNames>college_num</ColNames>
-      <UnderlyingIndexName>user_table_college_num_uindex</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

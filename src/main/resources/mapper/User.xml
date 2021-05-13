@@ -9,12 +9,6 @@
         where Id = #{id}
     </select>
 
-    <select id="getUserByCollegeNum" resultType="User">
-        select *
-        from user_table
-        where college_num = #{collegeNum}
-    </select>
-
     <update id="updateUser">
         update user_table
         <trim prefix="set" suffixOverrides=",">
@@ -23,7 +17,6 @@
             <if test="phone != null">phone = #{phone},</if>
             <if test="email != null">email = #{email},</if>
             <if test="idCard != null">id_card = #{idCard},</if>
-            <if test="collegeNum != null">college_Num = #{collegeNum},</if>
             <if test="avatar != null">avatar = #{avatar},</if>
         </trim>
         where Id = #{id}
@@ -42,9 +35,13 @@
     keyProperty：赋值的对象的属性名称。
     -->
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-        insert into user_table(user_name, pass_word, phone, email, id_card, college_num, avatar)
-        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{collegeNum}, #{avatar});
+        insert into user_table(user_name, pass_word, phone, email, id_card, avatar)
+        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{avatar});
     </insert>
 
-
+    <select id="getUserByUserName" resultType="User">
+        select *
+        from user_table
+        where user_Name = #{userName}
+    </select>
 </mapper>

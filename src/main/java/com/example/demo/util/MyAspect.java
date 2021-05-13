@@ -16,7 +16,7 @@ import java.util.Arrays;
 @Slf4j
 public class MyAspect {
 
-    @Pointcut(value = "execution(* com.example.demo..*(..))")
+    @Pointcut(value = "execution(* com.example.demo.controller..*(..))")
     public void method() {
 
     }

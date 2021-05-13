@@ -53,3 +53,6 @@ user:
   spend:
     # 每小时收费比例
     proportion: 0.18
+
+python:
+  netWorkTraffic: src\main\resources\python\data.exe

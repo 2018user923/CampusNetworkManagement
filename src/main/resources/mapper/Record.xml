@@ -3,22 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.RecordMapper">
+
     <select id="getRecordById" resultType="Record">
         select *
         from record_table
         where Id = #{id}
     </select>
 
-    <select id="getRecordsByCollegeNum" resultType="Record">
-        select *
-        from record_table
-        where college_num = #{collegeNum}
-    </select>
-
     <update id="updateRecord">
         update record_table
         <trim prefix="set" suffixOverrides=",">
-            <if test="collegeNum != null">college_num = #{collegeNum},</if>
             <if test="signIn != null">sign_In = #{signIn},</if>
             <if test="signOut != null">sign_out = #{signOut},</if>
             <if test="costData != null">cost_data = #{costData},</if>
@@ -40,7 +34,13 @@
     keyProperty：赋值的对象的属性名称。
     -->
     <insert id="insertRecord" useGeneratedKeys="true" keyProperty="id">
-        insert into record_table(sign_in, sign_out, balance, college_num)
-        values (#{signIn}, #{signOut}, #{balance}, #{collegeNum})
+        insert into record_table(sign_in, sign_out, balance, cost_Data, cost_money, user_name)
+        values (#{signIn}, #{signOut}, #{balance}, #{costData}, #{costMoney}, #{userName})
     </insert>
+
+    <select id="getRecordsByUserName" resultType="Record">
+        select *
+        from record_table
+        where user_name = #{userName}
+    </select>
 </mapper>

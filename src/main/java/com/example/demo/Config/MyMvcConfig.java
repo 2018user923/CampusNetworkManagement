@@ -90,6 +90,6 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 }
                 return true;
             }
-        }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login");
+        }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login","/register","/test/**");
     }
 }
