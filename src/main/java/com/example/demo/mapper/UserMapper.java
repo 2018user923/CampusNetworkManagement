@@ -11,11 +11,18 @@ public interface UserMapper {
      */
     User getUserById(Integer id);
 
+    /*根据用户名查询User*/
+    User getUserByUserName(String userName);
+
     /**
-     * @param user 待更新的对象
      * @return 如果更新成功返回 1 ，否则返回 0
      */
-    int updateUser(User user);
+    int updateUserById(Integer id);
+
+    /**
+     * @return 如果更新成功返回 1 ，否则返回 0
+     */
+    int updateUserByUserName(String userName);
 
     /**
      * @param id 待删除者的id
@@ -24,11 +31,15 @@ public interface UserMapper {
     int deleteUserById(Integer id);
 
     /**
+     * 根据userName删除用户信息
+     *
+     * @return
+     */
+    int deleteUserByUserName(String userName);
+
+    /**
      * @param user 插入新用户.
      * @return 返回的是主键信息。
      */
     int insertUser(User user);
-
-    /*根据用户名查询User*/
-    User getUserByUserName(String userName);
 }

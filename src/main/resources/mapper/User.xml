@@ -9,7 +9,13 @@
         where Id = #{id}
     </select>
 
-    <update id="updateUser">
+    <select id="getUserByUserName" resultType="User">
+        select *
+        from user_table
+        where user_Name = #{userName}
+    </select>
+
+    <update id="updateUserById">
         update user_table
         <trim prefix="set" suffixOverrides=",">
             <if test="userName != null">user_name = #{userName},</if>
@@ -18,14 +24,36 @@
             <if test="email != null">email = #{email},</if>
             <if test="idCard != null">id_card = #{idCard},</if>
             <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="balance != null">balance = #{balance},</if>
+            <if test="type != null">type = #{type},</if>
         </trim>
         where Id = #{id}
+    </update>
+
+    <update id="updateUserByUserName">
+        update user_table
+        <trim prefix="set" suffixOverrides=",">
+            <if test="passWord != null">pass_Word = #{passWord},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="idCard != null">id_card = #{idCard},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="balance != null">balance = #{balance},</if>
+            <if test="type != null">type = #{type},</if>
+        </trim>
+        where user_name = #{userName}
     </update>
 
     <delete id="deleteUserById">
         delete
         from user_table
         where Id = #{id}
+    </delete>
+
+    <delete id="deleteUserByUserName">
+        delete
+        from user_table
+        where user_name = #{userName}
     </delete>
 
     <!--
@@ -35,13 +63,7 @@
     keyProperty：赋值的对象的属性名称。
     -->
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-        insert into user_table(user_name, pass_word, phone, email, id_card, avatar)
-        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{avatar});
+        insert into user_table(user_name, pass_word, phone, email, id_card, avatar, balance, type)
+        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{avatar}, #{balance}, #{type});
     </insert>
-
-    <select id="getUserByUserName" resultType="User">
-        select *
-        from user_table
-        where user_Name = #{userName}
-    </select>
 </mapper>

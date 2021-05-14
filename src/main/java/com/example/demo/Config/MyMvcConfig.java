@@ -1,5 +1,6 @@
 package com.example.demo.Config;
 
+import com.example.demo.util.RedisUtil;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.format.DateTimeFormatter;
@@ -24,14 +26,17 @@ import java.util.Random;
 public class MyMvcConfig implements WebMvcConfigurer {
 
     @Value("${user.time.pattern}")
-    String pattern;
+    private String pattern;
+
+    /*redis缓存*/
+    @Resource
+    private RedisUtil cache;
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/blank").setViewName("blank");
-        registry.addViewController("/form").setViewName("form");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/tab").setViewName("tab");
         registry.addViewController("/ui").setViewName("ui");
@@ -90,6 +95,6 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 }
                 return true;
             }
-        }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login","/register","/test/**");
+        }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login", "/register", "/test/**");
     }
 }

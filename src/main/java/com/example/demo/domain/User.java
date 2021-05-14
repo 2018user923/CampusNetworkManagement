@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * 用户的基本信息表
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,4 +21,6 @@ public class User {
     private String email; // 邮箱
     private String idCard; // 身份证.
     private String avatar; //头像的 url 地址
+    private String balance;//当前余额
+    private Integer type;//账户类型
 }

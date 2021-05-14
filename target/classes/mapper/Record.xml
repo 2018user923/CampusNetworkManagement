@@ -10,7 +10,20 @@
         where Id = #{id}
     </select>
 
-    <update id="updateRecord">
+    <select id="getRecordsByUserName" resultType="Record">
+        select *
+        from record_table
+        where user_name = #{userName}
+    </select>
+
+    <select id="getRecordsByType" resultType="Record">
+        select *
+        from record_table
+        where type = #{type}
+    </select>
+
+
+    <update id="updateRecordById">
         update record_table
         <trim prefix="set" suffixOverrides=",">
             <if test="signIn != null">sign_In = #{signIn},</if>
@@ -38,9 +51,7 @@
         values (#{signIn}, #{signOut}, #{balance}, #{costData}, #{costMoney}, #{userName})
     </insert>
 
-    <select id="getRecordsByUserName" resultType="Record">
-        select *
-        from record_table
-        where user_name = #{userName}
-    </select>
+
+
+
 </mapper>

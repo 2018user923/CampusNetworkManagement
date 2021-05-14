@@ -11,12 +11,14 @@ import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -75,6 +77,7 @@ public class ResponseController {
         List<Record> records = recordService.getRecordsByUserName(user.getUserName());
         res.addObject("records", records);
         res.setViewName("table");
+        log.info(JSON.toJSONString(records));
         return res;
     }
 
@@ -82,7 +85,7 @@ public class ResponseController {
      * 登录系统
      */
     @PostMapping("/login")
-    public String login(User user, HttpSession session) {
+    public String login(User user, HttpSession session, HttpServletRequest request) {
         //todo 中级步骤需要校验是否登录成功,待编写。
         User userByUserName = userDataService.getUserByUserName(user.getUserName());
         if (userByUserName == null || !userByUserName.getPassWord().equals(user.getPassWord())) {
@@ -103,28 +106,33 @@ public class ResponseController {
      */
     @RequestMapping("/logOut")
     public ModelAndView logOut(HttpSession session) {
+        ModelAndView res = new ModelAndView();
+        res.setViewName("/index");
+
+
         //todo 这里后续需要编写一些异常处理
         User user = (User) session.getAttribute("user");
-        session.removeAttribute("user");
-        log.info(JSON.toJSONString(user));
 
         JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, String.valueOf(user.getId()));
+        JSONObject curNetInfo = myUtil.getNetInfo();
+        BigDecimal curData = curNetInfo.getBigDecimal("getData");
+        //之前的流量
+        BigDecimal preNetData = json.getBigDecimal("getData");
+        //花费的流量
+        BigDecimal costData = curData.subtract(preNetData);
+
 
         Record record = new Record();
         record.setUserName(user.getUserName());
         record.setSignIn(json.getDate("signIn"));
         record.setSignOut(new Date());
+        record.setCostData(costData);
 
-        JSONObject curNetInfo = myUtil.getNetInfo();
-        BigDecimal curData = curNetInfo.getBigDecimal("getData");
-        BigDecimal preNetData = json.getBigDecimal("getData");
-
-        record.setCostData(curData.subtract(preNetData));
         recordService.insertRecord(record);
+
         //移除该用户的信息
-        ModelAndView res = new ModelAndView();
         cache.hdel(EncryptionKey.netData, String.valueOf(user.getId()));
-        res.setViewName("/index");
+        session.removeAttribute("user");
         return res;
     }
 
@@ -142,5 +150,24 @@ public class ResponseController {
         //将user对象存入 session 中.
         session.setAttribute("user", user);
         return "/main";
+    }
+
+    @RequestMapping("/form")
+    public ModelAndView form(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/form");
+
+        User user = (User) session.getAttribute("user");
+
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, String.valueOf(user.getId()));
+        JSONObject curNetInfo = myUtil.getNetInfo();
+        BigDecimal curData = curNetInfo.getBigDecimal("getData");
+        //之前的流量
+        BigDecimal preNetData = json.getBigDecimal("getData");
+        //花费的流量
+        BigDecimal costData = curData.subtract(preNetData).divide(new BigDecimal(1048576));
+
+        modelAndView.addObject("costData", costData.toBigInteger());
+        return modelAndView;
     }
 }

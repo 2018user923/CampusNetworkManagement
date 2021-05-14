@@ -52,9 +52,9 @@
                                 <tbody>
                                 <tr class="odd gradeX" th:each="record:${records}">
                                     <td class="center"
-                                        th:text="${#dates.format(record.getSignIn(), 'yyyy-MM-dd hh:MM:ss')}"></td>
+                                        th:text="${#dates.format(record.getSignIn(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                                     <td class="center"
-                                        th:text="${#dates.format(record.getSignOut(), 'yyyy-MM-dd hh:MM:ss')}"></td>
+                                        th:text="${#dates.format(record.getSignOut(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                                     <td class="center" th:text="${record.getCostData() / 1048576} + 'Mb'"></td>
                                     <td class="center" th:text="${record.getBalance()}"></td>
                                     <td class="center" th:text="${record.getCostMoney()}"></td>
