@@ -6,12 +6,14 @@ import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.service.HttpService;
+import com.example.demo.service.UserService;
 import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,6 +53,12 @@ public class ResponseController {
     @Resource
     private MyUtil myUtil;
 
+    @Autowired
+    private HttpService httpService;
+
+    @Autowired
+    private UserService userService;
+
 
     @PostMapping("/insertUser")
     @ResponseBody
@@ -82,58 +90,24 @@ public class ResponseController {
     }
 
     /**
-     * 登录系统
+     * 登录系统,登录成功之后将请求的 ip 地址及其 userName 存入缓存之中。
      */
     @PostMapping("/login")
-    public String login(User user, HttpSession session, HttpServletRequest request) {
-        //todo 中级步骤需要校验是否登录成功,待编写。
-        User userByUserName = userDataService.getUserByUserName(user.getUserName());
-        if (userByUserName == null || !userByUserName.getPassWord().equals(user.getPassWord())) {
+    public String login(User user, HttpServletRequest request) {
+        if (userService.login(user, request)) {
+            return "/main";
+        } else {
             return "/index";
         }
-        user = userByUserName;
-        //将流量数据存入缓存
-        JSONObject netInfo = myUtil.getNetInfo();
-        netInfo.put("signIn", new Date());
-        cache.hset(EncryptionKey.netData, String.valueOf(user.getId()), netInfo);
-        //将user对象存入 session 中.
-        session.setAttribute("user", user);
-        return "/main";
     }
 
     /**
-     * 退出系统
+     * 退出系统，删除 ip 对应的信息,并且将流量数据插入其中
      */
     @RequestMapping("/logOut")
-    public ModelAndView logOut(HttpSession session) {
-        ModelAndView res = new ModelAndView();
-        res.setViewName("/index");
-
-
-        //todo 这里后续需要编写一些异常处理
-        User user = (User) session.getAttribute("user");
-
-        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, String.valueOf(user.getId()));
-        JSONObject curNetInfo = myUtil.getNetInfo();
-        BigDecimal curData = curNetInfo.getBigDecimal("getData");
-        //之前的流量
-        BigDecimal preNetData = json.getBigDecimal("getData");
-        //花费的流量
-        BigDecimal costData = curData.subtract(preNetData);
-
-
-        Record record = new Record();
-        record.setUserName(user.getUserName());
-        record.setSignIn(json.getDate("signIn"));
-        record.setSignOut(new Date());
-        record.setCostData(costData);
-
-        recordService.insertRecord(record);
-
-        //移除该用户的信息
-        cache.hdel(EncryptionKey.netData, String.valueOf(user.getId()));
-        session.removeAttribute("user");
-        return res;
+    public String logOut(HttpServletRequest request) {
+        userService.logOut(request);
+        return "/index";
     }
 
     @PostMapping("/register")
@@ -153,20 +127,17 @@ public class ResponseController {
     }
 
     @RequestMapping("/form")
-    public ModelAndView form(HttpSession session) {
+    public ModelAndView form(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/form");
-
-        User user = (User) session.getAttribute("user");
-
-        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, String.valueOf(user.getId()));
+        String ipAddress = httpService.getIpAddress(request);
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
         JSONObject curNetInfo = myUtil.getNetInfo();
         BigDecimal curData = curNetInfo.getBigDecimal("getData");
         //之前的流量
         BigDecimal preNetData = json.getBigDecimal("getData");
         //花费的流量
         BigDecimal costData = curData.subtract(preNetData).divide(new BigDecimal(1048576));
-
         modelAndView.addObject("costData", costData.toBigInteger());
         return modelAndView;
     }

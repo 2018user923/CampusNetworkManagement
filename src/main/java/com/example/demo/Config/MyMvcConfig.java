@@ -1,5 +1,8 @@
 package com.example.demo.Config;
 
+import com.example.demo.domain.User;
+import com.example.demo.service.HttpService;
+import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.RedisUtil;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
@@ -31,6 +35,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
     /*redis缓存*/
     @Resource
     private RedisUtil cache;
+
+    @Resource
+    private HttpService httpService;
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -88,12 +95,19 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new HandlerInterceptor() {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                Object loginUser = request.getSession().getAttribute("user");
-                if (loginUser == null) {
+                String ipAddress = httpService.getIpAddress(request);
+                User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+                //缓存中没有 user 对象，说明该 ip 地址不存在任何登录.
+                if (user == null) {
                     request.getRequestDispatcher("/index").forward(request, response);
                     return false;
+                } else {
+                    HttpSession session = request.getSession();
+                    if (session.getAttribute("user") == null) {
+                        session.setAttribute("user", user);
+                    }
+                    return true;
                 }
-                return true;
             }
         }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login", "/register", "/test/**");
     }
