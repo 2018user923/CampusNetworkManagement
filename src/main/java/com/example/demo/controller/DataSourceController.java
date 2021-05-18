@@ -7,10 +7,7 @@ import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.util.MyUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -40,6 +37,7 @@ public class DataSourceController {
         return userDataService.getUserById(id);
     }
 
+    @CrossOrigin
     @RequestMapping("/test/time")
     String getTime() {
         return myUtil.getCureTime();

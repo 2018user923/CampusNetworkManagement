@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <button @Click="btnClick">发送ajax请求</button>
+</div>
+
+
+<script src="../static/vueResources/axios.js"></script>
+<script src="../static/vueResources/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        methods: {
+            btnClick() {
+                axios.get('http://localhost:8080/test/time').then(res => {
+                    alert(res.data)
+                }).catch(error => {
+                    alert(error)
+                })
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
