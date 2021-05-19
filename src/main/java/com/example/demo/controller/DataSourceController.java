@@ -53,4 +53,15 @@ public class DataSourceController {
     JSONObject getNetInfo() {
         return myUtil.getNetInfo();
     }
+
+    @CrossOrigin
+    @PostMapping("/sendEmail")
+    String sendEmail(String userName, String Subject) {
+        //todo 这里利用 userName 从缓存中取出 email 地址。
+        String email = "";
+        //code 是发送邮寄的返回的6位随机验证码,限时 60 s,存入缓存中。
+        String code = myUtil.sendMail(email, userName);
+        return code;
+    }
+
 }

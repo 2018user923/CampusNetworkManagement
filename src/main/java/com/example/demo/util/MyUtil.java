@@ -44,10 +44,10 @@ public class MyUtil {
      * @param address 发送邮件的地址
      * @param Subject 邮件的主题
      */
-    public void sendMail(String address, String Subject) {
-        StringBuilder builder = new StringBuilder(6);
+    public String sendMail(String address, String Subject) {
+        StringBuilder code = new StringBuilder(6);
         for (int i = 0; i < 6; ++i) {
-            builder.append(random.nextInt(10));
+            code.append(random.nextInt(10));
         }
         SimpleMailMessage message = new SimpleMailMessage();
         // 邮件发送者
@@ -57,8 +57,9 @@ public class MyUtil {
         // 设置主题
         message.setSubject(Subject);
         // 设置正文内容
-        message.setText("验证码为 : " + builder.toString());
+        message.setText("验证码为 : " + code.toString());
         mailSender.send(message);
+        return code.toString();
     }
 
     /**
