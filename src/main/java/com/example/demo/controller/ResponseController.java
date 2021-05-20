@@ -23,7 +23,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -128,17 +127,6 @@ public class ResponseController {
 
     @RequestMapping("/form")
     public ModelAndView form(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/form");
-        String ipAddress = httpService.getIpAddress(request);
-        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
-        JSONObject curNetInfo = myUtil.getNetInfo();
-        BigDecimal curData = curNetInfo.getBigDecimal("getData");
-        //之前的流量
-        BigDecimal preNetData = json.getBigDecimal("getData");
-        //花费的流量
-        BigDecimal costData = curData.subtract(preNetData).divide(new BigDecimal(1048576));
-        modelAndView.addObject("costData", costData.toBigInteger());
-        return modelAndView;
+        return userService.form(request);
     }
 }

@@ -30,16 +30,16 @@
         where Id = #{id}
     </update>
 
-    <update id="updateUserByUserName">
+    <update id="updateUser" useGeneratedKeys="true" keyProperty="id">
         update user_table
         <trim prefix="set" suffixOverrides=",">
-            <if test="passWord != null">pass_Word = #{passWord},</if>
-            <if test="phone != null">phone = #{phone},</if>
-            <if test="email != null">email = #{email},</if>
-            <if test="idCard != null">id_card = #{idCard},</if>
-            <if test="avatar != null">avatar = #{avatar},</if>
-            <if test="balance != null">balance = #{balance},</if>
-            <if test="type != null">type = #{type},</if>
+            <if test="passWord != null and passWord != ''">pass_Word = #{passWord},</if>
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            <if test="email != null and email != ''">email = #{email},</if>
+            <if test="idCard != null and idCard != ''">id_card = #{idCard},</if>
+            <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
+            <if test="balance != null and balance != ''">balance = #{balance},</if>
+            <if test="type != null and type != ''">type = #{type}</if>
         </trim>
         where user_name = #{userName}
     </update>

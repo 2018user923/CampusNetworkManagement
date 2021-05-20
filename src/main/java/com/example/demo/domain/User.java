@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 
 /**
  * 用户的基本信息表
@@ -21,6 +23,6 @@ public class User {
     private String email; // 邮箱
     private String idCard; // 身份证.
     private String avatar; //头像的 url 地址
-    private String balance;//当前余额
+    private BigDecimal balance;//当前余额
     private Integer type;//账户类型
 }

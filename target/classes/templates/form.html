@@ -34,60 +34,60 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        基础信息
+                        个人信息
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" id="userInfoUpdate">
                             <div class="form-group">
                                 <label>用户名</label>
                                 <input class="form-control" type="text" name="userName"
-                                       th:value="${session.user.userName}" disabled=""/>
+                                       th:value="${user.getUserName}" disabled="" ref="userName"/>
                             </div>
                             <div class="form-group">
                                 <label>身份证</label>
                                 <input class="form-control" type="text" name="idCard" disabled=""
-                                       th:value="${session.user.idCard}"/>
+                                       th:value="${user.idCard}" ref="idCard"/>
                             </div>
                             <div class="form-group">
                                 <label>邮箱</label>
                                 <input class="form-control" type="text" name="email"
-                                       th:placeholder="${session.user.email}"/>
+                                       th:placeholder="${user.email}" ref="email"/>
                             </div>
                             <div class="form-group">
                                 <label>密码</label>
                                 <input class="form-control" type="text" name="passWord"
-                                       th:placeholder="${session.user.passWord}"/>
+                                       th:placeholder="${user.passWord}" ref="passWord"/>
                             </div>
                             <div class="form-group">
                                 <label>电话</label>
                                 <input class="form-control" type="text" name="phone"
-                                       th:placeholder="${session.user.phone}"/>
+                                       th:placeholder="${user.phone}" ref="phone"/>
                             </div>
-                            <button type="submit" class="btn btn-info">更新</button>
+                            <button type="submit" class="btn btn-info" @click.prevent="userInfoUpdateClick">更新</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        充值
-                    </div>
+                    <div class="panel-heading"> 充值</div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" id="userRechargeApp">
                             <div class="form-group">
                                 <label>当前使用流量</label>
                                 <input class="form-control" type="text" th:value="${costData} + 'Mb'" disabled=""/>
                             </div>
                             <div class="form-group">
                                 <label>当前余额</label>
-                                <input class="form-control" type="text" th:value="这里user对象需要添加属性" disabled=""/>
+                                <input class="form-control" type="text" th:value="${user.balance}" disabled=""/>
                             </div>
                             <div class="form-group">
                                 <label>充值金额</label>
-                                <input class="form-control" type="text" placeholder="请输入整数"/>
+                                <input class="form-control" type="text" placeholder="请输入整数" name="rechargeAmount"
+                                       v-model="rechargeAmount"/>
                             </div>
-                            <button type="submit" class="btn btn-danger">提交申请</button>
+                            <button type="submit" class="btn btn-danger" @click.prevent="userRechargeAppClick">提交申请
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -234,8 +234,68 @@
 </div>
 
 
-<div th:replace="commons/common ::CONTENT-WRAPPER_SECTION_END"></div>
+<script th:src="@{/vueResources/axios.js}"></script>
+<script th:src="@{/vueResources/vue.js}"></script>
+<script th:inline="javascript">
+    new Vue({
+        el: '#userInfoUpdate',
+        methods: {
+            userInfoUpdateClick() {
+                let userName = this.$refs.userName.value
+                let idCard = this.$refs.idCard.value
+                let email = this.$refs.email.value
+                let passWord = this.$refs.passWord.value
+                let phone = this.$refs.phone.value
+                let params = {
+                    'userName': userName,
+                    'idCard': idCard,
+                    'email': email,
+                    'passWord': passWord,
+                    'phone': phone
+                }
+                axios.post('http://localhost:8080/userInfoUpdateSubmit', params).then(rep => {
+                    if (rep.data === 'successed') {
+                        alert('个人信息更新成功！')
+                    } else {
+                        alert('未知原因更新失败！' + rep.data)
+                    }
+                }).catch(error => {
+                    alert(error)
+                })
+            }
+        }
+    })
 
+
+    new Vue({
+        el: '#userRechargeApp',
+        data: {
+            rechargeAmount: 0
+        },
+        methods: {
+            userRechargeAppClick() {
+                let regx = /^\+?[1-9][0-9]*$/
+                if (regx.test(this.rechargeAmount) && this.rechargeAmount > 0) {
+                    let params = {'rechargeAmount': this.rechargeAmount}
+                    axios.post('http://localhost:8080/userRechargeSubmit', params).then(rep => {
+                        if (rep.data === 'successed') {
+                            alert('充值申请提交成功 !')
+                        } else {
+                            alert('未知原因，申请失败！' + rep.data)
+                        }
+                    }).catch(error => {
+                        alert(error)
+                    })
+                } else {
+                    alert('请输入大于 0 的正整数!')
+                }
+            }
+        }
+    })
+</script>
+
+
+<div th:replace="commons/common ::CONTENT-WRAPPER_SECTION_END"></div>
 <!-- CORE JQUERY  -->
 <script src="assets/js/jquery-1.10.2.js"></script>
 <!-- BOOTSTRAP SCRIPTS  -->

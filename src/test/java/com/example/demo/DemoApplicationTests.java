@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.util.MyUtil;
@@ -84,4 +85,17 @@ class DemoApplicationTests {
             e.printStackTrace();
         }
     }
+
+    @Test
+    void testUpdateUser(){
+        User user = userMapper.getUserByUserName("刘备");
+
+        user.setEmail("9074133022@qq.com");
+        user.setPassWord("123456");
+        user.setPhone("18170217027");
+        int primaryKey = userMapper.updateUser(user);
+        System.out.println(primaryKey);
+        System.out.println(userMapper.getUserById(primaryKey));
+    }
+
 }

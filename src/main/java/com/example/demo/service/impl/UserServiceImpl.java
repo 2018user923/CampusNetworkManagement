@@ -12,6 +12,7 @@ import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -88,5 +89,49 @@ public class UserServiceImpl implements UserService {
         cache.hdel(EncryptionKey.netData, ipAddress);
         cache.hdel(EncryptionKey.userLoginInfo, ipAddress);
         return true;
+    }
+
+    /**
+     * @param request 用户请求的 form
+     * @return
+     */
+    @Override
+    public ModelAndView form(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/form");
+        String ipAddress = httpService.getIpAddress(request);
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
+        JSONObject curNetInfo = myUtil.getNetInfo();
+        BigDecimal curData = curNetInfo.getBigDecimal("getData");
+        //之前的流量
+        BigDecimal preNetData = json.getBigDecimal("getData");
+        //花费的流量
+        BigDecimal costData = curData.subtract(preNetData).divide(new BigDecimal(1048576));
+        modelAndView.addObject("costData", costData.toBigInteger());
+        modelAndView.addObject("user", cache.hget(EncryptionKey.userLoginInfo, ipAddress));
+        return modelAndView;
+    }
+
+    /**
+     * 用户充值处理程序
+     *
+     * @return
+     */
+    @Override
+    public String userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount) {
+//        String ipAddress = httpService.getIpAddress(request);
+//        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+//        userDataService.updateUserByUserName(user.getUserName());
+        return "successed";
+    }
+
+    @Override
+    public String userInfoUpdateHandler(HttpServletRequest request, User user) {
+        int primaryKey = userDataService.updateUser(user);
+        String ipAddress = httpService.getIpAddress(request);
+        user = userDataService.getUserById(primaryKey);
+        cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
+        request.getSession().setAttribute("user", user);
+        return "successed";
     }
 }

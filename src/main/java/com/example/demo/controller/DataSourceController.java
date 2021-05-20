@@ -5,13 +5,16 @@ import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -27,6 +30,9 @@ public class DataSourceController {
     /*工具类*/
     @Resource
     private MyUtil myUtil;
+
+    @Resource
+    private UserService userService;
 
     /**
      * @param id 管理员的 id
@@ -60,8 +66,19 @@ public class DataSourceController {
         //todo 这里利用 userName 从缓存中取出 email 地址。
         String email = "";
         //code 是发送邮寄的返回的6位随机验证码,限时 60 s,存入缓存中。
-        String code = myUtil.sendMail(email, userName);
-        return code;
+//        return myUtil.sendMail(email, userName);
+        return "";
     }
 
+    @CrossOrigin
+    @PostMapping("/userRechargeSubmit")
+    String userRechargeSubmit(HttpServletRequest request, @RequestBody Map<String, Integer> rechargeAmount) {
+        return userService.userRechargeAppHandler(request, rechargeAmount.get("rechargeAmount"));
+    }
+
+    @CrossOrigin
+    @PostMapping("/userInfoUpdateSubmit")
+    String userInfoUpdateSubmit(HttpServletRequest request, @RequestBody User user) {
+        return userService.userInfoUpdateHandler(request, user);
+    }
 }

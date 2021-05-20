@@ -17,12 +17,7 @@ public interface UserMapper {
     /**
      * @return 如果更新成功返回 1 ，否则返回 0
      */
-    int updateUserById(Integer id);
-
-    /**
-     * @return 如果更新成功返回 1 ，否则返回 0
-     */
-    int updateUserByUserName(String userName);
+    int updateUser(User user);
 
     /**
      * @param id 待删除者的id
