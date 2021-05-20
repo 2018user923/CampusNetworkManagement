@@ -10,6 +10,7 @@ import com.example.demo.service.UserService;
 import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +21,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     /*用户持久层服务*/
     @Resource
@@ -55,6 +57,7 @@ public class UserServiceImpl implements UserService {
         }
         //将ip 地址作为主键，将流量数据存入缓存,
         String ipAddress = httpService.getIpAddress(request);
+        log.info("UserServiceImpl#login ipAddress : " + ipAddress);
         JSONObject netInfo = myUtil.getNetInfo();
         netInfo.put("signIn", new Date());
         return cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
@@ -130,6 +133,7 @@ public class UserServiceImpl implements UserService {
         int primaryKey = userDataService.updateUser(user);
         String ipAddress = httpService.getIpAddress(request);
         user = userDataService.getUserById(primaryKey);
+        log.info("UserServiceImpl#userInfoUpdateHandler ipAddress : " + ipAddress);
         cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
         request.getSession().setAttribute("user", user);
         return "successed";

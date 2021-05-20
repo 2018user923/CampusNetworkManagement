@@ -9,10 +9,12 @@ import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -72,13 +74,14 @@ public class DataSourceController {
 
     @CrossOrigin
     @PostMapping("/userRechargeSubmit")
-    String userRechargeSubmit(HttpServletRequest request, @RequestBody Map<String, Integer> rechargeAmount) {
-        return userService.userRechargeAppHandler(request, rechargeAmount.get("rechargeAmount"));
+    String userRechargeSubmit(HttpServletRequest request, Integer rechargeAmount) {
+        return userService.userRechargeAppHandler(request, rechargeAmount);
     }
 
     @CrossOrigin
     @PostMapping("/userInfoUpdateSubmit")
-    String userInfoUpdateSubmit(HttpServletRequest request, @RequestBody User user) {
-        return userService.userInfoUpdateHandler(request, user);
+    String userInfoUpdateSubmit(HttpServletRequest request, User user, @RequestParam(value = "file", required = false) MultipartFile file) {
+        return "none";
+//        return userService.userInfoUpdateHandler(request, user);
     }
 }

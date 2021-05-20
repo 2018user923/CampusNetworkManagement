@@ -1,0 +1,841 @@
+2021-05-14 10:17:22.948 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:17:22.952 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:17:23.000 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-14 10:17:23.000 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-14 10:17:23.583 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:17:23.585 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:17:23.616 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:17:24.222 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:17:24.232 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:17:24.232 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:17:24.232 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:17:24.297 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:17:24.297 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1295 ms
+2021-05-14 10:17:24.651 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:17:24.760 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-14 10:17:25.160 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:17:25.229 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:17:25.525 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:17:25.544 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:17:25.561 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:17:25.571 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.027 seconds (JVM running for 3.864)
+2021-05-14 10:17:31.634 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 10:17:31.634 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 10:17:31.636 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-14 10:17:35.964 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:17:43.459 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - ResponseController#register 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=247702560@qq.com, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:17:48.544 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:17:53.687 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:17:53.699 [http-nio-8080-exec-9] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:17:58.643 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=aaa, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:18:08.543 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:18:10.000 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:18:11.818 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:18:11.818 [http-nio-8080-exec-9] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:18:38.494 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:22:06.982 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:22:06.982 [http-nio-8080-exec-3] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:22:07.328 [http-nio-8080-exec-3] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 208825
+2021-05-14 10:22:11.633 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:22:13.045 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:22:44.604 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:22:44.605 [http-nio-8080-exec-6] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:22:48.415 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:22:49.770 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@699b3459]
+2021-05-14 10:24:03.780 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:03.781 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-05-14 10:24:03.783 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-05-14 10:24:03.984 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:24:03.984 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:24:04.122 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:24:04.122 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:24:04.125 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:24:04.224 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:24:04.224 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:04.225 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:24:04.225 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:24:04.239 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:24:04.239 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 252 ms
+2021-05-14 10:24:04.288 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:24:04.296 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-05-14 10:24:04.434 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:04.456 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:24:04.593 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:24:04.604 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:04.607 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:24:04.611 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.652 seconds (JVM running for 402.903)
+2021-05-14 10:24:04.612 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 10:24:06.040 [Thread-8] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:06.041 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-05-14 10:24:06.041 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-05-14 10:24:06.114 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:24:06.115 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:24:06.219 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:24:06.219 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:24:06.221 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:24:06.301 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:24:06.301 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:06.302 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:24:06.302 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:24:06.312 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:24:06.313 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 196 ms
+2021-05-14 10:24:06.358 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:24:06.369 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-05-14 10:24:06.491 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:06.513 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:24:06.620 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:24:06.630 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:06.632 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:24:06.635 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.542 seconds (JVM running for 404.928)
+2021-05-14 10:24:06.636 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 10:24:25.468 [Thread-13] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:25.468 [Thread-13] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2021-05-14 10:24:25.468 [Thread-13] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2021-05-14 10:24:25.556 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:24:25.556 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:24:25.666 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:24:25.666 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:24:25.668 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:24:25.760 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:24:25.761 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:25.761 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:24:25.761 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:24:25.773 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:24:25.773 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 215 ms
+2021-05-14 10:24:25.820 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:24:25.829 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2021-05-14 10:24:25.951 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:25.974 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:24:26.100 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:24:26.110 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:26.113 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:24:26.116 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.582 seconds (JVM running for 424.409)
+2021-05-14 10:24:26.118 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 10:24:27.544 [Thread-18] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:27.544 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2021-05-14 10:24:27.544 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2021-05-14 10:24:27.617 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:24:27.617 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:24:27.712 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:24:27.712 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:24:27.714 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:24:27.784 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:24:27.785 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:27.785 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:24:27.785 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:24:27.795 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:24:27.795 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 177 ms
+2021-05-14 10:24:27.839 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:24:27.849 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} inited
+2021-05-14 10:24:27.970 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:24:27.997 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:24:28.114 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:24:28.124 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:24:28.127 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:24:28.129 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.532 seconds (JVM running for 426.421)
+2021-05-14 10:24:28.130 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 10:24:29.312 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 10:24:29.312 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 10:24:29.312 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-05-14 10:24:33.448 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@2da11176]
+2021-05-14 10:24:36.855 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@2da11176]
+2021-05-14 10:24:38.174 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@2da11176]
+2021-05-14 10:24:40.711 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@2da11176]
+2021-05-14 10:24:40.712 [http-nio-8080-exec-3] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:24:41.048 [http-nio-8080-exec-3] INFO  com.example.demo.controller.ResponseController - {"costData":5732,"signIn":1620959077184,"signOut":1620959080714,"userName":"刘备"}
+2021-05-14 10:26:38.544 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@2da11176]
+2021-05-14 10:26:38.545 [http-nio-8080-exec-6] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 117494
+2021-05-14 10:26:39.697 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@2da11176]
+2021-05-14 10:28:52.643 [Thread-23] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:28:52.643 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closing ...
+2021-05-14 10:28:52.643 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closed
+2021-05-14 10:28:52.828 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:28:52.829 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:28:52.949 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:28:52.949 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:28:52.951 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:28:53.032 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:28:53.032 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:28:53.032 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:28:53.032 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:28:53.044 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:28:53.045 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 214 ms
+2021-05-14 10:28:53.095 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:28:53.103 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} inited
+2021-05-14 10:28:53.236 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:28:53.259 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:28:53.386 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:28:53.397 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:28:53.399 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:28:53.402 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.598 seconds (JVM running for 691.695)
+2021-05-14 10:28:53.403 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 10:28:54.833 [Thread-28] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:28:54.833 [Thread-28] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closing ...
+2021-05-14 10:28:54.834 [Thread-28] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closed
+2021-05-14 10:28:54.917 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 7608 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 10:28:54.918 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 10:28:55.014 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 10:28:55.014 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 10:28:55.016 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 10:28:55.093 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 10:28:55.094 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:28:55.094 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 10:28:55.094 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 10:28:55.104 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 10:28:55.104 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 185 ms
+2021-05-14 10:28:55.150 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 10:28:55.159 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} inited
+2021-05-14 10:28:55.284 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 10:28:55.306 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 10:28:55.420 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 10:28:55.431 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 10:28:55.434 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 10:28:55.437 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.541 seconds (JVM running for 693.729)
+2021-05-14 10:28:55.438 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 10:28:59.542 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 10:28:59.542 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 10:28:59.543 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-14 10:29:06.710 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:29:13.027 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:29:13.032 [http-nio-8080-exec-10] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"}]
+2021-05-14 10:31:15.518 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:31:15.520 [http-nio-8080-exec-5] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 122489
+2021-05-14 10:31:15.542 [http-nio-8080-exec-5] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"}]
+2021-05-14 10:31:36.346 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:31:36.347 [http-nio-8080-exec-4] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:31:36.687 [http-nio-8080-exec-4] INFO  com.example.demo.controller.ResponseController - {"costData":584946,"signIn":1620959347199,"signOut":1620959496349,"userName":"刘备"}
+2021-05-14 10:31:40.488 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:31:41.900 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:31:41.912 [http-nio-8080-exec-9] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"}]
+2021-05-14 10:32:15.224 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:32:15.225 [http-nio-8080-exec-10] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:32:15.570 [http-nio-8080-exec-10] INFO  com.example.demo.controller.ResponseController - {"costData":1181640,"signIn":1620959500836,"signOut":1620959535226,"userName":"刘备"}
+2021-05-14 10:32:19.794 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:32:21.003 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:32:21.005 [http-nio-8080-exec-8] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"}]
+2021-05-14 10:36:47.047 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:36:47.047 [http-nio-8080-exec-9] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 10:36:47.489 [http-nio-8080-exec-9] INFO  com.example.demo.controller.ResponseController - {"costData":1948877,"signIn":1620959540130,"signOut":1620959807048,"userName":"刘备"}
+2021-05-14 10:36:47.490 [http-nio-8080-exec-9] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 266486
+2021-05-14 10:36:54.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:36:55.245 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@bf23899]
+2021-05-14 10:36:55.255 [http-nio-8080-exec-5] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"}]
+2021-05-14 11:00:47.685 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:00:47.687 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:00:47.721 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-14 11:00:47.721 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-14 11:00:48.212 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:00:48.213 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:00:48.227 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:00:48.703 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:00:48.710 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:00:48.710 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:00:48.710 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:00:48.767 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:00:48.767 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1045 ms
+2021-05-14 11:00:49.020 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:00:49.082 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-14 11:00:49.394 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:00:49.455 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:00:49.692 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:00:49.710 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:00:49.726 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:00:49.734 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.312 seconds (JVM running for 2.889)
+2021-05-14 11:00:51.743 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 11:00:51.743 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 11:00:51.743 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-05-14 11:00:57.501 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@4f95c3f1]
+2021-05-14 11:00:59.830 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4f95c3f1]
+2021-05-14 11:00:59.845 [http-nio-8080-exec-10] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"}]
+2021-05-14 11:02:57.408 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4f95c3f1]
+2021-05-14 11:02:57.410 [http-nio-8080-exec-3] INFO  com.example.demo.controller.ResponseController - {"email":"247702560@qq.com","id":1,"passWord":"asd123","userName":"刘备"}
+2021-05-14 11:02:57.758 [http-nio-8080-exec-3] INFO  com.example.demo.controller.ResponseController - {"costData":387561012,"signIn":1620961258386,"signOut":1620961377427,"userName":"刘备"}
+2021-05-14 11:02:57.765 [http-nio-8080-exec-3] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 117927
+2021-05-14 11:03:02.537 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@4f95c3f1]
+2021-05-14 11:03:03.734 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4f95c3f1]
+2021-05-14 11:03:03.746 [http-nio-8080-exec-8] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"}]
+2021-05-14 11:05:49.968 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:05:49.969 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-05-14 11:05:49.970 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-05-14 11:05:50.159 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:05:50.159 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:05:50.296 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:05:50.296 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:05:50.299 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:05:50.394 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:05:50.394 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:05:50.395 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:05:50.395 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:05:50.406 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:05:50.407 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 246 ms
+2021-05-14 11:05:50.461 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:05:50.471 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-05-14 11:05:50.606 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:05:50.633 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:05:50.765 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:05:50.777 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:05:50.780 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:05:50.784 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.649 seconds (JVM running for 303.938)
+2021-05-14 11:05:50.786 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:05:52.205 [Thread-8] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:05:52.206 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-05-14 11:05:52.206 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-05-14 11:05:52.279 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:05:52.279 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:05:52.377 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:05:52.378 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:05:52.380 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:05:52.457 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:05:52.457 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:05:52.457 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:05:52.457 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:05:52.467 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:05:52.467 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 186 ms
+2021-05-14 11:05:52.512 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:05:52.520 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-05-14 11:05:52.637 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:05:52.655 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:05:52.764 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:05:52.775 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:05:52.779 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:05:52.782 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.524 seconds (JVM running for 305.936)
+2021-05-14 11:05:52.783 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:06:02.776 [Thread-13] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:06:02.776 [Thread-13] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2021-05-14 11:06:02.776 [Thread-13] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2021-05-14 11:06:02.853 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:06:02.854 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:06:02.967 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:06:02.967 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:06:02.970 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:06:03.047 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:06:03.047 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:06:03.047 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:06:03.048 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:06:03.058 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:06:03.059 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 204 ms
+2021-05-14 11:06:03.106 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:06:03.115 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2021-05-14 11:06:03.234 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:06:03.253 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:06:03.361 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:06:03.371 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:06:03.375 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:06:03.378 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.548 seconds (JVM running for 316.532)
+2021-05-14 11:06:03.379 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:06:19.115 [Thread-18] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:06:19.116 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2021-05-14 11:06:19.116 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2021-05-14 11:06:19.201 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:06:19.201 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:06:19.316 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:06:19.316 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:06:19.318 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:06:19.402 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:06:19.403 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:06:19.403 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:06:19.403 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:06:19.414 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:06:19.414 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 211 ms
+2021-05-14 11:06:19.457 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:06:19.466 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} inited
+2021-05-14 11:06:19.584 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:06:19.604 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:06:19.728 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:06:19.738 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:06:19.741 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:06:19.744 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.567 seconds (JVM running for 332.898)
+2021-05-14 11:06:19.745 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:06:26.291 [Thread-23] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:06:26.291 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closing ...
+2021-05-14 11:06:26.291 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closed
+2021-05-14 11:06:26.368 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:06:26.368 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:06:26.459 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:06:26.459 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:06:26.461 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:06:26.534 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:06:26.534 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:06:26.534 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:06:26.535 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:06:26.545 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:06:26.545 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 175 ms
+2021-05-14 11:06:26.589 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:06:26.596 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} inited
+2021-05-14 11:06:26.708 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:06:26.726 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:06:26.831 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:06:26.841 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:06:26.844 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:06:26.847 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.501 seconds (JVM running for 340.001)
+2021-05-14 11:06:26.848 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:07:40.764 [Thread-28] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:40.765 [Thread-28] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closing ...
+2021-05-14 11:07:40.766 [Thread-28] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closed
+2021-05-14 11:07:40.900 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:07:40.901 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:07:41.048 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:07:41.049 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:07:41.051 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:07:41.137 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:07:41.138 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:41.138 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:07:41.138 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:07:41.148 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:07:41.148 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 246 ms
+2021-05-14 11:07:41.196 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:07:41.203 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} inited
+2021-05-14 11:07:41.325 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:41.347 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:07:41.464 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:07:41.474 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:41.477 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:07:41.480 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.615 seconds (JVM running for 414.634)
+2021-05-14 11:07:41.482 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:07:42.895 [Thread-33] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:42.896 [Thread-33] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closing ...
+2021-05-14 11:07:42.896 [Thread-33] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closed
+2021-05-14 11:07:42.969 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:07:42.969 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:07:43.059 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:07:43.059 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:07:43.061 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:07:43.132 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:07:43.133 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:43.133 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:07:43.133 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:07:43.143 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:07:43.143 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 172 ms
+2021-05-14 11:07:43.187 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:07:43.195 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} inited
+2021-05-14 11:07:43.302 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:43.320 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:07:43.424 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:07:43.434 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:43.436 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:07:43.440 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.49 seconds (JVM running for 416.595)
+2021-05-14 11:07:43.440 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:07:46.933 [Thread-38] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:46.934 [Thread-38] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closing ...
+2021-05-14 11:07:46.936 [Thread-38] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closed
+2021-05-14 11:07:47.013 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:07:47.014 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:07:47.125 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:07:47.125 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:07:47.127 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:07:47.208 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:07:47.209 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:47.209 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:07:47.209 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:07:47.220 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:07:47.220 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 205 ms
+2021-05-14 11:07:47.263 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:07:47.271 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-9} inited
+2021-05-14 11:07:47.395 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:47.416 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:07:47.533 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:07:47.543 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:47.547 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:07:47.550 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.555 seconds (JVM running for 420.704)
+2021-05-14 11:07:47.551 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:07:48.988 [Thread-43] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:48.988 [Thread-43] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-9} closing ...
+2021-05-14 11:07:48.988 [Thread-43] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-9} closed
+2021-05-14 11:07:49.059 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:07:49.060 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:07:49.152 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:07:49.152 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:07:49.154 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:07:49.227 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:07:49.227 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:49.227 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:07:49.227 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:07:49.237 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:07:49.237 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 176 ms
+2021-05-14 11:07:49.281 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:07:49.289 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-10} inited
+2021-05-14 11:07:49.397 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:07:49.416 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:07:49.521 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:07:49.531 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:07:49.534 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:07:49.537 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.496 seconds (JVM running for 422.691)
+2021-05-14 11:07:49.538 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:09:18.077 [Thread-48] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:09:18.078 [Thread-48] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-10} closing ...
+2021-05-14 11:09:18.078 [Thread-48] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-10} closed
+2021-05-14 11:09:18.153 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:09:18.153 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:09:18.258 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:09:18.258 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:09:18.260 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:09:18.339 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:09:18.339 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:09:18.339 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:09:18.339 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:09:18.350 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:09:18.350 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 195 ms
+2021-05-14 11:09:18.397 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:09:18.404 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-11} inited
+2021-05-14 11:09:18.513 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:09:18.532 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:09:18.638 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:09:18.648 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:09:18.650 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:09:18.653 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.522 seconds (JVM running for 511.807)
+2021-05-14 11:09:18.654 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:10:06.487 [Thread-53] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:06.488 [Thread-53] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-11} closing ...
+2021-05-14 11:10:06.488 [Thread-53] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-11} closed
+2021-05-14 11:10:06.564 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:10:06.564 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:10:06.675 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:10:06.675 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:10:06.677 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:10:06.759 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:10:06.760 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:06.760 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:10:06.760 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:10:06.770 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:10:06.770 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 205 ms
+2021-05-14 11:10:06.812 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:10:06.820 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-12} inited
+2021-05-14 11:10:06.937 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:06.955 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:10:07.058 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:10:07.067 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:07.070 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:10:07.072 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.53 seconds (JVM running for 560.227)
+2021-05-14 11:10:07.073 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:10:21.779 [Thread-58] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:21.779 [Thread-58] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-12} closing ...
+2021-05-14 11:10:21.779 [Thread-58] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-12} closed
+2021-05-14 11:10:21.851 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:10:21.852 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:10:21.948 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:10:21.948 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:10:21.950 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:10:22.027 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:10:22.027 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:22.027 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:10:22.027 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:10:22.038 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:10:22.038 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 185 ms
+2021-05-14 11:10:22.088 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:10:22.095 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-13} inited
+2021-05-14 11:10:22.216 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:22.234 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:10:22.347 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:10:22.359 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:22.361 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:10:22.364 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.531 seconds (JVM running for 575.518)
+2021-05-14 11:10:22.365 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:10:23.785 [Thread-63] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:23.785 [Thread-63] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-13} closing ...
+2021-05-14 11:10:23.785 [Thread-63] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-13} closed
+2021-05-14 11:10:23.857 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:10:23.857 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:10:23.947 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:10:23.947 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:10:23.949 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:10:24.018 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:10:24.018 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:24.018 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:10:24.018 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:10:24.028 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:10:24.029 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 171 ms
+2021-05-14 11:10:24.071 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:10:24.078 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-14} inited
+2021-05-14 11:10:24.190 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:24.224 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:10:24.453 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:10:24.467 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:24.471 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:10:24.475 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.635 seconds (JVM running for 577.63)
+2021-05-14 11:10:24.476 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:10:49.421 [Thread-68] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:49.422 [Thread-68] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-14} closing ...
+2021-05-14 11:10:49.422 [Thread-68] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-14} closed
+2021-05-14 11:10:49.504 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:10:49.504 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:10:49.604 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:10:49.604 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:10:49.606 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:10:49.683 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:10:49.683 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:49.683 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:10:49.683 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:10:49.693 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:10:49.693 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 188 ms
+2021-05-14 11:10:49.738 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:10:49.746 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-15} inited
+2021-05-14 11:10:49.875 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:49.898 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:10:50.032 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:10:50.043 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:50.046 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:10:50.048 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.573 seconds (JVM running for 603.203)
+2021-05-14 11:10:50.049 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:10:51.475 [Thread-73] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:51.475 [Thread-73] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-15} closing ...
+2021-05-14 11:10:51.475 [Thread-73] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-15} closed
+2021-05-14 11:10:51.570 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:10:51.570 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:10:51.666 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:10:51.666 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:10:51.668 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:10:51.750 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:10:51.751 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:51.751 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:10:51.751 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:10:51.762 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:10:51.762 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 190 ms
+2021-05-14 11:10:51.807 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:10:51.815 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-16} inited
+2021-05-14 11:10:51.931 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:10:51.953 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:10:52.082 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:10:52.091 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:10:52.094 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:10:52.096 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.552 seconds (JVM running for 605.251)
+2021-05-14 11:10:52.097 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:11:57.771 [Thread-78] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:11:57.771 [Thread-78] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-16} closing ...
+2021-05-14 11:11:57.771 [Thread-78] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-16} closed
+2021-05-14 11:11:57.861 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:11:57.861 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:11:57.980 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:11:57.980 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:11:57.982 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:11:58.066 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:11:58.067 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:11:58.067 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:11:58.067 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:11:58.079 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:11:58.079 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 216 ms
+2021-05-14 11:11:58.140 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:11:58.151 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-17} inited
+2021-05-14 11:11:58.279 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:11:58.298 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:11:58.418 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:11:58.428 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:11:58.431 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:11:58.434 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.595 seconds (JVM running for 671.588)
+2021-05-14 11:11:58.435 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:11:59.860 [Thread-83] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:11:59.860 [Thread-83] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-17} closing ...
+2021-05-14 11:11:59.860 [Thread-83] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-17} closed
+2021-05-14 11:11:59.995 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:11:59.996 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:12:00.146 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:12:00.146 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:12:00.149 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:12:00.223 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:12:00.223 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:12:00.223 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:12:00.223 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:12:00.239 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:12:00.239 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 241 ms
+2021-05-14 11:12:00.279 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:12:00.290 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-18} inited
+2021-05-14 11:12:00.358 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:12:00.370 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:12:00.421 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:12:00.435 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:12:00.438 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:12:00.441 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.481 seconds (JVM running for 673.595)
+2021-05-14 11:12:00.442 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:12:01.871 [Thread-88] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:12:01.871 [Thread-88] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-18} closing ...
+2021-05-14 11:12:01.871 [Thread-88] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-18} closed
+2021-05-14 11:12:01.944 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:12:01.944 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:12:02.033 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:12:02.033 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:12:02.035 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:12:02.106 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:12:02.107 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:12:02.107 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:12:02.107 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:12:02.120 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:12:02.120 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 175 ms
+2021-05-14 11:12:02.163 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:12:02.170 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-19} inited
+2021-05-14 11:12:02.281 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:12:02.299 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:12:02.400 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:12:02.410 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:12:02.415 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:12:02.417 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.492 seconds (JVM running for 675.572)
+2021-05-14 11:12:02.418 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:12:56.224 [Thread-93] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:12:56.224 [Thread-93] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-19} closing ...
+2021-05-14 11:12:56.224 [Thread-93] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-19} closed
+2021-05-14 11:12:56.307 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:12:56.307 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:12:56.415 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:12:56.416 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:12:56.418 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:12:56.495 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:12:56.495 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:12:56.496 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:12:56.496 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:12:56.507 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:12:56.507 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 199 ms
+2021-05-14 11:12:56.555 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:12:56.563 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-20} inited
+2021-05-14 11:12:56.671 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:12:56.694 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:12:56.804 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:12:56.814 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:12:56.816 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:12:56.818 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.532 seconds (JVM running for 729.973)
+2021-05-14 11:12:56.818 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:21:20.619 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 11:21:20.619 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 11:21:20.619 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-05-14 11:21:25.733 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:21:27.171 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:21:27.176 [http-nio-8080-exec-5] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"}]
+2021-05-14 11:21:28.488 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:22:54.182 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:22:56.340 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:22:57.690 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:22:58.228 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:22:58.997 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:23:00.508 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@4dbc3f05]
+2021-05-14 11:23:57.116 [Thread-98] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:23:57.116 [Thread-98] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-20} closing ...
+2021-05-14 11:23:57.117 [Thread-98] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-20} closed
+2021-05-14 11:23:57.338 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:23:57.339 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:23:57.472 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:23:57.473 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:23:57.476 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:23:57.590 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:23:57.590 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:23:57.591 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:23:57.591 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:23:57.603 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:23:57.603 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 263 ms
+2021-05-14 11:23:57.653 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:23:57.662 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-21} inited
+2021-05-14 11:23:57.811 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:23:57.832 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:23:57.965 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:23:57.978 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:23:57.981 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:23:57.984 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.671 seconds (JVM running for 1391.138)
+2021-05-14 11:23:57.986 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:23:59.419 [Thread-103] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:23:59.419 [Thread-103] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-21} closing ...
+2021-05-14 11:23:59.419 [Thread-103] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-21} closed
+2021-05-14 11:23:59.498 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:23:59.498 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:23:59.597 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:23:59.597 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:23:59.599 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:23:59.673 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:23:59.673 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:23:59.673 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:23:59.674 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:23:59.684 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:23:59.684 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 185 ms
+2021-05-14 11:23:59.729 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:23:59.738 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-22} inited
+2021-05-14 11:23:59.850 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:23:59.873 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:23:59.996 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:24:00.007 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:24:00.009 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:24:00.012 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.532 seconds (JVM running for 1393.166)
+2021-05-14 11:24:00.013 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:24:00.057 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 11:24:00.057 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 11:24:00.057 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-05-14 11:24:04.204 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@db00f32]
+2021-05-14 11:24:05.726 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@db00f32]
+2021-05-14 11:24:27.045 [Thread-108] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:24:27.045 [Thread-108] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-22} closing ...
+2021-05-14 11:24:27.046 [Thread-108] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-22} closed
+2021-05-14 11:24:27.235 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:24:27.235 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:24:27.346 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:24:27.346 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:24:27.348 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:24:27.431 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:24:27.431 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:24:27.431 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:24:27.431 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:24:27.442 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:24:27.442 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 205 ms
+2021-05-14 11:24:27.488 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:24:27.499 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-23} inited
+2021-05-14 11:24:27.629 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:24:27.653 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:24:27.818 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:24:27.830 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:24:27.832 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:24:27.836 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.621 seconds (JVM running for 1420.99)
+2021-05-14 11:24:27.837 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:24:29.218 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 11:24:29.218 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 11:24:29.219 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-14 11:24:29.256 [Thread-113] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:24:29.257 [Thread-113] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-23} closing ...
+2021-05-14 11:24:29.257 [Thread-113] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-23} closed
+2021-05-14 11:24:29.337 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 6596 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-14 11:24:29.338 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-14 11:24:29.430 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-14 11:24:29.430 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-14 11:24:29.432 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2021-05-14 11:24:29.502 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-14 11:24:29.503 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:24:29.503 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-14 11:24:29.503 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-14 11:24:29.513 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-14 11:24:29.513 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 174 ms
+2021-05-14 11:24:29.557 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-14 11:24:29.564 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-24} inited
+2021-05-14 11:24:29.685 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-14 11:24:29.713 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-14 11:24:29.822 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-14 11:24:29.834 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-14 11:24:29.837 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-14 11:24:29.840 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.52 seconds (JVM running for 1422.994)
+2021-05-14 11:24:29.840 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-14 11:24:29.847 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-14 11:24:29.847 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-14 11:24:29.848 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-14 11:24:33.549 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:24:35.132 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:24:37.174 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:24:38.496 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:24:38.500 [http-nio-8080-exec-8] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"}]
+2021-05-14 11:25:32.146 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:32.150 [http-nio-8080-exec-7] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"}]
+2021-05-14 11:25:34.064 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:40.471 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:41.959 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:41.961 [http-nio-8080-exec-4] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"}]
+2021-05-14 11:25:43.018 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:46.811 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:50.614 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:52.316 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:52.319 [http-nio-8080-exec-4] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"},{"costData":7917546,"createTime":1620962747000,"id":10,"signIn":1620962674000,"signOut":1620962747000,"type":0,"userName":"刘备"}]
+2021-05-14 11:25:56.262 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:58.674 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:25:58.676 [http-nio-8080-exec-7] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"},{"costData":7917546,"createTime":1620962747000,"id":10,"signIn":1620962674000,"signOut":1620962747000,"type":0,"userName":"刘备"}]
+2021-05-14 11:33:18.928 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:33:32.353 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:33:34.006 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:33:35.488 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:33:35.489 [http-nio-8080-exec-5] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 456814
+2021-05-14 11:33:35.510 [http-nio-8080-exec-5] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"},{"costData":7917546,"createTime":1620962747000,"id":10,"signIn":1620962674000,"signOut":1620962747000,"type":0,"userName":"刘备"}]
+2021-05-14 11:33:54.148 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:33:58.832 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - ResponseController#login 任务执行开始,args=[User(id=null, userName=刘备, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null), org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:34:00.177 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:34:00.180 [http-nio-8080-exec-6] INFO  com.example.demo.controller.ResponseController - [{"costData":19435,"createTime":1620958674000,"id":1,"signIn":1620958665000,"signOut":1620958674000,"type":0,"userName":"刘备"},{"costData":5511,"createTime":1620958692000,"id":2,"signIn":1620958689000,"signOut":1620958692000,"type":0,"userName":"刘备"},{"costData":1967578,"createTime":1620958927000,"id":3,"signIn":1620958719000,"signOut":1620958927000,"type":0,"userName":"刘备"},{"costData":183308,"createTime":1620958965000,"id":4,"signIn":1620958932000,"signOut":1620958965000,"type":0,"userName":"刘备"},{"costData":5732,"createTime":1620959081000,"id":5,"signIn":1620959077000,"signOut":1620959081000,"type":0,"userName":"刘备"},{"costData":584946,"createTime":1620959496000,"id":6,"signIn":1620959347000,"signOut":1620959496000,"type":0,"userName":"刘备"},{"costData":1181640,"createTime":1620959535000,"id":7,"signIn":1620959501000,"signOut":1620959535000,"type":0,"userName":"刘备"},{"costData":1948877,"createTime":1620959807000,"id":8,"signIn":1620959540000,"signOut":1620959807000,"type":0,"userName":"刘备"},{"costData":387561012,"createTime":1620961377000,"id":9,"signIn":1620961258000,"signOut":1620961377000,"type":0,"userName":"刘备"},{"costData":7917546,"createTime":1620962747000,"id":10,"signIn":1620962674000,"signOut":1620962747000,"type":0,"userName":"刘备"},{"costData":53151529,"createTime":1620963234000,"id":11,"signIn":1620962751000,"signOut":1620963234000,"type":0,"userName":"刘备"}]
+2021-05-14 11:34:39.418 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:34:56.724 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
+2021-05-14 11:34:59.388 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@daa8abd]
