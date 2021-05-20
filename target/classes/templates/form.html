@@ -63,6 +63,7 @@
                                 <input class="form-control" type="text" name="phone"
                                        th:placeholder="${user.phone}" ref="phone"/>
                             </div>
+
                             <button type="submit" class="btn btn-info" @click.prevent="userInfoUpdateClick">更新</button>
                         </form>
                     </div>
@@ -252,6 +253,9 @@
                     'email': email,
                     'passWord': passWord,
                     'phone': phone
+                }
+                for(let v of this.elements){
+                    alert(v)
                 }
                 axios.post('http://localhost:8080/userInfoUpdateSubmit', params).then(rep => {
                     if (rep.data === 'successed') {

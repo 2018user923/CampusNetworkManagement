@@ -22,16 +22,14 @@
 <!-- LOGO HEADER TOP-->
 <div class="navbar navbar-inverse set-radius-zero" th:fragment="LOGO_HEADER_TOP">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" th:href="@{/index}">
-                <img th:src="@{/assets/img/logo.png}" alt="logo"/>
-            </a>
-        </div>
+<!--        <div class="navbar-header">-->
+<!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--            </button>-->
+<!--        </div>-->
+        <img class="media-object img-circle img-comments" th:src="@{/assets/img/user.gif}" alt="个人头像"/>
         <div class="right-div">
             <a th:href="@{/logOut}" class="btn btn-info pull-right">退出</a>
         </div>
