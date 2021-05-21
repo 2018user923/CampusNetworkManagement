@@ -104,4 +104,10 @@ public class DataSourceController {
     Map<String, Object> getNetworkTraffic(HttpServletRequest request) {
         return httpService.getNetworkTrafficHandler(request);
     }
+
+    @CrossOrigin
+    @PostMapping("/getRecords")
+    List<Record> getRecords(HttpServletRequest request) {
+        return userService.getRecords(request);
+    }
 }

@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -133,5 +134,11 @@ public class UserServiceImpl implements UserService {
     public User getUserInfoHandler(HttpServletRequest request) {
         String ipAddress = httpService.getIpAddress(request);
         return (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+    }
+
+    @Override
+    public List<Record> getRecords(HttpServletRequest request) {
+        User user = getUserInfoHandler(request);
+        return recordService.getRecordsByUserName(user.getUserName());
     }
 }
