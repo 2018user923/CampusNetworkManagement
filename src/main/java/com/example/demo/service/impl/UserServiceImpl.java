@@ -102,16 +102,6 @@ public class UserServiceImpl implements UserService {
     public ModelAndView form(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/form");
-        String ipAddress = httpService.getIpAddress(request);
-        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
-        JSONObject curNetInfo = myUtil.getNetInfo();
-        BigDecimal curData = curNetInfo.getBigDecimal("getData");
-        //之前的流量
-        BigDecimal preNetData = json.getBigDecimal("getData");
-        //花费的流量
-        BigDecimal costData = curData.subtract(preNetData).divide(new BigDecimal(1048576));
-        modelAndView.addObject("costData", costData.toBigInteger());
-        modelAndView.addObject("user", cache.hget(EncryptionKey.userLoginInfo, ipAddress));
         return modelAndView;
     }
 

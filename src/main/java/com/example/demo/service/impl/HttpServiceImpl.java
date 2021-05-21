@@ -1,13 +1,20 @@
 package com.example.demo.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.service.HttpService;
+import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class HttpServiceImpl implements HttpService {
@@ -19,8 +26,8 @@ public class HttpServiceImpl implements HttpService {
     private HttpService httpService;
 
     /*工具类*/
-//    @Resource
-//    private MyUtil myUtil;
+    @Autowired
+    private MyUtil myUtil;
 
     /**
      * 根据 HttpServletRequest 获取 ipAddress
@@ -45,18 +52,26 @@ public class HttpServiceImpl implements HttpService {
      */
     @Override
     public ModelAndView ordinaryUserForm(HttpServletRequest request) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("/form");
-//        String ipAddress = httpService.getIpAddress(request);
-//        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
-//        JSONObject curNetInfo = myUtil.getNetInfo();
-//        BigDecimal curData = curNetInfo.getBigDecimal("getData");
-//        //之前的流量
-//        BigDecimal preNetData = json.getBigDecimal("getData");
-//        //花费的流量
-//        BigDecimal costData = curData.subtract(preNetData).divide(new BigDecimal(1048576));
-//        modelAndView.addObject("costData", costData.toBigInteger());
-
         return null;
+    }
+
+    @Override
+    public Map<String, Object> getNetworkTrafficHandler(HttpServletRequest request) {
+        HashMap<String, Object> map = new HashMap<>();
+        String ipAddress = httpService.getIpAddress(request);
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
+//        之前的流量
+        BigDecimal preNetData = json.getBigDecimal("getData");
+//        当前的流量
+        JSONObject curNetInfo = myUtil.getNetInfo();
+        BigDecimal curData = curNetInfo.getBigDecimal("getData");
+
+//        花费的流量, bytes,转换为 mb 需要除以 2^20
+        BigDecimal costData = curData.subtract(preNetData);
+
+        map.put("costData", costData);
+        map.put("curTime", new Date());
+        map.put("signIn", json.get("signIn"));
+        return map;
     }
 }

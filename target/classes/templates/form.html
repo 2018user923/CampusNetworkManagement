@@ -74,8 +74,12 @@
                     <div class="panel-body">
                         <form role="form">
                             <div class="form-group">
+                                <label>当前使用字节</label>
+                                <input class="form-control" type="text" :value="costData + 'bytes'" disabled=""/>
+                            </div>
+                            <div class="form-group">
                                 <label>当前使用流量</label>
-                                <input class="form-control" type="text" th:value="${costData} + 'Mb'" disabled=""/>
+                                <input class="form-control" type="text" :value="(costData >> 20) + 'MB'" disabled=""/>
                             </div>
                             <div class="form-group">
                                 <label>当前余额</label>
@@ -83,7 +87,8 @@
                             </div>
                             <div class="form-group">
                                 <label>充值金额</label>
-                                <input class="form-control" type="text" placeholder="请输入整数" name="rechargeAmount"/>
+                                <input class="form-control" type="text" placeholder="请输入整数" name="rechargeAmount"
+                                       v-model="rechargeAmount"/>
                             </div>
                             <button type="submit" class="btn btn-danger" @click.prevent="userRechargeAppClick">提交申请
                             </button>
@@ -245,7 +250,10 @@
             passWord: null,
             phone: null,
             balance: null,
-            rechargeAmount: 0
+            rechargeAmount: 0,
+            costData: 0,
+            curTime: null,
+            signIn: null
         },
         methods: {
             userInfoUpdateClick() {
@@ -278,6 +286,16 @@
                     console.log(err);
                 })
             },
+            getDateInfo() {
+                axios.post('http://localhost:8080/getNetworkTraffic').then(rep => {
+                    console.log(rep.data);
+                    this.costData = rep.data.costData
+                    this.curTime = rep.data.curTime
+                    this.signIn = rep.data.signIn
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
             userRechargeAppClick() {
                 let regx = /^\+?[1-9][0-9]*$/
                 if (regx.test(this.rechargeAmount) && this.rechargeAmount > 0) {
@@ -298,6 +316,7 @@
         },
         mounted() {
             this.getUserInfo()
+            this.getDateInfo()
         }
     })
 </script>

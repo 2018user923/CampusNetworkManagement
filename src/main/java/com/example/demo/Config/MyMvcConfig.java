@@ -54,9 +54,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
         return new Random();
     }
 
-    @Bean("dateTimeFormatter")
+    @Bean
     public DateTimeFormatter CreateDateTimeFormatter() {
-        return DateTimeFormatter.ofPattern(pattern);
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     }
 
 

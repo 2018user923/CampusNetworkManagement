@@ -5,6 +5,7 @@ import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -33,6 +35,9 @@ public class DataSourceController {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private HttpService httpService;
 
     /**
      * @param id 管理员的 id
@@ -82,9 +87,21 @@ public class DataSourceController {
         return userService.userInfoUpdateHandler(request, user);
     }
 
+    /**
+     * 获取用户的基本信息
+     */
     @CrossOrigin
     @PostMapping("/getUserInfo")
     User getUserInfo(HttpServletRequest request) {
         return userService.getUserInfoHandler(request);
+    }
+
+    /**
+     * 获取当前 ip 使用的流量数据
+     */
+    @CrossOrigin
+    @PostMapping("/getNetworkTraffic")
+    Map<String, Object> getNetworkTraffic(HttpServletRequest request) {
+        return httpService.getNetworkTrafficHandler(request);
     }
 }
