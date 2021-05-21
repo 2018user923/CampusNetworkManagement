@@ -15,4 +15,6 @@ public interface UserService {
     String userRechargeAppHandler(HttpServletRequest request,Integer rechargeAmount);
 
     String userInfoUpdateHandler(HttpServletRequest request,User user);
+
+    User getUserInfoHandler(HttpServletRequest request);
 }

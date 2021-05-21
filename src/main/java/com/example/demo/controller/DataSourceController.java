@@ -14,9 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -81,7 +79,12 @@ public class DataSourceController {
     @CrossOrigin
     @PostMapping("/userInfoUpdateSubmit")
     String userInfoUpdateSubmit(HttpServletRequest request, User user, @RequestParam(value = "file", required = false) MultipartFile file) {
-        return "none";
-//        return userService.userInfoUpdateHandler(request, user);
+        return userService.userInfoUpdateHandler(request, user);
+    }
+
+    @CrossOrigin
+    @PostMapping("/getUserInfo")
+    User getUserInfo(HttpServletRequest request) {
+        return userService.getUserInfoHandler(request);
     }
 }

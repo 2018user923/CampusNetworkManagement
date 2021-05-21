@@ -138,4 +138,10 @@ public class UserServiceImpl implements UserService {
         request.getSession().setAttribute("user", user);
         return "successed";
     }
+
+    @Override
+    public User getUserInfoHandler(HttpServletRequest request) {
+        String ipAddress = httpService.getIpAddress(request);
+        return (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+    }
 }
