@@ -110,4 +110,11 @@ public class DataSourceController {
     List<Record> getRecords(HttpServletRequest request) {
         return userService.getRecords(request);
     }
+
+    //分页获取，这里注意，前端传来的 index 最小为 1。
+    @CrossOrigin
+    @RequestMapping("/getRecordsForPage/{index}/{size}")
+    List<Record> getRecords(HttpServletRequest request, @PathVariable("index") Integer index, @PathVariable("size") Integer size) {
+        return userService.getRecords(request, index, size);
+    }
 }

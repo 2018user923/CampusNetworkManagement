@@ -141,4 +141,10 @@ public class UserServiceImpl implements UserService {
         User user = getUserInfoHandler(request);
         return recordService.getRecordsByUserName(user.getUserName());
     }
+
+    @Override
+    public List<Record> getRecords(HttpServletRequest request, Integer page, Integer size) {
+        User user = getUserInfoHandler(request);
+        return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size);
+    }
 }

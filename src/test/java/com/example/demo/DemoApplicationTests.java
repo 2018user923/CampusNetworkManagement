@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
@@ -18,7 +19,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Map;
+import java.util.List;
 import java.util.Random;
 
 @SpringBootTest
@@ -31,6 +32,9 @@ class DemoApplicationTests {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RecordMapper recordMapper;
 
     @Autowired
     private JavaMailSenderImpl javaMailSender;
@@ -46,9 +50,6 @@ class DemoApplicationTests {
 
     @Value(("${python.netWorkTraffic}"))
     private String netWorkTrafficPath;
-
-    @Resource
-    private RecordMapper recordMapper;
 
     @Autowired
     private RedisUtil cache;
@@ -87,7 +88,7 @@ class DemoApplicationTests {
     }
 
     @Test
-    void testUpdateUser(){
+    void testUpdateUser() {
         User user = userMapper.getUserByUserName("刘备");
 
         user.setEmail("9074133022@qq.com");
@@ -96,6 +97,15 @@ class DemoApplicationTests {
         int primaryKey = userMapper.updateUser(user);
         System.out.println(primaryKey);
         System.out.println(userMapper.getUserById(primaryKey));
+    }
+
+    @Test
+    void testRecordForPages() {
+        User user = userMapper.getUserByUserName("刘备");
+        List<Record> records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 0, 10);
+        records.forEach(System.out::println);
+        records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 10, 10);
+        records.forEach(System.out::println);
     }
 
 }

@@ -13,15 +13,29 @@ public interface RecordMapper {
      */
     Record getRecordById(Integer id);
 
+    /**
+     * 根据 userName 获取所有 records
+     */
     List<Record> getRecordsByUserName(String userName);
 
+    /**
+     * 分页获取 record
+     */
+    List<Record> getRecordsByUserNameForPages(String userName, Integer start, Integer limit);
+
+    /**
+     * 根据 type 获取所有的 record
+     */
     List<Record> getRecordsByType(Integer type);
 
     /**
-     * @return 如果更新成功返回 1 ，否则返回 0
+     * 更新 record ,如果更新成功返回 1 ，否则返回 0
      */
     int updateRecordById(Integer id);
 
+    /**
+     * 根据 userName 更新 record
+     */
     int updateRecordByUserName(String userName);
 
     /**

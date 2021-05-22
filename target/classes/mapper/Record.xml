@@ -16,6 +16,13 @@
         where user_name = #{userName}
     </select>
 
+    <select id="getRecordsByUserNameForPages" resultType="Record">
+        select *
+        from record_table
+        where user_name = #{userName} limit #{start},#{limit}
+    </select>
+
+
     <select id="getRecordsByType" resultType="Record">
         select *
         from record_table
@@ -50,8 +57,5 @@
         insert into record_table(sign_in, sign_out, balance, cost_Data, cost_money, user_name)
         values (#{signIn}, #{signOut}, #{balance}, #{costData}, #{costMoney}, #{userName})
     </insert>
-
-
-
 
 </mapper>

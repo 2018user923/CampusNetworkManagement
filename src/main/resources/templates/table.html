@@ -23,7 +23,7 @@
 <div th:replace="commons/common ::LOGO_HEADER_TOP"></div>
 <div th:replace="commons/common ::LOGO_HEADER_END"></div>
 <!-- MENU SECTION END-->
-<div class="content-wrapper">
+<div class="content-wrapper" id="main">
     <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
@@ -36,7 +36,28 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <!--每行数据展示数量-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_length"><label>
+                                        <select name="dataTables-example_length" class="form-control input-sm"
+                                                @change="changeLimit">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>每页数量</label></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_filter"><label>查询<input
+                                            type="search"
+                                            class="form-control input-sm"
+                                            aria-controls="dataTables-example"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--每行数据展示-->
+                            <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>登录时间</th>
@@ -47,17 +68,43 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX" th:each="record:${records}">
-                                    <td class="center"
-                                        th:text="${#dates.format(record.getSignIn(), 'yyyy-MM-dd HH:mm:ss')}"></td>
-                                    <td class="center"
-                                        th:text="${#dates.format(record.getSignOut(), 'yyyy-MM-dd HH:mm:ss')}"></td>
-                                    <td class="center" th:text="${record.getCostData() / 1048576} + 'Mb'"></td>
-                                    <td class="center" th:text="${record.getBalance()}"></td>
-                                    <td class="center" th:text="${record.getCostMoney()}"></td>
+                                <tr class="odd gradeX" v-for="record in records">
+                                    <td class="center">{{record.signIn | formDate}}</td>
+                                    <td class="center">{{record.signOut | formDate}}</td>
+                                    <td class="center">{{record.costData >> 20}}</td>
+                                    <td class="center">{{record.balance}}</td>
+                                    <td class="center">{{record.costMoney}}</td>
                                 </tr>
-                                </tbody>
                             </table>
+                            <!--进行分页操作-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" role="alert"
+                                         aria-live="polite"
+                                         aria-relevant="all">Showing 1 to 10 of 27 entries
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_simple_numbers"
+                                         id="dataTables-example_paginate">
+                                        <ul class="pagination">
+                                            <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
+                                                @click="getRecordsForPage(curPage - 1)"><a href="#">Previous</a>
+                                            </li>
+
+                                            <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a
+                                                    href="#">{{curPage}}</a></li>
+                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a
+                                                    href="#">{{curPage + 1}}</a></li>
+                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a
+                                                    href="#">{{curPage + 2}}</a></li>
+
+                                            <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"
+                                                @click="getRecordsForPage(curPage + 1)"><a href="#">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -66,6 +113,60 @@
         </div>
     </div>
 </div>
+
+
+<script th:src="@{/vueResources/tools/axios.js}"></script>
+<script th:src="@{/vueResources/tools/vue.js}"></script>
+<script th:src="@{/vueResources/tools/moment.js}"></script>
+<script>
+    new Vue({
+        el: '#main',
+        data: {
+            userName: null,
+            idCard: null,
+            email: null,
+            passWord: null,
+            phone: null,
+            balance: null,
+            rechargeAmount: 0,
+            costData: 0,
+            curTime: null,
+            signIn: null,
+            records: [],
+            limit: 10,
+            curPage: 1
+        },
+        methods: {
+            getRecordsForPage(index) {
+                let tmpIndex = index || this.curPage
+                axios.get('http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit).then(rep => {
+                    if (rep.data.length === 0) {
+                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
+                    } else {
+                        this.records = rep.data
+                        this.curPage = tmpIndex
+                        console.log('length :' + this.records.length)
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            changeLimit(event) {
+                this.limit = event.target.value
+                this.getRecordsForPage(1)
+            }
+        },
+        mounted() {
+            this.getRecordsForPage()
+        },
+        filters: {
+            formDate(time) {
+                return moment(time).format('YYYY-MM-DD HH:MM:SS')
+            }
+        }
+    })
+</script>
+
 
 <div th:replace="commons/common ::CONTENT-WRAPPER_SECTION_END"></div>
 <!-- CORE JQUERY  -->

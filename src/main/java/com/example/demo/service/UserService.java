@@ -14,11 +14,15 @@ public interface UserService {
 
     ModelAndView form(HttpServletRequest request);
 
-    String userRechargeAppHandler(HttpServletRequest request,Integer rechargeAmount);
+    String userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount);
 
-    String userInfoUpdateHandler(HttpServletRequest request,User user);
+    String userInfoUpdateHandler(HttpServletRequest request, User user);
 
     User getUserInfoHandler(HttpServletRequest request);
 
     List<Record> getRecords(HttpServletRequest request);
+
+    List<Record> getRecords(HttpServletRequest request, Integer page, Integer size);
+
+
 }

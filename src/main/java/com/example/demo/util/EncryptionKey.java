@@ -6,4 +6,7 @@ public class EncryptionKey {
 
     //网络流量数据
     public static String netData = "NET_DATA";
+
+
+
 }
