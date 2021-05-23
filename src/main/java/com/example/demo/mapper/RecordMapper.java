@@ -29,6 +29,11 @@ public interface RecordMapper {
     List<Record> getRecordsByType(Integer type);
 
     /**
+     * 根据 userName 和 type 来查找记录
+     */
+    List<Record> getRecordsByUserNameAndType(String userName, Integer type);
+
+    /**
      * 更新 record ,如果更新成功返回 1 ，否则返回 0
      */
     int updateRecordById(Integer id);
@@ -49,9 +54,4 @@ public interface RecordMapper {
      * @return 返回的是主键信息。
      */
     int insertRecord(Record record);
-
-    /**
-     * 根据 userName 和 type 来查找记录
-     */
-    List<Record> getRecordsByUserNameAndType(String userName, Integer type);
 }

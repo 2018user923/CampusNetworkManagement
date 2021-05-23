@@ -25,4 +25,5 @@ public class User {
     private String avatar; //头像的 url 地址
     private BigDecimal balance;//当前余额
     private Integer type;//账户类型
+    private String authority;//权限，使用 list 存储之后再使用 json.parse 解析
 }

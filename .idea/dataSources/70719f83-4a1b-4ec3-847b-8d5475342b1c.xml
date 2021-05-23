@@ -4623,39 +4623,44 @@ SELECT|sys.sys_config
       <DataType>int|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <index id="1122" parent="365" name="user_table_user_name_uindex">
+    <column id="1122" parent="365" name="authority">
+      <Position>10</Position>
+      <Comment>权限</Comment>
+      <DataType>varchar(200)|0s</DataType>
+    </column>
+    <index id="1123" parent="365" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1123" parent="365" name="user_table_phone_uindex">
+    <index id="1124" parent="365" name="user_table_phone_uindex">
       <ColNames>phone</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1124" parent="365" name="user_table_id_card_uindex">
+    <index id="1125" parent="365" name="user_table_id_card_uindex">
       <ColNames>id_card</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1125" parent="365" name="user_table_type_index">
+    <index id="1126" parent="365" name="user_table_type_index">
       <ColNames>type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1126" parent="365" name="PRIMARY">
+    <key id="1127" parent="365" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="1127" parent="365" name="user_table_user_name_uindex">
+    <key id="1128" parent="365" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>user_table_user_name_uindex</UnderlyingIndexName>
     </key>
-    <key id="1128" parent="365" name="user_table_phone_uindex">
+    <key id="1129" parent="365" name="user_table_phone_uindex">
       <ColNames>phone</ColNames>
       <UnderlyingIndexName>user_table_phone_uindex</UnderlyingIndexName>
     </key>
-    <key id="1129" parent="365" name="user_table_id_card_uindex">
+    <key id="1130" parent="365" name="user_table_id_card_uindex">
       <ColNames>id_card</ColNames>
       <UnderlyingIndexName>user_table_id_card_uindex</UnderlyingIndexName>
     </key>

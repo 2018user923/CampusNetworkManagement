@@ -6,7 +6,10 @@ public enum RecordTypeEnum {
     userRechargeSubmit("用户提交充值申请中", 1),
     userRechargeSubmitCancel("用户提交充值申请取消", 2),
     userRechargeSubmitComplete("用户提交充值申请已通过", 3),
-    userRechargeSubmitTurnDown("用户提交充值申请驳回", 4);
+    userRechargeSubmitTurnDown("用户提交充值申请驳回", 4),
+
+    turnDownUserRechargeSubmit("驳回用户充值申请", 5),
+    PendingUserRechargeSubmit("待审批的充值申请", 6);
 
     private String key;
     private Integer val;
