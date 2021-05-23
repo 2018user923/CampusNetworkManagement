@@ -71,7 +71,7 @@
                                 <tr class="odd gradeX" v-for="record in records">
                                     <td class="center">{{record.signIn | formDate}}</td>
                                     <td class="center">{{record.signOut | formDate}}</td>
-                                    <td class="center">{{record.costData >> 20}}</td>
+                                    <td class="center">{{record.costData >> 20}}Mb</td>
                                     <td class="center">{{record.balance}}</td>
                                     <td class="center">{{record.costMoney}}</td>
                                 </tr>
@@ -89,7 +89,7 @@
                                          id="dataTables-example_paginate">
                                         <ul class="pagination">
                                             <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
-                                                @click="getRecordsForPage(curPage - 1)"><a href="#">Previous</a>
+                                                @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>
                                             </li>
 
                                             <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a
@@ -100,7 +100,7 @@
                                                     href="#">{{curPage + 2}}</a></li>
 
                                             <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"
-                                                @click="getRecordsForPage(curPage + 1)"><a href="#">Next</a></li>
+                                                @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>
                                         </ul>
                                     </div>
                                 </div>

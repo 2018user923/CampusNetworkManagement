@@ -80,11 +80,7 @@ public class ResponseController {
     @GetMapping("/table")
     public ModelAndView table(HttpSession session) {
         ModelAndView res = new ModelAndView();
-        User user = (User) session.getAttribute("user");
-        List<Record> records = recordService.getRecordsByUserName(user.getUserName());
-        res.addObject("records", records);
         res.setViewName("table");
-        log.info(JSON.toJSONString(records));
         return res;
     }
 

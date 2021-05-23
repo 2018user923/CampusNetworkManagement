@@ -17,25 +17,20 @@ import java.util.Date;
 @Builder
 public class Record {
     private Integer id; //id
-    private String userName;//账号
-    private Date signIn; //登入时间
+
+    private String userName;//谁创建的这条记录
+    private String updateUserName;//修改者，谁审批了这条记录
+
+    private Date signIn; //登入时间，这里指代用户登录和登出的时间。
     private Date signOut; //登出时间
     private BigDecimal costData;//使用的流量
     private Long balance; //当前的余额
-    private String costMoney;//消费金额
-    private Integer status;//审批状态，审批中、通过
+    private BigDecimal costMoney;//消费金额，用户在登入登出期间消费的金额
+
     private Date createTime;//该记录的创建时间
-    private Integer operatorResult;//审批之后的结果
-    private Integer type;
+    private Date updateTime;//该记录的更新
 
-    public static Record create(User user) {
-        Record record = new Record();
-        record.setUserName(user.getUserName());
-//        record.setSignIn(json.getDate("signIn"));
-        record.setSignOut(new Date());
+    private BigDecimal rechargeAmount;//充值的金额
 
-
-
-        return record;
-    }
+    private Integer type;//该记录的类型
 }

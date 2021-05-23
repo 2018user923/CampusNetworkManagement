@@ -77,8 +77,8 @@ public class DataSourceController {
 
     @CrossOrigin
     @PostMapping("/userRechargeSubmit")
-    String userRechargeSubmit(HttpServletRequest request, Integer rechargeAmount) {
-        return userService.userRechargeAppHandler(request, rechargeAmount);
+    String userRechargeSubmit(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        return userService.userRechargeAppHandler(request, Integer.valueOf(map.get("rechargeAmount")));
     }
 
     @CrossOrigin

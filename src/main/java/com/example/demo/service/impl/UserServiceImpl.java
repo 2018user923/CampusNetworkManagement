@@ -9,6 +9,7 @@ import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
+import com.example.demo.util.RecordTypeEnum;
 import com.example.demo.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,11 +82,13 @@ public class UserServiceImpl implements UserService {
         //花费的流量
         BigDecimal costData = curData.subtract(preNetData);
 
-        Record record = new Record();
-        record.setUserName(user.getUserName());
-        record.setSignIn(json.getDate("signIn"));
-        record.setSignOut(new Date());
-        record.setCostData(costData);
+        Record record = Record.builder()
+                .userName(user.getUserName())
+                .signIn(json.getDate("signIn"))
+                .signOut(new Date())
+                .costData(costData)
+                .type(RecordTypeEnum.userExpenses.getVal())
+                .build();
 
         recordService.insertRecord(record);
 
@@ -113,9 +116,16 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public String userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount) {
-//        String ipAddress = httpService.getIpAddress(request);
-//        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
-//        userDataService.updateUserByUserName(user.getUserName());
+        String ipAddress = httpService.getIpAddress(request);
+        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        //
+        Record record = Record.builder()
+                .userName(user.getUserName())
+                .createTime(new Date())
+                .type(RecordTypeEnum.userRechargeSubmit.getVal())
+                .rechargeAmount(new BigDecimal(rechargeAmount))
+                .build();
+        recordService.insertRecord(record);
         return "successed";
     }
 
@@ -145,6 +155,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Record> getRecords(HttpServletRequest request, Integer page, Integer size) {
         User user = getUserInfoHandler(request);
-        return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size);
+        return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, RecordTypeEnum.userExpenses.getVal());
     }
 }

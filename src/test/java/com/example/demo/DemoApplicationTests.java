@@ -101,11 +101,23 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForPages() {
-        User user = userMapper.getUserByUserName("刘备");
-        List<Record> records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 0, 10);
-        records.forEach(System.out::println);
-        records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 10, 10);
-        records.forEach(System.out::println);
+//        User user = userMapper.getUserByUserName("刘备");
+//        List<Record> records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 0, 10);
+//        records.forEach(System.out::println);
+//        records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 10, 10);
+//        records.forEach(System.out::println);
     }
 
+    @Test
+    void testRecordForType(){
+
+        Record record = new Record();
+        record.setUserName("刘备");
+        record.setType(1);
+        recordMapper.insertRecord(record);
+
+
+        List<Record> records = recordMapper.getRecordsByUserNameAndType("刘备", 1);
+        records.forEach(System.out::println);
+    }
 }

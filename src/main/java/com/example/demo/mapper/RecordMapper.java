@@ -21,7 +21,7 @@ public interface RecordMapper {
     /**
      * 分页获取 record
      */
-    List<Record> getRecordsByUserNameForPages(String userName, Integer start, Integer limit);
+    List<Record> getRecordsByUserNameForPages(String userName, Integer start, Integer limit, Integer type);
 
     /**
      * 根据 type 获取所有的 record
@@ -49,4 +49,9 @@ public interface RecordMapper {
      * @return 返回的是主键信息。
      */
     int insertRecord(Record record);
+
+    /**
+     * 根据 userName 和 type 来查找记录
+     */
+    List<Record> getRecordsByUserNameAndType(String userName, Integer type);
 }
