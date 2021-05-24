@@ -24,5 +24,5 @@ public interface UserService {
 
     List<Record> getRecords(HttpServletRequest request, Integer page, Integer size);
 
-
+    boolean userRegisterHandler(HttpServletRequest request, User user, String code);
 }

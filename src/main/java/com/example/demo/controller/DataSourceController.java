@@ -125,4 +125,14 @@ public class DataSourceController {
         return httpService.sendEmailHandler(request, map.get("email"));
     }
 
+    @CrossOrigin
+    @RequestMapping("/register")
+    String register(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        User user = User.builder()
+                .userName(map.get("userName"))
+                .email(map.get("email"))
+                .passWord(map.get("passWord"))
+                .build();
+        return userService.userRegisterHandler(request, user, map.get("code")) ? "successed" : "failed";
+    }
 }

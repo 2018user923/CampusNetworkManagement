@@ -112,10 +112,10 @@
                 </div>
                 <div class="clear"></div>
                 <div>
-                    <button @click.prevent="btnClick" :disabled=disabledFlag>{{text}}</button>
-                    <input style="width:160px" type="text" placeholder="请输入邮箱验证码"/>
+                    <button @click.prevent="verifyMailbox" :disabled=disabledFlag>{{text}}</button>
+                    <input style="width:160px" type="text" placeholder="请输入邮箱验证码" v-model="emailCode"/>
                 </div>
-                <input type="submit" value="注册"/>
+                <input type="submit" value="注册" @click.prevent="userRegister"/>
                 <div class="clear"></div>
             </form>
         </div>
@@ -165,11 +165,17 @@
             defaultTime: 60,
             userName: null,
             email: null,
-            passWord: null
+            passWord: null,
+            emailCode: null
         },
         methods: {
-            btnClick() {
-                let param = {'email': this.email, 'userName': this.userName, 'passWord': this.passWord}
+            //验证邮箱
+            verifyMailbox() {
+                let param = {
+                    'email': this.email,
+                    'userName': this.userName,
+                    'passWord': this.passWord
+                }
                 axios.post('http://localhost:8080/register/sendEmail', param).then(rep => {
                     if (rep.data !== 'successed') {
                         return null
@@ -186,6 +192,22 @@
                             this.text = this.t + 's后再次尝试'
                         }
                     }, 1000);
+                }).catch(error => {
+                    alert(error)
+                })
+            },
+            userRegister() {
+                let param = {
+                    'email': this.email,
+                    'userName': this.userName,
+                    'passWord': this.passWord,
+                    'code': this.emailCode
+                }
+                axios.post('http://localhost:8080/register', param).then(rep => {
+                    if (rep.data !== 'successed') {
+                        alert(rep.data)
+                    }
+                    window.location.replace('http://localhost:8080/main')
                 }).catch(error => {
                     alert(error)
                 })

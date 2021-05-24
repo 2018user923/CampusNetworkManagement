@@ -44,6 +44,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private HttpService httpService;
 
+    @Autowired
+    private UserService userService;
+
 
     /**
      * 用户登录服务
@@ -156,5 +159,30 @@ public class UserServiceImpl implements UserService {
     public List<Record> getRecords(HttpServletRequest request, Integer page, Integer size) {
         User user = getUserInfoHandler(request);
         return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, RecordTypeEnum.userExpenses.getVal());
+    }
+
+    /**
+     * 处理用户注册
+     */
+    @Override
+    public boolean userRegisterHandler(HttpServletRequest request, User user, String code) {
+        //用户名已存在，无法注册。
+        if (userDataService.getUserByUserName(user.getUserName()) != null) {
+            return false;
+        }
+        //校验邮箱验证码
+        String ipAddress = httpService.getIpAddress(request);
+        String emailCode = (String) cache.hget(EncryptionKey.registerEmail, ipAddress);
+        //验证码不正确
+        if (emailCode == null || !emailCode.equals(code)) {
+            return false;
+        }
+
+        //注册用户成功过，插入数据。
+        int primaryKey = userDataService.insertUser(user);
+        user.setId(primaryKey);
+
+        //注册用户登录
+        return userService.login(user, request);
     }
 }
