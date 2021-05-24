@@ -19,5 +19,7 @@ public interface HttpService {
      */
     ModelAndView ordinaryUserForm(HttpServletRequest request);
 
-    Map<String,Object> getNetworkTrafficHandler(HttpServletRequest request);
+    Map<String, Object> getNetworkTrafficHandler(HttpServletRequest request);
+
+    String sendEmailHandler(HttpServletRequest request, String email);
 }

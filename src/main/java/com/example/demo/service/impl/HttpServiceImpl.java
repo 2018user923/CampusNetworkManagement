@@ -74,4 +74,12 @@ public class HttpServiceImpl implements HttpService {
         map.put("signIn", json.get("signIn"));
         return map;
     }
+
+    @Override
+    public String sendEmailHandler(HttpServletRequest request, String email) {
+        String code = myUtil.sendMail(email, "注册账户验证码");
+        String ipAddress = httpService.getIpAddress(request);
+        cache.hset(EncryptionKey.registerEmail, ipAddress, code, 60);
+        return "successed";
+    }
 }

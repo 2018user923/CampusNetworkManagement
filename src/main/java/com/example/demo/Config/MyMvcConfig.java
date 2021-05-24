@@ -107,6 +107,15 @@ public class MyMvcConfig implements WebMvcConfigurer {
                     return true;
                 }
             }
-        }).addPathPatterns("/**").excludePathPatterns("/index", "/index/**", "/assets/**", "/login", "/register", "/test/**");
+        }).addPathPatterns("/**").excludePathPatterns(
+                "/index",
+                "/index/**",
+                "/assets/**",
+                "/login",
+                "/register",
+                "/register/**",
+                "/vueResources/**",
+                "/test/**"
+        );
     }
 }

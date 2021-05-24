@@ -19,8 +19,8 @@ spring:
       # 上传请求最大为 10M（默认值10M 根据自身业务自行控制即可）
       max-request-size: 10485760
   mail:
-    username: 247702560@qq.com
-    password: smeqqkpyqgobbgij
+    username: 2115839526@qq.com
+    password: tijnasaqkhjgbaii
     host: smtp.qq.com
   redis:
     database: 0

@@ -117,4 +117,12 @@ public class DataSourceController {
     List<Record> getRecords(HttpServletRequest request, @PathVariable("index") Integer index, @PathVariable("size") Integer size) {
         return userService.getRecords(request, index, size);
     }
+
+    //邮箱发送验证码
+    @CrossOrigin
+    @RequestMapping("/register/sendEmail")
+    String sendEmail(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        return httpService.sendEmailHandler(request, map.get("email"));
+    }
+
 }

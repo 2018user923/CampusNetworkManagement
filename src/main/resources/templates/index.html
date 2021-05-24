@@ -98,22 +98,22 @@
             <form action="/register" method="post" id="registerSubmit">
                 <div class="w3-user">
                     <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
-                    <input type="text" name="userName" placeholder="用户名" required=""/>
+                    <input type="text" placeholder="用户名" v-model="userName"/>
                 </div>
                 <div class="clear"></div>
                 <div class="w3-email">
                     <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <input type="email" name="email" placeholder="邮箱" required=""/>
+                    <input type="email" placeholder="邮箱" v-model="email"/>
                 </div>
                 <div class="clear"></div>
                 <div class="w3-psw">
                     <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                    <input type="password" name="passWord" placeholder="密码" required="">
+                    <input type="password" placeholder="密码" v-model="passWord">
                 </div>
                 <div class="clear"></div>
                 <div>
-                    <button @click="btnClick" :disabled=disabledFlag>{{text}}</button>
-                    <input style="width:160px" type="text"/>
+                    <button @click.prevent="btnClick" :disabled=disabledFlag>{{text}}</button>
+                    <input style="width:160px" type="text" placeholder="请输入邮箱验证码"/>
                 </div>
                 <input type="submit" value="注册"/>
                 <div class="clear"></div>
@@ -162,22 +162,33 @@
             disabledFlag: false,
             text: '点击发送验证码',
             t: null,
-            defaultTime: 60
+            defaultTime: 60,
+            userName: null,
+            email: null,
+            passWord: null
         },
         methods: {
             btnClick() {
-                this.t = this.defaultTime
-                this.disabledFlag = true
-                let timer = setInterval(() => {
-                    --this.t
-                    if (this.t === 0) {
-                        clearInterval(timer)
-                        this.text = '点击发送验证码'
-                        this.disabledFlag = false
-                    } else {
-                        this.text = this.t + 's后再次尝试'
+                let param = {'email': this.email, 'userName': this.userName, 'passWord': this.passWord}
+                axios.post('http://localhost:8080/register/sendEmail', param).then(rep => {
+                    if (rep.data !== 'successed') {
+                        return null
                     }
-                }, 1000);
+                    this.t = this.defaultTime
+                    this.disabledFlag = true
+                    let timer = setInterval(() => {
+                        --this.t
+                        if (this.t === 0) {
+                            clearInterval(timer)
+                            this.text = '点击发送验证码'
+                            this.disabledFlag = false
+                        } else {
+                            this.text = this.t + 's后再次尝试'
+                        }
+                    }, 1000);
+                }).catch(error => {
+                    alert(error)
+                })
             }
         }
     })
