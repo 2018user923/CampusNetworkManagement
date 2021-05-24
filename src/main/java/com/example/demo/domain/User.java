@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 
 /**
@@ -26,4 +27,5 @@ public class User {
     private BigDecimal balance;//当前余额
     private Integer type;//账户类型
     private String authority;//权限，使用 list 存储之后再使用 json.parse 解析
+    private Set<Integer> authorityToSet;//将 authority 转化为 set 类型
 }

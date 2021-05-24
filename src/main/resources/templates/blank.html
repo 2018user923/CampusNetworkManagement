@@ -22,7 +22,7 @@
 
 <div th:replace="commons/common ::LOGO_HEADER_END"></div>
 
-<div class="content-wrapper">
+<div class="content-wrapper" id="main">
     <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
@@ -44,12 +44,10 @@
                                 <div class="col-sm-6">
                                     <div class="dataTables_length"><label>
                                         <select name="dataTables-example_length" class="form-control input-sm"
-                                                @change="changeType">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>每页数量</label></div>
+                                                @change="selectType">
+                                            <option v-for="authority in authorityList">{{authority}}</option>
+                                        </select>每页数量</label>
+                                    </div>
                                 </div>
                             </div>
 
@@ -65,13 +63,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX" v-for="record in records">
-                                    <td class="center">{{record.signIn | formDate}}</td>
-                                    <td class="center">{{record.signOut | formDate}}</td>
-                                    <td class="center">{{record.costData >> 20}}Mb</td>
-                                    <td class="center">{{record.balance}}</td>
-                                    <td class="center">{{record.costMoney}}</td>
-                                </tr>
+                                <!--                                <tr class="odd gradeX" v-for="record in records">-->
+                                <!--                                            <td class="center">{{record.signIn | formDate}}</td>-->
+                                <!--                                            <td class="center">{{record.signOut | formDate}}</td>-->
+                                <!--                                            <td class="center">{{record.costData >> 20}}Mb</td>-->
+                                <!--                                            <td class="center">{{record.balance}}</td>-->
+                                <!--                                            <td class="center">{{record.costMoney}}</td>-->
+                                <!--                                </tr>-->
                             </table>
 
                             <!--翻页 分页操作-->
@@ -88,19 +86,19 @@
                                     <div class="dataTables_paginate paging_simple_numbers"
                                          id="dataTables-example_paginate">
                                         <ul class="pagination">
-                                            <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
-                                                @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>
-                                            </li>
+                                            <!--                                                    <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"-->
+                                            <!--                                                        @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>-->
+                                            <!--                                                    </li>-->
 
-                                            <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a
-                                                    href="#">{{curPage}}</a></li>
-                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a
-                                                    href="#">{{curPage + 1}}</a></li>
-                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a
-                                                    href="#">{{curPage + 2}}</a></li>
+                                            <!--                                                    <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a-->
+                                            <!--                                                            href="#">{{curPage}}</a></li>-->
+                                            <!--                                                    <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a-->
+                                            <!--                                                            href="#">{{curPage + 1}}</a></li>-->
+                                            <!--                                                    <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a-->
+                                            <!--                                                            href="#">{{curPage + 2}}</a></li>-->
 
-                                            <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"
-                                                @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>
+                                            <!--                                                    <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"-->
+                                            <!--                                                        @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>-->
                                         </ul>
                                     </div>
                                 </div>
@@ -115,7 +113,6 @@
         </div>
 
 
-
     </div>
 </div>
 
@@ -124,11 +121,37 @@
 <script th:src="@{/vueResources/tools/vue.js}"></script>
 <script th:src="@{/vueResources/tools/moment.js}"></script>
 
+<script>
+    new Vue({
+        el: '#main',
+        data: {
+            authorityList: null,
+            selectAuthority: 0
+        },
+        methods: {
+            getUserAuthorityList() {
+                axios.get('http://localhost:8080/getUserAuthorityList').then(rep => {
+                    this.authorityList = rep.data
+                }).catch(err => {
+                    alert(err)
+                })
+            },
+            selectType(event) {
+                this.selectAuthority = event.target.value
+                console.log(this.selectAuthority);
+            }
+        },
+        mounted() {
+            this.getUserAuthorityList()
+        }
+    })
+</script>
+
 <!-- CORE JQUERY  -->
 <script src="assets/js/jquery-1.10.2.js"></script>
 <!-- BOOTSTRAP SCRIPTS  -->
 <script src="assets/js/bootstrap.js"></script>
 <!-- CUSTOM SCRIPTS  -->
-<script src="assets/js/custom.js"></script>
+<!--<script src="assets/js/custom.js"></script>-->
 </body>
 </html>

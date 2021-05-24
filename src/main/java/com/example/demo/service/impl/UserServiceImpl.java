@@ -1,6 +1,8 @@
 package com.example.demo.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
@@ -13,6 +15,7 @@ import com.example.demo.util.RecordTypeEnum;
 import com.example.demo.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Slf4j
@@ -47,12 +51,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserService userService;
 
+    @Value("${user.newUserAuthority}")
+    private String newUserAuthority;
+
 
     /**
      * 用户登录服务
      */
     @Override
-    public boolean login(User user, HttpServletRequest request) {
+    public boolean loginHandler(User user, HttpServletRequest request) {
         String userName = user.getUserName(), passWord = user.getPassWord();
         //todo 中级步骤需要校验是否登录成功,待编写。
         user = userDataService.getUserByUserName(userName);
@@ -60,9 +67,10 @@ public class UserServiceImpl implements UserService {
         if (user == null || !user.getPassWord().equals(passWord)) {
             return false;
         }
+        user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
+        }));
         //将ip 地址作为主键，将流量数据存入缓存,
         String ipAddress = httpService.getIpAddress(request);
-        log.info("UserServiceImpl#login ipAddress : " + ipAddress);
         JSONObject netInfo = myUtil.getNetInfo();
         netInfo.put("signIn", new Date());
         return cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
@@ -72,7 +80,7 @@ public class UserServiceImpl implements UserService {
      * 用户退出服务
      */
     @Override
-    public boolean logOut(HttpServletRequest request) {
+    public boolean logOutHandler(HttpServletRequest request) {
         String ipAddress = httpService.getIpAddress(request);
 
         JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
@@ -103,7 +111,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * @param request 用户请求的 form
-     * @return
      */
     @Override
     public ModelAndView form(HttpServletRequest request) {
@@ -114,8 +121,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户充值处理程序
-     *
-     * @return
      */
     @Override
     public String userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount) {
@@ -178,11 +183,24 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
+        //未该用户添加权限
+        user.setAuthority(newUserAuthority);
+
         //注册用户成功过，插入数据。
         int primaryKey = userDataService.insertUser(user);
         user.setId(primaryKey);
 
         //注册用户登录
-        return userService.login(user, request);
+        return userService.loginHandler(user, request);
+    }
+
+    /**
+     * 得到用户权限
+     */
+    @Override
+    public Set<Integer> getUserAuthorityListHandler(HttpServletRequest request) {
+        String ipAddress = httpService.getIpAddress(request);
+        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        return user.getAuthorityToSet();
     }
 }

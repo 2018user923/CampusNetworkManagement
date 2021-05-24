@@ -1,12 +1,10 @@
 package com.example.demo.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
-import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +19,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 
 @Controller
 @Slf4j
@@ -86,7 +83,7 @@ public class ResponseController {
      */
     @PostMapping("/login")
     public String login(User user, HttpServletRequest request) {
-        if (userService.login(user, request)) {
+        if (userService.loginHandler(user, request)) {
             return "/main";
         } else {
             return "/index";
@@ -98,7 +95,7 @@ public class ResponseController {
      */
     @RequestMapping("/logOut")
     public String logOut(HttpServletRequest request) {
-        userService.logOut(request);
+        userService.logOutHandler(request);
         return "/index";
     }
 

@@ -1,6 +1,9 @@
 package com.example.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.domain.Record;
+import com.example.demo.domain.User;
+import com.example.demo.mapper.RecordMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -28,6 +32,9 @@ public class HttpServiceImpl implements HttpService {
     /*工具类*/
     @Autowired
     private MyUtil myUtil;
+
+    @Autowired
+    private RecordMapper recordDataService;
 
     /**
      * 根据 HttpServletRequest 获取 ipAddress
@@ -81,5 +88,12 @@ public class HttpServiceImpl implements HttpService {
         String ipAddress = httpService.getIpAddress(request);
         cache.hset(EncryptionKey.registerEmail, ipAddress, code, 60);
         return "successed";
+    }
+
+    @Override
+    public List<Record> getRecordsByType(HttpServletRequest request, Integer authority) {
+        String ipAddress = httpService.getIpAddress(request);
+        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        return recordDataService.getRecordsByUserNameAndType(user.getUserName(), authority);
     }
 }

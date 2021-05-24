@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Record;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 public interface HttpService {
@@ -22,4 +24,6 @@ public interface HttpService {
     Map<String, Object> getNetworkTrafficHandler(HttpServletRequest request);
 
     String sendEmailHandler(HttpServletRequest request, String email);
+
+    List<Record> getRecordsByType(HttpServletRequest request, Integer authority);
 }

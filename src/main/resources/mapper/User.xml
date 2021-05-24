@@ -63,7 +63,7 @@
     keyProperty：赋值的对象的属性名称。
     -->
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-        insert into user_table(user_name, pass_word, phone, email, id_card, avatar, balance, type)
-        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{avatar}, #{balance}, #{type});
+        insert into user_table(user_name, pass_word, phone, email, id_card, avatar, balance, type, authority)
+        values (#{userName}, #{passWord}, #{phone}, #{email}, #{idCard}, #{avatar}, #{balance}, #{type}, #{authority});
     </insert>
 </mapper>

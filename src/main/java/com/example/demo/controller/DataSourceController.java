@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Slf4j
 @RestController
@@ -134,5 +135,20 @@ public class DataSourceController {
                 .passWord(map.get("passWord"))
                 .build();
         return userService.userRegisterHandler(request, user, map.get("code")) ? "successed" : "failed";
+    }
+
+    @CrossOrigin
+    @RequestMapping("/getUserAuthorityList")
+    Set<Integer> getUserAuthorityList(HttpServletRequest request) {
+        return userService.getUserAuthorityListHandler(request);
+    }
+
+    /**
+     * 根据响应的权限查询相关的数据
+     */
+    @CrossOrigin
+    @RequestMapping("/getRecords/{authority}")
+    List<Record> getRecordsByType(HttpServletRequest request, @PathVariable("authority") Integer authority) {
+        return httpService.getRecordsByType(request, authority);
     }
 }

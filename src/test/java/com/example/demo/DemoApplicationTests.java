@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
@@ -21,6 +22,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -48,8 +50,12 @@ class DemoApplicationTests {
     @Value("${user.images.default}")
     private String userImagesDefault;
 
-    @Value(("${python.netWorkTraffic}"))
+    @Value("${python.netWorkTraffic}")
     private String netWorkTrafficPath;
+
+
+    @Value("${user.newUserAuthority}")
+    private String newUserAuthority;
 
     @Autowired
     private RedisUtil cache;
@@ -109,7 +115,7 @@ class DemoApplicationTests {
     }
 
     @Test
-    void testRecordForType(){
+    void testRecordForType() {
 
         Record record = new Record();
         record.setUserName("刘备");
