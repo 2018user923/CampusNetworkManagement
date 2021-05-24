@@ -19,7 +19,8 @@
     <select id="getRecordsByUserNameForPages" resultType="Record">
         select *
         from record_table
-        where user_name = #{userName} and type = #{type} limit #{start}
+        where user_name = #{userName}
+          and type = #{type} limit #{start}
             , #{limit}
     </select>
 
@@ -28,6 +29,16 @@
         from record_table
         where user_name = #{userName}
           and type = #{type}
+    </select>
+
+    <select id="getRecordsByUserNameAndTypes" resultType="Record">
+        select *
+        from record_table
+        where user_name = #{userName}
+        and type in
+        <foreach collection="types" item="type" index="index" open="(" close=")" separator=",">
+            #{type}
+        </foreach>
     </select>
 
 

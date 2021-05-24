@@ -25,6 +25,8 @@ public interface UserService {
 
     List<Record> getRecords(HttpServletRequest request, Integer page, Integer size);
 
+    List<Record> getRecords(HttpServletRequest request, Integer page, Integer size, Integer type);
+
     boolean userRegisterHandler(HttpServletRequest request, User user, String code);
 
     Set<Integer> getUserAuthorityListHandler(HttpServletRequest request);

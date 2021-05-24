@@ -38,15 +38,27 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="table-responsive">
-
                             <!--每行数据展示数量-->
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="dataTables_length"><label>
-                                        <select name="dataTables-example_length" class="form-control input-sm"
-                                                @change="selectType">
-                                            <option v-for="authority in authorityList">{{authority}}</option>
-                                        </select>每页数量</label>
+                                    <div class="dataTables_length">
+                                        <label>
+                                            <select class="form-control input-sm"
+                                                    @change="changeLimit">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>每页数量
+                                        </label>
+                                        <label>
+                                            <select class="form-control input-sm"
+                                                    @change="selectType">
+                                                <option v-for="authority in authorityList" :value="authority">
+                                                    {{authorityMap[authority]}}
+                                                </option>
+                                            </select>每页数量
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -55,21 +67,17 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>登录时间</th>
-                                    <th>退出时间</th>
-                                    <th>使用流量</th>
-                                    <th>当前余额</th>
-                                    <th>消费金额</th>
+                                    <th>提交时间</th>
+                                    <th>更新时间</th>
+                                    <th>充值金额</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <!--                                <tr class="odd gradeX" v-for="record in records">-->
-                                <!--                                            <td class="center">{{record.signIn | formDate}}</td>-->
-                                <!--                                            <td class="center">{{record.signOut | formDate}}</td>-->
-                                <!--                                            <td class="center">{{record.costData >> 20}}Mb</td>-->
-                                <!--                                            <td class="center">{{record.balance}}</td>-->
-                                <!--                                            <td class="center">{{record.costMoney}}</td>-->
-                                <!--                                </tr>-->
+                                <tr class="odd gradeX" v-for="record in records">
+                                    <td class="center">{{record.createTime | formDate}}</td>
+                                    <td class="center">{{record.updateTime | formDate}}</td>
+                                    <td class="center">{{record.rechargeAmount}}</td>
+                                </tr>
                             </table>
 
                             <!--翻页 分页操作-->
@@ -86,19 +94,19 @@
                                     <div class="dataTables_paginate paging_simple_numbers"
                                          id="dataTables-example_paginate">
                                         <ul class="pagination">
-                                            <!--                                                    <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"-->
-                                            <!--                                                        @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>-->
-                                            <!--                                                    </li>-->
+                                            <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
+                                                @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>
+                                            </li>
 
-                                            <!--                                                    <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a-->
-                                            <!--                                                            href="#">{{curPage}}</a></li>-->
-                                            <!--                                                    <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a-->
-                                            <!--                                                            href="#">{{curPage + 1}}</a></li>-->
-                                            <!--                                                    <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a-->
-                                            <!--                                                            href="#">{{curPage + 2}}</a></li>-->
+                                            <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a
+                                                    href="#">{{curPage}}</a></li>
+                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a
+                                                    href="#">{{curPage + 1}}</a></li>
+                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a
+                                                    href="#">{{curPage + 2}}</a></li>
 
-                                            <!--                                                    <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"-->
-                                            <!--                                                        @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>-->
+                                            <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"
+                                                @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -125,24 +133,70 @@
     new Vue({
         el: '#main',
         data: {
-            authorityList: null,
-            selectAuthority: 0
+            authorityList: [],
+            selectAuthority: 1,
+            records: [],
+            limit: 10,
+            curPage: 1,
+            authorityMap: {
+                0: '消费记录',
+                1: '提交充值申请',
+                2: '充值申请取消',
+                3: '充值申请通过',
+                4: '充值申请驳回',
+                5: '充值申请'
+            }
         },
         methods: {
             getUserAuthorityList() {
-                axios.get('http://localhost:8080/getUserAuthorityList').then(rep => {
-                    this.authorityList = rep.data
+                this.authorityList = [1, 2, 3, 4]
+                // axios.get('http://localhost:8080/getUserAuthorityList').then(rep => {
+                //     this.authorityList = rep.data
+                // }).catch(err => {
+                //     alert(err)
+                // })
+            },
+            selectType(event) {
+                if (event) {
+                    this.selectAuthority = event.target.value
+                }
+                axios.get('http://localhost:8080/getRecords/' + this.selectAuthority).then(rep => {
+                    console.log(rep.data)
+                    this.records = rep.data
                 }).catch(err => {
                     alert(err)
                 })
             },
-            selectType(event) {
-                this.selectAuthority = event.target.value
-                console.log(this.selectAuthority);
+            getRecordsForPage(index) {
+                let tmpIndex = index || this.curPage
+                axios.get('http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit + '/' + this.selectAuthority).then(rep => {
+                    if (rep.data.length === 0) {
+                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
+                    } else {
+                        this.records = rep.data
+                        this.curPage = tmpIndex
+                        console.log('length :' + this.records.length)
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            changeLimit(event) {
+                this.limit = event.target.value
+                this.getRecordsForPage(1)
             }
         },
         mounted() {
             this.getUserAuthorityList()
+            this.getRecordsForPage()
+        },
+        filters: {
+            formDate(time) {
+                if (time == null) {
+                    return '尚未更新'
+                }
+                return moment(time).format('YYYY-MM-DD HH:MM:SS')
+            }
         }
     })
 </script>

@@ -166,6 +166,12 @@ public class UserServiceImpl implements UserService {
         return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, RecordTypeEnum.userExpenses.getVal());
     }
 
+    @Override
+    public List<Record> getRecords(HttpServletRequest request, Integer page, Integer size, Integer type) {
+        User user = getUserInfoHandler(request);
+        return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, type);
+    }
+
     /**
      * 处理用户注册
      */

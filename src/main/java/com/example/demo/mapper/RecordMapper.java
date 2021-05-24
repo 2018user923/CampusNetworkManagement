@@ -34,6 +34,11 @@ public interface RecordMapper {
     List<Record> getRecordsByUserNameAndType(String userName, Integer type);
 
     /**
+     * 根据 userName 和 type 集合来查找记录
+     */
+    List<Record> getRecordsByUserNameAndTypes(String userName, List<Integer> types);
+
+    /**
      * 更新 record ,如果更新成功返回 1 ，否则返回 0
      */
     int updateRecordById(Integer id);

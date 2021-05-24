@@ -20,6 +20,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -122,8 +123,7 @@ class DemoApplicationTests {
         record.setType(1);
         recordMapper.insertRecord(record);
 
-
-        List<Record> records = recordMapper.getRecordsByUserNameAndType("刘备", 1);
+        List<Record> records = recordMapper.getRecordsByUserNameAndTypes("刘备", Arrays.asList(0, 1));
         records.forEach(System.out::println);
     }
 }
