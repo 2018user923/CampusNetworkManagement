@@ -1,180 +1,449 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content=""/>
-    <script type="application/x-javascript"> addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    } </script>
-
-    <link th:href="@{/index/css/popuo-box.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{/index/css/style.css}" rel="stylesheet" type="text/css" media="all"/><!--style_sheet-->
-    <link rel="stylesheet" th:href="@{/index/css/flexslider.css}" type="text/css" media="screen" property=""/>
-    <link rel="stylesheet" th:href="@{/index/css/font-awesome.css}"> <!-- Font-Awesome_Icons-CSS -->
+    <title>登录</title>
+    <link th:href="@{/index/css/login.css}" rel="stylesheet" type="text/css" media="all"/>
+    <script th:src="@{/index/js/jquery-2.1.4.min.js}"></script>
+    <script th:src="@{/index/js/jquery.SuperSlide.js}"></script>
+    <script th:src="@{/index/js/Validform_v5.3.2_min.js}"></script>
     <script th:src="@{/vueResources/tools/axios.js}"></script>
     <script th:src="@{/vueResources/tools/vue.js}"></script>
+    <script>
+        $(document).ready(function () {
+            var $tab_li = $('#tab ul li');
+            $tab_li.hover(function () {
+                $(this).addClass('selected').siblings().removeClass('selected');
+                var index = $tab_li.index(this);
+                $('div.tab_box > div').eq(index).show().siblings().hide();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            /*学生登录信息验证*/
+            $("#stu_username_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入学号') {
+                    $(this).val('');
+                }
+            });
+            $("#stu_username_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入学号');
+                }
+            });
+            $("#stu_password_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入密码') {
+                    $(this).val('');
+                }
+            });
+            $("#stu_password_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入密码');
+                }
+            });
+            $("#stu_code_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入验证码') {
+                    $(this).val('');
+                }
+            });
+            $("#stu_code_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入验证码');
+                }
+            });
+            $(".stu_login_error").Validform({
+                tiptype: function (msg, o, cssctl) {
+                    var objtip = $(".stu_error_box");
+                    cssctl(objtip, o.type);
+                    objtip.text(msg);
+                },
+                ajaxPost: true
+            });
+
+            /*导师登录信息验证*/
+            $("#tea_username_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入教工号') {
+                    $(this).val('');
+                }
+            });
+            $("#tea_username_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入教工号');
+                }
+            });
+            $("#tea_password_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入密码') {
+                    $(this).val('');
+                }
+            });
+            $("#tea_password_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入密码');
+                }
+            });
+            $("#tea_code_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入验证码') {
+                    $(this).val('');
+                }
+            });
+            $("#tea_code_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入验证码');
+                }
+            });
+            $(".tea_login_error").Validform({
+                tiptype: function (msg, o, cssctl) {
+                    var objtip = $(".tea_error_box");
+                    cssctl(objtip, o.type);
+                    objtip.text(msg);
+                },
+                ajaxPost: true
+            });
+
+            /*教务登录信息验证*/
+            $("#sec_username_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入教务号') {
+                    $(this).val('');
+                }
+            });
+            $("#sec_username_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入教务号');
+                }
+            });
+            $("#sec_password_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入密码') {
+                    $(this).val('');
+                }
+            });
+            $("#sec_password_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入密码');
+                }
+            });
+            $("#sec_code_hide").focus(function () {
+                var username = $(this).val();
+                if (username == '输入验证码') {
+                    $(this).val('');
+                }
+            });
+            $("#sec_code_hide").focusout(function () {
+                var username = $(this).val();
+                if (username == '') {
+                    $(this).val('输入验证码');
+                }
+            });
+            $(".sec_login_error").Validform({
+                tiptype: function (msg, o, cssctl) {
+                    var objtip = $(".sec_error_box");
+                    cssctl(objtip, o.type);
+                    objtip.text(msg);
+                },
+                ajaxPost: true
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $(".screenbg ul li").each(function () {
+                $(this).css("opacity", "0");
+            });
+            $(".screenbg ul li:first").css("opacity", "1");
+            var index = 0;
+            var t;
+            var li = $(".screenbg ul li");
+            var number = li.size();
+
+            function change(index) {
+                li.css("visibility", "visible");
+                li.eq(index).siblings().animate({opacity: 0}, 3000);
+                li.eq(index).animate({opacity: 1}, 3000);
+            }
+
+            function show() {
+                index = index + 1;
+                if (index <= number - 1) {
+                    change(index);
+                } else {
+                    index = 0;
+                    change(index);
+                }
+            }
+
+            t = setInterval(show, 8000);
+            //根据窗口宽度生成图片宽度
+            var width = $(window).width();
+            $(".screenbg ul img").css("width", width + "px");
+        });
+    </script>
 </head>
+
 <body>
-<div class="w3l-head">
-    <h1>校园网管理系统</h1>
-</div>
-<div class="w3l-main">
-    <div class="w3l-left-side">
+<div id="tab">
+    <ul class="tab_menu">
+        <li class="selected">学生登录</li>
+        <li class="">邮箱登录</li>
+        <li class="">注册账户</li>
+    </ul>
+    <div class="tab_box">
 
-        <div class="flexslider">
-            <ul class="slides">
-                <li>
-                    <img th:src="@{/index/images/g5.jpg}" alt="image"/>
-                </li>
-                <li>
-                    <img th:src="@{/index/images/g2.jpg}" alt="image"/>
-                </li>
-                <li>
-                    <img th:src="@{/index/images/g3.jpg}" alt="image"/>
-                </li>
-                <li>
-                    <img th:src="@{/index/images/g4.jpg}" alt="image"/>
-                </li>
-                <li>
-                    <img th:src="@{/index/images/g1.jpg}" alt="image"/>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="w3l-rigt-side">
-        <form action="#" method="post">
-            <div class="w3l-signin">
-                <a class="w3_play_icon1" href="#small-dialog1">登录</a>
-            </div>
-            <div class="w3l-signup">
-                <a class="w3_play_icon1" href="#small-dialog2">注册</a>
-            </div>
-            <div class="clear"></div>
-        </form>
-    </div>
-
-    <div class="clear"></div>
-</div>
-
-<!--sign in form -->
-<div id="small-dialog1" class="mfp-hide">
-    <div class="wthree-container">
-        <div class="wthree-form">
-            <div class="agileits-2">
-                <h2>登录</h2>
-            </div>
+        <!-- 学生登录开始 -->
+        <div style="display: block;" id="studentLogin">
+            <p v-show="isShow">{{errorText}}</p>
             <form action="/login" method="post">
-                <div class="w3-user">
-                    <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
-                    <input type="text" name="userName" placeholder="用户名" required="" id="login_userName">
+                <div>
+                    <label>用户名：</label>
+                    <input type="text" placeholder="输入用户名" v-model="userName">
                 </div>
-                <div class="clear"></div>
-                <div class="w3-psw">
-                    <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                    <input type="password" name="passWord" placeholder="密码" required="">
+                <div>
+                    <label>密&nbsp;&nbsp;&nbsp;码：</label>
+                    <input type="password" placeholder="输入密码" v-model="passWord">
                 </div>
-                <div class="clear"></div>
-                <div class="signin">
-                    <input type="submit" value="登录">
+                <div>
+                    <button type="submit" @click.prevent="userLogin">登录</button>
                 </div>
-                <div class="clear"></div>
             </form>
         </div>
-    </div>
-</div>
-<!--sign up form -->
-<div id="small-dialog2" class="mfp-hide">
-    <div class="wthree-container">
-        <div class="wthree-form bg">
-            <div class="agileits-2">
-                <h2>注册</h2>
-            </div>
-            <form action="/register" method="post" id="registerSubmit">
-                <div class="w3-user">
-                    <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
-                    <input type="text" placeholder="用户名" v-model="userName"/>
+        <!-- 学生登录结束-->
+
+        <!--邮箱登录开始-->
+        <div class="hide" style="display: none;" id="emailLogin">
+            <p v-show="isShow">{{errorText}}</p>
+            <form action="/" method="post">
+                <div>
+                    <label>邮&nbsp;&nbsp;箱：</label>
+                    <input type="text" name="username" datatype="s6-18" placeholder="输入邮箱地址" v-model="email"
+                           @blur="emailBlur"/>
                 </div>
-                <div class="clear"></div>
-                <div class="w3-email">
-                    <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <input type="email" placeholder="邮箱" v-model="email"/>
+                <div>
+                    <label>验证码：</label>
+                    <input type="text" name="code" datatype="*4-4" placeholder="输入邮箱验证码" v-model="emailCode"
+                           @blur="emailCodeBlur"/>
                 </div>
-                <div class="clear"></div>
-                <div class="w3-psw">
-                    <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                    <input type="password" placeholder="密码" v-model="passWord">
-                </div>
-                <div class="clear"></div>
                 <div>
                     <button @click.prevent="verifyMailbox" :disabled=disabledFlag>{{text}}</button>
-                    <input style="width:160px" type="text" placeholder="请输入邮箱验证码" v-model="emailCode"/>
+                    <button type="submit" @click.prevent="emailLogin">登录</button>
                 </div>
-                <input type="submit" value="注册" @click.prevent="userRegister"/>
-                <div class="clear"></div>
             </form>
         </div>
+        <!-- 邮箱登录结束-->
+
+        <!-- 注册账户开始-->
+        <div class="hide" style="display: none;" id="userRegister">
+            <p v-show="isShow">{{errorText}}</p>
+            <form action="/" method="post">
+                <div>
+                    <label>用户名：</label>
+                    <input type="text" placeholder="输入用户名" v-model="userName">
+                </div>
+                <div>
+                    <label>密&nbsp;&nbsp;&nbsp;码：</label>
+                    <input type="password" placeholder="输入密码" v-model="passWord">
+                </div>
+                <div>
+                    <label>邮&nbsp;&nbsp;箱：</label>
+                    <input type="text" name="username" datatype="s6-18" placeholder="输入邮箱地址" v-model="email"
+                           @blur="emailBlur"/>
+                </div>
+                <div>
+                    <label>验证码：</label>
+                    <input type="text" name="code" datatype="*4-4" placeholder="输入邮箱验证码" v-model="emailCode"
+                           @blur="emailCodeBlur"/>
+                </div>
+                <div>
+                    <button @click.prevent="verifyMailbox" :disabled=disabledFlag>{{text}}</button>
+                    <button type="submit" @click.prevent="userRegister">登录</button>
+                </div>
+            </form>
+        </div>
+        <!--注册账户结束-->
+
     </div>
 </div>
-
-<script type="text/javascript" th:src="@{/index/js/jquery-2.1.4.min.js}"></script>
-
-<script th:src="@{/index/js/jquery.magnific-popup.js}" type="text/javascript"></script>
-
-<script>
-    $(document).ready(function () {
-        $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
-            type: 'inline',
-            fixedContentPos: false,
-            fixedBgPos: true,
-            overflowY: 'auto',
-            closeBtnInside: true,
-            preloader: false,
-            midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-zoom-in'
-        });
-    });
-</script>
-
-<!-- flexSlider -->
-<script defer th:src="@{/index/js/jquery.flexslider.js}"></script>
-<script type="text/javascript">
-    $(window).load(function () {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-</script>
+<div class="screenbg">
+    <ul>
+        <li style="opacity: 0; visibility: visible;">
+            <a href="javascript:">
+                <img th:src="@{/index/images/a0.jpg}" style="width: 1406px;">
+            </a>
+        </li>
+        <li style="opacity: 1; visibility: visible;">
+            <a href="javascript:">
+                <img th:src="@{/index/images/a1.jpg}" style="width: 1406px;">
+            </a>
+        </li>
+        <li style="opacity: 0; visibility: visible;"><a href="javascript:">
+            <img th:src="@{/index/images/a2.jpg}" style="width: 1406px;">
+        </a>
+        </li>
+    </ul>
+</div>
 
 <script>
     new Vue({
-        el: '#registerSubmit',
+        el: '#emailLogin',
         data: {
             disabledFlag: false,
             text: '点击发送验证码',
             t: null,
             defaultTime: 60,
+            email: null,
+            emailCode: null,
+            isShow: false,
+            errorText: null
+        },
+        methods: {
+            emailBlur() {
+                let regex = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+                if (!regex.test(this.email)) {
+                    this.errorText = '邮箱格式不正确！'
+                    this.isShow = true
+                } else {
+                    this.isShow = false
+                }
+            },
+            emailCodeBlur() {
+                let regex = /^\d{6}$/;
+                if (!regex.test(this.emailCode)) {
+                    this.errorText = '验证码格式不正确！'
+                    this.isShow = true
+                } else {
+                    this.isShow = false
+                }
+            },
+            verifyMailbox() {
+                //发送邮件之前先验证邮箱
+                this.emailBlur()
+                if (this.isShow) return null
+                let param = {
+                    'email': this.email,
+                }
+                axios.post('http://localhost:8080/login/sendEmail', param).then(rep => {
+                    if (rep.data !== 'successed') {
+                        return null
+                    }
+                    this.t = this.defaultTime
+                    this.disabledFlag = true
+                    let timer = setInterval(() => {
+                        --this.t
+                        if (this.t === 0) {
+                            clearInterval(timer)
+                            this.text = '点击发送验证码'
+                            this.disabledFlag = false
+                        } else {
+                            this.text = this.t + 's后再次尝试'
+                        }
+                    }, 1000);
+                }).catch(error => {
+                    alert(error)
+                })
+            },
+            emailLogin() {
+                //登录提交之前验证邮箱和验证码
+                this.emailBlur()
+                this.emailCodeBlur()
+                if (this.isShow) return null
+                let param = {
+                    'email': this.email,
+                    'code': this.emailCode
+                }
+                axios.post('http://localhost:8080/login/emailLogin', param).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data !== 'successed') {
+                        alert(rep.data)
+                    }
+                    window.location.replace('http://localhost:8080/main')
+                }).catch(error => {
+                    alert(error)
+                })
+            }
+        }
+    })
+
+    new Vue({
+        el: '#studentLogin',
+        data: {
+            isShow: false,
+            errorText: null,
+            userName: null,
+            passWord: null
+        },
+        methods: {
+            userLogin() {
+                let params = {'userName': this.userName, 'passWord': this.passWord}
+                axios.post('http://localhost:8080/login/userLogin', params).then(rep => {
+                    let code = rep.data.code
+                    if (code !== 200) {
+                        this.errorText = rep.data.error.message
+                        this.isShow = true
+                    } else {
+                        let url = rep.data.success.url
+                        window.location.replace(url)
+                    }
+                }).catch(error => {
+                    alert(error)
+                })
+            }
+        }
+    })
+
+    new Vue({
+        el: '#userRegister',
+        data: {
+            disabledFlag: false,
+            t: null,
+            defaultTime: 60,
+            emailCode: null,
+            isShow: false,
+            errorText: null,
             userName: null,
             email: null,
             passWord: null,
-            emailCode: null
+            text: '点击发送验证码'
         },
         methods: {
-            //验证邮箱
+            emailBlur() {
+                let regex = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+                if (!regex.test(this.email)) {
+                    this.errorText = '邮箱格式不正确！'
+                    this.isShow = true
+                } else {
+                    this.isShow = false
+                }
+            },
+            emailCodeBlur() {
+                let regex = /^\d{6}$/;
+                if (!regex.test(this.emailCode)) {
+                    this.errorText = '验证码格式不正确！'
+                    this.isShow = true
+                } else {
+                    this.isShow = false
+                }
+            },
             verifyMailbox() {
+                //发送邮件之前先验证邮箱
+                this.emailBlur()
+                if (this.isShow) return null
                 let param = {
                     'email': this.email,
-                    'userName': this.userName,
-                    'passWord': this.passWord
                 }
                 axios.post('http://localhost:8080/register/sendEmail', param).then(rep => {
                     if (rep.data !== 'successed') {
@@ -196,24 +465,33 @@
                     alert(error)
                 })
             },
-            userRegister() {
-                let param = {
+            userRegister(){
+                //登录提交之前验证邮箱和验证码
+                this.emailBlur()
+                this.emailCodeBlur()
+                if (this.isShow) return null
+                let params = {
                     'email': this.email,
+                    'code': this.emailCode,
                     'userName': this.userName,
-                    'passWord': this.passWord,
-                    'code': this.emailCode
+                    'passWord':this.passWord
                 }
-                axios.post('http://localhost:8080/register', param).then(rep => {
-                    if (rep.data !== 'successed') {
-                        alert(rep.data)
+                axios.post('http://localhost:8080/register/userRegister', params).then(rep => {
+                    let code = rep.data.code
+                    if (code !== 200) {
+                        this.errorText = rep.data.error.message
+                        this.isShow = true
+                    } else {
+                        let url = rep.data.success.url
+                        window.location.replace(url)
                     }
-                    window.location.replace('http://localhost:8080/main')
                 }).catch(error => {
                     alert(error)
                 })
             }
         }
     })
+
 </script>
 
 
