@@ -246,36 +246,35 @@
         </div>
         <!-- 邮箱登录结束-->
 
-        <!-- 教务登录开始-->
-        <div class="hide" style="display: none;">
-            <div class="sec_error_box"></div>
-            <form action="http://v.bootstrapmb.com/2021/2/h48ua9700/" method="post" class="sec_login_error">
+        <!-- 注册账户开始-->
+        <div class="hide" style="display: none;" id="userRegister">
+            <p v-show="isShow">{{errorText}}</p>
+            <form action="/" method="post">
                 <div>
-                    <label>教务号：</label>
-                    <input type="text" id="sec_username_hide" name="username" value="输入教务号" nullmsg="教务号不能为空！"
-                           datatype="s6-18" errormsg="教务号范围在6~18个字符之间！" sucmsg="教务号验证通过！">
-                    <!--ajaxurl="demo/valid.jsp"-->
+                    <label>学&nbsp;&nbsp;&nbsp;号：</label>
+                    <input type="text" placeholder="输入学号" v-model="userName">
                 </div>
                 <div>
                     <label>密&nbsp;&nbsp;&nbsp;码：</label>
-                    <input type="password" id="sec_password_hide" name="password" value="输入密码" nullmsg="密码不能为空！"
-                           datatype="*6-16" errormsg="密码范围在6~16位之间！" sucmsg="密码验证通过！">
+                    <input type="password" placeholder="输入密码" v-model="passWord">
+                </div>
+                <div>
+                    <label>邮&nbsp;&nbsp;箱：</label>
+                    <input type="text" name="username" datatype="s6-18" placeholder="输入邮箱地址" v-model="email"
+                           @blur="emailBlur"/>
                 </div>
                 <div>
                     <label>验证码：</label>
-                    <input type="text" id="sec_code_hide" name="code" value="输入验证码" nullmsg="验证码不能为空！" datatype="*4-4"
-                           errormsg="验证码有4位数！" sucmsg="验证码验证通过！">
-                    <img th:src="@{/index/images/captcha.jpg}" title="点击更换" alt="验证码占位图"></div>
-                <div>
-                    <input type="checkbox" name="remember">
-                    <label>记住密码</label>
+                    <input type="text" name="code" datatype="*4-4" placeholder="输入邮箱验证码" v-model="emailCode"
+                           @blur="emailCodeBlur"/>
                 </div>
                 <div>
-                    <button type="submit">登录</button>
+                    <button @click.prevent="verifyMailbox" :disabled=disabledFlag>{{text}}</button>
+                    <button type="submit" @click.prevent="userRegister">登录</button>
                 </div>
             </form>
         </div>
-        <!-- 教务登录结束-->
+        <!--注册账户结束-->
 
     </div>
 </div>
@@ -391,6 +390,93 @@
             userLogin() {
                 let params = {'userName': this.userName, 'passWord': this.passWord}
                 axios.post('http://localhost:8080/login/userLogin', params).then(rep => {
+                    let code = rep.data.code
+                    if (code !== 200) {
+                        this.errorText = rep.data.error.message
+                        this.isShow = true
+                    } else {
+                        let url = rep.data.success.url
+                        window.location.replace(url)
+                    }
+                }).catch(error => {
+                    alert(error)
+                })
+            }
+        }
+    })
+
+    new Vue({
+        el: '#userRegister',
+        data: {
+            disabledFlag: false,
+            t: null,
+            defaultTime: 60,
+            emailCode: null,
+            isShow: false,
+            errorText: null,
+            userName: null,
+            email: null,
+            passWord: null,
+            text: '点击发送验证码'
+        },
+        methods: {
+            emailBlur() {
+                let regex = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+                if (!regex.test(this.email)) {
+                    this.errorText = '邮箱格式不正确！'
+                    this.isShow = true
+                } else {
+                    this.isShow = false
+                }
+            },
+            emailCodeBlur() {
+                let regex = /^\d{6}$/;
+                if (!regex.test(this.emailCode)) {
+                    this.errorText = '验证码格式不正确！'
+                    this.isShow = true
+                } else {
+                    this.isShow = false
+                }
+            },
+            verifyMailbox() {
+                //发送邮件之前先验证邮箱
+                this.emailBlur()
+                if (this.isShow) return null
+                let param = {
+                    'email': this.email,
+                }
+                axios.post('http://localhost:8080/register/sendEmail', param).then(rep => {
+                    if (rep.data !== 'successed') {
+                        return null
+                    }
+                    this.t = this.defaultTime
+                    this.disabledFlag = true
+                    let timer = setInterval(() => {
+                        --this.t
+                        if (this.t === 0) {
+                            clearInterval(timer)
+                            this.text = '点击发送验证码'
+                            this.disabledFlag = false
+                        } else {
+                            this.text = this.t + 's后再次尝试'
+                        }
+                    }, 1000);
+                }).catch(error => {
+                    alert(error)
+                })
+            },
+            userRegister(){
+                //登录提交之前验证邮箱和验证码
+                this.emailBlur()
+                this.emailCodeBlur()
+                if (this.isShow) return null
+                let params = {
+                    'email': this.email,
+                    'code': this.emailCode,
+                    'userName': this.userName,
+                    'passWord':this.passWord
+                }
+                axios.post('http://localhost:8080/register/userRegister', params).then(rep => {
                     let code = rep.data.code
                     if (code !== 200) {
                         this.errorText = rep.data.error.message

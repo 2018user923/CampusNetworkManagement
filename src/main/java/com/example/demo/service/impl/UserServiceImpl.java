@@ -204,7 +204,7 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
-        //未该用户添加权限
+        //为该用户添加权限
         user.setAuthority(newUserAuthority);
 
         //注册用户成功过，插入数据。
@@ -261,5 +261,31 @@ public class UserServiceImpl implements UserService {
             res.setSuccess(success);
         }
         return res;
+    }
+
+    @Override
+    public ResultResponse userRegister(HttpServletRequest request, User user, String code) {
+        //用户名已经存在，这里后续可以优化
+        if (userDataService.getUserByUserName(user.getUserName()) != null) {
+            return ResultResponse.createError(-1, "用户名已经存在！");
+        }
+
+        //校验邮箱验证码
+        String ipAddress = httpService.getIpAddress(request);
+        String emailCode = (String) cache.hget(EncryptionKey.registerEmail, ipAddress);
+        //验证码不正确
+        if (emailCode == null || !emailCode.equals(code)) {
+            return ResultResponse.createError(-1, "邮箱验证码已过期！");
+        }
+
+        //为该用户添加权限
+        user.setAuthority(newUserAuthority);
+
+        //注册用户成功过，插入数据。
+        int primaryKey = userDataService.insertUser(user);
+        user.setId(primaryKey);
+
+        //返回登录处理结果。
+        return loginUserLoginHandler(request, user);
     }
 }

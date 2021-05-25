@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public interface UserService {
@@ -36,4 +37,6 @@ public interface UserService {
     Set<Integer> getUserAuthorityListHandler(HttpServletRequest request);
 
     ResultResponse loginUserLoginHandler(HttpServletRequest request, @RequestBody User user);
+
+    ResultResponse userRegister(HttpServletRequest request, User user, String coe);
 }

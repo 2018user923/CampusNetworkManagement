@@ -192,4 +192,16 @@ public class DataSourceController {
     ResultResponse loginUserLogin(HttpServletRequest request, @RequestBody User user) {
         return userService.loginUserLoginHandler(request, user);
     }
+
+    @CrossOrigin
+    @RequestMapping("/register/userRegister")
+    ResultResponse userRegister(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        User user = User.builder()
+                .userName(map.get("userName"))
+                .passWord(map.get("passWord"))
+                .email(map.get("email"))
+                .build();
+        String code = map.get("code");
+        return userService.userRegister(request, user, code);
+    }
 }
