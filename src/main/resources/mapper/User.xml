@@ -56,6 +56,11 @@
         where user_name = #{userName}
     </delete>
 
+    <select id="getUserByEmail" resultType="User">
+        select *
+        from user_table
+        where email = #{email}
+    </select>
     <!--
      useGeneratedKeys="true" ：设置是否使用baiJDBC的getGenereatedKeys方法获取主键并赋值到keyProperty设置的领域模型属性中。
     （适用于mysql、sqlserver数据库，oracle不能使用，使用selectkey子节点做）

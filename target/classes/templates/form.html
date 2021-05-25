@@ -302,7 +302,6 @@
                 let regx = /^\+?[1-9][0-9]*$/
                 if (regx.test(this.rechargeAmount) && this.rechargeAmount > 0) {
                     let params = {'rechargeAmount': this.rechargeAmount}
-                    console.log(params)
                     axios.post('http://localhost:8080/userRechargeSubmit', params).then(rep => {
                         console.log(rep.data)
                         if (rep.data === 'successed') {

@@ -45,6 +45,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/tab").setViewName("tab");
         registry.addViewController("/ui").setViewName("ui");
+        registry.addViewController("/h48ua9700").setViewName("h48ua9700");
     }
 
     @Bean("random")
@@ -109,11 +110,13 @@ public class MyMvcConfig implements WebMvcConfigurer {
             }
         }).addPathPatterns("/**").excludePathPatterns(
                 "/index",
+                "/h48ua9700",
                 "/index/**",
                 "/assets/**",
                 "/login",
                 "/register",
                 "/register/**",
+                "/login/**",
                 "/vueResources/**",
                 "/test/**"
         );

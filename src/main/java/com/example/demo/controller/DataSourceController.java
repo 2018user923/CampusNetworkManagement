@@ -8,6 +8,7 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
+import com.example.demo.util.ResultResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -130,11 +131,22 @@ public class DataSourceController {
     }
 
 
-    //邮箱发送验证码
+    /**
+     * 注册账户邮箱发送验证码
+     */
     @CrossOrigin
     @RequestMapping("/register/sendEmail")
-    String sendEmail(HttpServletRequest request, @RequestBody Map<String, String> map) {
-        return httpService.sendEmailHandler(request, map.get("email"));
+    String registerSendEmail(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        return httpService.registerSendEmail(request, map.get("email"));
+    }
+
+    /**
+     * 登录账户邮箱发送验证码
+     */
+    @CrossOrigin
+    @RequestMapping("/login/sendEmail")
+    String loginSendEmail(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        return httpService.loginSendEmail(request, map.get("email"));
     }
 
     @CrossOrigin
@@ -161,5 +173,23 @@ public class DataSourceController {
     @RequestMapping("/getRecords/{authority}")
     List<Record> getRecordsByType(HttpServletRequest request, @PathVariable("authority") Integer authority) {
         return httpService.getRecordsByType(request, authority);
+    }
+
+    /**
+     * 使用邮箱登录
+     */
+    @CrossOrigin
+    @RequestMapping("/login/emailLogin")
+    String loginEmailLogin(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        return userService.loginByEmailHandler(request, map.get("email"), map.get("code")) ? "successed" : "failed";
+    }
+
+    /**
+     * 正常登录
+     */
+    @CrossOrigin
+    @RequestMapping("/login/userLogin")
+    ResultResponse loginUserLogin(HttpServletRequest request, @RequestBody User user) {
+        return userService.loginUserLoginHandler(request, user);
     }
 }

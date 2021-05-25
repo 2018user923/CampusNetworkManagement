@@ -9,10 +9,7 @@ import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
-import com.example.demo.util.EncryptionKey;
-import com.example.demo.util.MyUtil;
-import com.example.demo.util.RecordTypeEnum;
-import com.example.demo.util.RedisUtil;
+import com.example.demo.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,9 +44,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private HttpService httpService;
-
-    @Autowired
-    private UserService userService;
 
     @Value("${user.newUserAuthority}")
     private String newUserAuthority;
@@ -107,6 +101,27 @@ public class UserServiceImpl implements UserService {
         cache.hdel(EncryptionKey.netData, ipAddress);
         cache.hdel(EncryptionKey.userLoginInfo, ipAddress);
         return true;
+    }
+
+    @Override
+    public boolean loginByEmailHandler(HttpServletRequest request, String email, String code) {
+        User user = userDataService.getUserByEmail(email);
+        //数据库中没有查询到这个用户
+        if (user == null) {
+            return false;
+        }
+
+        //校验邮箱验证码
+        String ipAddress = httpService.getIpAddress(request);
+        String emailCode = (String) cache.hget(EncryptionKey.loginEmail, ipAddress);
+
+        //验证码不正确
+        if (emailCode == null || !emailCode.equals(code)) {
+            return false;
+        }
+
+        //注册用户登录
+        return loginHandler(user, request);
     }
 
     /**
@@ -197,7 +212,7 @@ public class UserServiceImpl implements UserService {
         user.setId(primaryKey);
 
         //注册用户登录
-        return userService.loginHandler(user, request);
+        return loginHandler(user, request);
     }
 
     /**
@@ -208,5 +223,43 @@ public class UserServiceImpl implements UserService {
         String ipAddress = httpService.getIpAddress(request);
         User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
         return user.getAuthorityToSet();
+    }
+
+    @Override
+    public ResultResponse loginUserLoginHandler(HttpServletRequest request, User user) {
+        ResultResponse res = new ResultResponse();
+
+        String userName = user.getUserName(), passWord = user.getPassWord();
+
+        //todo 中级步骤需要校验是否登录成功,待编写。
+        user = userDataService.getUserByUserName(userName);
+
+        if (user == null) {
+            return ResultResponse.createError(-1, "用户名不存在!");
+        } else if (!user.getPassWord().equals(passWord)) {
+            return ResultResponse.createError(-1, "密码错误!");
+        }
+        //将用户的权限转化为 set 集合类型
+        user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
+        }));
+
+        //将ip 地址作为key，将流量数据及其对象信息存入缓存,
+        String ipAddress = httpService.getIpAddress(request);
+        JSONObject netInfo = myUtil.getNetInfo();
+        netInfo.put("signIn", new Date());
+        boolean save = cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
+        if (!save) {
+            ResultResponse.createError(-1, "内部错误，数据存入缓存异常!");
+        } else {
+            //登录成功
+            res.setCode(200);
+            ResultResponse.Success success = new ResultResponse.Success();
+
+            //设置成功之后的跳转页面
+            success.setUrl("http://localhost:8080/form");
+
+            res.setSuccess(success);
+        }
+        return res;
     }
 }

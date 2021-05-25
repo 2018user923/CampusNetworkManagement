@@ -23,7 +23,9 @@ public interface HttpService {
 
     Map<String, Object> getNetworkTrafficHandler(HttpServletRequest request);
 
-    String sendEmailHandler(HttpServletRequest request, String email);
+    String registerSendEmail(HttpServletRequest request, String email);
+
+    String loginSendEmail(HttpServletRequest request, String email);
 
     List<Record> getRecordsByType(HttpServletRequest request, Integer authority);
 }

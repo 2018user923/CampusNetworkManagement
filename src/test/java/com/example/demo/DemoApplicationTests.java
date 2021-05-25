@@ -108,6 +108,8 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForPages() {
+        User user = userMapper.getUserByEmail("2115839526@qq.com");
+        System.out.println(user);
 //        User user = userMapper.getUserByUserName("刘备");
 //        List<Record> records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 0, 10);
 //        records.forEach(System.out::println);

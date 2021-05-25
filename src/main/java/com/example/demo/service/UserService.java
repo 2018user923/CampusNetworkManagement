@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
+import com.example.demo.util.ResultResponse;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,8 @@ public interface UserService {
     boolean loginHandler(User user, HttpServletRequest request);
 
     boolean logOutHandler(HttpServletRequest request);
+
+    boolean loginByEmailHandler(HttpServletRequest request, String email, String code);
 
     ModelAndView form(HttpServletRequest request);
 
@@ -30,4 +34,6 @@ public interface UserService {
     boolean userRegisterHandler(HttpServletRequest request, User user, String code);
 
     Set<Integer> getUserAuthorityListHandler(HttpServletRequest request);
+
+    ResultResponse loginUserLoginHandler(HttpServletRequest request, @RequestBody User user);
 }

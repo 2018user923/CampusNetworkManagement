@@ -83,10 +83,18 @@ public class HttpServiceImpl implements HttpService {
     }
 
     @Override
-    public String sendEmailHandler(HttpServletRequest request, String email) {
+    public String registerSendEmail(HttpServletRequest request, String email) {
         String code = myUtil.sendMail(email, "注册账户验证码");
         String ipAddress = httpService.getIpAddress(request);
         cache.hset(EncryptionKey.registerEmail, ipAddress, code, 60);
+        return "successed";
+    }
+
+    @Override
+    public String loginSendEmail(HttpServletRequest request, String email) {
+        String code = myUtil.sendMail(email, "登录账户验证码");
+        String ipAddress = httpService.getIpAddress(request);
+        cache.hset(EncryptionKey.loginEmail, ipAddress, code, 60);
         return "successed";
     }
 

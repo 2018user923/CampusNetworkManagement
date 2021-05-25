@@ -14,6 +14,8 @@ public interface UserMapper {
     /*根据用户名查询User*/
     User getUserByUserName(String userName);
 
+    User getUserByEmail(String email);
+
     /**
      * @return 如果更新成功返回 1 ，否则返回 0
      */
