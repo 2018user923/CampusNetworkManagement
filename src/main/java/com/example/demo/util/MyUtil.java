@@ -13,9 +13,11 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Random;
 
 @Component
@@ -81,12 +83,17 @@ public class MyUtil {
     /**
      * 计算 2 段时间之间的花费。
      */
-    public double calcSpend(String signIn, String signOut) {
-        // difference 的单位是毫秒, 差值
-        long difference = stringTimeToTimeMillis(signOut) - stringTimeToTimeMillis(signIn);
-        double spend = difference * 1.0 / 1000 / 3600 * proportion;
+    public BigDecimal calcSpend(Date signIn, Date signOut) {
+        double spend = calcMinute(signIn, signOut) / 60.0 * proportion * 100;
+        BigDecimal res = new BigDecimal(spend);
         log.info(signIn + " ----> " + signOut + "花费的金额为 :" + spend);
-        return spend;
+        return res;
+    }
+
+    public Long calcMinute(Date signIn, Date signOut) {
+        // difference 的单位是毫秒, 差值
+        long difference = signOut.getTime() - signIn.getTime();
+        return difference / 6000;
     }
 
     /**

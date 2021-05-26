@@ -7,6 +7,7 @@ import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
+import com.example.demo.util.ResultResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -95,8 +96,8 @@ public class ResponseController {
      */
     @RequestMapping("/logOut")
     public String logOut(HttpServletRequest request) {
-        userService.logOutHandler(request);
-        return "/index";
+        ResultResponse response = userService.logOutHandler(request);
+        return "redirect:" + response.getSuccess().getUrl();
     }
 
 //    @PostMapping("/register")

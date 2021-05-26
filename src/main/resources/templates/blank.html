@@ -170,12 +170,11 @@
             getRecordsForPage(index) {
                 let tmpIndex = index || this.curPage
                 axios.get('http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit + '/' + this.selectAuthority).then(rep => {
-                    if (rep.data.length === 0) {
-                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
-                    } else {
-                        this.records = rep.data
+                    if (rep.data.code === 200 && rep.data.success.data.length > 0) {
+                        this.records = rep.data.success.data
                         this.curPage = tmpIndex
-                        console.log('length :' + this.records.length)
+                    } else {
+                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
                     }
                 }).catch(err => {
                     console.log(err);

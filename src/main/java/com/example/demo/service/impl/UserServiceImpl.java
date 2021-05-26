@@ -74,33 +74,41 @@ public class UserServiceImpl implements UserService {
      * 用户退出服务
      */
     @Override
-    public boolean logOutHandler(HttpServletRequest request) {
-        String ipAddress = httpService.getIpAddress(request);
+    public ResultResponse logOutHandler(HttpServletRequest request) {
+        ResultResponse response = null;
+        try {
+            String ipAddress = httpService.getIpAddress(request);
+            JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
+            User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+            JSONObject curNetInfo = myUtil.getNetInfo();
+            BigDecimal curData = curNetInfo.getBigDecimal("getData");
+            //之前的流量
+            BigDecimal preNetData = json.getBigDecimal("getData");
+            //花费的流量
+            BigDecimal costData = curData.subtract(preNetData);
 
-        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
-        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+            Date signIn = json.getDate("signIn");
+            Date signOut = new Date();
 
-        JSONObject curNetInfo = myUtil.getNetInfo();
-        BigDecimal curData = curNetInfo.getBigDecimal("getData");
-        //之前的流量
-        BigDecimal preNetData = json.getBigDecimal("getData");
-        //花费的流量
-        BigDecimal costData = curData.subtract(preNetData);
+            Record record = Record.builder()
+                    .userName(user.getUserName())
+                    .signIn(signIn)
+                    .signOut(signOut)
+                    .costData(costData)
+                    .type(RecordTypeEnum.userExpenses.getVal())
+                    .costMoney(myUtil.calcSpend(signIn, signOut))
+                    .build();
 
-        Record record = Record.builder()
-                .userName(user.getUserName())
-                .signIn(json.getDate("signIn"))
-                .signOut(new Date())
-                .costData(costData)
-                .type(RecordTypeEnum.userExpenses.getVal())
-                .build();
+            recordService.insertRecord(record);
 
-        recordService.insertRecord(record);
-
-        //移除该用户的信息
-        cache.hdel(EncryptionKey.netData, ipAddress);
-        cache.hdel(EncryptionKey.userLoginInfo, ipAddress);
-        return true;
+            //移除该用户的信息
+            cache.hdel(EncryptionKey.netData, ipAddress);
+            cache.hdel(EncryptionKey.userLoginInfo, ipAddress);
+            response = ResultResponse.createSimpleSuccess("http://localhost:8080/", null);
+        } catch (Exception e) {
+            response = ResultResponse.createError(-1, "退出失败！");
+        }
+        return response;
     }
 
     @Override
@@ -176,15 +184,43 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Record> getRecords(HttpServletRequest request, Integer page, Integer size) {
+    public ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size) {
         User user = getUserInfoHandler(request);
-        return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, RecordTypeEnum.userExpenses.getVal());
+
+        List<Record> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, RecordTypeEnum.userExpenses.getVal());
+
+        if (records == null) {
+            return ResultResponse.createError(-1, "查询数据库异常！");
+        }
+
+        ResultResponse response = new ResultResponse();
+        response.setCode(200);
+
+        ResultResponse.Success success = new ResultResponse.Success();
+        success.setData(records);
+
+        response.setSuccess(success);
+        return response;
     }
 
     @Override
-    public List<Record> getRecords(HttpServletRequest request, Integer page, Integer size, Integer type) {
+    public ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size, Integer type) {
         User user = getUserInfoHandler(request);
-        return recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, type);
+
+        List<Record> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, type);
+
+        if (records == null) {
+            return ResultResponse.createError(-1, "查询数据库异常！");
+        }
+
+        ResultResponse response = new ResultResponse();
+        response.setCode(200);
+
+        ResultResponse.Success success = new ResultResponse.Success();
+        success.setData(records);
+
+        response.setSuccess(success);
+        return response;
     }
 
     /**

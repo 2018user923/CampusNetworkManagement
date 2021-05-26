@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
  * 这个用来响应 dataController 的结果
  */
@@ -45,7 +43,7 @@ public class ResultResponse {
         /**
          * 响应成功之后应该获得的数据
          */
-        List<Object> dataList;
+        Object data;
     }
 
     public static ResultResponse createError(Integer code, String message) {
@@ -56,6 +54,18 @@ public class ResultResponse {
         error.setMessage(message);
 
         response.setError(error);
+        return response;
+    }
+
+    public static ResultResponse createSimpleSuccess(String url, Object data) {
+        ResultResponse response = new ResultResponse();
+        response.setCode(200);
+
+        Success success = new Success();
+        response.setSuccess(success);
+
+        success.setUrl(url);
+        success.setData(data);
         return response;
     }
 

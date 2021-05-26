@@ -116,17 +116,17 @@ public class DataSourceController {
     //分页获取，这里注意，前端传来的 index 最小为 1。
     @CrossOrigin
     @RequestMapping("/getRecordsForPage/{index}/{size}")
-    List<Record> getRecords(HttpServletRequest request, @PathVariable("index") Integer index, @PathVariable("size") Integer size) {
+    ResultResponse getRecords(HttpServletRequest request, @PathVariable("index") Integer index, @PathVariable("size") Integer size) {
         return userService.getRecords(request, index, size);
     }
 
     //分页获取，这里注意，前端传来的 index 最小为 1。
     @CrossOrigin
     @RequestMapping("/getRecordsForPage/{index}/{size}/{type}")
-    List<Record> getRecords(HttpServletRequest request,
-                            @PathVariable("index") Integer index,
-                            @PathVariable("size") Integer size,
-                            @PathVariable("type") Integer type) {
+    ResultResponse getRecords(HttpServletRequest request,
+                              @PathVariable("index") Integer index,
+                              @PathVariable("size") Integer size,
+                              @PathVariable("type") Integer type) {
         return userService.getRecords(request, index, size, type);
     }
 
@@ -204,4 +204,11 @@ public class DataSourceController {
         String code = map.get("code");
         return userService.userRegister(request, user, code);
     }
+
+    @CrossOrigin
+    @RequestMapping("/logOut/userLogOut")
+    ResultResponse logOut(HttpServletRequest request) {
+        return userService.logOutHandler(request);
+    }
+
 }

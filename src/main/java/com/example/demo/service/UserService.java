@@ -8,13 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public interface UserService {
     boolean loginHandler(User user, HttpServletRequest request);
 
-    boolean logOutHandler(HttpServletRequest request);
+    ResultResponse logOutHandler(HttpServletRequest request);
 
     boolean loginByEmailHandler(HttpServletRequest request, String email, String code, String userName);
 
@@ -28,9 +27,9 @@ public interface UserService {
 
     List<Record> getRecords(HttpServletRequest request);
 
-    List<Record> getRecords(HttpServletRequest request, Integer page, Integer size);
+    ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size);
 
-    List<Record> getRecords(HttpServletRequest request, Integer page, Integer size, Integer type);
+    ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size, Integer type);
 
     boolean userRegisterHandler(HttpServletRequest request, User user, String code);
 
