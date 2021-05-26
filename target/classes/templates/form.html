@@ -255,7 +255,8 @@
             curTime: null,
             signIn: null,
             index: 1,
-            limit: 10
+            limit: 10,
+            flushTime: 1000
         },
         methods: {
             userInfoUpdateClick() {
@@ -319,7 +320,8 @@
         },
         mounted() {
             this.getUserInfo()
-            this.getDateInfo()
+            //流量使用的刷新时间
+            setInterval(() => this.getDateInfo(), this.flushTime)
         }
     })
 </script>

@@ -104,8 +104,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginByEmailHandler(HttpServletRequest request, String email, String code) {
-        User user = userDataService.getUserByEmail(email);
+    public boolean loginByEmailHandler(HttpServletRequest request, String email, String code, String userName) {
+        User user = userDataService.getUserByUserNameAndEmail(userName, email);
         //数据库中没有查询到这个用户
         if (user == null) {
             return false;

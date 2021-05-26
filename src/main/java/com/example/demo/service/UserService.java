@@ -16,7 +16,7 @@ public interface UserService {
 
     boolean logOutHandler(HttpServletRequest request);
 
-    boolean loginByEmailHandler(HttpServletRequest request, String email, String code);
+    boolean loginByEmailHandler(HttpServletRequest request, String email, String code, String userName);
 
     ModelAndView form(HttpServletRequest request);
 

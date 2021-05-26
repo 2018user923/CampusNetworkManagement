@@ -1,0 +1,427 @@
+2021-05-26 09:49:31.523 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 4932 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-26 09:49:31.525 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-26 09:49:31.565 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-26 09:49:31.566 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-26 09:49:32.125 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-26 09:49:32.127 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-26 09:49:32.150 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2021-05-26 09:49:32.740 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-26 09:49:32.750 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-26 09:49:32.750 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-26 09:49:32.750 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-26 09:49:32.808 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-26 09:49:32.808 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1241 ms
+2021-05-26 09:49:33.163 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-26 09:49:33.252 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-05-26 09:49:33.607 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 09:49:33.697 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-26 09:49:33.998 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-26 09:49:34.017 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-26 09:49:34.033 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-26 09:49:34.041 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.841 seconds (JVM running for 3.596)
+2021-05-26 10:10:32.143 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-26 10:10:32.143 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-26 10:10:32.144 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-26 10:10:32.374 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:10:32.933 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:10:36.904 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:10:37.001 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:14:35.985 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:14:36.103 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:25:41.433 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#loginUserLogin 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6, User(id=null, userName=张三, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null, authority=null, authorityToSet=null)]
+2021-05-26 10:25:42.384 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:25:42.558 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:25:42.558 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:29:48.744 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:29:48.842 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:29:48.842 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@1196c886]
+2021-05-26 10:31:28.620 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@1196c886]
+2021-05-26 10:31:28.716 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5b2ff325]
+2021-05-26 10:31:28.716 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:31:35.929 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5b2ff325]
+2021-05-26 10:31:36.012 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:31:36.012 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:31:37.307 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:31:37.392 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@1196c886]
+2021-05-26 10:31:37.392 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:31:38.687 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:31:38.770 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:31:38.770 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@1196c886]
+2021-05-26 10:32:45.320 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:32:45.404 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:46.405 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:47.405 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:48.413 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:49.405 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:50.404 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:51.406 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:52.404 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:53.412 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:54.416 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:55.405 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:56.404 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:57.404 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:58.406 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:32:59.405 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:00.405 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:01.500 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:02.500 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:03.498 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:04.502 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:05.491 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:06.498 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:07.503 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:08.487 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:09.494 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:10.497 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:11.494 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:12.488 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:13.497 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:14.500 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:15.499 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:16.488 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:17.495 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:18.488 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:19.493 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:20.488 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:21.495 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:22.499 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:23.488 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:24.498 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:25.490 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:26.498 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:27.498 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:28.488 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:29.500 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:30.487 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:31.497 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:32.501 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:33.494 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:34.487 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:35.494 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:36.491 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:37.502 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:38.527 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:39.496 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:40.490 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:41.491 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:42.497 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:43.490 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:44.500 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:45.492 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:46.488 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:47.507 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:48.529 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:49.497 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:50.500 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:51.487 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:52.405 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:52.797 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:52.895 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:53.895 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:54.898 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:55.896 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:56.894 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:57.900 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:33:58.905 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:00.495 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:00.897 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:01.896 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:03.500 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:04.497 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:04.896 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:05.895 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:06.897 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:07.898 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:09.495 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:10.499 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:11.490 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:12.501 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:13.488 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:14.494 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:15.491 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:16.499 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:17.495 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:18.499 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:19.544 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:20.503 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:21.501 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:22.494 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:23.502 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:24.495 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:25.498 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:26.495 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:27.501 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:28.489 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:29.496 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:30.499 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:31.490 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:32.498 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:33.492 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:34.496 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:35.492 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:36.498 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:37.502 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:38.507 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:39.491 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:40.493 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:41.501 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:42.494 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:43.489 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:44.501 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:45.494 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:46.496 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:47.489 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:48.486 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:49.499 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:50.020 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:50.907 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:51.118 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5b2ff325]
+2021-05-26 10:34:51.222 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:34:52.222 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:53.237 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:54.230 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:55.223 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:56.224 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:57.223 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:58.223 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:34:59.237 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:35:00.223 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:35:01.225 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:35:02.224 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4e51790a]
+2021-05-26 10:35:02.224 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:02.323 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:03.324 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:04.493 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:05.488 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:06.325 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:07.324 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:07.536 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#table 任务执行开始,args=[org.apache.catalina.session.StandardSessionFacade@305db12e]
+2021-05-26 10:35:07.615 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697, 1, 10]
+2021-05-26 10:35:07.626 [http-nio-8080-exec-4] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 565868
+2021-05-26 10:35:12.678 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@732d9ea6]
+2021-05-26 10:35:12.735 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:13.736 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:14.736 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:15.737 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:16.745 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:17.743 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:18.746 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:19.739 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:20.743 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:21.749 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:22.736 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:23.740 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:24.743 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:25.749 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:26.744 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:27.739 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:28.750 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:29.744 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:30.748 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:31.744 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:32.750 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:33.747 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:34.736 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:35.736 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:36.747 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:37.743 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:38.745 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:39.736 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:40.749 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:41.740 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:42.750 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:43.737 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:44.747 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:45.748 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:46.743 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:47.735 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:48.745 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:49.735 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:50.735 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:51.740 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:52.740 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:53.750 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:54.746 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:55.736 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:56.741 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:57.749 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:58.747 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:35:59.746 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:00.742 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:01.738 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:02.744 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:03.737 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:04.742 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:05.748 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:06.748 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:07.748 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:08.740 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:09.747 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:10.740 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:11.748 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:12.736 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:13.736 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:14.748 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:15.750 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:16.737 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:17.735 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:18.748 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:19.748 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:20.736 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:21.740 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:22.745 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:23.747 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:24.738 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:25.751 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:26.735 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:27.735 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:28.735 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:29.750 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:30.741 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:31.749 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:32.741 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:33.748 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:34.743 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:35.737 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:36.748 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:37.742 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:38.740 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:39.747 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:40.736 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:41.746 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:42.735 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:43.741 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:44.734 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:45.749 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:46.743 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:47.740 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:48.735 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:49.743 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:50.749 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:51.738 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:52.736 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:53.735 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:54.735 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:55.734 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:56.737 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:57.736 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:58.736 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:36:59.735 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:37:00.736 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:37:01.400 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#form 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:37:01.468 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:37:02.468 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@26063697]
+2021-05-26 10:37:04.303 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5375c124]
+2021-05-26 10:37:04.615 [http-nio-8080-exec-5] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 116964
+2021-05-26 10:38:39.330 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:41:53.815 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 10:41:53.816 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-05-26 10:41:53.818 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-05-26 10:41:54.057 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 4932 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-26 10:41:54.058 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-26 10:41:54.338 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-26 10:41:54.338 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-26 10:41:54.343 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2021-05-26 10:41:54.516 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-26 10:41:54.517 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:41:54.517 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-26 10:41:54.517 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-26 10:41:54.536 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-26 10:41:54.536 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 475 ms
+2021-05-26 10:41:54.626 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-26 10:41:54.638 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-05-26 10:41:54.704 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'responseController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.example.demo.mapper.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+2021-05-26 10:41:54.705 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-05-26 10:41:54.705 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-05-26 10:41:54.712 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-05-26 10:41:54.723 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-26 10:41:54.760 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.example.demo.mapper.UserMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.example.demo.mapper.UserMapper' in your configuration.
+
+2021-05-26 10:41:56.231 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 4932 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-26 10:41:56.232 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-26 10:41:56.353 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-26 10:41:56.353 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-26 10:41:56.355 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-26 10:41:56.442 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-26 10:41:56.443 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:41:56.443 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-26 10:41:56.443 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-26 10:41:56.454 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-26 10:41:56.455 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 222 ms
+2021-05-26 10:41:56.517 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-26 10:41:56.526 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-05-26 10:41:56.654 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 10:41:56.679 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-26 10:41:56.805 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-26 10:41:56.819 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:41:56.822 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-26 10:41:56.825 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.615 seconds (JVM running for 3146.38)
+2021-05-26 10:41:56.827 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-26 10:42:50.386 [Thread-8] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 10:42:50.387 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2021-05-26 10:42:50.387 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2021-05-26 10:42:50.451 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 4932 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-26 10:42:50.451 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-26 10:42:50.561 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-26 10:42:50.561 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-26 10:42:50.565 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2021-05-26 10:42:50.658 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-26 10:42:50.659 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:42:50.659 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-26 10:42:50.659 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-26 10:42:50.669 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-26 10:42:50.670 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 217 ms
+2021-05-26 10:42:50.734 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-26 10:42:50.743 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2021-05-26 10:42:50.886 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 10:42:50.911 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-26 10:42:51.038 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-26 10:42:51.051 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:42:51.054 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-26 10:42:51.057 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.628 seconds (JVM running for 3200.611)
+2021-05-26 10:42:51.057 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-26 10:42:57.616 [Thread-16] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 10:42:57.617 [Thread-16] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2021-05-26 10:42:57.617 [Thread-16] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2021-05-26 10:42:57.682 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 4932 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-05-26 10:42:57.682 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-05-26 10:42:57.812 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-26 10:42:57.812 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-26 10:42:57.815 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-05-26 10:42:57.911 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-05-26 10:42:57.911 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:42:57.911 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-26 10:42:57.911 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-26 10:42:57.922 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-26 10:42:57.922 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 238 ms
+2021-05-26 10:42:57.984 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-05-26 10:42:57.993 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} inited
+2021-05-26 10:42:58.118 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 10:42:58.139 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-05-26 10:42:58.260 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-26 10:42:58.271 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-05-26 10:42:58.274 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-26 10:42:58.277 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.619 seconds (JVM running for 3207.833)
+2021-05-26 10:42:58.278 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-05-26 10:42:59.616 [http-nio-8080-exec-1] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-26 10:42:59.616 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-26 10:42:59.617 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-26 10:42:59.634 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#loginAndRegister 任务执行开始,args=[]
+2021-05-26 10:43:09.810 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#loginSendEmail 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@75b2bbd, {email=2115839526@qq.com}]
+2021-05-26 10:43:16.604 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#loginEmailLogin 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@75b2bbd, {email=2115839526@qq.com, code=535758, userName=张三}]

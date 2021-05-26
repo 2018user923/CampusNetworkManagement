@@ -229,6 +229,10 @@
             <p v-show="isShow">{{errorText}}</p>
             <form action="/" method="post">
                 <div>
+                    <label>用户名：</label>
+                    <input type="text" placeholder="输入用户名" v-model="userName">
+                </div>
+                <div>
                     <label>邮&nbsp;&nbsp;箱：</label>
                     <input type="text" name="username" datatype="s6-18" placeholder="输入邮箱地址" v-model="email"
                            @blur="emailBlur"/>
@@ -308,7 +312,8 @@
             email: null,
             emailCode: null,
             isShow: false,
-            errorText: null
+            errorText: null,
+            userName: null
         },
         methods: {
             emailBlur() {
@@ -363,7 +368,8 @@
                 if (this.isShow) return null
                 let param = {
                     'email': this.email,
-                    'code': this.emailCode
+                    'code': this.emailCode,
+                    'userName':this.userName
                 }
                 axios.post('http://localhost:8080/login/emailLogin', param).then(rep => {
                     console.log(rep.data);
