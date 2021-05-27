@@ -84,7 +84,7 @@ public class MyUtil {
      * 计算 2 段时间之间的花费。
      */
     public BigDecimal calcSpend(Date signIn, Date signOut) {
-        double spend = calcMinute(signIn, signOut) / 60.0 * proportion * 100;
+        double spend = calcMinute(signIn, signOut) / 60.0 * proportion * 1000;
         BigDecimal res = new BigDecimal(spend);
         log.info(signIn + " ----> " + signOut + "花费的金额为 :" + spend);
         return res;
@@ -93,7 +93,7 @@ public class MyUtil {
     public Long calcMinute(Date signIn, Date signOut) {
         // difference 的单位是毫秒, 差值
         long difference = signOut.getTime() - signIn.getTime();
-        return difference / 6000;
+        return difference / 60000;
     }
 
     /**

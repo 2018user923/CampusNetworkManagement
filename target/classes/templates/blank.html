@@ -70,6 +70,7 @@
                                     <th>提交时间</th>
                                     <th>更新时间</th>
                                     <th>充值金额</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -77,6 +78,10 @@
                                     <td class="center">{{record.createTime | formDate}}</td>
                                     <td class="center">{{record.updateTime | formDate}}</td>
                                     <td class="center">{{record.rechargeAmount}}</td>
+                                    <td class="center">
+                                        <button class="btn-group">取消</button>
+                                        <button class="btn-group">修改</button>
+                                    </td>
                                 </tr>
                             </table>
 

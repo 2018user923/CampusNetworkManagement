@@ -1,5 +1,6 @@
 package com.example.demo.Config;
 
+import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.User;
 import com.example.demo.service.HttpService;
 import com.example.demo.util.EncryptionKey;
@@ -23,7 +24,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 @Configuration
@@ -55,6 +60,11 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Bean
     public DateTimeFormatter CreateDateTimeFormatter() {
         return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    }
+
+    @Bean
+    public SimpleDateFormat CreateSimpleDateFormat() {
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 
 
@@ -118,5 +128,41 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 "/vueResources/**",
                 "/test/**"
         );
+    }
+
+    /*
+    按钮类型为：取消、删除、再次提交、同意、驳回
+
+    type = 0, 用户消费记录
+    登录时间、退出时间、使用流量、使用时长（分钟）、当前余额、消费的金额（删除）
+
+
+    type = 1，用户提交的充值申请
+    提交时间、充值金额、操作（取消，删除）
+
+
+    type = 2,用户取消的充值申请
+    提交时间、更新时间、充值金额、操作（再次提交，删除）
+
+
+    type = 3，用户已经通过的充值申请
+    提交时间、更新时间、审批人，充值金额、操作（删除）
+
+
+    type = 4，用户被驳回的充值申请
+    提交时间、更新时间、审批人、充值金额、操作（再次提交、删除）
+     */
+
+
+    @Bean
+    public Map<Integer, MappingTitleAndButtons> typeMappingTitleAndButtons() {
+        Map<Integer, MappingTitleAndButtons> map = new HashMap<>();
+
+        map.put(0, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "登录时间", "退出时间", "流量", "时长", "余额", "本次消费"),
+                Arrays.asList("false", "false", "false", "false", "false", "false")
+        ));
+
+        return map;
     }
 }

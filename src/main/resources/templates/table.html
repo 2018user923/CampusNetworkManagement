@@ -64,20 +64,12 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>登录时间</th>
-                                    <th>退出时间</th>
-                                    <th>使用流量</th>
-                                    <th>当前余额</th>
-                                    <th>消费金额</th>
+                                    <th v-for="title in titles">{{title}}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr class="odd gradeX" v-for="record in records">
-                                    <td class="center">{{record.signIn | formDate}}</td>
-                                    <td class="center">{{record.signOut | formDate}}</td>
-                                    <td class="center">{{record.costData >> 20}}Mb</td>
-                                    <td class="center">{{record.balance}}</td>
-                                    <td class="center">{{record.costMoney / 1000}}</td>
+                                    <td class="center" v-for="v in record">{{v}}</td>
                                 </tr>
                             </table>
 
@@ -144,7 +136,9 @@
             signIn: null,
             records: [],
             limit: 10,
-            curPage: 1
+            curPage: 1,
+            titles: [],
+            buttons: []
         },
         methods: {
             getRecordsForPage(index) {
@@ -153,6 +147,8 @@
                     if (rep.data.code === 200 && rep.data.success.data.length > 0) {
                         this.records = rep.data.success.data
                         this.curPage = tmpIndex
+                        this.titles = rep.data.success.titles
+                        this.buttons = rep.data.success.buttons
                     } else {
                         console.log('getRecordsForPage Date is None, rep :' + rep.data)
                     }

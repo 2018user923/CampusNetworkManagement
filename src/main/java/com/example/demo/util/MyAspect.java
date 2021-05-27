@@ -1,6 +1,5 @@
 package com.example.demo.util;
 
-import com.example.demo.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;

@@ -1,9 +1,18 @@
 package com.example.demo.util;
 
+import com.example.demo.domain.MappingTitleAndButtons;
+import com.example.demo.domain.Record;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 这个用来响应 dataController 的结果
@@ -13,6 +22,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResultResponse {
+    private static SimpleDateFormat simpleDateFormat;
+
+    static {
+        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    }
+
+
     /**
      * 状态码 200 表示返回结果正确.
      */
@@ -40,10 +56,21 @@ public class ResultResponse {
          * 响应成功之后，应该跳转的页面
          */
         String url;
+
         /**
-         * 响应成功之后应该获得的数据
+         * 响应成功之后应该获得的数据,这里的数据必须与 title 一一对应！
          */
         Object data;
+
+        /**
+         * 标题
+         */
+        Object titles;
+
+        /**
+         * 取消、删除、再次提交、同意、驳回
+         */
+        Object buttons;
     }
 
     public static ResultResponse createError(Integer code, String message) {
@@ -69,5 +96,30 @@ public class ResultResponse {
         return response;
     }
 
+    public static ResultResponse createSuccessForTypeAndRecords(String url, Integer type, List<Record> list, Map<Integer, MappingTitleAndButtons> map, MyUtil util) {
+        ResultResponse response = createSimpleSuccess(url, null);
+
+        ArrayList<List<Object>> data = new ArrayList<>(list.size());
+        switch (type) {
+            case 0:
+                list.forEach(r -> {
+                    ArrayList<Object> objects = new ArrayList<>();
+                    objects.add(r.getId());
+                    objects.add(simpleDateFormat.format(r.getSignIn()));
+                    objects.add(simpleDateFormat.format(r.getSignOut()));
+                    objects.add(r.getCostData() + " bytes");
+                    objects.add(util.calcMinute(r.getSignIn(), r.getSignOut()));
+                    objects.add(r.getBalance());
+                    objects.add(r.getCostMoney().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
+                    data.add(objects);
+                });
+                break;
+        }
+
+        response.getSuccess().setData(data);
+        response.getSuccess().setTitles(map.get(type).getTitle());
+        response.getSuccess().setButtons(map.get(type).getButtons());
+        return response;
+    }
 
 }
