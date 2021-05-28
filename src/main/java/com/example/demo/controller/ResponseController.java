@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 @Controller
 @Slf4j
@@ -67,6 +68,9 @@ public class ResponseController {
 //            user.setAvatar(absSolutePath);
         }
         //将数据插入数据库中。
+        if(user.getBalance() == null){
+            user.setBalance(new BigDecimal(0));
+        }
         userDataService.insertUser(user);
         myUtil.sendMail(user.getEmail(), "绑定邮箱！");
         return user;

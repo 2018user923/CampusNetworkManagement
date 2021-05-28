@@ -150,7 +150,6 @@ public class ResultResponse {
                 ArrayList<Object> objects = new ArrayList<>();
                 objects.add(r.getId());
                 objects.add(simpleDateFormat.format(r.getCreateTime()));
-                objects.add(simpleDateFormat.format(r.getUpdateTime()));
                 objects.add(r.getUserName());
                 objects.add(r.getRechargeAmount());
                 data.add(objects);

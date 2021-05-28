@@ -152,8 +152,6 @@ public class MyMvcConfig implements WebMvcConfigurer {
     type = 4，用户被驳回的充值申请
     提交时间、更新时间、审批人、充值金额、操作（再次提交、删除）
      */
-
-
     @Bean
     public Map<Integer, MappingTitleAndButtons> typeMappingTitleAndButtons() {
         Map<Integer, MappingTitleAndButtons> map = new HashMap<>();
@@ -189,7 +187,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         ));
 
         map.put(6, MappingTitleAndButtons.create(
-                Arrays.asList("编号", "提交时间", "更新时间", "申请者", "充值金额（元）", "操作"),
+                Arrays.asList("编号", "提交时间", "申请者", "充值金额（元）", "操作"),
                 Arrays.asList(false, false, false, true, true)
         ));
 

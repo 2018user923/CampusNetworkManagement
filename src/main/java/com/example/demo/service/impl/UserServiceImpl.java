@@ -88,6 +88,7 @@ public class UserServiceImpl implements UserService {
             String ipAddress = httpService.getIpAddress(request);
             JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
             User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+            userDataService.updateUser(user);
             JSONObject curNetInfo = myUtil.getNetInfo();
             BigDecimal curData = curNetInfo.getBigDecimal("getData");
             //之前的流量
@@ -171,10 +172,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String userInfoUpdateHandler(HttpServletRequest request, User user) {
-        int primaryKey = userDataService.updateUser(user);
+        if (user.getBalance() == null) {
+            user.setBalance(new BigDecimal(0));
+        }
+        userDataService.updateUser(user);
         String ipAddress = httpService.getIpAddress(request);
+        int primaryKey = ((User) cache.hget(EncryptionKey.userLoginInfo, ipAddress)).getId();
         user = userDataService.getUserById(primaryKey);
-        log.info("UserServiceImpl#userInfoUpdateHandler ipAddress : " + ipAddress);
         cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
         request.getSession().setAttribute("user", user);
         return "successed";
@@ -252,6 +256,9 @@ public class UserServiceImpl implements UserService {
         //为该用户添加权限
         user.setAuthority(newUserAuthority);
 
+        if (user.getBalance() == null) {
+            user.setBalance(new BigDecimal(0));
+        }
         //注册用户成功过，插入数据。
         int primaryKey = userDataService.insertUser(user);
         user.setId(primaryKey);
@@ -325,6 +332,7 @@ public class UserServiceImpl implements UserService {
 
         //为该用户添加权限
         user.setAuthority(newUserAuthority);
+        user.setBalance(new BigDecimal(0));
 
         //注册用户成功过，插入数据。
         int primaryKey = userDataService.insertUser(user);
