@@ -159,8 +159,38 @@ public class MyMvcConfig implements WebMvcConfigurer {
         Map<Integer, MappingTitleAndButtons> map = new HashMap<>();
 
         map.put(0, MappingTitleAndButtons.create(
-                Arrays.asList("编号", "登录时间", "退出时间", "流量", "时长", "余额", "本次消费"),
-                Arrays.asList("false", "false", "false", "false", "false", "false")
+                Arrays.asList("编号", "登录时间", "退出时间", "流量（bytes）", "时长（分钟）", "余额（元）", "本次消费（元）"),
+                Arrays.asList(false, false, false, false, false)
+        ));
+
+        map.put(1, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "提交时间", "充值金额（元）", "操作"),
+                Arrays.asList(true, true, false, false, false)
+        ));
+
+        map.put(2, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "提交时间", "更新时间", "充值金额", "操作"),
+                Arrays.asList(false, true, true, false, false)
+        ));
+
+        map.put(3, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "提交时间", "更新时间", "审批人", "充值金额", "操作"),
+                Arrays.asList(false, true, false, false, false)
+        ));
+
+        map.put(4, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "提交时间", "更新时间", "审批人", "充值金额", "操作"),
+                Arrays.asList(false, true, true, false, false)
+        ));
+
+        map.put(5, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "提交时间", "更新时间", "申请者", "审批人", "充值金额（元）", "操作"),
+                Arrays.asList(false, true, false, true, false)
+        ));
+
+        map.put(6, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "提交时间", "更新时间", "申请者", "充值金额（元）", "操作"),
+                Arrays.asList(false, false, false, true, true)
         ));
 
         return map;

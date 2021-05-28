@@ -41,7 +41,7 @@ public interface RecordMapper {
     /**
      * 更新 record ,如果更新成功返回 1 ，否则返回 0
      */
-    int updateRecordById(Integer id);
+    int updateRecordByIdForType(Integer id, Integer type, String updateUserName);
 
     /**
      * 根据 userName 更新 record

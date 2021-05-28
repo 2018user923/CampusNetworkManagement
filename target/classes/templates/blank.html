@@ -67,22 +67,22 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>提交时间</th>
-                                    <th>更新时间</th>
-                                    <th>充值金额</th>
-                                    <th>操作</th>
+                                    <th v-for="title in titles">{{title}}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX" v-for="record in records">
-                                    <td class="center">{{record.createTime | formDate}}</td>
-                                    <td class="center">{{record.updateTime | formDate}}</td>
-                                    <td class="center">{{record.rechargeAmount}}</td>
-                                    <td class="center">
-                                        <button class="btn-group">取消</button>
-                                        <button class="btn-group">修改</button>
+                                <tr class="odd gradeX" v-for="(record, index) in records">
+                                    <td class="center" v-for="v in record">{{v}}</td>
+                                    <td v-show="buttonsIsShow">
+                                        <button v-show=buttons[0] @click="cancelClick(index,record[0])">取消</button>
+                                        <button v-show=buttons[1] @click="deleteClick(index,record[0])">删除</button>
+                                        <button v-show=buttons[2] @click="repeatedSubmitClick(index, record[0])">再次提交
+                                        </button>
+                                        <button v-show=buttons[3] @click="agreeClick(index, record[0])">同意</button>
+                                        <button v-show=buttons[4] @click="turnDownClick(index, record[0])">驳回</button>
                                     </td>
                                 </tr>
+                                </tbody>
                             </table>
 
                             <!--翻页 分页操作-->
@@ -136,25 +136,31 @@
 
 <script>
     new Vue({
+        // 按钮类型依次为： 取消、删除、再次提交、同意、驳回
         el: '#main',
         data: {
             authorityList: [],
-            selectAuthority: 1,
+            selectAuthority: 0,
             records: [],
             limit: 10,
             curPage: 1,
+            titles: [],
+            buttons: [],
+            buttonsIsShow: false,
             authorityMap: {
                 0: '消费记录',
-                1: '提交充值申请',
-                2: '充值申请取消',
-                3: '充值申请通过',
-                4: '充值申请驳回',
-                5: '充值申请'
+                1: '提交的申请',
+                2: '已取消的申请',
+                3: '已通过的申请',
+                4: '被驳回的申请',
+                5: '驳回的申请',
+                6: '申请列表',
             }
         },
         methods: {
             getUserAuthorityList() {
-                this.authorityList = [1, 2, 3, 4]
+                //测试按钮
+                this.authorityList = [0, 1, 2, 3, 4, 5, 6]
                 // axios.get('http://localhost:8080/getUserAuthorityList').then(rep => {
                 //     this.authorityList = rep.data
                 // }).catch(err => {
@@ -164,22 +170,28 @@
             selectType(event) {
                 if (event) {
                     this.selectAuthority = event.target.value
+                    this.getRecordsForPage()
                 }
-                axios.get('http://localhost:8080/getRecords/' + this.selectAuthority).then(rep => {
-                    console.log(rep.data)
-                    this.records = rep.data
-                }).catch(err => {
-                    alert(err)
-                })
             },
             getRecordsForPage(index) {
                 let tmpIndex = index || this.curPage
-                axios.get('http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit + '/' + this.selectAuthority).then(rep => {
-                    if (rep.data.code === 200 && rep.data.success.data.length > 0) {
+                let url = 'http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit + '/' + this.selectAuthority
+                axios.get(url).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
                         this.records = rep.data.success.data
                         this.curPage = tmpIndex
+                        this.titles = rep.data.success.titles
+                        this.buttonsIsShow = false
+                        this.buttons = rep.data.success.buttons
+                        for (let show of this.buttons) {
+                            if (show) {
+                                this.buttonsIsShow = true
+                                break
+                            }
+                        }
                     } else {
-                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
+                        console.log('getRecordsForPage Date is None, rep :' + rep)
                     }
                 }).catch(err => {
                     console.log(err);
@@ -188,6 +200,36 @@
             changeLimit(event) {
                 this.limit = event.target.value
                 this.getRecordsForPage(1)
+            },
+            buttonClick(index, id, url) {
+                axios.get(url).then(rep => {
+                    if (rep.data.code === 200) {
+                        this.records.splice(index, 1)
+                    } else {
+                        console.log('the function response error, rep :' + rep)
+                    }
+                })
+            },
+            cancelClick(index, id) {
+                let url = 'http://localhost:8080/buttons/cancelRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            deleteClick(index, id) {
+                let url = 'http://localhost:8080/buttons/deleteRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            repeatedSubmitClick(index, id) {
+                let url = 'http://localhost:8080/buttons/repeatedSubmitRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            agreeClick(index, id) {
+                let url = 'http://localhost:8080/buttons/agreeRecord/' + id
+                this.buttonClick(index, id, url)
+
+            },
+            turnDownClick(index, id) {
+                let url = 'http://localhost:8080/buttons/turnDownRecord/' + id
+                this.buttonClick(index, id, url)
             }
         },
         mounted() {

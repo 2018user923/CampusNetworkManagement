@@ -6,6 +6,7 @@ import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
+import com.example.demo.service.RecordsService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.ResultResponse;
@@ -40,6 +41,10 @@ public class DataSourceController {
 
     @Resource
     private HttpService httpService;
+
+    @Resource
+    private RecordsService recordsService;
+
 
     /**
      * @param id 管理员的 id
@@ -102,7 +107,7 @@ public class DataSourceController {
      * 获取当前 ip 使用的流量数据
      */
     @CrossOrigin
-    @PostMapping("/getNetworkTraffic")
+    @RequestMapping("/getNetworkTraffic")
     Map<String, Object> getNetworkTraffic(HttpServletRequest request) {
         return httpService.getNetworkTrafficHandler(request);
     }
@@ -211,4 +216,34 @@ public class DataSourceController {
         return userService.logOutHandler(request);
     }
 
+    @CrossOrigin
+    @RequestMapping("/buttons/cancelRecord/{id}")
+    ResultResponse cancelRecord(@PathVariable("id") Integer id) {
+        return recordsService.cancelRecordHandler(id);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/buttons/repeatedSubmitRecord/{id}")
+    ResultResponse repeatedSubmitRecord(@PathVariable("id") Integer id) {
+        return recordsService.repeatedSubmitHandler(id);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/buttons/deleteRecord/{id}")
+    ResultResponse deleteRecord(@PathVariable("id") Integer id) {
+        return recordsService.deleteSubmitHandler(id);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/buttons/agreeRecord/{id}")
+    ResultResponse agreeRecord(HttpServletRequest request, @PathVariable("id") Integer id) {
+        return recordsService.agreeRecordHandler(request, id);
+    }
+
+    //驳回
+    @CrossOrigin
+    @RequestMapping("/buttons/turnDownRecord/{id}")
+    ResultResponse turnDownRecord(HttpServletRequest request, @PathVariable("id") Integer id) {
+        return recordsService.turnDownRecord(request, id);
+    }
 }

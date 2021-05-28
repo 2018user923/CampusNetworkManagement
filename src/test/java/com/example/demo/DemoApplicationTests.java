@@ -108,6 +108,10 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForPages() {
+        List<Record> records = recordMapper.getRecordsByUserNameForPages(null, 0, 10, 0);
+
+        records.forEach(System.out::println);
+
 //        User user = userMapper.getUserByUserName("刘备");
 //        List<Record> records = recordMapper.getRecordsByUserNameForPages(user.getUserName(), 0, 10);
 //        records.forEach(System.out::println);

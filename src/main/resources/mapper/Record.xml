@@ -19,9 +19,15 @@
     <select id="getRecordsByUserNameForPages" resultType="Record">
         select *
         from record_table
-        where user_name = #{userName}
-          and type = #{type} limit #{start}
-            , #{limit}
+        <where>
+            <if test="userName != null">
+                user_name = #{userName}
+            </if>
+            <if test="type != null">
+                AND type = #{type}
+            </if>
+            limit #{start} , #{limit}
+        </where>
     </select>
 
     <select id="getRecordsByUserNameAndType" resultType="Record">
@@ -60,12 +66,24 @@
             <if test="balance != null">balance = #{balance},</if>
             <if test="costMoney != null">cost_Money = #{costMoney},</if>
             <if test="createTime != null">create_Time = #{createTime},</if>
-            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            update_Time = now(),
             <if test="rechargeAmount != null">recharge_Amount = #{rechargeAmount},</if>
             <if test="type != null">type = #{type},</if>
         </trim>
         where Id = #{id}
     </update>
+
+
+    <update id="updateRecordByIdForType">
+        update record_table
+        <trim prefix="set" suffixOverrides=",">
+            update_Time = now(),
+            <if test="type != null">type = #{type},</if>
+            <if test="updateUserName != null">update_User_Name = #{updateUserName},</if>
+        </trim>
+        where Id = #{id}
+    </update>
+
 
     <delete id="deleteRecordById">
         delete
@@ -82,7 +100,7 @@
         insert into record_table(user_Name, update_User_Name, sign_In, sign_Out, cost_Data, balance, cost_Money,
                                  create_Time, update_Time, recharge_Amount, type)
         values (#{userName}, #{updateUserName}, #{signIn}, #{signOut}, #{costData}, #{balance}, #{costMoney},
-                #{createTime}, #{updateTime}, #{rechargeAmount}, #{type})
+                now(), #{updateTime}, #{rechargeAmount}, #{type})
     </insert>
 
 </mapper>

@@ -216,12 +216,19 @@ public class UserServiceImpl implements UserService {
     public ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size, Integer type) {
         User user = getUserInfoHandler(request);
 
-        List<Record> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, type);
+        List<Record> records = null;
+
+        switch (type) {
+            case 0, 1, 2, 3, 4 -> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, type);
+            case 5 -> records = recordService.getRecordsByUserNameForPages(null, (page - 1) * size, size, 4);
+            case 6 -> records = recordService.getRecordsByUserNameForPages(null, (page - 1) * size, size, 1);
+            default -> throw new IllegalStateException("Unexpected value: " + type);
+        }
 
         if (records == null) {
             return ResultResponse.createError(-1, "查询数据库异常！");
         }
-        
+
         return ResultResponse.createSuccessForTypeAndRecords(null, type, records, map, myUtil);
     }
 

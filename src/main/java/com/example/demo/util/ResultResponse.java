@@ -101,19 +101,61 @@ public class ResultResponse {
 
         ArrayList<List<Object>> data = new ArrayList<>(list.size());
         switch (type) {
-            case 0:
-                list.forEach(r -> {
-                    ArrayList<Object> objects = new ArrayList<>();
-                    objects.add(r.getId());
-                    objects.add(simpleDateFormat.format(r.getSignIn()));
-                    objects.add(simpleDateFormat.format(r.getSignOut()));
-                    objects.add(r.getCostData() + " bytes");
-                    objects.add(util.calcMinute(r.getSignIn(), r.getSignOut()));
-                    objects.add(r.getBalance());
-                    objects.add(r.getCostMoney().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
-                    data.add(objects);
-                });
-                break;
+            case 0 -> list.forEach(r -> {
+                ArrayList<Object> objects = new ArrayList<>();
+                objects.add(r.getId());
+                objects.add(simpleDateFormat.format(r.getSignIn()));
+                objects.add(simpleDateFormat.format(r.getSignOut()));
+                objects.add(r.getCostData());
+                objects.add(util.calcMinute(r.getSignIn(), r.getSignOut()));
+                objects.add(r.getBalance());
+                objects.add(r.getCostMoney().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
+                data.add(objects);
+            });
+            case 1 -> list.forEach(r -> {
+                ArrayList<Object> objects = new ArrayList<>();
+                objects.add(r.getId());
+                objects.add(simpleDateFormat.format(r.getCreateTime()));
+                objects.add(r.getRechargeAmount());
+                data.add(objects);
+            });
+            case 2 -> list.forEach(r -> {
+                ArrayList<Object> objects = new ArrayList<>();
+                objects.add(r.getId());
+                objects.add(simpleDateFormat.format(r.getCreateTime()));
+                objects.add(simpleDateFormat.format(r.getUpdateTime()));
+                objects.add(r.getRechargeAmount());
+                data.add(objects);
+            });
+            case 3, 4 -> list.forEach(r -> {
+                ArrayList<Object> objects = new ArrayList<>();
+                objects.add(r.getId());
+                objects.add(simpleDateFormat.format(r.getCreateTime()));
+                objects.add(simpleDateFormat.format(r.getUpdateTime()));
+                objects.add(r.getUpdateUserName());
+                objects.add(r.getRechargeAmount());
+                data.add(objects);
+            });
+            case 5 -> list.forEach(r -> {
+                ArrayList<Object> objects = new ArrayList<>();
+                objects.add(r.getId());
+                objects.add(simpleDateFormat.format(r.getCreateTime()));
+                objects.add(simpleDateFormat.format(r.getUpdateTime()));
+                objects.add(r.getUserName());
+                objects.add(r.getUpdateUserName());
+                objects.add(r.getRechargeAmount());
+                data.add(objects);
+            });
+            case 6 -> list.forEach(r -> {
+                ArrayList<Object> objects = new ArrayList<>();
+                objects.add(r.getId());
+                objects.add(simpleDateFormat.format(r.getCreateTime()));
+                objects.add(simpleDateFormat.format(r.getUpdateTime()));
+                objects.add(r.getUserName());
+                objects.add(r.getRechargeAmount());
+                data.add(objects);
+            });
+            default -> throw new IllegalStateException("Unexpected value: " + type);
         }
 
         response.getSuccess().setData(data);
