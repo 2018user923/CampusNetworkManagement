@@ -239,37 +239,6 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 处理用户注册
-     */
-    @Override
-    public boolean userRegisterHandler(HttpServletRequest request, User user, String code) {
-        //用户名已存在，无法注册。
-        if (userDataService.getUserByUserName(user.getUserName()) != null) {
-            return false;
-        }
-        //校验邮箱验证码
-        String ipAddress = httpService.getIpAddress(request);
-        String emailCode = (String) cache.hget(EncryptionKey.registerEmail, ipAddress);
-        //验证码不正确
-        if (emailCode == null || !emailCode.equals(code)) {
-            return false;
-        }
-
-        //为该用户添加权限
-        user.setAuthority(newUserAuthority);
-
-        if (user.getBalance() == null) {
-            user.setBalance(new BigDecimal(0));
-        }
-        //注册用户成功过，插入数据。
-        int primaryKey = userDataService.insertUser(user);
-        user.setId(primaryKey);
-
-        //注册用户登录
-        return loginHandler(user, request);
-    }
-
-    /**
      * 得到用户权限
      */
     @Override

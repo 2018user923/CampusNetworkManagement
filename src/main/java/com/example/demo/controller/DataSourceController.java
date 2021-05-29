@@ -1,15 +1,10 @@
 package com.example.demo.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
-import com.example.demo.mapper.RecordMapper;
-import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.RecordsService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.DBInputInfo;
-import com.example.demo.util.MyUtil;
 import com.example.demo.util.ResultResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -17,21 +12,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 @Slf4j
 @RestController
 public class DataSourceController {
-    /*用户持久层服务*/
-    @Resource
-    private UserMapper userDataService;
-
-    /*工具类*/
-    @Resource
-    private MyUtil myUtil;
-
     @Resource
     private UserService userService;
 
@@ -40,37 +26,6 @@ public class DataSourceController {
 
     @Resource
     private RecordsService recordsService;
-
-
-    /**
-     * @param id 管理员的 id
-     * @return 返回从数据库中查询到的对象。
-     */
-    @GetMapping("/test/getUserById/{id}")
-    User getUserById(@PathVariable("id") Integer id) {
-        return userDataService.getUserById(id);
-    }
-
-    @CrossOrigin
-    @RequestMapping("/test/time")
-    String getTime() {
-        return myUtil.getCureTime();
-    }
-
-    @RequestMapping("/test/getNetInfo")
-    JSONObject getNetInfo() {
-        return myUtil.getNetInfo();
-    }
-
-    @CrossOrigin
-    @PostMapping("/sendEmail")
-    String sendEmail(String userName, String Subject) {
-        //todo 这里利用 userName 从缓存中取出 email 地址。
-        String email = "";
-        //code 是发送邮寄的返回的6位随机验证码,限时 60 s,存入缓存中。
-//        return myUtil.sendMail(email, userName);
-        return "";
-    }
 
     /**
      * 提交的充值请求
@@ -105,24 +60,6 @@ public class DataSourceController {
         return httpService.getNetworkTrafficHandler(request);
     }
 
-    //分页获取，这里注意，前端传来的 index 最小为 1。
-    @CrossOrigin
-    @RequestMapping("/getRecordsForPage/{index}/{size}")
-    ResultResponse getRecords(HttpServletRequest request, @PathVariable("index") Integer index, @PathVariable("size") Integer size) {
-        return userService.getRecords(request, index, size);
-    }
-
-    //分页获取，这里注意，前端传来的 index 最小为 1。
-    @CrossOrigin
-    @RequestMapping("/getRecordsForPage/{start}/{limit}/{type}")
-    ResultResponse getRecords(HttpServletRequest request,
-                              @PathVariable("start") Integer start,
-                              @PathVariable("limit") Integer limit,
-                              @PathVariable("type") Integer type) {
-        return userService.getRecords(request, start, limit, type);
-    }
-
-
     /**
      * 注册账户邮箱发送验证码
      */
@@ -142,29 +79,9 @@ public class DataSourceController {
     }
 
     @CrossOrigin
-    @RequestMapping("/register")
-    String register(HttpServletRequest request, @RequestBody Map<String, String> map) {
-        User user = User.builder()
-                .userName(map.get("userName"))
-                .email(map.get("email"))
-                .passWord(map.get("passWord"))
-                .build();
-        return userService.userRegisterHandler(request, user, map.get("code")) ? "successed" : "failed";
-    }
-
-    @CrossOrigin
     @RequestMapping("/getUserAuthorityList")
     Set<Integer> getUserAuthorityList(HttpServletRequest request) {
         return userService.getUserAuthorityListHandler(request);
-    }
-
-    /**
-     * 根据响应的权限查询相关的数据
-     */
-    @CrossOrigin
-    @RequestMapping("/getRecords/{authority}")
-    List<Record> getRecordsByType(HttpServletRequest request, @PathVariable("authority") Integer authority) {
-        return httpService.getRecordsByType(request, authority);
     }
 
     @CrossOrigin
@@ -201,12 +118,6 @@ public class DataSourceController {
                 .build();
         String code = map.get("code");
         return userService.userRegister(request, user, code);
-    }
-
-    @CrossOrigin
-    @RequestMapping("/logOut/userLogOut")
-    ResultResponse logOut(HttpServletRequest request) {
-        return userService.logOutHandler(request);
     }
 
     @CrossOrigin

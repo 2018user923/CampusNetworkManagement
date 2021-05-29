@@ -31,8 +31,6 @@ public interface UserService {
 
     ResultResponse getRecords(HttpServletRequest request, Integer start, Integer limit, Integer type);
 
-    boolean userRegisterHandler(HttpServletRequest request, User user, String code);
-
     Set<Integer> getUserAuthorityListHandler(HttpServletRequest request);
 
     ResultResponse loginUserLoginHandler(HttpServletRequest request, @RequestBody User user);

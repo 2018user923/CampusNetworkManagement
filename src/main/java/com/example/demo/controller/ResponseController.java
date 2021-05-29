@@ -1,24 +1,22 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.User;
-import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
-import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.MyUtil;
-import com.example.demo.util.RedisUtil;
 import com.example.demo.util.ResultResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -53,19 +51,12 @@ public class ResponseController {
 //            user.setAvatar(absSolutePath);
         }
         //将数据插入数据库中。
-        if(user.getBalance() == null){
+        if (user.getBalance() == null) {
             user.setBalance(new BigDecimal(0));
         }
         userDataService.insertUser(user);
         myUtil.sendMail(user.getEmail(), "绑定邮箱！");
         return user;
-    }
-
-    @GetMapping("/table")
-    public ModelAndView table(HttpSession session) {
-        ModelAndView res = new ModelAndView();
-        res.setViewName("table");
-        return res;
     }
 
     /**
@@ -87,15 +78,5 @@ public class ResponseController {
     public String logOut(HttpServletRequest request) {
         ResultResponse response = userService.logOutHandler(request);
         return "redirect:" + response.getSuccess().getUrl();
-    }
-
-    @RequestMapping("/form")
-    public ModelAndView form(HttpServletRequest request) {
-        return userService.form(request);
-    }
-
-    @RequestMapping({"/", "/index"})
-    String loginAndRegister() {
-        return "/index";
     }
 }

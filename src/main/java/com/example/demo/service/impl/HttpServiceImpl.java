@@ -10,7 +10,6 @@ import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -52,14 +51,6 @@ public class HttpServiceImpl implements HttpService {
             ip = request.getRemoteAddr();
         }
         return ip;
-    }
-
-    /**
-     * 普通用户表单提交页面的 modeAndView
-     */
-    @Override
-    public ModelAndView ordinaryUserForm(HttpServletRequest request) {
-        return null;
     }
 
     @Override
