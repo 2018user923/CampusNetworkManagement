@@ -1,20 +1,21 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.RecordsService;
-import com.example.demo.util.EncryptionKey;
-import com.example.demo.util.RecordTypeEnum;
-import com.example.demo.util.RedisUtil;
-import com.example.demo.util.ResultResponse;
+import com.example.demo.service.UserService;
+import com.example.demo.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class RecordsServiceImpl implements RecordsService {
@@ -30,6 +31,15 @@ public class RecordsServiceImpl implements RecordsService {
 
     @Autowired
     private UserMapper userDataService;
+
+    @Autowired
+    private Map<Integer, MappingTitleAndButtons> map;
+
+    @Autowired
+    private MyUtil util;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 将该申请取消
@@ -58,6 +68,8 @@ public class RecordsServiceImpl implements RecordsService {
         String ipAddress = httpService.getIpAddress(request);
         User updateUser = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
 
+        DBInputInfo dbInputInfo = DBInputInfo.builder().id(id).build();
+
         //申请信息
         Record record = recordDataService.getRecordById(id);
         //申请者
@@ -71,10 +83,35 @@ public class RecordsServiceImpl implements RecordsService {
 
     @Override
     public ResultResponse turnDownRecord(HttpServletRequest request, Integer id) {
-        String ipAddress = httpService.getIpAddress(request);
-        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        User user = userService.getUserInfoHandler(request);
         recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitTurnDown.getVal(), user.getUserName());
         return ResultResponse.createError(200, null);
     }
 
+    @Override
+    public ResultResponse getRecordsHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
+        List<Record> records = null;
+        if (dbInputInfo.getUserName() == null || dbInputInfo.equals("null") || dbInputInfo.equals("")) {
+            User user = userService.getUserInfoHandler(request);
+            dbInputInfo.setUserName(user.getUserName());
+        }
+        if (dbInputInfo.getTypes() != null && !dbInputInfo.getTypes().isEmpty()) {
+            switch (dbInputInfo.getTypes().get(0)) {
+                case 5 -> {
+                    dbInputInfo.setUserName(null);
+                    dbInputInfo.getTypes().set(0, 4);
+                    records = recordDataService.getRecords(dbInputInfo);
+                    return ResultResponse.createSuccessForTypeAndRecords(null, 5, records, map, util);
+                }
+                case 6 -> {
+                    dbInputInfo.setUserName(null);
+                    dbInputInfo.getTypes().set(0, 1);
+                    records = recordDataService.getRecords(dbInputInfo);
+                    return ResultResponse.createSuccessForTypeAndRecords(null, 6, records, map, util);
+                }
+            }
+        }
+        records = recordDataService.getRecords(dbInputInfo);
+        return ResultResponse.createSuccessForTypeAndRecords(null, dbInputInfo.getTypes().get(0), records, map, util);
+    }
 }

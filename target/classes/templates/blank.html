@@ -71,15 +71,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX" v-for="(record, index) in records">
-                                    <td class="center" v-for="v in record">{{v}}</td>
+                                <tr class="odd gradeX" v-for="(date, index) in displayDate">
+                                    <td class="center" v-for="v in date">{{v}}</td>
+
                                     <td v-show="buttonsIsShow">
-                                        <button v-show=buttons[0] @click="cancelClick(index,record[0])">取消</button>
-                                        <button v-show=buttons[1] @click="deleteClick(index,record[0])">删除</button>
-                                        <button v-show=buttons[2] @click="repeatedSubmitClick(index, record[0])">再次提交
+                                        <button v-show=buttons[0] @click="cancelClick(index,date[0])">取消</button>
+                                        <button v-show=buttons[1] @click="deleteClick(index,date[0])">删除</button>
+                                        <button v-show=buttons[2] @click="repeatedSubmitClick(index, date[0])">再次提交
                                         </button>
-                                        <button v-show=buttons[3] @click="agreeClick(index, record[0])">同意</button>
-                                        <button v-show=buttons[4] @click="turnDownClick(index, record[0])">驳回</button>
+                                        <button v-show=buttons[3] @click="agreeClick(index, date[0])">同意</button>
+                                        <button v-show=buttons[4] @click="turnDownClick(index, date[0])">驳回</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -95,23 +96,24 @@
                                     </div>
                                 </div>
                                 <!--展示 翻页 -->
+                                <!--展示 翻页 -->
                                 <div class="col-sm-6">
                                     <div class="dataTables_paginate paging_simple_numbers"
                                          id="dataTables-example_paginate">
                                         <ul class="pagination">
                                             <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
-                                                @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>
+                                                @click="display(curPage - 1)"><a href="#">上一页</a>
                                             </li>
 
-                                            <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a
+                                            <li class="paginate_button active" @click="display(curPage)"><a
                                                     href="#">{{curPage}}</a></li>
-                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a
+                                            <li class="paginate_button" @click="display(curPage + 1)"><a
                                                     href="#">{{curPage + 1}}</a></li>
-                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a
+                                            <li class="paginate_button" @click="display(curPage + 2)"><a
                                                     href="#">{{curPage + 2}}</a></li>
 
-                                            <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"
-                                                @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>
+                                            <li :class="curPage * limit < records.length ? 'paginate_button next' : 'paginate_button next disabled'"
+                                                @click="display(curPage + 1)"><a href="#">下一页</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -147,6 +149,7 @@
             titles: [],
             buttons: [],
             buttonsIsShow: false,
+            displayDate: [],
             authorityMap: {
                 0: '消费记录',
                 1: '提交的申请',
@@ -173,25 +176,28 @@
                     this.getRecordsForPage()
                 }
             },
-            getRecordsForPage(index) {
-                let tmpIndex = index || this.curPage
-                let url = 'http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit + '/' + this.selectAuthority
-                axios.get(url).then(rep => {
+            getRecordsForPage() {
+                this.records = []
+                this.displayDate = []
+                let params = {
+                    'types': [this.selectAuthority]
+                }
+                axios.post('http://localhost:8080/getRecords', params).then(rep => {
                     console.log(rep.data);
                     if (rep.data.code === 200) {
                         this.records = rep.data.success.data
-                        this.curPage = tmpIndex
                         this.titles = rep.data.success.titles
-                        this.buttonsIsShow = false
                         this.buttons = rep.data.success.buttons
+                        this.buttonsIsShow = false
                         for (let show of this.buttons) {
                             if (show) {
                                 this.buttonsIsShow = true
                                 break
                             }
                         }
+                        this.display(1)
                     } else {
-                        console.log('getRecordsForPage Date is None, rep :' + rep)
+                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
                     }
                 }).catch(err => {
                     console.log(err);
@@ -199,12 +205,22 @@
             },
             changeLimit(event) {
                 this.limit = event.target.value
-                this.getRecordsForPage(1)
+                this.display(1)
+            },
+            display(index) {
+                //分页超出
+                if (index && (index - 1) * this.limit >= this.records.length) {
+                    return null
+                }
+                this.curPage = index || this.curPage
+                this.displayDate = this.records.slice((this.curPage - 1) * this.limit, this.curPage * this.limit)
             },
             buttonClick(index, id, url) {
                 axios.get(url).then(rep => {
+                    console.log(rep.data);
                     if (rep.data.code === 200) {
-                        this.records.splice(index, 1)
+                        this.displayDate.splice(index, 1)
+                        this.records.splice((this.curPage - 1) * this.limit + index, 1)
                     } else {
                         console.log('the function response error, rep :' + rep)
                     }
@@ -235,14 +251,6 @@
         mounted() {
             this.getUserAuthorityList()
             this.getRecordsForPage()
-        },
-        filters: {
-            formDate(time) {
-                if (time == null) {
-                    return '尚未更新'
-                }
-                return moment(time).format('YYYY-MM-DD HH:MM:SS')
-            }
         }
     })
 </script>

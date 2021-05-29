@@ -88,6 +88,7 @@ public class UserServiceImpl implements UserService {
             String ipAddress = httpService.getIpAddress(request);
             JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
             User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+            user.setAuthority(JSON.toJSONString(user.getAuthorityToSet()));
             userDataService.updateUser(user);
             JSONObject curNetInfo = myUtil.getNetInfo();
             BigDecimal curData = curNetInfo.getBigDecimal("getData");
@@ -193,7 +194,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Record> getRecords(HttpServletRequest request) {
         User user = getUserInfoHandler(request);
-        return recordService.getRecordsByUserName(user.getUserName());
+        DBInputInfo inputInfo = DBInputInfo.builder().userName(user.getUserName()).build();
+        return recordService.getRecords(inputInfo);
     }
 
     @Override
@@ -217,15 +219,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size, Integer type) {
+    public ResultResponse getRecords(HttpServletRequest request, Integer start, Integer limit, Integer type) {
         User user = getUserInfoHandler(request);
 
         List<Record> records = null;
 
         switch (type) {
-            case 0, 1, 2, 3, 4 -> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, type);
-            case 5 -> records = recordService.getRecordsByUserNameForPages(null, (page - 1) * size, size, 4);
-            case 6 -> records = recordService.getRecordsByUserNameForPages(null, (page - 1) * size, size, 1);
+            case 0, 1, 2, 3, 4 -> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (start - 1) * limit, limit, type);
+            case 5 -> records = recordService.getRecordsByUserNameForPages(null, (start - 1) * limit, limit, 4);
+            case 6 -> records = recordService.getRecordsByUserNameForPages(null, (start - 1) * limit, limit, 1);
             default -> throw new IllegalStateException("Unexpected value: " + type);
         }
 

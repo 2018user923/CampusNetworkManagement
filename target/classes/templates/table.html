@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">TABLE EXAMPLES</h4>
+                <h4 class="header-line">历史消费记录.</h4>
             </div>
         </div>
 
@@ -52,10 +52,11 @@
                                         </select>每页数量</label></div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="dataTables_filter"><label>查询<input
-                                            type="search"
-                                            class="form-control input-sm"
-                                            aria-controls="dataTables-example"></label>
+                                    <div class="dataTables_filter">
+                                        <label>查询：
+                                            <input type="date" v-model="signIn"/>
+                                            <input type="date" @input="getRecordsForPage" v-model="signOut"/>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -68,8 +69,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX" v-for="record in records">
-                                    <td class="center" v-for="v in record">{{v}}</td>
+                                <tr class="odd gradeX" v-for="date in displayDate">
+                                    <td class="center" v-for="v in date">{{v}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -89,18 +90,18 @@
                                          id="dataTables-example_paginate">
                                         <ul class="pagination">
                                             <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
-                                                @click="getRecordsForPage(curPage - 1)"><a href="#">上一页</a>
+                                                @click="display(curPage - 1)"><a href="#">上一页</a>
                                             </li>
 
-                                            <li class="paginate_button active" @click="getRecordsForPage(curPage)"><a
+                                            <li class="paginate_button active" @click="display(curPage)"><a
                                                     href="#">{{curPage}}</a></li>
-                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 1)"><a
+                                            <li class="paginate_button" @click="display(curPage + 1)"><a
                                                     href="#">{{curPage + 1}}</a></li>
-                                            <li class="paginate_button" @click="getRecordsForPage(curPage + 2)"><a
+                                            <li class="paginate_button" @click="display(curPage + 2)"><a
                                                     href="#">{{curPage + 2}}</a></li>
 
-                                            <li :class="records.length == limit ? 'paginate_button next' : 'paginate_button next disabled'"
-                                                @click="getRecordsForPage(curPage + 1)"><a href="#">下一页</a></li>
+                                            <li :class="curPage * limit < records.length ? 'paginate_button next' : 'paginate_button next disabled'"
+                                                @click="display(curPage + 1)"><a href="#">下一页</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -126,30 +127,30 @@
         el: '#main',
         data: {
             userName: null,
-            idCard: null,
-            email: null,
-            passWord: null,
-            phone: null,
-            balance: null,
-            rechargeAmount: 0,
-            costData: 0,
-            curTime: null,
-            signIn: null,
             records: [],
             limit: 10,
             curPage: 1,
             titles: [],
-            buttons: []
+            buttons: [],
+            signIn: null,
+            signOut: null,
+            displayDate: []
         },
         methods: {
-            getRecordsForPage(index) {
-                let tmpIndex = index || this.curPage
-                axios.get('http://localhost:8080/getRecordsForPage/' + tmpIndex + '/' + this.limit + '/0').then(rep => {
-                    if (rep.data.code === 200 && rep.data.success.data.length > 0) {
+            getRecordsForPage() {
+                let params = {
+                    'signIn': this.signIn,
+                    'signOut': this.signOut,
+                    'types': [0],
+                    'userName': this.userName
+                }
+                axios.post('http://localhost:8080/getRecords', params).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
                         this.records = rep.data.success.data
-                        this.curPage = tmpIndex
                         this.titles = rep.data.success.titles
                         this.buttons = rep.data.success.buttons
+                        this.display(1)
                     } else {
                         console.log('getRecordsForPage Date is None, rep :' + rep.data)
                     }
@@ -159,16 +160,19 @@
             },
             changeLimit(event) {
                 this.limit = event.target.value
-                this.getRecordsForPage(1)
+                this.display(1)
+            },
+            display(index) {
+                //分页超出
+                if (index && (index - 1) * this.limit >= this.records.length) {
+                    return null
+                }
+                this.curPage = index || this.curPage
+                this.displayDate = this.records.slice((this.curPage - 1) * this.limit, this.curPage * this.limit)
             }
         },
         mounted() {
             this.getRecordsForPage()
-        },
-        filters: {
-            formDate(time) {
-                return moment(time).format('YYYY-MM-DD HH:MM:SS')
-            }
         }
     })
 </script>

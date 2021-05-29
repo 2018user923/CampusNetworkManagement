@@ -2,11 +2,11 @@ package com.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.util.DBInputInfo;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
 import org.junit.jupiter.api.Test;
@@ -21,9 +21,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -108,7 +108,15 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForPages() {
-        List<Record> records = recordMapper.getRecordsByUserNameForPages(null, 0, 10, 0);
+        DBInputInfo info = new DBInputInfo();
+
+        info.setUserName("zhangsan");
+        info.setTypes(Collections.singletonList(0));
+
+
+        List<Record> records = recordMapper.getRecordsByUserNameAndTypes(info);
+
+        System.out.println("size: " + records.size());
 
         records.forEach(System.out::println);
 
@@ -121,13 +129,19 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForType() {
+//        List<Record> records = recordMapper.getRecordsByUserNameAndTypesWithDate("李四", Arrays.asList(0, 1), "2021-5-20", "2021-5-29", null, null);
+//        records.forEach(System.out::println);
 
-        Record record = new Record();
-        record.setUserName("刘备");
-        record.setType(1);
-        recordMapper.insertRecord(record);
 
-        List<Record> records = recordMapper.getRecordsByUserNameAndTypes("刘备", Arrays.asList(0, 1));
-        records.forEach(System.out::println);
+//        Record record = new Record();
+//        record.setUserName("刘备");
+//        record.setType(1);
+//        recordMapper.insertRecord(record);
+//
+//        List<Record> records = recordMapper.getRecordsByUserNameAndTypes("刘备", Arrays.asList(0, 1));
+//        records.forEach(System.out::println);
     }
 }
+/*
+数据查询信息
+ */

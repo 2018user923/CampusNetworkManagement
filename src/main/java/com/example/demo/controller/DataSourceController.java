@@ -8,6 +8,7 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.RecordsService;
 import com.example.demo.service.UserService;
+import com.example.demo.util.DBInputInfo;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.ResultResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -27,10 +27,6 @@ public class DataSourceController {
     /*用户持久层服务*/
     @Resource
     private UserMapper userDataService;
-
-    /*消费记录服务*/
-    @Resource
-    private RecordMapper recordService;
 
     /*工具类*/
     @Resource
@@ -59,12 +55,6 @@ public class DataSourceController {
     @RequestMapping("/test/time")
     String getTime() {
         return myUtil.getCureTime();
-    }
-
-    @RequestMapping("/test/getRecordsByUserName")
-    List<Record> getRecordsByUserName(HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        return recordService.getRecordsByUserName(user.getUserName());
     }
 
     @RequestMapping("/test/getNetInfo")
@@ -115,12 +105,6 @@ public class DataSourceController {
         return httpService.getNetworkTrafficHandler(request);
     }
 
-    @CrossOrigin
-    @PostMapping("/getRecords")
-    List<Record> getRecords(HttpServletRequest request) {
-        return userService.getRecords(request);
-    }
-
     //分页获取，这里注意，前端传来的 index 最小为 1。
     @CrossOrigin
     @RequestMapping("/getRecordsForPage/{index}/{size}")
@@ -130,12 +114,12 @@ public class DataSourceController {
 
     //分页获取，这里注意，前端传来的 index 最小为 1。
     @CrossOrigin
-    @RequestMapping("/getRecordsForPage/{index}/{size}/{type}")
+    @RequestMapping("/getRecordsForPage/{start}/{limit}/{type}")
     ResultResponse getRecords(HttpServletRequest request,
-                              @PathVariable("index") Integer index,
-                              @PathVariable("size") Integer size,
+                              @PathVariable("start") Integer start,
+                              @PathVariable("limit") Integer limit,
                               @PathVariable("type") Integer type) {
-        return userService.getRecords(request, index, size, type);
+        return userService.getRecords(request, start, limit, type);
     }
 
 
@@ -181,6 +165,12 @@ public class DataSourceController {
     @RequestMapping("/getRecords/{authority}")
     List<Record> getRecordsByType(HttpServletRequest request, @PathVariable("authority") Integer authority) {
         return httpService.getRecordsByType(request, authority);
+    }
+
+    @CrossOrigin
+    @PostMapping("/getRecords")
+    ResultResponse getRecords(HttpServletRequest request, @RequestBody DBInputInfo dbInputInfo) {
+        return recordsService.getRecordsHandler(request, dbInputInfo);
     }
 
     /**

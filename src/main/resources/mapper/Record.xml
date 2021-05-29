@@ -54,6 +54,34 @@
         where type = #{type}
     </select>
 
+    <select id="getRecords" resultType="Record">
+        select *
+        from record_table
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="signIn != null">
+                and sign_in >= #{signIn}
+            </if>
+            <if test="signOut != null">
+                and sign_out &lt;= #{signOut}
+            </if>
+            <if test="types != null">
+                and type in
+                <foreach collection="types" item="type" index="index" open="(" close=")" separator=",">
+                    #{type}
+                </foreach>
+            </if>
+            <if test="start != null and limit != null">
+                limit #{start} , #{limit}
+            </if>
+        </where>
+    </select>
+
 
     <update id="updateRecordById">
         update record_table

@@ -27,9 +27,9 @@ public interface UserService {
 
     List<Record> getRecords(HttpServletRequest request);
 
-    ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size);
+    ResultResponse getRecords(HttpServletRequest request, Integer start, Integer limit);
 
-    ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size, Integer type);
+    ResultResponse getRecords(HttpServletRequest request, Integer start, Integer limit, Integer type);
 
     boolean userRegisterHandler(HttpServletRequest request, User user, String code);
 

@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.domain.Record;
+import com.example.demo.util.DBInputInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,19 +15,9 @@ public interface RecordMapper {
     Record getRecordById(Integer id);
 
     /**
-     * 根据 userName 获取所有 records
-     */
-    List<Record> getRecordsByUserName(String userName);
-
-    /**
      * 分页获取 record
      */
     List<Record> getRecordsByUserNameForPages(String userName, Integer start, Integer limit, Integer type);
-
-    /**
-     * 根据 type 获取所有的 record
-     */
-    List<Record> getRecordsByType(Integer type);
 
     /**
      * 根据 userName 和 type 来查找记录
@@ -36,7 +27,9 @@ public interface RecordMapper {
     /**
      * 根据 userName 和 type 集合来查找记录
      */
-    List<Record> getRecordsByUserNameAndTypes(String userName, List<Integer> types);
+    List<Record> getRecordsByUserNameAndTypes(DBInputInfo dbInputInfo);
+
+    List<Record> getRecords(DBInputInfo dbInputInfo);
 
     /**
      * 更新 record ,如果更新成功返回 1 ，否则返回 0

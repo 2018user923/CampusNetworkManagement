@@ -47,6 +47,7 @@
             <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
             <if test="balance != null and balance != ''">balance = #{balance},</if>
             <if test="type != null and type != ''">type = #{type}</if>
+            <if test="authority != null and authority != ''">authority = #{authority}</if>
         </trim>
         where user_name = #{userName}
     </update>
