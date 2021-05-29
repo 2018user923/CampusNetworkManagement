@@ -18,7 +18,8 @@
     <select id="getUserByUserNameAndEmail" resultType="User">
         select *
         from user_table
-        where user_Name = #{userName} and email = #{email}
+        where user_Name = #{userName}
+          and email = #{email}
     </select>
 
     <update id="updateUserById">
@@ -36,7 +37,7 @@
         where Id = #{id}
     </update>
 
-    <update id="updateUser" useGeneratedKeys="true" keyProperty="id">
+    <update id="updateUser">
         update user_table
         <trim prefix="set" suffixOverrides=",">
             <if test="passWord != null and passWord != ''">pass_Word = #{passWord},</if>

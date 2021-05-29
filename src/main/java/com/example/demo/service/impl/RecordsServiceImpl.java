@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.RecordMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.RecordsService;
 import com.example.demo.util.EncryptionKey;
@@ -27,6 +28,9 @@ public class RecordsServiceImpl implements RecordsService {
     @Resource
     private HttpService httpService;
 
+    @Autowired
+    private UserMapper userDataService;
+
     /**
      * 将该申请取消
      */
@@ -50,15 +54,18 @@ public class RecordsServiceImpl implements RecordsService {
 
     @Override
     public ResultResponse agreeRecordHandler(HttpServletRequest request, Integer id) {
+        //这是管理员的信息
         String ipAddress = httpService.getIpAddress(request);
-        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        User updateUser = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
 
-        //更新账户余额
+        //申请信息
         Record record = recordDataService.getRecordById(id);
-        user.setBalance(user.getBalance().add(record.getRechargeAmount()));
-        cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
+        //申请者
+        User submitUser = userDataService.getUserByUserName(record.getUserName());
+        submitUser.setBalance(submitUser.getBalance().add(record.getRechargeAmount()));
+        userDataService.updateUser(submitUser);
 
-        recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitComplete.getVal(), user.getUserName());
+        recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitComplete.getVal(), updateUser.getUserName());
         return ResultResponse.createError(200, null);
     }
 

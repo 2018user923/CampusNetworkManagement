@@ -29,27 +29,12 @@ public class ResponseController {
     @Resource
     private UserMapper userDataService;
 
-    /*消费记录服务*/
-    @Resource
-    private RecordMapper recordService;
-
-    /*默认的头像地址*/
-    @Value("${user.images.path}")
-    private String userImagesPath;
-
     @Value("${user.images.default}")
     private String userImagesDefault;
-
-    /*redis 缓存*/
-    @Resource
-    private RedisUtil cache;
 
     /*工具类*/
     @Resource
     private MyUtil myUtil;
-
-    @Autowired
-    private HttpService httpService;
 
     @Autowired
     private UserService userService;
@@ -103,22 +88,6 @@ public class ResponseController {
         ResultResponse response = userService.logOutHandler(request);
         return "redirect:" + response.getSuccess().getUrl();
     }
-
-//    @PostMapping("/register")
-//    public String register(User user, HttpSession session) {
-//        //todo 在这之前需要判断是否注册成功。
-//        //注册用户
-//        int primaryKey = userDataService.insertUser(user);
-//        user.setId(primaryKey);
-//        //将流量数据存入缓存
-//        JSONObject netInfo = myUtil.getNetInfo();
-//        netInfo.put("signIn", new Date());
-//
-//        cache.hset(EncryptionKey.netData, String.valueOf(primaryKey), netInfo);
-//        //将user对象存入 session 中.
-//        session.setAttribute("user", user);
-//        return "/main";
-//    }
 
     @RequestMapping("/form")
     public ModelAndView form(HttpServletRequest request) {
