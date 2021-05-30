@@ -86,22 +86,25 @@
                                 </div>
                                 <!--展示 翻页 -->
                                 <div class="col-sm-6">
-                                    <div class="dataTables_paginate paging_simple_numbers"
-                                         id="dataTables-example_paginate">
+                                    <div class="dataTables_paginate paging_simple_numbers">
                                         <ul class="pagination">
                                             <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
-                                                @click="display(curPage - 1)"><a href="#">上一页</a>
+                                                @click="display(curPage - 1)">
+                                                <a href="javascript:void(0);">上一页</a>
                                             </li>
-
-                                            <li class="paginate_button active" @click="display(curPage)"><a
-                                                    href="#">{{curPage}}</a></li>
-                                            <li class="paginate_button" @click="display(curPage + 1)"><a
-                                                    href="#">{{curPage + 1}}</a></li>
-                                            <li class="paginate_button" @click="display(curPage + 2)"><a
-                                                    href="#">{{curPage + 2}}</a></li>
-
+                                            <li class="paginate_button active" @click="display(curPage)">
+                                                <a href="javascript:void(0);">{{curPage}}</a>
+                                            </li>
+                                            <li class="paginate_button" @click="display(curPage + 1)">
+                                                <a href="javascript:void(0);">{{curPage + 1}}</a>
+                                            </li>
+                                            <li class="paginate_button" @click="display(curPage + 2)">
+                                                <a href="javascript:void(0);">{{curPage + 2}}</a>
+                                            </li>
                                             <li :class="curPage * limit < records.length ? 'paginate_button next' : 'paginate_button next disabled'"
-                                                @click="display(curPage + 1)"><a href="#">下一页</a></li>
+                                                @click="display(curPage + 1)">
+                                                <a href="javascript:void(0);">下一页</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
