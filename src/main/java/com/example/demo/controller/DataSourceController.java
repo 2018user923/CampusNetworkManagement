@@ -32,7 +32,7 @@ public class DataSourceController {
      */
     @CrossOrigin
     @PostMapping("/userRechargeSubmit")
-    String userRechargeSubmit(HttpServletRequest request, @RequestBody Map<String, String> map) {
+    ResultResponse userRechargeSubmit(HttpServletRequest request, @RequestBody Map<String, String> map) {
         return userService.userRechargeAppHandler(request, Integer.valueOf(map.get("rechargeAmount")));
     }
 
@@ -90,6 +90,15 @@ public class DataSourceController {
         return recordsService.getRecordsHandler(request, dbInputInfo);
     }
 
+    /*
+     * 获取当前用户今日的所以申请信息
+     * */
+    @CrossOrigin
+    @PostMapping("/getRecordsForLogIn")
+    ResultResponse getRecordsForLogIn(HttpServletRequest request) {
+        return recordsService.getRecordsForLogInHandler(request);
+    }
+
     /**
      * 使用邮箱登录
      */
@@ -120,34 +129,48 @@ public class DataSourceController {
         return userService.userRegister(request, user, code);
     }
 
+    /**
+     * 取消按钮点击逻辑
+     */
     @CrossOrigin
     @RequestMapping("/buttons/cancelRecord/{id}")
     ResultResponse cancelRecord(@PathVariable("id") Integer id) {
         return recordsService.cancelRecordHandler(id);
     }
 
+    /**
+     * 再次提交按钮点击逻辑
+     */
     @CrossOrigin
     @RequestMapping("/buttons/repeatedSubmitRecord/{id}")
     ResultResponse repeatedSubmitRecord(@PathVariable("id") Integer id) {
         return recordsService.repeatedSubmitHandler(id);
     }
 
+    /**
+     * 删除按钮点击逻辑
+     */
     @CrossOrigin
     @RequestMapping("/buttons/deleteRecord/{id}")
     ResultResponse deleteRecord(@PathVariable("id") Integer id) {
         return recordsService.deleteSubmitHandler(id);
     }
 
+    /**
+     * 同意按钮点击逻辑
+     */
     @CrossOrigin
     @RequestMapping("/buttons/agreeRecord/{id}")
     ResultResponse agreeRecord(HttpServletRequest request, @PathVariable("id") Integer id) {
         return recordsService.agreeRecordHandler(request, id);
     }
 
-    //驳回
+    /**
+     * 驳回按钮点击逻辑
+     */
     @CrossOrigin
     @RequestMapping("/buttons/turnDownRecord/{id}")
     ResultResponse turnDownRecord(HttpServletRequest request, @PathVariable("id") Integer id) {
-        return recordsService.turnDownRecord(request, id);
+        return recordsService.turnDownRecordHandler(request, id);
     }
 }

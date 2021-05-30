@@ -55,6 +55,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/netInfo").setViewName("netInfo");
     }
 
     @Bean("random")

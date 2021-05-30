@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +42,9 @@ public class RecordsServiceImpl implements RecordsService {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MyUtil myUtil;
 
     /**
      * 将该申请取消
@@ -82,7 +87,7 @@ public class RecordsServiceImpl implements RecordsService {
     }
 
     @Override
-    public ResultResponse turnDownRecord(HttpServletRequest request, Integer id) {
+    public ResultResponse turnDownRecordHandler(HttpServletRequest request, Integer id) {
         User user = userService.getUserInfoHandler(request);
         recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitTurnDown.getVal(), user.getUserName());
         return ResultResponse.createError(200, null);
@@ -112,6 +117,19 @@ public class RecordsServiceImpl implements RecordsService {
             }
         }
         records = recordDataService.getRecords(dbInputInfo);
+        return ResultResponse.createSuccessForTypeAndRecords(null, dbInputInfo.getTypes().get(0), records, map, util);
+    }
+
+    @Override
+    public ResultResponse getRecordsForLogInHandler(HttpServletRequest request) {
+        String ipAddress = httpService.getIpAddress(request);
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
+        DBInputInfo dbInputInfo = DBInputInfo.builder()
+                .createTime(json.getDate("signIn"))
+                .userName(json.getString("userName"))
+                .types(Collections.singletonList(1))
+                .build();
+        List<Record> records = recordDataService.getRecords(dbInputInfo);
         return ResultResponse.createSuccessForTypeAndRecords(null, dbInputInfo.getTypes().get(0), records, map, util);
     }
 }

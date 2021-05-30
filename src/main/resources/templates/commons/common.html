@@ -22,13 +22,13 @@
 <!-- LOGO HEADER TOP-->
 <div class="navbar navbar-inverse set-radius-zero" th:fragment="LOGO_HEADER_TOP">
     <div class="container">
-<!--        <div class="navbar-header">-->
-<!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--            </button>-->
-<!--        </div>-->
+        <!--        <div class="navbar-header">-->
+        <!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+        <!--                <span class="icon-bar"></span>-->
+        <!--                <span class="icon-bar"></span>-->
+        <!--                <span class="icon-bar"></span>-->
+        <!--            </button>-->
+        <!--        </div>-->
         <img class="media-object img-circle img-comments" th:src="@{/assets/img/user.gif}" alt="个人头像"/>
         <div class="right-div">
             <a th:href="@{/logOut}" class="btn btn-info pull-right">退出</a>
@@ -45,18 +45,8 @@
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
                         <li><a th:href="@{/main}" class="menu-top-active">主页</a></li>
                         <li><a th:href="@{/form}">个人信息</a></li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">UI ELEMENTS <i
-                                    class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" th:href="@{/ui}">UI
-                                    ELEMENTS</a>
-                                </li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
-                            </ul>
-                        </li>
+                        <li><a th:href="@{/netInfo}">网络信息</a></li>
                         <li><a th:href="@{/tab}">TABS & PANELS</a></li>
-
                         <li><a th:href="@{/table}">历史消费</a></li>
                         <li><a th:href="@{/blank}">申请记录</a></li>
                     </ul>

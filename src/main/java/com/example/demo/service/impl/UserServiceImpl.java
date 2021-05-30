@@ -21,10 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -75,6 +72,7 @@ public class UserServiceImpl implements UserService {
         String ipAddress = httpService.getIpAddress(request);
         JSONObject netInfo = myUtil.getNetInfo();
         netInfo.put("signIn", new Date());
+        netInfo.put("userName", userName);
         return cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
     }
 
@@ -157,18 +155,18 @@ public class UserServiceImpl implements UserService {
      * 用户充值处理程序
      */
     @Override
-    public String userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount) {
+    public ResultResponse userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount) {
         String ipAddress = httpService.getIpAddress(request);
         User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
-        //
+
         Record record = Record.builder()
                 .userName(user.getUserName())
                 .createTime(new Date())
                 .type(RecordTypeEnum.userRechargeSubmit.getVal())
                 .rechargeAmount(new BigDecimal(rechargeAmount))
                 .build();
-        recordService.insertRecord(record);
-        return "successed";
+        int primaryKey = recordService.insertRecord(record);
+        return ResultResponse.createSuccessForTypeAndRecords(null, 1, Collections.singletonList(record), map, myUtil);
     }
 
     @Override
@@ -270,6 +268,7 @@ public class UserServiceImpl implements UserService {
         String ipAddress = httpService.getIpAddress(request);
         JSONObject netInfo = myUtil.getNetInfo();
         netInfo.put("signIn", new Date());
+        netInfo.put("userName", user.getUserName());
         boolean save = cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
         if (!save) {
             ResultResponse.createError(-1, "内部错误，数据存入缓存异常!");

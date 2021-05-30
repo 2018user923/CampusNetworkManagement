@@ -19,7 +19,7 @@ public interface UserService {
 
     ModelAndView form(HttpServletRequest request);
 
-    String userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount);
+    ResultResponse userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount);
 
     String userInfoUpdateHandler(HttpServletRequest request, User user);
 

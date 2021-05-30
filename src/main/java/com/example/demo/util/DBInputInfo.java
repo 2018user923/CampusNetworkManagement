@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -27,11 +28,13 @@ public class DBInputInfo {
     /*每页的限制*/
     Integer limit;
     /*登录时间*/
-    String signIn;
+    Date signIn;
     /*退出时间*/
-    String signOut;
+    Date signOut;
     /*更新者的名字*/
     String updateUserName;
+    /*该记录的创建时间*/
+    Date createTime;
     /*记录*/
     List<Record> records;
 }

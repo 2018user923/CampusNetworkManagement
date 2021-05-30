@@ -14,9 +14,11 @@ public interface RecordsService {
 
     ResultResponse agreeRecordHandler(HttpServletRequest request, Integer id);
 
-    ResultResponse turnDownRecord(HttpServletRequest request, Integer id);
+    ResultResponse turnDownRecordHandler(HttpServletRequest request, Integer id);
 
     ResultResponse getRecordsHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
+
+    ResultResponse getRecordsForLogInHandler(HttpServletRequest request);
 }
 
 //重复提交
