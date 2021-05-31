@@ -38,7 +38,7 @@ public class DataSourceController {
 
     @CrossOrigin
     @PostMapping("/userInfoUpdateSubmit")
-    String userInfoUpdateSubmit(HttpServletRequest request, User user, @RequestParam(value = "file", required = false) MultipartFile file) {
+    ResultResponse userInfoUpdateSubmit(HttpServletRequest request, User user, @RequestParam(value = "file", required = false) MultipartFile file) {
         return userService.userInfoUpdateHandler(request, user, file);
     }
 
@@ -126,7 +126,7 @@ public class DataSourceController {
                 .email(map.get("email"))
                 .build();
         String code = map.get("code");
-        return userService.userRegister(request, user, code);
+        return userService.userRegisterHandler(request, user, code);
     }
 
     /**

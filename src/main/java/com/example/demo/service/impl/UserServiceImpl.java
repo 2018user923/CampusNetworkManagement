@@ -52,6 +52,9 @@ public class UserServiceImpl implements UserService {
     @Value("${user.images.path}")
     private String baseImageUrl;
 
+    @Value("${user.images.default}")
+    private String defaultImage;
+
 
     @Autowired
     private Map<Integer, MappingTitleAndButtons> map;
@@ -172,7 +175,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String userInfoUpdateHandler(HttpServletRequest request, User user, MultipartFile file) {
+    public ResultResponse userInfoUpdateHandler(HttpServletRequest request, User user, MultipartFile file) {
         if (file != null) {
             try {
                 log.info("[文件类型] - [{}]", file.getContentType());
@@ -197,7 +200,7 @@ public class UserServiceImpl implements UserService {
         user = userDataService.getUserById(primaryKey);
         cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
         request.getSession().setAttribute("user", user);
-        return "successed";
+        return ResultResponse.createSimpleSuccess(null, null);
     }
 
     @Override
@@ -302,8 +305,11 @@ public class UserServiceImpl implements UserService {
         return res;
     }
 
+    /**
+     * 用户注册处理
+     */
     @Override
-    public ResultResponse userRegister(HttpServletRequest request, User user, String code) {
+    public ResultResponse userRegisterHandler(HttpServletRequest request, User user, String code) {
         //用户名已经存在，这里后续可以优化
         if (userDataService.getUserByUserName(user.getUserName()) != null) {
             return ResultResponse.createError(-1, "用户名已经存在！");
@@ -320,6 +326,8 @@ public class UserServiceImpl implements UserService {
         //为该用户添加权限
         user.setAuthority(newUserAuthority);
         user.setBalance(new BigDecimal(0));
+        //设置默认的头像
+        user.setAvatar(baseImageUrl + File.separator + defaultImage);
 
         //注册用户成功过，插入数据。
         int primaryKey = userDataService.insertUser(user);

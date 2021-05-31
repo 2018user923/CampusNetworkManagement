@@ -97,8 +97,9 @@
                 params.append("phone", this.phone)
                 params.append("file", file)
                 axios.post('http://localhost:8080/userInfoUpdateSubmit', params).then(rep => {
-                    if (rep.data === 'successed') {
+                    if (rep.data.code === 200) {
                         alert('个人信息更新成功！')
+                        this.getUserInfo()
                     } else {
                         alert('未知原因更新失败！' + rep.data)
                     }

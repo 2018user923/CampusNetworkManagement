@@ -22,7 +22,7 @@ public interface UserService {
 
     ResultResponse userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount);
 
-    String userInfoUpdateHandler(HttpServletRequest request, User user, MultipartFile file);
+    ResultResponse userInfoUpdateHandler(HttpServletRequest request, User user, MultipartFile file);
 
     User getUserInfoHandler(HttpServletRequest request);
 
@@ -36,5 +36,5 @@ public interface UserService {
 
     ResultResponse loginUserLoginHandler(HttpServletRequest request, @RequestBody User user);
 
-    ResultResponse userRegister(HttpServletRequest request, User user, String coe);
+    ResultResponse userRegisterHandler(HttpServletRequest request, User user, String coe);
 }

@@ -1,0 +1,270 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title></title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+    <!-- FONT AWESOME STYLE  -->
+    <link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet"/>
+    <!-- CUSTOM STYLE  -->
+    <link th:href="@{/assets/css/style.css}" rel="stylesheet"/>
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
+</head>
+<body>
+<div th:replace="commons/common ::LOGO_HEADER_TOP"></div>
+<div th:replace="commons/common ::LOGO_HEADER_END"></div>
+
+<!-- MENU SECTION END-->
+<div class="content-wrapper">
+
+    <div class="container">
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h4 class="header-line">网络信息</h4>
+            </div>
+        </div>
+        <div class="row" id="userInfoUpdate">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">充值</div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>当前使用字节</label>
+                                <input class="form-control" type="text" :value="costData + 'bytes'" disabled=""/>
+                            </div>
+                            <div class="form-group">
+                                <label>当前使用流量</label>
+                                <input class="form-control" type="text" :value="(Math.floor(costData / 1048576)) + 'MB'"
+                                       disabled=""/>
+                            </div>
+                            <div class="form-group">
+                                <label>当前余额</label>
+                                <input class="form-control" type="text" v-model=balance disabled=""/>
+                            </div>
+                            <div class="form-group">
+                                <label>充值金额</label>
+                                <input class="form-control" type="text" placeholder="请输入整数" name="rechargeAmount"
+                                       v-model="rechargeAmount"/>
+                            </div>
+                            <button type="submit" class="btn btn-danger" @click.prevent="userRechargeAppClick">提交申请
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!--    Context Classes  -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        申请列表
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="center">编号</th>
+                                    <th class="center">提交时间</th>
+                                    <th class="center">充值金额（元）</th>
+                                    <th class="center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success" v-for="(date, index) in displayDate">
+                                    <td class="center" v-for="v in date">{{v}}</td>
+                                    <td v-show="records.length != 0">
+                                        <button @click="cancelClick(index,date[0])">取消</button>
+                                        <button @click="deleteClick(index,date[0])">删除</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination">
+                                <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
+                                    @click="display(curPage - 1)">
+                                    <a href="javascript:void(0);">上一页</a>
+                                </li>
+                                <li class="paginate_button active" @click="display(curPage)">
+                                    <a href="javascript:void(0);">{{curPage}}</a>
+                                </li>
+                                <li class="paginate_button" @click="display(curPage + 1)">
+                                    <a href="javascript:void(0);">{{curPage + 1}}</a>
+                                </li>
+                                <li class="paginate_button" @click="display(curPage + 2)">
+                                    <a href="javascript:void(0);">{{curPage + 2}}</a>
+                                </li>
+                                <li :class="curPage * limit < records.length ? 'paginate_button next' : 'paginate_button next disabled'"
+                                    @click="display(curPage + 1)">
+                                    <a href="javascript:void(0);">下一页</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--  end  Context Classes  -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/vueResources/tools/axios.js}"></script>
+<script th:src="@{/vueResources/tools/vue.js}"></script>
+<script th:inline="javascript">
+    new Vue({
+        el: '#userInfoUpdate',
+        data: {
+            userName: null,
+            idCard: null,
+            email: null,
+            passWord: null,
+            phone: null,
+            balance: null,
+            rechargeAmount: 0,
+            costData: 0,
+            curTime: null,
+            signIn: null,
+            index: 1,
+            limit: 5,
+            flushTime: 1000,
+            curPage: 1,
+            titles: [],
+            buttons: [],
+            records: [],
+            signOut: null,
+            displayDate: [],
+            authorityList: [],
+            selectAuthority: 0,
+            buttonsIsShow: false,
+        },
+        methods: {
+            getUserInfo() {
+                axios.post('http://localhost:8080/getUserInfo').then(rep => {
+                    console.log(rep.data);
+                    this.userName = rep.data.userName
+                    this.idCard = rep.data.idCard
+                    this.email = rep.data.email
+                    this.passWord = rep.data.passWord
+                    this.phone = rep.data.phone
+                    this.balance = rep.data.balance
+                    console.log(rep.data);
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            getDateInfo() {
+                axios.post('http://localhost:8080/getNetworkTraffic').then(rep => {
+                    console.log(rep.data);
+                    this.costData = rep.data.costData
+                    this.curTime = rep.data.curTime
+                    this.signIn = rep.data.signIn
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            userRechargeAppClick() {
+                let regx = /^\+?[1-9][0-9]*$/
+                if (regx.test(this.rechargeAmount) && this.rechargeAmount > 0) {
+                    let params = {
+                        'rechargeAmount': this.rechargeAmount
+                    }
+                    axios.post('http://localhost:8080/userRechargeSubmit', params).then(rep => {
+                        if (rep.data.code === 200) {
+                            if (rep.data.success.data.length === 1) {
+                                this.records.push(rep.data.success.data[0])
+                            } else {
+                                this.records = this.records.concat(rep.data.success.data)
+                            }
+                        } else {
+                            console.log('提交申请失败！');
+                        }
+                        this.display()
+                        console.log(this.records);
+                    }).catch(error => {
+                        alert(error)
+                    })
+                } else {
+                    alert('请输入大于 0 的正整数!')
+                }
+            },
+            display(index) {
+                //分页超出
+                if (index && (index - 1) * this.limit >= this.records.length) {
+                    return null
+                }
+                this.curPage = index || this.curPage
+                this.displayDate = this.records.slice((this.curPage - 1) * this.limit, this.curPage * this.limit)
+            },
+            cancelClick(index, id) {
+                let url = 'http://localhost:8080/buttons/cancelRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            deleteClick(index, id) {
+                let url = 'http://localhost:8080/buttons/deleteRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            buttonClick(index, id, url) {
+                axios.get(url).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
+                        this.displayDate.splice(index, 1)
+                        this.records.splice((this.curPage - 1) * this.limit + index, 1)
+                        this.display()
+                    } else {
+                        console.log('the function response error, rep :' + rep)
+                    }
+                })
+            },
+            getRecordsForToday() {
+                axios.post('http://localhost:8080/getRecordsForLogIn').then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
+                        if (rep.data.success.data.length === 1) {
+                            this.records.push(rep.data.success.data[0])
+                        } else {
+                            this.records = this.records.concat(rep.data.success.data)
+                        }
+                    } else {
+                        console.log('查询登录之后的申请记录失败！');
+                    }
+                    this.display()
+                    console.log(this.records);
+                }).catch(error => {
+                    alert(error)
+                })
+            }
+        },
+        mounted() {
+            this.getUserInfo()
+            //流量使用的刷新时间
+            setInterval(() => this.getDateInfo(), this.flushTime)
+            this.getRecordsForToday()
+        }
+    })
+</script>
+
+
+<div th:replace="commons/common ::CONTENT-WRAPPER_SECTION_END"></div>
+<!-- CORE JQUERY  -->
+<script src="assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS  -->
+<script src="assets/js/bootstrap.js"></script>
+<!-- CUSTOM SCRIPTS  -->
+<script src="assets/js/custom.js"></script>
+</body>
+</html>
