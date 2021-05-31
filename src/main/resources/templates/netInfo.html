@@ -250,6 +250,7 @@
             }
         },
         mounted() {
+            this.getUserInfo()
             //流量使用的刷新时间
             setInterval(() => this.getDateInfo(), this.flushTime)
             this.getRecordsForToday()

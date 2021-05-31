@@ -45,7 +45,7 @@ mybatis:
 user:
   images:
     # 用户头像上传的文件目录。  默认
-    path: D:/main/JavaCode/demo/src/main/resources/static/images/userImages
+    path: userImages
     # 当用户没有头像的时候，默认使用的图片
     default: D:/main/JavaCode/demo/src/main/resources/static/images/layout_img/user_img.jpg
   time:

@@ -39,7 +39,7 @@ public class DataSourceController {
     @CrossOrigin
     @PostMapping("/userInfoUpdateSubmit")
     String userInfoUpdateSubmit(HttpServletRequest request, User user, @RequestParam(value = "file", required = false) MultipartFile file) {
-        return userService.userInfoUpdateHandler(request, user);
+        return userService.userInfoUpdateHandler(request, user, file);
     }
 
     /**

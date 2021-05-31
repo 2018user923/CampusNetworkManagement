@@ -15,12 +15,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -48,11 +49,12 @@ public class UserServiceImpl implements UserService {
     @Value("${user.newUserAuthority}")
     private String newUserAuthority;
 
-    @Autowired
-    private Map<Integer, MappingTitleAndButtons> map;
+    @Value("${user.images.path}")
+    private String baseImageUrl;
+
 
     @Autowired
-    private SimpleDateFormat simpleDateFormat;
+    private Map<Integer, MappingTitleAndButtons> map;
 
     /**
      * 用户登录服务
@@ -170,7 +172,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String userInfoUpdateHandler(HttpServletRequest request, User user) {
+    public String userInfoUpdateHandler(HttpServletRequest request, User user, MultipartFile file) {
+        if (file != null) {
+            try {
+                log.info("[文件类型] - [{}]", file.getContentType());
+                log.info("[文件名称] - [{}]", file.getOriginalFilename());
+                log.info("[文件大小] - [{}]", file.getSize());
+                String suffix = Objects.requireNonNull(file.getOriginalFilename()).substring(file.getOriginalFilename().lastIndexOf(".") + 1);
+                String avatar = user.getUserName() + "_" + UUID.randomUUID() + "." + suffix;
+                user.setAvatar(baseImageUrl + File.separator + avatar);
+                String uploadDirPath = request.getServletContext().getRealPath("./") + baseImageUrl;
+                String uploadImagePath = uploadDirPath + File.separator + avatar;
+                file.transferTo(new File(uploadImagePath));
+            } catch (Exception e) {
+                log.info("文件写入本地异常！", e);
+            }
+        }
         if (user.getBalance() == null) {
             user.setBalance(new BigDecimal(0));
         }

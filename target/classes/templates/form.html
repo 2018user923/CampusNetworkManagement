@@ -34,206 +34,39 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        个人信息
+                        <img class="media-object img-circle img-comments" alt="个人头像" ref="avatarUrl"
+                             src=""/>
                     </div>
                     <div class="panel-body">
-                        <form enctype="application/x-www-form-urlencoded" method="post">
+                        <form>
                             <div class="form-group">
                                 <label>用户名</label>
-                                <input class="form-control" type="text" name="userName"
-                                       :value=userName disabled=""/>
+                                <input class="form-control" type="text" :value=userName disabled=""/>
                             </div>
                             <div class="form-group">
                                 <label>身份证</label>
-                                <input class="form-control" type="text" name="idCard"
-                                       :value=idCard disabled=""/>
+                                <input class="form-control" type="text" :value=idCard disabled=""/>
                             </div>
                             <div class="form-group">
                                 <label>邮箱</label>
-                                <input class="form-control" type="text" name="email"
-                                       v-model="email"/>
+                                <input class="form-control" type="text" v-model="email"/>
                             </div>
                             <div class="form-group">
                                 <label>密码</label>
-                                <input class="form-control" type="text" name="passWord"
-                                       v-model="passWord"/>
+                                <input class="form-control" type="text" v-model="passWord"/>
                             </div>
                             <div class="form-group">
                                 <label>电话</label>
-                                <input class="form-control" type="text" name="phone"
-                                       v-model="phone"/>
+                                <input class="form-control" type="text" v-model="phone"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" accept="image/jpeg, image/png, image/gif" ref="upfile">
                             </div>
                             <button type="submit" class="btn btn-info" @click.prevent="userInfoUpdateClick">更新</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">充值</div>
-                    <div class="panel-body">
-                        <form role="form">
-                            <div class="form-group">
-                                <label>当前使用字节</label>
-                                <input class="form-control" type="text" :value="costData + 'bytes'" disabled=""/>
-                            </div>
-                            <div class="form-group">
-                                <label>当前使用流量</label>
-                                <input class="form-control" type="text" :value="(Math.floor(costData / 1048576)) + 'MB'" disabled=""/>
-                            </div>
-                            <div class="form-group">
-                                <label>当前余额</label>
-                                <input class="form-control" type="text" v-model=balance disabled=""/>
-                            </div>
-                            <div class="form-group">
-                                <label>充值金额</label>
-                                <input class="form-control" type="text" placeholder="请输入整数" name="rechargeAmount"
-                                       v-model="rechargeAmount"/>
-                            </div>
-                            <button type="submit" class="btn btn-danger" @click.prevent="userRechargeAppClick">提交申请
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/.ROW-->
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        FORM ELEMENTS
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label>Select Example</label>
-                            <select class="form-control">
-                                <option>One Vale</option>
-                                <option>Two Vale</option>
-                                <option>Three Vale</option>
-                                <option>Four Vale</option>
-                            </select>
-                        </div>
-                        <hr/>
-                        <div class="form-group">
-                            <label>Multiple Select Example</label>
-                            <select multiple="" class="form-control">
-                                <option>One Vale</option>
-                                <option>Two Vale</option>
-                                <option>Three Vale</option>
-                                <option>Four Vale</option>
-                            </select>
-                        </div>
-                        <hr/>
-                        <div class="form-group">
-                            <label>Checkboxes</label>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value=""/>Checkbox Example One
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value=""/>Checkbox Example Two
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value=""/>Checkbox Example Three
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value=""/>Checkbox Example Four
-                                </label>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="form-group">
-                            <label>Radio Button Examples</label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
-                                           checked="">Radio Example One
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio
-                                    Example Two
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio
-                                    Example Three
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        ADVANCE ELEMENTS FORM
-                    </div>
-                    <div class="panel-body">
-
-                        <form role="form">
-                            Some Message Examples
-                            <br/>
-                            <div class="form-group has-success">
-                                <label class="control-label" for="success">SUCCESS EXAMPLE</label>
-                                <input type="text" class="form-control" id="success"/>
-                            </div>
-                            <div class="form-group has-warning">
-                                <label class="control-label" for="warning">WARNING EXAMPLE</label>
-                                <input type="text" class="form-control" id="warning"/>
-                            </div>
-                            <div class="form-group has-error">
-                                <label class="control-label" for="error">ERROR EXAMPLE</label>
-                                <input type="text" class="form-control" id="error"/>
-                            </div>
-                        </form>
-                        <hr/>
-                        Other Group Examples
-                        <br/>
-                        <form role="form">
-                            <div class="input-group">
-      <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                <input type="text" class="form-control">
-                            </div>
-                            <br/>
-                            <div class="input-group">
-
-                                <input type="text" class="form-control">
-                                <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                            </div>
-                        </form>
-                        <hr/>
-                        <form role="form">
-                            <div class="form-group">
-                                <label for="disabledInput">Disabled input</label>
-                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input"
-                                       disabled=""/>
-                            </div>
-
-
-                        </form>
-                        <hr/>
-                        For more customization for this template or its components please visit official bootstrap
-                        website i.e getbootstrap.com or
-                        <a href="http://sc.chinaz.com/" target="_blank">click here</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
@@ -251,22 +84,18 @@
             passWord: null,
             phone: null,
             balance: null,
-            rechargeAmount: 0,
-            costData: 0,
-            curTime: null,
-            signIn: null,
-            index: 1,
-            limit: 10,
-            flushTime: 1000
+            avatarUrl: null
         },
         methods: {
             userInfoUpdateClick() {
                 let params = new FormData()
+                let file = this.$refs.upfile.files[0]
                 params.append("userName", this.userName)
                 params.append("idCard", this.idCard)
                 params.append("email", this.email)
                 params.append("passWord", this.passWord)
                 params.append("phone", this.phone)
+                params.append("file", file)
                 axios.post('http://localhost:8080/userInfoUpdateSubmit', params).then(rep => {
                     if (rep.data === 'successed') {
                         alert('个人信息更新成功！')
@@ -279,51 +108,21 @@
             },
             getUserInfo() {
                 axios.post('http://localhost:8080/getUserInfo').then(rep => {
-                    console.log(rep.data);
                     this.userName = rep.data.userName
                     this.idCard = rep.data.idCard
                     this.email = rep.data.email
                     this.passWord = rep.data.passWord
                     this.phone = rep.data.phone
                     this.balance = rep.data.balance
-                    console.log(rep.data);
+                    this.avatarUrl = rep.data.avatar
+                    this.$refs.avatarUrl.setAttribute("src", this.avatarUrl)
                 }).catch(err => {
                     console.log(err);
                 })
-            },
-            getDateInfo() {
-                axios.post('http://localhost:8080/getNetworkTraffic').then(rep => {
-                    console.log(rep.data);
-                    this.costData = rep.data.costData
-                    this.curTime = rep.data.curTime
-                    this.signIn = rep.data.signIn
-                }).catch(err => {
-                    console.log(err);
-                })
-            },
-            userRechargeAppClick() {
-                let regx = /^\+?[1-9][0-9]*$/
-                if (regx.test(this.rechargeAmount) && this.rechargeAmount > 0) {
-                    let params = {'rechargeAmount': this.rechargeAmount}
-                    axios.post('http://localhost:8080/userRechargeSubmit', params).then(rep => {
-                        console.log(rep.data)
-                        if (rep.data === 'successed') {
-                            alert('充值申请提交成功 !')
-                        } else {
-                            alert('未知原因，申请失败！' + rep.data)
-                        }
-                    }).catch(error => {
-                        alert(error)
-                    })
-                } else {
-                    alert('请输入大于 0 的正整数!')
-                }
             }
         },
         mounted() {
             this.getUserInfo()
-            //流量使用的刷新时间
-            setInterval(() => this.getDateInfo(), this.flushTime)
         }
     })
 </script>

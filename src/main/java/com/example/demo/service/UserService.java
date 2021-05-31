@@ -4,6 +4,7 @@ import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
 import com.example.demo.util.ResultResponse;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ public interface UserService {
 
     ResultResponse userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount);
 
-    String userInfoUpdateHandler(HttpServletRequest request, User user);
+    String userInfoUpdateHandler(HttpServletRequest request, User user, MultipartFile file);
 
     User getUserInfoHandler(HttpServletRequest request);
 
