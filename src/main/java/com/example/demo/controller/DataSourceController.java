@@ -28,7 +28,13 @@ public class DataSourceController {
     private RecordsService recordsService;
 
     /**
-     * 提交的充值请求
+     * 描述:  用户提交的充值申请处理
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:08
+     * @param: request
+     * @param: map
      */
     @CrossOrigin
     @PostMapping("/userRechargeSubmit")
@@ -36,6 +42,16 @@ public class DataSourceController {
         return userService.userRechargeAppHandler(request, Integer.valueOf(map.get("rechargeAmount")));
     }
 
+    /**
+     * 描述: 用户更新信息处理
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:09
+     * @param: request
+     * @param: user
+     * @param: file
+     */
     @CrossOrigin
     @PostMapping("/userInfoUpdateSubmit")
     ResultResponse userInfoUpdateSubmit(HttpServletRequest request, User user, @RequestParam(value = "file", required = false) MultipartFile file) {
@@ -47,7 +63,6 @@ public class DataSourceController {
      * @Author <247702560@qq.com>
      * @Date 2021/5/31 23:00
      * @Param [request]
-     * @return com.example.demo.domain.User
      */
     @CrossOrigin
     @PostMapping("/getUserInfo")
@@ -56,11 +71,11 @@ public class DataSourceController {
     }
 
     /**
+     * @return java.util.Map<java.lang.String, java.lang.Object>
      * @Description 获取当前 ip 使用的流量数据
      * @Author <247702560@qq.com>
      * @Date 2021/5/31 23:00
      * @Param [request]
-     * @return java.util.Map<java.lang.String,java.lang.Object>
      */
     @CrossOrigin
     @RequestMapping("/getNetworkTraffic")
@@ -69,11 +84,11 @@ public class DataSourceController {
     }
 
     /**
+     * @return java.lang.String
      * @Description 注册账户邮箱发送验证码
      * @Author <247702560@qq.com>
      * @Date 2021/5/31 23:00
      * @Param [request, map]
-     * @return java.lang.String
      */
     @CrossOrigin
     @RequestMapping("/register/sendEmail")
@@ -82,7 +97,13 @@ public class DataSourceController {
     }
 
     /**
-     * 登录账户邮箱发送验证码
+     * 描述: 登录账户邮箱发送验证码
+     *
+     * @return todo 返回 200 即可,这里后续需要修改！当前这里是返回 succeed
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 13:58
+     * @param: request
+     * @param: map 前端传入的数据，邮箱
      */
     @CrossOrigin
     @RequestMapping("/login/sendEmail")
@@ -90,21 +111,43 @@ public class DataSourceController {
         return httpService.loginSendEmail(request, map.get("email"));
     }
 
+    /**
+     * 描述: 返回当前登录用户的权限
+     *
+     * @return 返回的是当前用户的权限，结果是 set
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:01
+     * @param: request
+     */
     @CrossOrigin
     @RequestMapping("/getUserAuthorityList")
     Set<Integer> getUserAuthorityList(HttpServletRequest request) {
         return userService.getUserAuthorityListHandler(request);
     }
 
+    /*
+     * 描述: 根据传入的数据，来进行查询 records.
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:02
+     * @param: request
+     * @param: dbInputInfo
+     */
     @CrossOrigin
     @PostMapping("/getRecords")
     ResultResponse getRecords(HttpServletRequest request, @RequestBody DBInputInfo dbInputInfo) {
         return recordsService.getRecordsHandler(request, dbInputInfo);
     }
 
-    /*
-     * 获取当前用户今日的所以申请信息
-     * */
+    /**
+     * 描述: 获取用户登录之后的申请信息
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:08
+     * @param: request
+     */
     @CrossOrigin
     @PostMapping("/getRecordsForLogIn")
     ResultResponse getRecordsForLogIn(HttpServletRequest request) {
@@ -112,7 +155,13 @@ public class DataSourceController {
     }
 
     /**
-     * 使用邮箱登录
+     * 描述:  处理用户使用邮箱登录。
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:07
+     * @param: request
+     * @param: map 包含用户登录的用户名、邮箱、邮箱验证码等信息.
      */
     @CrossOrigin
     @RequestMapping("/login/emailLogin")
@@ -121,7 +170,13 @@ public class DataSourceController {
     }
 
     /**
-     * 正常登录
+     * 描述: 用户登录请求处理
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:06
+     * @param: request
+     * @param: user 用户登录信息
      */
     @CrossOrigin
     @RequestMapping("/login/userLogin")
@@ -129,6 +184,15 @@ public class DataSourceController {
         return userService.loginUserLoginHandler(request, user);
     }
 
+    /**
+     * 描述: 用户注册请求的逻辑处理，不能够创建管理员用户！
+     *
+     * @return 返回注册成功的信息，如果注册成功，那么会再次调用登录处理程序。
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:05
+     * @param: request
+     * @param: map 包含了传教用户的基本信息，及其邮箱验证码。
+     */
     @CrossOrigin
     @RequestMapping("/register/userRegister")
     ResultResponse userRegister(HttpServletRequest request, @RequestBody Map<String, String> map) {
@@ -142,7 +206,13 @@ public class DataSourceController {
     }
 
     /**
-     * 取消按钮点击逻辑
+     * 描述: 用户取消申请按钮的请求处理
+     *
+     * @return 返回是否处理成功。成功返回 200
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:02
+     * @param: request
+     * @param: id 是 record 记录的主键
      */
     @CrossOrigin
     @RequestMapping("/buttons/cancelRecord/{id}")
@@ -151,7 +221,13 @@ public class DataSourceController {
     }
 
     /**
-     * 再次提交按钮点击逻辑
+     * 描述: 用户再次提交申请按钮的请求处理
+     *
+     * @return 返回是否处理成功。成功返回 200
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:02
+     * @param: request
+     * @param: id 是 record 记录的主键
      */
     @CrossOrigin
     @RequestMapping("/buttons/repeatedSubmitRecord/{id}")
@@ -160,7 +236,13 @@ public class DataSourceController {
     }
 
     /**
-     * 删除按钮点击逻辑
+     * 描述: 用户删除提交申请按钮的请求处理
+     *
+     * @return 返回是否处理成功。成功返回 200
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:02
+     * @param: request
+     * @param: id 是 record 记录的主键
      */
     @CrossOrigin
     @RequestMapping("/buttons/deleteRecord/{id}")
@@ -169,7 +251,13 @@ public class DataSourceController {
     }
 
     /**
-     * 同意按钮点击逻辑
+     * 描述: 管理员同意提交申请按钮的请求处理
+     *
+     * @return 返回是否处理成功。成功返回 200
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:02
+     * @param: request
+     * @param: id 是 record 记录的主键
      */
     @CrossOrigin
     @RequestMapping("/buttons/agreeRecord/{id}")
@@ -178,7 +266,13 @@ public class DataSourceController {
     }
 
     /**
-     * 驳回按钮点击逻辑
+     * 描述: 管理员驳回提交申请按钮的请求处理
+     *
+     * @return 返回是否处理成功。成功返回 200
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:02
+     * @param: request
+     * @param: id 是 record 记录的主键
      */
     @CrossOrigin
     @RequestMapping("/buttons/turnDownRecord/{id}")

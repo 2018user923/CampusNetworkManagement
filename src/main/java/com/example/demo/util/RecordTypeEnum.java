@@ -9,7 +9,8 @@ public enum RecordTypeEnum {
     userRechargeSubmitTurnDown("用户提交充值申请驳回", 4),
 
     turnDownUserRechargeSubmit("驳回用户充值申请", 5),
-    PendingUserRechargeSubmit("待审批的充值申请", 6);
+    PendingUserRechargeSubmit("待审批的充值申请", 6),
+    checkUserInfo("查看用户信息", 7);
 
     private String key;
     private Integer val;

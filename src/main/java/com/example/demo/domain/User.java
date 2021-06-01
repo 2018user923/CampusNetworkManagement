@@ -31,7 +31,7 @@ public class User {
     private String idCard; // 身份证.
     private String avatar; //头像的 url 地址
     private BigDecimal balance;//当前余额
-    private Integer type;//账户类型
+    private Integer type;//账户类型,type 为 0,即为管理员账户，否则为普通用户
     private String authority;//权限，使用 list 存储之后再使用 json.parse 解析
     private Set<Integer> authorityToSet;//将 authority 转化为 set 类型
 }

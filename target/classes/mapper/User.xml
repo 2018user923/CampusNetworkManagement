@@ -18,7 +18,8 @@
     <select id="getUserByUserNameAndEmail" resultType="User">
         select *
         from user_table
-        where user_Name = #{userName} and email = #{email}
+        where user_Name = #{userName}
+          and email = #{email}
     </select>
 
     <update id="updateUserById">

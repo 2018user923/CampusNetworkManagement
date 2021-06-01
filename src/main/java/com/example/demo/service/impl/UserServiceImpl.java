@@ -307,7 +307,14 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 用户注册处理
+     * 描述: 用户注册处理器
+     *
+     * @return ResultResponse
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 12:15
+     * @param: request 请求
+     * @param: user 信息
+     * @param: code 注册发送而来的邮箱验证码
      */
     @Override
     public ResultResponse userRegisterHandler(HttpServletRequest request, User user, String code) {
