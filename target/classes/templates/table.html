@@ -81,7 +81,7 @@
                                 <div class="col-sm-6">
                                     <div class="dataTables_info" role="alert"
                                          aria-live="polite"
-                                         aria-relevant="all">Showing 1 to 10 of 27 entries
+                                         aria-relevant="all">{{showMessage}}
                                     </div>
                                 </div>
                                 <!--展示 翻页 -->
@@ -137,7 +137,8 @@
             buttons: [],
             signIn: null,
             signOut: null,
-            displayDate: []
+            displayDate: [],
+            showMessage: '当前不存在任何记录！'
         },
         methods: {
             getRecordsForPage() {
@@ -150,12 +151,15 @@
                 axios.post('http://localhost:8080/getRecords', params).then(rep => {
                     console.log(rep.data);
                     if (rep.data.code === 200 && rep.data.success.data.length > 0) {
+                        this.showMessage = '一共查询到 ' + rep.data.success.data.length + ' 条记录！'
                         this.records = rep.data.success.data
                         this.titles = rep.data.success.titles
                         this.buttons = rep.data.success.buttons
                         this.display(1)
                     } else if (rep.data.code === 200 && rep.data.success.data.length === 0) {
-                        alert('未查询到任何记录!')
+                        this.showMessage = '当前不存在任何记录！'
+                        this.records = []
+                        this.displayDate = []
                     } else {
                         console.log('getRecordsForPage Date is None, rep :' + rep.data)
                     }

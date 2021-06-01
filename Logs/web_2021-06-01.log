@@ -1,0 +1,1050 @@
+2021-06-01 09:50:04.692 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 09:50:04.694 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 09:50:04.733 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-06-01 09:50:04.733 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-06-01 09:50:05.311 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 09:50:05.313 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 09:50:05.333 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2021-06-01 09:50:05.957 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 09:50:05.965 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 09:50:05.965 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 09:50:05.965 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 09:50:06.017 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 09:50:06.017 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1283 ms
+2021-06-01 09:50:06.664 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 09:50:06.841 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-06-01 09:50:07.648 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 09:50:07.814 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 09:50:08.241 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 09:50:08.268 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 09:50:08.292 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 09:50:08.303 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.926 seconds (JVM running for 4.691)
+2021-06-01 09:50:17.868 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 09:50:17.868 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 09:50:17.870 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-06-01 10:09:42.548 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#loginUserLogin 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f9d00bf, User(id=null, userName=zhangsan, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:09:43.572 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6abc2497]
+2021-06-01 10:09:44.956 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7c102367]
+2021-06-01 10:09:44.963 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@41af04d4, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:10:18.815 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@1e728f7c]
+2021-06-01 10:10:18.817 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7c102367, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:10:20.262 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@1e728f7c]
+2021-06-01 10:10:20.263 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f9d00bf, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:10:55.438 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f9d00bf]
+2021-06-01 10:12:29.336 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:12:29.338 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-06-01 10:12:29.341 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-06-01 10:12:29.517 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:12:29.517 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:12:29.660 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:12:29.660 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:12:29.664 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:12:29.757 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:12:29.758 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:12:29.758 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:12:29.758 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:12:29.769 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:12:29.769 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 250 ms
+2021-06-01 10:12:29.828 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:12:29.836 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-06-01 10:12:29.996 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:12:30.018 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:12:30.139 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:12:30.149 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:12:30.152 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:12:30.156 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.663 seconds (JVM running for 1346.543)
+2021-06-01 10:12:30.157 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:12:31.597 [Thread-8] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:12:31.598 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-06-01 10:12:31.598 [Thread-8] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-06-01 10:12:31.655 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:12:31.655 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:12:31.760 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:12:31.760 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:12:31.763 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:12:31.839 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:12:31.839 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:12:31.840 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:12:31.840 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:12:31.849 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:12:31.849 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 192 ms
+2021-06-01 10:12:31.901 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:12:31.909 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-06-01 10:12:32.031 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:12:32.052 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:12:32.163 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:12:32.173 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:12:32.176 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:12:32.178 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.544 seconds (JVM running for 1348.566)
+2021-06-01 10:12:32.179 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:12:34.017 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 10:12:34.017 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 10:12:34.018 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-06-01 10:12:34.032 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@57b300c9]
+2021-06-01 10:12:34.414 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyUtil - Tue Jun 01 10:09:43 CST 2021 ----> Tue Jun 01 10:12:34 CST 2021花费的金额为 :6.0
+2021-06-01 10:12:39.015 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#loginUserLogin 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@30803541, User(id=null, userName=zhangsan, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:12:39.355 [http-nio-8080-exec-2] INFO  com.example.demo.service.impl.UserServiceImpl - 用户成功登录之后的信息：{"passWord":"asd123","balance":16000,"phone":"18170217027","idCard":"360421199710105218","authority":"null","avatar":"userImages\\zhangsan_b72b0178-58f9-4d39-a6d2-3d1585d541e2.jfif","id":4,"userName":"zhangsan","email":"1958354281@qq.com"}
+2021-06-01 10:12:39.446 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@ab79075]
+2021-06-01 10:12:40.931 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@4d23d73e]
+2021-06-01 10:12:40.937 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@3f06cd24, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:14:07.655 [Thread-13] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:14:07.656 [Thread-13] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2021-06-01 10:14:07.657 [Thread-13] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2021-06-01 10:14:07.820 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:14:07.821 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:14:07.928 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:14:07.929 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:14:07.932 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:14:08.009 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:14:08.010 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:14:08.010 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:14:08.010 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:14:08.019 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:14:08.019 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 197 ms
+2021-06-01 10:14:08.069 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:14:08.077 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2021-06-01 10:14:08.192 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:14:08.212 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:14:08.315 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:14:08.325 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:14:08.328 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:14:08.330 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.532 seconds (JVM running for 1444.718)
+2021-06-01 10:14:08.331 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:14:15.027 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 10:14:15.027 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 10:14:15.028 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-06-01 10:14:15.144 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecordsForLogIn 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:15.144 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6ffeea73]
+2021-06-01 10:14:16.146 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:17.143 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:18.142 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:19.072 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#userRechargeSubmit 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879, {rechargeAmount=1}]
+2021-06-01 10:14:19.155 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:20.146 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:20.705 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#userRechargeSubmit 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879, {rechargeAmount=12}]
+2021-06-01 10:14:21.160 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:21.634 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#userRechargeSubmit 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879, {rechargeAmount=123}]
+2021-06-01 10:14:22.152 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:23.463 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:24.143 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:25.142 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:14:25.985 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@16c37e24]
+2021-06-01 10:14:25.989 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@47a825f9, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:14:41.732 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@47a825f9]
+2021-06-01 10:14:42.080 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyUtil - Tue Jun 01 10:12:39 CST 2021 ----> Tue Jun 01 10:14:42 CST 2021花费的金额为 :6.0
+2021-06-01 10:15:10.470 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#registerSendEmail 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879, {email=2115839526@qq.com}]
+2021-06-01 10:15:17.028 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#userRegister 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879, {email=2115839526@qq.com, code=791924, userName=1001, passWord=asd123}]
+2021-06-01 10:15:17.379 [http-nio-8080-exec-7] INFO  com.example.demo.service.impl.UserServiceImpl - 用户成功登录之后的信息：{"passWord":"asd123","authorityToSet":[0,1,2,3,4],"balance":0,"authority":"[0, 1, 2, 3, 4]","avatar":"userImages\\default.jfif","id":8,"userName":"1001","email":"2115839526@qq.com"}
+2021-06-01 10:15:17.499 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@47a825f9]
+2021-06-01 10:15:43.640 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#userInfoUpdateSubmit 任务执行开始,args=[org.springframework.web.multipart.support.StandardMultipartHttpServletRequest@4c528b4f, User(id=null, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=null, balance=null, type=null, authority=null, authorityToSet=null), null]
+2021-06-01 10:15:44.827 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@47a825f9]
+2021-06-01 10:15:46.247 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@16c37e24]
+2021-06-01 10:15:50.759 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecordsForLogIn 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6507d459]
+2021-06-01 10:15:50.759 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@47a825f9]
+2021-06-01 10:15:51.761 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6507d459]
+2021-06-01 10:15:52.761 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6507d459]
+2021-06-01 10:15:53.761 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getNetworkTraffic 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6507d459]
+2021-06-01 10:15:54.656 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@6ffeea73, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:15:58.748 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@53248879]
+2021-06-01 10:15:58.749 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@54fbb19b, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:16:33.723 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@54fbb19b]
+2021-06-01 10:17:13.061 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@54fbb19b]
+2021-06-01 10:17:16.607 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@54fbb19b]
+2021-06-01 10:18:25.280 [Thread-18] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:18:25.281 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2021-06-01 10:18:25.282 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2021-06-01 10:18:25.457 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:18:25.457 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:18:25.570 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:18:25.570 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:18:25.573 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:18:25.647 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:18:25.648 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:18:25.648 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:18:25.648 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:18:25.657 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:18:25.657 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 199 ms
+2021-06-01 10:18:25.686 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@f9630c6]
+2021-06-01 10:18:25.707 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:18:25.713 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:18:25.728 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:18:25.737 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} inited
+2021-06-01 10:18:25.798 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:18:25.814 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:18:25.889 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:18:25.900 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@7780a57e]
+2021-06-01 10:18:25.911 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:18:25.917 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@49702b1c]
+2021-06-01 10:18:26.026 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:18:26.038 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:18:26.040 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:18:26.043 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.605 seconds (JVM running for 1702.43)
+2021-06-01 10:18:26.044 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:18:27.476 [Thread-23] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:18:27.477 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closing ...
+2021-06-01 10:18:27.477 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closed
+2021-06-01 10:18:27.539 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:18:27.540 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:18:27.650 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:18:27.650 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:18:27.653 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:18:27.731 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:18:27.732 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:18:27.732 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:18:27.732 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:18:27.741 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:18:27.741 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 200 ms
+2021-06-01 10:18:27.772 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@5df8deed]
+2021-06-01 10:18:27.791 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:18:27.796 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:18:27.808 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:18:27.816 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} inited
+2021-06-01 10:18:27.862 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:18:27.875 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:18:27.934 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:18:27.943 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@1e3d1f25]
+2021-06-01 10:18:27.953 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:18:27.959 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@7c0a2f32]
+2021-06-01 10:18:28.057 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:18:28.067 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:18:28.070 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:18:28.073 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.555 seconds (JVM running for 1704.46)
+2021-06-01 10:18:28.074 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:18:32.783 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 10:18:32.783 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 10:18:32.784 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-06-01 10:18:32.784 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f842ce7]
+2021-06-01 10:18:32.786 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:18:32.803 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f842ce7]
+2021-06-01 10:18:32.803 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f842ce7]
+2021-06-01 10:18:32.805 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@7f842ce7]
+2021-06-01 10:18:32.805 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:19:04.271 [Thread-28] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:19:04.272 [Thread-28] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closing ...
+2021-06-01 10:19:04.272 [Thread-28] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closed
+2021-06-01 10:19:04.438 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:19:04.438 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:19:04.555 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:19:04.555 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:19:04.558 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:19:04.645 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:19:04.646 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:19:04.646 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:19:04.646 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:19:04.655 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:19:04.655 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 215 ms
+2021-06-01 10:19:04.684 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@261c5129]
+2021-06-01 10:19:04.689 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行结束,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@261c5129]
+2021-06-01 10:19:04.704 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:19:04.704 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行结束,args=[]
+2021-06-01 10:19:04.709 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:19:04.710 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行结束,args=[]
+2021-06-01 10:19:04.724 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:19:04.732 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} inited
+2021-06-01 10:19:04.785 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:19:04.785 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行结束,args=[]
+2021-06-01 10:19:04.802 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:19:04.802 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行结束,args=[]
+2021-06-01 10:19:04.868 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:19:04.879 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@7218da9e]
+2021-06-01 10:19:04.880 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行结束,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@7218da9e]
+2021-06-01 10:19:04.890 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:19:04.898 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@14e991d9]
+2021-06-01 10:19:04.898 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行结束,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@14e991d9]
+2021-06-01 10:19:05.011 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:19:05.022 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:19:05.027 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:19:05.030 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.614 seconds (JVM running for 1741.418)
+2021-06-01 10:19:05.031 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:19:06.475 [Thread-33] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:19:06.476 [Thread-33] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closing ...
+2021-06-01 10:19:06.476 [Thread-33] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closed
+2021-06-01 10:19:06.531 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:19:06.532 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:19:06.628 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:19:06.628 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:19:06.631 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:19:06.701 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:19:06.702 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:19:06.702 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:19:06.702 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:19:06.711 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:19:06.711 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 177 ms
+2021-06-01 10:19:06.738 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@779dc47e]
+2021-06-01 10:19:06.742 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行结束,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@779dc47e]
+2021-06-01 10:19:06.757 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:19:06.757 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行结束,args=[]
+2021-06-01 10:19:06.762 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:19:06.762 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行结束,args=[]
+2021-06-01 10:19:06.775 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:19:06.784 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} inited
+2021-06-01 10:19:06.831 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:19:06.831 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行结束,args=[]
+2021-06-01 10:19:06.843 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:19:06.843 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行结束,args=[]
+2021-06-01 10:19:06.903 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:19:06.912 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@4da72d85]
+2021-06-01 10:19:06.913 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行结束,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@4da72d85]
+2021-06-01 10:19:06.926 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:19:06.931 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@e889196]
+2021-06-01 10:19:06.932 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行结束,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@e889196]
+2021-06-01 10:19:07.031 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:19:07.043 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:19:07.046 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:19:07.048 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.536 seconds (JVM running for 1743.436)
+2021-06-01 10:19:07.049 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:19:56.534 [Thread-38] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:19:56.535 [Thread-38] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closing ...
+2021-06-01 10:19:56.535 [Thread-38] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closed
+2021-06-01 10:19:56.610 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:19:56.611 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:19:56.716 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:19:56.716 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:19:56.719 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:19:56.803 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:19:56.804 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:19:56.804 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:19:56.804 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:19:56.814 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:19:56.814 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 201 ms
+2021-06-01 10:19:56.844 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@98eaefa]
+2021-06-01 10:19:56.902 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myMvcConfig': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisUtil': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+2021-06-01 10:19:57.011 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-06-01 10:19:57.017 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-06-01 10:19:57.037 [restartedMain] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myMvcConfig': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisUtil': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:582)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisUtil': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:521)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:497)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:650)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:318)
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 42 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 55 common frames omitted
+Caused by: com.alibaba.fastjson.JSONException: toJSON error
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1191)
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1092)
+	at com.example.demo.util.MyAspect.syncLogInfo(MyAspect.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.example.demo.Config.MyMvcConfig$$EnhancerBySpringCGLIB$$f7fbe7e8.template(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 56 common frames omitted
+Caused by: com.alibaba.fastjson.JSONException: toJSON error
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1191)
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1188)
+	... 77 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at com.alibaba.fastjson.util.FieldInfo.get(FieldInfo.java:571)
+	at com.alibaba.fastjson.serializer.FieldSerializer.getPropertyValue(FieldSerializer.java:151)
+	at com.alibaba.fastjson.serializer.JavaBeanSerializer.getFieldValuesMap(JavaBeanSerializer.java:797)
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1186)
+	... 78 common frames omitted
+Caused by: org.springframework.dao.InvalidDataAccessApiUsageException: Cluster is not configured!
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getClusterConnection(LettuceConnectionFactory.java:372)
+	... 86 common frames omitted
+2021-06-01 10:19:58.502 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:19:58.502 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:19:58.597 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:19:58.597 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:19:58.600 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:19:58.665 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:19:58.665 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:19:58.665 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:19:58.665 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:19:58.673 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:19:58.673 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 170 ms
+2021-06-01 10:19:58.700 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@412c9168]
+2021-06-01 10:19:58.713 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myMvcConfig': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisUtil': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+2021-06-01 10:19:58.822 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-06-01 10:19:58.827 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-06-01 10:19:58.828 [restartedMain] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myMvcConfig': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisUtil': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:582)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisUtil': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:521)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:497)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:650)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:318)
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'template' defined in class path resource [com/example/demo/Config/MyMvcConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 42 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Circular reference involving containing bean 'myMvcConfig' - consider declaring the factory method as static for independence from its containing instance. Factory method 'template' threw exception; nested exception is com.alibaba.fastjson.JSONException: toJSON error
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 55 common frames omitted
+Caused by: com.alibaba.fastjson.JSONException: toJSON error
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1191)
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1092)
+	at com.example.demo.util.MyAspect.syncLogInfo(MyAspect.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.example.demo.Config.MyMvcConfig$$EnhancerBySpringCGLIB$$f7fbe7e8.template(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 56 common frames omitted
+Caused by: com.alibaba.fastjson.JSONException: toJSON error
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1191)
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1188)
+	... 77 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at com.alibaba.fastjson.util.FieldInfo.get(FieldInfo.java:571)
+	at com.alibaba.fastjson.serializer.FieldSerializer.getPropertyValue(FieldSerializer.java:151)
+	at com.alibaba.fastjson.serializer.JavaBeanSerializer.getFieldValuesMap(JavaBeanSerializer.java:797)
+	at com.alibaba.fastjson.JSON.toJSON(JSON.java:1186)
+	... 78 common frames omitted
+Caused by: org.springframework.dao.InvalidDataAccessApiUsageException: Cluster is not configured!
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getClusterConnection(LettuceConnectionFactory.java:372)
+	... 86 common frames omitted
+2021-06-01 10:20:14.028 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:20:14.028 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:20:14.122 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:20:14.122 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:20:14.125 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:20:14.188 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:20:14.189 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:20:14.189 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:20:14.189 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:20:14.198 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:20:14.198 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 169 ms
+2021-06-01 10:20:14.223 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@84c14b6]
+2021-06-01 10:20:14.227 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行结束,response=org.springframework.data.redis.core.RedisTemplate@1253832c
+2021-06-01 10:20:14.241 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:20:14.241 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行结束,response=java.util.Random@5cab581f
+2021-06-01 10:20:14.247 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:20:14.247 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行结束,response=Value(YearOfEra,4,19,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2)' 'Value(HourOfDay,2)':'Value(MinuteOfHour,2)':'Value(SecondOfMinute,2)
+2021-06-01 10:20:14.262 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:20:14.269 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-9} inited
+2021-06-01 10:20:14.310 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:20:14.311 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行结束,response={0=MappingTitleAndButtons(title=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]), 1=MappingTitleAndButtons(title=[编号, 提交时间, 充值金额（元）, 操作], buttons=[true, true, false, false, false]), 2=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 充值金额, 操作], buttons=[false, true, true, false, false]), 3=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, false, false, false]), 4=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, true, false, false]), 5=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 申请者, 审批人, 充值金额（元）, 操作], buttons=[false, true, false, true, false]), 6=MappingTitleAndButtons(title=[编号, 提交时间, 申请者, 充值金额（元）, 操作], buttons=[false, false, false, true, true])}
+2021-06-01 10:20:14.323 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:20:14.324 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行结束,response=java.text.SimpleDateFormat@4f76f1a0
+2021-06-01 10:20:14.384 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:20:14.394 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@7b9f568e]
+2021-06-01 10:20:14.395 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行结束,response=null
+2021-06-01 10:20:14.404 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:20:14.410 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@3eeb9826]
+2021-06-01 10:20:14.411 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行结束,response=null
+2021-06-01 10:20:14.511 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:20:14.521 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:20:14.524 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:20:14.527 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.518 seconds (JVM running for 1810.914)
+2021-06-01 10:20:14.528 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:20:19.692 [http-nio-8080-exec-1] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 10:20:19.692 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 10:20:19.692 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-06-01 10:20:19.693 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:20:19.694 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:20:19.694 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:20:19.708 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:20:19.709 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:20:19.709 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:20:19.711 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:20:19.711 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:20:19.711 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:20:19.712 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:20:19.712 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行结束,response=null
+2021-06-01 10:20:19.712 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行结束,response=null
+2021-06-01 10:21:35.909 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:21:35.909 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:35.909 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:35.910 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:36.004 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:36.004 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:36.004 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:36.005 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:36.006 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:36.006 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:36.006 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:36.006 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:36.006 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:36.007 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:36.007 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:36.007 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:36.020 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:36.021 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:36.021 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:36.021 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:37.589 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:37.589 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:37.589 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:37.590 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:37.590 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:37.592 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - UserServiceImpl#logOutHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:37.592 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:37.592 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:37.592 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[NET_DATA, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:37.594 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response={"sendData":37625111,"getDataPackage":9808872," sendDataPackage":254175,"signIn":1622513717375,"userName":"1001","getData":1818406594}
+2021-06-01 10:21:37.594 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:37.595 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:21:37.595 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - $Proxy140#updateUser 任务执行开始,args=[User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:21:37.623 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - $Proxy140#updateUser 任务执行结束,response=1
+2021-06-01 10:21:37.623 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行开始,args=[]
+2021-06-01 10:21:37.957 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行结束,response={"sendData":38187509,"getDataPackage":10023874," sendDataPackage":258725,"getData":1861591589}
+2021-06-01 10:21:37.958 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - MyUtil#calcSpend 任务执行开始,args=[Tue Jun 01 10:15:17 CST 2021, Tue Jun 01 10:21:37 CST 2021]
+2021-06-01 10:21:37.958 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyUtil - Tue Jun 01 10:15:17 CST 2021 ----> Tue Jun 01 10:21:37 CST 2021花费的金额为 :18.0
+2021-06-01 10:21:37.958 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - MyUtil#calcSpend 任务执行结束,response=18
+2021-06-01 10:21:37.963 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - $Proxy138#insertRecord 任务执行开始,args=[Record(id=null, userName=1001, updateUserName=null, signIn=Tue Jun 01 10:15:17 CST 2021, signOut=Tue Jun 01 10:21:37 CST 2021, costData=43184995, balance=null, costMoney=18, createTime=null, updateTime=null, rechargeAmount=null, type=0)]
+2021-06-01 10:21:37.967 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - $Proxy138#insertRecord 任务执行结束,response=1
+2021-06-01 10:21:37.967 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行开始,args=[NET_DATA, [Ljava.lang.Object;@b25789c]
+2021-06-01 10:21:37.968 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行结束,response=null
+2021-06-01 10:21:37.968 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行开始,args=[USER_LOGIN_INFO, [Ljava.lang.Object;@5b68bf8b]
+2021-06-01 10:21:37.969 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行结束,response=null
+2021-06-01 10:21:37.969 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - UserServiceImpl#logOutHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/, data=null, titles=null, buttons=null))
+2021-06-01 10:21:37.970 [http-nio-8080-exec-6] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行结束,response=redirect:http://localhost:8080/
+2021-06-01 10:21:37.977 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@b6a0086]
+2021-06-01 10:21:37.977 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:37.977 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:37.978 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=null
+2021-06-01 10:21:43.463 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#loginUserLogin 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@630e40f2, User(id=null, userName=1001, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:21:43.463 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - UserServiceImpl#loginUserLoginHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@630e40f2, User(id=null, userName=1001, passWord=asd123, phone=null, email=null, idCard=null, avatar=null, balance=null, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:21:43.463 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - $Proxy140#getUserByUserName 任务执行开始,args=[1001]
+2021-06-01 10:21:43.472 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - $Proxy140#getUserByUserName 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:21:43.472 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@630e40f2]
+2021-06-01 10:21:43.472 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:43.472 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行开始,args=[]
+2021-06-01 10:21:43.801 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行结束,response={"sendData":38194682,"getDataPackage":10027300," sendDataPackage":258786,"getData":1862327156}
+2021-06-01 10:21:43.801 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行开始,args=[NET_DATA, 0:0:0:0:0:0:0:1, {"sendData":38194682,"getDataPackage":10027300," sendDataPackage":258786,"signIn":1622514103801,"userName":"1001","getData":1862327156}]
+2021-06-01 10:21:43.803 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行结束,response=true
+2021-06-01 10:21:43.803 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1, User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:21:43.806 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行结束,response=true
+2021-06-01 10:21:43.806 [http-nio-8080-exec-7] INFO  com.example.demo.service.impl.UserServiceImpl - 用户成功登录之后的信息：{"passWord":"asd123","balance":0,"phone":"18170217027","idCard":"360421199710105218","authority":"null","avatar":"userImages\\default.jfif","id":8,"userName":"1001","email":"2115839526@qq.com"}
+2021-06-01 10:21:43.806 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - UserServiceImpl#loginUserLoginHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/form, data=null, titles=null, buttons=null))
+2021-06-01 10:21:43.806 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#loginUserLogin 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/form, data=null, titles=null, buttons=null))
+2021-06-01 10:21:43.816 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@630e40f2]
+2021-06-01 10:21:43.816 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:43.816 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:43.817 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:21:43.894 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:21:43.894 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:43.894 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:43.895 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:21:43.895 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:21:43.895 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:21:43.895 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:21:43.895 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:43.895 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:43.896 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:21:43.896 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:21:43.896 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:21:43.908 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@14f63d91]
+2021-06-01 10:21:43.908 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:21:43.908 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:21:43.908 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:24:41.024 [Thread-43] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:24:41.024 [Thread-43] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-9} closing ...
+2021-06-01 10:24:41.025 [Thread-43] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-9} closed
+2021-06-01 10:24:41.196 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:24:41.196 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:24:41.309 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:24:41.309 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:24:41.312 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:24:41.391 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:24:41.391 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:24:41.392 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:24:41.392 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:24:41.401 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:24:41.402 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 204 ms
+2021-06-01 10:24:41.431 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@504335d5]
+2021-06-01 10:24:41.436 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行结束,response=org.springframework.data.redis.core.RedisTemplate@7738b13a
+2021-06-01 10:24:41.451 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:24:41.451 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行结束,response=java.util.Random@4cc469c0
+2021-06-01 10:24:41.455 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:24:41.456 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行结束,response=Value(YearOfEra,4,19,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2)' 'Value(HourOfDay,2)':'Value(MinuteOfHour,2)':'Value(SecondOfMinute,2)
+2021-06-01 10:24:41.469 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:24:41.478 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-10} inited
+2021-06-01 10:24:41.524 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:24:41.525 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行结束,response={0=MappingTitleAndButtons(title=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]), 1=MappingTitleAndButtons(title=[编号, 提交时间, 充值金额（元）, 操作], buttons=[true, true, false, false, false]), 2=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 充值金额, 操作], buttons=[false, true, true, false, false]), 3=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, false, false, false]), 4=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, true, false, false]), 5=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 申请者, 审批人, 充值金额（元）, 操作], buttons=[false, true, false, true, false]), 6=MappingTitleAndButtons(title=[编号, 提交时间, 申请者, 充值金额（元）, 操作], buttons=[false, false, false, true, true])}
+2021-06-01 10:24:41.539 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:24:41.539 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行结束,response=java.text.SimpleDateFormat@4f76f1a0
+2021-06-01 10:24:41.611 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:24:41.621 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@7dbaf1c8]
+2021-06-01 10:24:41.622 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行结束,response=null
+2021-06-01 10:24:41.631 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:24:41.635 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@1d7897e7]
+2021-06-01 10:24:41.636 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行结束,response=null
+2021-06-01 10:24:41.749 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:24:41.761 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:24:41.764 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:24:41.767 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.59 seconds (JVM running for 2078.154)
+2021-06-01 10:24:41.767 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:25:20.807 [http-nio-8080-exec-1] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 10:25:20.808 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 10:25:20.809 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-06-01 10:25:20.809 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73d04cbd]
+2021-06-01 10:25:20.812 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:25:20.812 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:25:20.838 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:25:20.839 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73d04cbd]
+2021-06-01 10:25:20.844 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#logOutHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73d04cbd]
+2021-06-01 10:25:20.846 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73d04cbd]
+2021-06-01 10:25:20.846 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:25:20.846 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[NET_DATA, 0:0:0:0:0:0:0:1]
+2021-06-01 10:25:20.849 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response={"sendData":38194682,"getDataPackage":10027300," sendDataPackage":258786,"signIn":1622514103801,"userName":"1001","getData":1862327156}
+2021-06-01 10:25:20.849 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:25:20.851 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)
+2021-06-01 10:25:20.852 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy145#updateUser 任务执行开始,args=[User(id=8, userName=1001, passWord=asd123, phone=18170217027, email=2115839526@qq.com, idCard=360421199710105218, avatar=userImages\default.jfif, balance=0, type=null, authority=null, authorityToSet=null)]
+2021-06-01 10:25:20.879 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy145#updateUser 任务执行结束,response=1
+2021-06-01 10:25:20.880 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行开始,args=[]
+2021-06-01 10:25:21.294 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行结束,response={"sendData":38424697,"getDataPackage":10163092," sendDataPackage":261065,"getData":1888192494}
+2021-06-01 10:25:21.295 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - MyUtil#calcSpend 任务执行开始,args=[Tue Jun 01 10:21:43 CST 2021, Tue Jun 01 10:25:21 CST 2021]
+2021-06-01 10:25:21.295 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyUtil - Tue Jun 01 10:21:43 CST 2021 ----> Tue Jun 01 10:25:21 CST 2021花费的金额为 :9.0
+2021-06-01 10:25:21.295 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - MyUtil#calcSpend 任务执行结束,response=9
+2021-06-01 10:25:21.296 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy143#insertRecord 任务执行开始,args=[Record(id=null, userName=1001, updateUserName=null, signIn=Tue Jun 01 10:21:43 CST 2021, signOut=Tue Jun 01 10:25:21 CST 2021, costData=25865338, balance=null, costMoney=9, createTime=null, updateTime=null, rechargeAmount=null, type=0)]
+2021-06-01 10:25:21.302 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy143#insertRecord 任务执行结束,response=1
+2021-06-01 10:25:21.302 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行开始,args=[NET_DATA, [Ljava.lang.Object;@1c9714b9]
+2021-06-01 10:25:21.303 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行结束,response=null
+2021-06-01 10:25:21.303 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行开始,args=[USER_LOGIN_INFO, [Ljava.lang.Object;@65e35229]
+2021-06-01 10:25:21.304 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行结束,response=null
+2021-06-01 10:25:21.305 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#logOutHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/, data=null, titles=null, buttons=null))
+2021-06-01 10:25:21.305 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行结束,response=redirect:http://localhost:8080/
+2021-06-01 10:25:21.311 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73d04cbd]
+2021-06-01 10:25:21.312 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:25:21.312 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:25:21.312 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=null
+2021-06-01 10:25:51.725 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#registerSendEmail 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9, {email=2115839526@qq.com}]
+2021-06-01 10:25:51.725 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#registerSendEmail 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9, 2115839526@qq.com]
+2021-06-01 10:25:51.725 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - MyUtil#sendMail 任务执行开始,args=[2115839526@qq.com, 注册账户验证码]
+2021-06-01 10:25:52.960 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - MyUtil#sendMail 任务执行结束,response=785923
+2021-06-01 10:25:52.961 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9]
+2021-06-01 10:25:52.961 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:25:52.961 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行开始,args=[REGISTER_EMAIL, 0:0:0:0:0:0:0:1, 785923, 60]
+2021-06-01 10:25:52.963 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行结束,response=true
+2021-06-01 10:25:52.963 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#registerSendEmail 任务执行结束,response=successed
+2021-06-01 10:25:52.963 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#registerSendEmail 任务执行结束,response=successed
+2021-06-01 10:26:02.015 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#userRegister 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9, {email=2115839526@qq.com, code=785923, userName=1002, passWord=asd123}]
+2021-06-01 10:26:02.016 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#userRegisterHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9, User(id=null, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=null, balance=null, type=null, authority=null, authorityToSet=null), 785923]
+2021-06-01 10:26:02.016 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy145#getUserByUserName 任务执行开始,args=[1002]
+2021-06-01 10:26:02.018 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy145#getUserByUserName 任务执行结束,response=null
+2021-06-01 10:26:02.019 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9]
+2021-06-01 10:26:02.019 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:26:02.019 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[REGISTER_EMAIL, 0:0:0:0:0:0:0:1]
+2021-06-01 10:26:02.020 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=785923
+2021-06-01 10:26:02.021 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy145#insertUser 任务执行开始,args=[User(id=null, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)]
+2021-06-01 10:26:02.025 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy145#insertUser 任务执行结束,response=1
+2021-06-01 10:26:02.027 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.UserServiceImpl - UserServiceImpl#userRegisterHandler:用户注册成功，userInfo:{"authority":"[0, 1, 2, 3, 4]","avatar":"userImages\\default.jfif","balance":0,"email":"2115839526@qq.com","id":1,"passWord":"asd123","userName":"1002"}
+2021-06-01 10:26:02.027 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy145#getUserByUserName 任务执行开始,args=[1002]
+2021-06-01 10:26:02.028 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy145#getUserByUserName 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=null)
+2021-06-01 10:26:02.028 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9]
+2021-06-01 10:26:02.028 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:26:02.028 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行开始,args=[]
+2021-06-01 10:26:02.381 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行结束,response={"sendData":38468202,"getDataPackage":10189862," sendDataPackage":261518,"getData":1893408927}
+2021-06-01 10:26:02.381 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行开始,args=[NET_DATA, 0:0:0:0:0:0:0:1, {"sendData":38468202,"getDataPackage":10189862," sendDataPackage":261518,"signIn":1622514362381,"userName":"1002","getData":1893408927}]
+2021-06-01 10:26:02.382 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行结束,response=true
+2021-06-01 10:26:02.383 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1, User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])]
+2021-06-01 10:26:02.385 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hset 任务执行结束,response=true
+2021-06-01 10:26:02.385 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.UserServiceImpl - 用户成功登录之后的信息：{"passWord":"asd123","authorityToSet":[0,1,2,3,4],"balance":0,"authority":"[0, 1, 2, 3, 4]","avatar":"userImages\\default.jfif","id":9,"userName":"1002","email":"2115839526@qq.com"}
+2021-06-01 10:26:02.386 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#userRegisterHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/form, data=null, titles=null, buttons=null))
+2021-06-01 10:26:02.386 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#userRegister 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/form, data=null, titles=null, buttons=null))
+2021-06-01 10:26:02.400 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@414c1aa9]
+2021-06-01 10:26:02.400 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:26:02.400 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:26:02.402 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:26:02.503 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:26:02.503 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:26:02.503 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:26:02.504 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:26:02.504 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:26:02.504 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:26:02.505 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:26:02.505 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:26:02.505 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:26:02.505 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:26:02.505 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:26:02.505 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:26:02.521 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:26:02.521 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:26:02.521 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:26:02.522 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:27.592 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:27:27.592 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:27.592 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:27.593 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:27.593 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:27:27.593 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:27:27.593 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:27:27.593 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:27.593 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:27.594 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:27.594 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行结束,response=[0, 1, 2, 3, 4]
+2021-06-01 10:27:27.594 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行结束,response=[0, 1, 2, 3, 4]
+2021-06-01 10:27:29.280 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@73f8f46c]
+2021-06-01 10:27:29.280 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:29.280 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:29.281 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:29.394 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@70375779]
+2021-06-01 10:27:29.394 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:29.394 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:29.394 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:29.395 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@70375779]
+2021-06-01 10:27:29.395 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@70375779]
+2021-06-01 10:27:29.395 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@70375779]
+2021-06-01 10:27:29.395 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:29.395 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:29.395 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373]
+2021-06-01 10:27:29.395 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:29.395 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:29.395 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:29.396 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserAuthorityListHandler 任务执行结束,response=[0, 1, 2, 3, 4]
+2021-06-01 10:27:29.396 [http-nio-8080-exec-9] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserAuthorityList 任务执行结束,response=[0, 1, 2, 3, 4]
+2021-06-01 10:27:29.396 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:29.399 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:29.399 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:29.401 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373]
+2021-06-01 10:27:29.401 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373]
+2021-06-01 10:27:29.401 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:29.401 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:29.402 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:29.402 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:29.402 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy143#getRecords 任务执行开始,args=[DBInputInfo(id=null, userName=1002, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:29.416 [http-nio-8080-exec-1] WARN  com.alibaba.druid.pool.DruidAbstractDataSource - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/MySource?useUnicode=true&characterEncoding=utf-8&serverTime=UTC, version : 1.2.5, lastPacketReceivedIdleMillis : 87377
+2021-06-01 10:27:29.438 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy143#getRecords 任务执行结束,response=[]
+2021-06-01 10:27:29.438 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]))
+2021-06-01 10:27:29.439 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]))
+2021-06-01 10:27:30.713 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373]
+2021-06-01 10:27:30.713 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:30.713 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:30.714 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:30.714 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373, DBInputInfo(id=null, userName=null, email=null, types=[1], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:30.714 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373, DBInputInfo(id=null, userName=null, email=null, types=[1], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:30.714 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373]
+2021-06-01 10:27:30.714 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@5589e373]
+2021-06-01 10:27:30.715 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:30.715 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:30.717 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:30.717 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:30.717 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy143#getRecords 任务执行开始,args=[DBInputInfo(id=null, userName=1002, email=null, types=[1], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:30.719 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy143#getRecords 任务执行结束,response=[]
+2021-06-01 10:27:30.719 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 充值金额（元）, 操作], buttons=[true, true, false, false, false]))
+2021-06-01 10:27:30.719 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 充值金额（元）, 操作], buttons=[true, true, false, false, false]))
+2021-06-01 10:27:30.844 [Thread-54] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:27:30.845 [Thread-54] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-10} closing ...
+2021-06-01 10:27:30.845 [Thread-54] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-10} closed
+2021-06-01 10:27:31.018 [restartedMain] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 15.0.2 on LAPTOP-3LGAJ4HU with PID 12644 (D:\main\JavaCode\demo\target\classes started by TuQi in D:\main\JavaCode\demo)
+2021-06-01 10:27:31.019 [restartedMain] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-01 10:27:31.122 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-06-01 10:27:31.122 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-06-01 10:27:31.125 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2021-06-01 10:27:31.207 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-06-01 10:27:31.207 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:27:31.207 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-01 10:27:31.208 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-06-01 10:27:31.216 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-01 10:27:31.216 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 195 ms
+2021-06-01 10:27:31.242 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行开始,args=[org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory@677872cf]
+2021-06-01 10:27:31.246 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#template 任务执行结束,response=org.springframework.data.redis.core.RedisTemplate@a01d4e4
+2021-06-01 10:27:31.261 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行开始,args=[]
+2021-06-01 10:27:31.261 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateRandom 任务执行结束,response=java.util.Random@3bf74380
+2021-06-01 10:27:31.266 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行开始,args=[]
+2021-06-01 10:27:31.266 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateDateTimeFormatter 任务执行结束,response=Value(YearOfEra,4,19,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2)' 'Value(HourOfDay,2)':'Value(MinuteOfHour,2)':'Value(SecondOfMinute,2)
+2021-06-01 10:27:31.279 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-06-01 10:27:31.287 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-11} inited
+2021-06-01 10:27:31.336 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行开始,args=[]
+2021-06-01 10:27:31.336 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#typeMappingTitleAndButtons 任务执行结束,response={0=MappingTitleAndButtons(title=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]), 1=MappingTitleAndButtons(title=[编号, 提交时间, 充值金额（元）, 操作], buttons=[true, true, false, false, false]), 2=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 充值金额, 操作], buttons=[false, true, true, false, false]), 3=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, false, false, false]), 4=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, true, false, false]), 5=MappingTitleAndButtons(title=[编号, 提交时间, 更新时间, 申请者, 审批人, 充值金额（元）, 操作], buttons=[false, true, false, true, false]), 6=MappingTitleAndButtons(title=[编号, 提交时间, 申请者, 充值金额（元）, 操作], buttons=[false, false, false, true, true])}
+2021-06-01 10:27:31.350 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行开始,args=[]
+2021-06-01 10:27:31.350 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#CreateSimpleDateFormat 任务执行结束,response=java.text.SimpleDateFormat@4f76f1a0
+2021-06-01 10:27:31.437 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-01 10:27:31.447 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行开始,args=[org.springframework.web.servlet.config.annotation.InterceptorRegistry@2dbb4964]
+2021-06-01 10:27:31.448 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addInterceptors 任务执行结束,response=null
+2021-06-01 10:27:31.460 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2021-06-01 10:27:31.467 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行开始,args=[org.springframework.web.servlet.config.annotation.ViewControllerRegistry@14de11dd]
+2021-06-01 10:27:31.467 [restartedMain] INFO  com.example.demo.util.MyAspect - MyMvcConfig$$EnhancerBySpringCGLIB$$578bac16#addViewControllers 任务执行结束,response=null
+2021-06-01 10:27:31.588 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-06-01 10:27:31.600 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-06-01 10:27:31.603 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 10:27:31.606 [restartedMain] INFO  com.example.demo.DemoApplication - Started DemoApplication in 0.606 seconds (JVM running for 2247.994)
+2021-06-01 10:27:31.608 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-06-01 10:27:32.001 [http-nio-8080-exec-1] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-01 10:27:32.001 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-06-01 10:27:32.001 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-06-01 10:27:32.002 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:32.003 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:32.004 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:32.016 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:32.020 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[2], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:32.020 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[2], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:32.022 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:32.024 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:32.024 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:32.024 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:32.025 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:32.025 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:32.026 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行开始,args=[DBInputInfo(id=null, userName=1002, email=null, types=[2], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:32.043 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行结束,response=[]
+2021-06-01 10:27:32.044 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 更新时间, 充值金额, 操作], buttons=[false, true, true, false, false]))
+2021-06-01 10:27:32.044 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 更新时间, 充值金额, 操作], buttons=[false, true, true, false, false]))
+2021-06-01 10:27:33.199 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:33.199 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:33.199 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:33.200 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:33.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[3], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:33.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[3], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:33.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:33.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:33.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:33.201 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:33.202 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:33.202 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:33.202 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行开始,args=[DBInputInfo(id=null, userName=1002, email=null, types=[3], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:33.203 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行结束,response=[]
+2021-06-01 10:27:33.204 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, false, false, false]))
+2021-06-01 10:27:33.204 [http-nio-8080-exec-2] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, false, false, false]))
+2021-06-01 10:27:34.290 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:34.290 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:34.290 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[4], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[4], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:34.291 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:34.292 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:34.292 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:34.292 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行开始,args=[DBInputInfo(id=null, userName=1002, email=null, types=[4], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:34.294 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行结束,response=[]
+2021-06-01 10:27:34.294 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, true, false, false]))
+2021-06-01 10:27:34.294 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 提交时间, 更新时间, 审批人, 充值金额, 操作], buttons=[false, true, true, false, false]))
+2021-06-01 10:27:35.069 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:35.069 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:35.069 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:35.070 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:35.070 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:35.070 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4, DBInputInfo(id=null, userName=null, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:35.071 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行开始,args=[DBInputInfo(id=null, userName=1002, email=null, types=[0], start=null, limit=null, signIn=null, signOut=null, updateUserName=null, createTime=null, records=null)]
+2021-06-01 10:27:35.073 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - $Proxy148#getRecords 任务执行结束,response=[]
+2021-06-01 10:27:35.073 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RecordsServiceImpl#getRecordsHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]))
+2021-06-01 10:27:35.073 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getRecords 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=null, data=[], titles=[编号, 登录时间, 退出时间, 流量（bytes）, 时长（分钟）, 余额（元）, 本次消费（元）], buttons=[false, false, false, false, false]))
+2021-06-01 10:27:40.581 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@628aea4]
+2021-06-01 10:27:40.581 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:40.581 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:40.582 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:40.677 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@106e0dc6]
+2021-06-01 10:27:40.677 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:40.677 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:40.678 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:40.679 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@106e0dc6]
+2021-06-01 10:27:40.679 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@106e0dc6]
+2021-06-01 10:27:40.679 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@106e0dc6]
+2021-06-01 10:27:40.679 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:40.679 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:40.680 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:40.680 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:40.680 [http-nio-8080-exec-4] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:40.694 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@106e0dc6]
+2021-06-01 10:27:40.694 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:40.694 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:40.695 [http-nio-8080-exec-5] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.114 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@106e0dc6]
+2021-06-01 10:27:41.114 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:41.114 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:41.115 [http-nio-8080-exec-7] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.706 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@30d4d57d]
+2021-06-01 10:27:41.706 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:41.706 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:41.707 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.783 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:41.784 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:41.784 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:41.785 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.785 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:41.785 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:41.785 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:41.785 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:41.785 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:41.787 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.787 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - UserServiceImpl#getUserInfoHandler 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.787 [http-nio-8080-exec-8] INFO  com.example.demo.util.MyAspect - DataSourceController#getUserInfo 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:41.797 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:41.797 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:41.797 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:41.798 [http-nio-8080-exec-10] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:55.354 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:55.354 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:55.354 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:55.355 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:55.355 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:55.357 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#logOutHandler 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:55.357 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:55.357 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:55.357 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[NET_DATA, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:55.358 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response={"sendData":38468202,"getDataPackage":10189862," sendDataPackage":261518,"signIn":1622514362381,"userName":"1002","getData":1893408927}
+2021-06-01 10:27:55.359 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:55.359 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0, 1, 2, 3, 4], authorityToSet=[0, 1, 2, 3, 4])
+2021-06-01 10:27:55.360 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy150#updateUser 任务执行开始,args=[User(id=9, userName=1002, passWord=asd123, phone=null, email=2115839526@qq.com, idCard=null, avatar=userImages\default.jfif, balance=0, type=null, authority=[0,1,2,3,4], authorityToSet=[0, 1, 2, 3, 4])]
+2021-06-01 10:27:55.369 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy150#updateUser 任务执行结束,response=1
+2021-06-01 10:27:55.369 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行开始,args=[]
+2021-06-01 10:27:55.707 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - MyUtil#getNetInfo 任务执行结束,response={"sendData":38590106,"getDataPackage":10273680," sendDataPackage":262822,"getData":1908055743}
+2021-06-01 10:27:55.707 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - MyUtil#calcSpend 任务执行开始,args=[Tue Jun 01 10:26:02 CST 2021, Tue Jun 01 10:27:55 CST 2021]
+2021-06-01 10:27:55.708 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyUtil - Tue Jun 01 10:26:02 CST 2021 ----> Tue Jun 01 10:27:55 CST 2021花费的金额为 :3.0
+2021-06-01 10:27:55.708 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - MyUtil#calcSpend 任务执行结束,response=3
+2021-06-01 10:27:55.708 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy148#insertRecord 任务执行开始,args=[Record(id=null, userName=1002, updateUserName=null, signIn=Tue Jun 01 10:26:02 CST 2021, signOut=Tue Jun 01 10:27:55 CST 2021, costData=14646816, balance=null, costMoney=3, createTime=null, updateTime=null, rechargeAmount=null, type=0)]
+2021-06-01 10:27:55.712 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - $Proxy148#insertRecord 任务执行结束,response=1
+2021-06-01 10:27:55.712 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行开始,args=[NET_DATA, [Ljava.lang.Object;@21dc5327]
+2021-06-01 10:27:55.712 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行结束,response=null
+2021-06-01 10:27:55.712 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行开始,args=[USER_LOGIN_INFO, [Ljava.lang.Object;@1eab03a5]
+2021-06-01 10:27:55.713 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - RedisUtil#hdel 任务执行结束,response=null
+2021-06-01 10:27:55.713 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - UserServiceImpl#logOutHandler 任务执行结束,response=ResultResponse(code=200, error=null, success=ResultResponse.Success(url=http://localhost:8080/, data=null, titles=null, buttons=null))
+2021-06-01 10:27:55.713 [http-nio-8080-exec-3] INFO  com.example.demo.util.MyAspect - ResponseController#logOut 任务执行结束,response=redirect:http://localhost:8080/
+2021-06-01 10:27:55.720 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行开始,args=[org.apache.catalina.connector.RequestFacade@42e60caf]
+2021-06-01 10:27:55.720 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - HttpServiceImpl#getIpAddress 任务执行结束,response=0:0:0:0:0:0:0:1
+2021-06-01 10:27:55.720 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行开始,args=[USER_LOGIN_INFO, 0:0:0:0:0:0:0:1]
+2021-06-01 10:27:55.720 [http-nio-8080-exec-1] INFO  com.example.demo.util.MyAspect - RedisUtil#hget 任务执行结束,response=null

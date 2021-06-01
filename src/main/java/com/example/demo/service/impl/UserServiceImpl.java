@@ -302,6 +302,7 @@ public class UserServiceImpl implements UserService {
 
             res.setSuccess(success);
         }
+        log.info("UserServiceImpl#loginUserLoginHandler:用户成功登录之后的信息：{}", JSON.toJSON(user));
         return res;
     }
 
@@ -333,6 +334,7 @@ public class UserServiceImpl implements UserService {
         int primaryKey = userDataService.insertUser(user);
         user.setId(primaryKey);
 
+        log.info("UserServiceImpl#userRegisterHandler:用户注册成功，userInfo:{}", JSON.toJSONString(user));
         //返回登录处理结果。
         return loginUserLoginHandler(request, user);
     }

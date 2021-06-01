@@ -43,7 +43,11 @@ public class DataSourceController {
     }
 
     /**
-     * 获取用户的基本信息
+     * @Description 获取用户的基本信息
+     * @Author <247702560@qq.com>
+     * @Date 2021/5/31 23:00
+     * @Param [request]
+     * @return com.example.demo.domain.User
      */
     @CrossOrigin
     @PostMapping("/getUserInfo")
@@ -52,7 +56,11 @@ public class DataSourceController {
     }
 
     /**
-     * 获取当前 ip 使用的流量数据
+     * @Description 获取当前 ip 使用的流量数据
+     * @Author <247702560@qq.com>
+     * @Date 2021/5/31 23:00
+     * @Param [request]
+     * @return java.util.Map<java.lang.String,java.lang.Object>
      */
     @CrossOrigin
     @RequestMapping("/getNetworkTraffic")
@@ -61,7 +69,11 @@ public class DataSourceController {
     }
 
     /**
-     * 注册账户邮箱发送验证码
+     * @Description 注册账户邮箱发送验证码
+     * @Author <247702560@qq.com>
+     * @Date 2021/5/31 23:00
+     * @Param [request, map]
+     * @return java.lang.String
      */
     @CrossOrigin
     @RequestMapping("/register/sendEmail")

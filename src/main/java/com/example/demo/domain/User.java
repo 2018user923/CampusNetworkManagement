@@ -16,6 +16,12 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ *
+ * @Description 用户类
+ * @Author <247702560@qq.com>
+ * @Date 2021/5/31 22:59
+ */
 public class User {
     private Integer id; // 主键
     private String userName; // 用户名，即真实姓名

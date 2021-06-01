@@ -40,29 +40,37 @@
                     <div class="panel-body">
                         <form>
                             <div class="form-group">
-                                <label>用户名</label>
-                                <input class="form-control" type="text" :value=userName disabled=""/>
+                                <label>{{userNameText}}</label>
+                                <input class="form-control" type="text" v-model="userName" :disabled="isDisabled"/>
                             </div>
                             <div class="form-group">
-                                <label>身份证</label>
-                                <input class="form-control" type="text" :value=idCard disabled=""/>
+                                <label>{{idCardText}}</label>
+                                <input class="form-control" type="text" v-model="idCard" :disabled="isDisabled"
+                                       @blur="checkIdCard"/>
                             </div>
                             <div class="form-group">
-                                <label>邮箱</label>
-                                <input class="form-control" type="text" v-model="email"/>
+                                <label>{{emailText}}</label>
+                                <input class="form-control" type="text" v-model="email" :disabled="isDisabled"
+                                       @blur="checkEmail"/>
                             </div>
                             <div class="form-group">
-                                <label>密码</label>
-                                <input class="form-control" type="text" v-model="passWord"/>
+                                <label>{{passWordText}}</label>
+                                <input class="form-control" type="password" v-model="passWord" :disabled="isDisabled"
+                                       @focus="changeText" @blur="changePassWord"/>
                             </div>
                             <div class="form-group">
-                                <label>电话</label>
-                                <input class="form-control" type="text" v-model="phone"/>
+                                <label>{{phoneText}}</label>
+                                <input class="form-control" type="text" v-model="phone" :disabled="isDisabled"
+                                       @blur="checkPhone"/>
                             </div>
                             <div class="form-group">
-                                <input type="file" accept="image/jpeg, image/png, image/gif" ref="upfile">
+                                <input type="file" accept="image/jpeg, image/png, image/gif" ref="upfile"
+                                       :disabled="isDisabled">
                             </div>
-                            <button type="submit" class="btn btn-info" @click.prevent="userInfoUpdateClick">更新</button>
+                            <button type="submit" class="btn btn-info" @click.prevent="userInfoUpdateClick"
+                                    :disabled="isDisabled">更新
+                            </button>
+                            <button class="btn btn-info" @click.prevent="isDisabled = !isDisabled">查看修改</button>
                         </form>
                     </div>
                 </div>
@@ -77,6 +85,7 @@
 <script th:inline="javascript">
     new Vue({
         el: '#userInfoUpdate',
+        //可编辑
         data: {
             userName: null,
             idCard: null,
@@ -84,7 +93,15 @@
             passWord: null,
             phone: null,
             balance: null,
-            avatarUrl: null
+            avatarUrl: null,
+            //如果为 true，表示不可编辑
+            isDisabled: true,
+
+            userNameText: '用户名',
+            idCardText: '身份证',
+            emailText: '邮箱',
+            passWordText: '密码',
+            phoneText: '手机号'
         },
         methods: {
             userInfoUpdateClick() {
@@ -120,6 +137,43 @@
                 }).catch(err => {
                     console.log(err);
                 })
+            },
+            changeText(even) {
+                even.target.setAttribute('type', 'text')
+
+            },
+            changePassWord(even) {
+                even.target.setAttribute('type', 'password')
+            },
+            checkEmail() {
+                let regex = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+                if (!regex.test(this.email)) {
+                    this.emailText = '邮箱格式不正确，请修改！'
+                    return false
+                } else {
+                    this.emailText = '邮箱'
+                    return true
+                }
+            },
+            checkPhone() {
+                let regex = /^1[3|4|5|7|8]\d{9}$/
+                if (!(regex.test(this.phone))) {
+                    this.phoneText = '手机号码格式不正确，请修改！'
+                    return false
+                } else {
+                    this.phoneText = '手机号'
+                    return true
+                }
+            },
+            checkIdCard() {
+                let regex = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                if (!(regex.test(this.idCard))) {
+                    this.idCardText = '身份证号码格式不正确，请修改！'
+                    return false
+                } else {
+                    this.idCardText = '身份证'
+                    return true
+                }
             }
         },
         mounted() {
