@@ -37,4 +37,10 @@ public interface UserService {
     ResultResponse loginUserLoginHandler(HttpServletRequest request, @RequestBody User user);
 
     ResultResponse userRegisterHandler(HttpServletRequest request, User user, String coe);
+
+    ResultResponse getUserInfoByTypeHandler(HttpServletRequest request,Integer type);
+
+    ResultResponse addBlackListHandler(HttpServletRequest request, Integer id);
+
+    ResultResponse rmBlackListHandler(HttpServletRequest request, Integer id);
 }

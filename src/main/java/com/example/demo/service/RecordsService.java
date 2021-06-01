@@ -16,7 +16,7 @@ public interface RecordsService {
 
     ResultResponse turnDownRecordHandler(HttpServletRequest request, Integer id);
 
-    ResultResponse getRecordsHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
+    ResultResponse getListDataHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
 
     ResultResponse getRecordsForLogInHandler(HttpServletRequest request);
 }

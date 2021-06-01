@@ -137,7 +137,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
     }
 
     /*
-    按钮类型为：取消、删除、再次提交、同意、驳回
+    按钮类型为：取消、删除、再次提交、同意、驳回、加入黑名单、移出黑名单
 
     type = 0, 用户消费记录
     登录时间、退出时间、使用流量、使用时长（分钟）、当前余额、消费的金额（删除）
@@ -164,39 +164,48 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
         map.put(0, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "登录时间", "退出时间", "流量（bytes）", "时长（分钟）", "余额（元）", "本次消费（元）"),
-                Arrays.asList(false, false, false, false, false)
+                Arrays.asList(false, false, false, false, false, false, false, false)
         ));
 
         map.put(1, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "提交时间", "充值金额（元）", "操作"),
-                Arrays.asList(true, true, false, false, false)
+                Arrays.asList(true, true, false, false, false, false, false, false)
         ));
 
         map.put(2, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "提交时间", "更新时间", "充值金额", "操作"),
-                Arrays.asList(false, true, true, false, false)
+                Arrays.asList(false, true, true, false, false, false, false, false)
         ));
 
         map.put(3, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "提交时间", "更新时间", "审批人", "充值金额", "操作"),
-                Arrays.asList(false, true, false, false, false)
+                Arrays.asList(false, true, false, false, false, false, false, false)
         ));
 
         map.put(4, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "提交时间", "更新时间", "审批人", "充值金额", "操作"),
-                Arrays.asList(false, true, true, false, false)
+                Arrays.asList(false, true, true, false, false, false, false, false)
         ));
 
         map.put(5, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "提交时间", "更新时间", "申请者", "审批人", "充值金额（元）", "操作"),
-                Arrays.asList(false, true, false, true, false)
+                Arrays.asList(false, true, false, true, false, false, false, false)
         ));
 
         map.put(6, MappingTitleAndButtons.create(
                 Arrays.asList("编号", "提交时间", "申请者", "充值金额（元）", "操作"),
-                Arrays.asList(false, false, false, true, true)
+                Arrays.asList(false, false, false, true, true, false, false, false)
         ));
 
+        map.put(7, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "用户名", "创建时间", "电话", "邮箱", "身份证", "当前余额", "操作"),
+                Arrays.asList(false, false, false, false, false, true, false, false)
+        ));
+
+        map.put(8, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "用户名", "创建时间", "电话", "邮箱", "身份证", "当前余额", "操作"),
+                Arrays.asList(false, false, false, false, false, false, true, false)
+        ));
         return map;
     }
 }

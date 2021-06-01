@@ -22,17 +22,24 @@
           and email = #{email}
     </select>
 
+    <select id="getUserByType" resultType="User">
+        select *
+        from user_table
+        where type = #{type}
+    </select>
+
     <update id="updateUserById">
         update user_table
         <trim prefix="set" suffixOverrides=",">
-            <if test="userName != null">user_name = #{userName},</if>
-            <if test="passWord != null">pass_Word = #{passWord},</if>
-            <if test="phone != null">phone = #{phone},</if>
-            <if test="email != null">email = #{email},</if>
-            <if test="idCard != null">id_card = #{idCard},</if>
-            <if test="avatar != null">avatar = #{avatar},</if>
-            <if test="balance != null">balance = #{balance},</if>
-            <if test="type != null">type = #{type},</if>
+            <if test="userName != null and userName != ''">user_name = #{userName},</if>
+            <if test="passWord != null and passWord != ''">pass_Word = #{passWord},</if>
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            <if test="email != null and email != ''">email = #{email},</if>
+            <if test="idCard != null and idCard != ''">id_card = #{idCard},</if>
+            <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
+            <if test="balance != null and balance != ''">balance = #{balance},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="authority != null and authority != ''">authority = #{authority},</if>
         </trim>
         where Id = #{id}
     </update>
@@ -46,8 +53,8 @@
             <if test="idCard != null and idCard != ''">id_card = #{idCard},</if>
             <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
             <if test="balance != null and balance != ''">balance = #{balance},</if>
-            <if test="type != null and type != ''">type = #{type}</if>
-            <if test="authority != null and authority != ''">authority = #{authority}</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="authority != null and authority != ''">authority = #{authority},</if>
         </trim>
         where user_name = #{userName}
     </update>

@@ -1,6 +1,8 @@
 package com.example.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.Enum.TypeEnum;
+import com.example.demo.Enum.UserType;
 import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
@@ -15,6 +17,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -46,18 +50,21 @@ public class RecordsServiceImpl implements RecordsService {
     @Autowired
     private MyUtil myUtil;
 
+    @Autowired
+    private SimpleDateFormat simpleDateFormat;
+
     /**
      * 将该申请取消
      */
     @Override
     public ResultResponse cancelRecordHandler(Integer id) {
-        recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitCancel.getVal(), null);
+        recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmitCancel.getVal(), null);
         return ResultResponse.createError(200, null);
     }
 
     @Override
     public ResultResponse repeatedSubmitHandler(Integer id) {
-        recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmit.getVal(), null);
+        recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmit.getVal(), null);
         return ResultResponse.createError(200, null);
     }
 
@@ -82,26 +89,27 @@ public class RecordsServiceImpl implements RecordsService {
         submitUser.setBalance(submitUser.getBalance().add(record.getRechargeAmount()));
         userDataService.updateUser(submitUser);
 
-        recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitComplete.getVal(), updateUser.getUserName());
+        recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmitComplete.getVal(), updateUser.getUserName());
         return ResultResponse.createError(200, null);
     }
 
     @Override
     public ResultResponse turnDownRecordHandler(HttpServletRequest request, Integer id) {
         User user = userService.getUserInfoHandler(request);
-        recordDataService.updateRecordByIdForType(id, RecordTypeEnum.userRechargeSubmitTurnDown.getVal(), user.getUserName());
+        recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmitTurnDown.getVal(), user.getUserName());
         return ResultResponse.createError(200, null);
     }
 
     @Override
-    public ResultResponse getRecordsHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
+    public ResultResponse getListDataHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
         List<Record> records = null;
         if (dbInputInfo.getUserName() == null || dbInputInfo.equals("null") || dbInputInfo.equals("")) {
             User user = userService.getUserInfoHandler(request);
             dbInputInfo.setUserName(user.getUserName());
         }
+        Integer type = dbInputInfo.getTypes().get(0);
         if (dbInputInfo.getTypes() != null && !dbInputInfo.getTypes().isEmpty()) {
-            switch (dbInputInfo.getTypes().get(0)) {
+            switch (type) {
                 case 5 -> {
                     dbInputInfo.setUserName(null);
                     dbInputInfo.getTypes().set(0, 4);
@@ -114,10 +122,52 @@ public class RecordsServiceImpl implements RecordsService {
                     records = recordDataService.getRecords(dbInputInfo);
                     return ResultResponse.createSuccessForTypeAndRecords(null, 6, records, map, util);
                 }
+                case 7 -> {
+                    //查询每个普通用户的信息
+                    // Arrays.asList("编号", "用户名", "电话", "邮箱", "身份证", "当前余额", "操作"),
+                    ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
+                    List<User> user = userDataService.getUserByType(UserType.normalUser.getVal());
+                    ArrayList<List<Object>> data = new ArrayList<>(user.size());
+                    user.forEach(o -> {
+                        ArrayList<Object> objects = new ArrayList<>();
+                        objects.add(o.getId());
+                        objects.add(o.getUserName());
+                        objects.add(simpleDateFormat.format(o.getCreateTime()));
+                        objects.add(o.getPhone());
+                        objects.add(o.getEmail());
+                        objects.add(o.getIdCard());
+                        objects.add(o.getBalance());
+                        data.add(objects);
+                    });
+                    response.getSuccess().setData(data);
+                    response.getSuccess().setTitles(map.get(type).getTitle());
+                    response.getSuccess().setButtons(map.get(type).getButtons());
+                    return response;
+                }
+                case 8 -> {
+                    ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
+                    List<User> user = userDataService.getUserByType(UserType.blacklistUser.getVal());
+                    ArrayList<List<Object>> data = new ArrayList<>(user.size());
+                    user.forEach(o -> {
+                        ArrayList<Object> objects = new ArrayList<>();
+                        objects.add(o.getId());
+                        objects.add(o.getUserName());
+                        objects.add(simpleDateFormat.format(o.getCreateTime()));
+                        objects.add(o.getPhone());
+                        objects.add(o.getEmail());
+                        objects.add(o.getIdCard());
+                        objects.add(o.getBalance());
+                        data.add(objects);
+                    });
+                    response.getSuccess().setData(data);
+                    response.getSuccess().setTitles(map.get(type).getTitle());
+                    response.getSuccess().setButtons(map.get(type).getButtons());
+                    return response;
+                }
             }
         }
         records = recordDataService.getRecords(dbInputInfo);
-        return ResultResponse.createSuccessForTypeAndRecords(null, dbInputInfo.getTypes().get(0), records, map, util);
+        return ResultResponse.createSuccessForTypeAndRecords(null, type, records, map, util);
     }
 
     @Override

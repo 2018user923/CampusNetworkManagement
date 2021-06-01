@@ -1,6 +1,6 @@
-package com.example.demo.util;
+package com.example.demo.Enum;
 
-public enum RecordTypeEnum {
+public enum TypeEnum {
     userExpenses("用户消费记录", 0),
 
     userRechargeSubmit("用户提交充值申请中", 1),
@@ -15,7 +15,7 @@ public enum RecordTypeEnum {
     private String key;
     private Integer val;
 
-    RecordTypeEnum(String key, Integer val) {
+    TypeEnum(String key, Integer val) {
         this.key = key;
         this.val = val;
     }
@@ -36,18 +36,10 @@ public enum RecordTypeEnum {
         this.val = val;
     }
 
-    public Integer getVal(RecordTypeEnum e) {
+    public Integer getVal(TypeEnum e) {
         Integer res = null;
-        for (RecordTypeEnum type : RecordTypeEnum.values()) {
+        for (TypeEnum type : TypeEnum.values()) {
             if (type == e) return e.val;
-        }
-        return res;
-    }
-
-    public String getName(RecordTypeEnum e) {
-        String res = null;
-        for (RecordTypeEnum type : RecordTypeEnum.values()) {
-            if (type == e) return e.key;
         }
         return res;
     }

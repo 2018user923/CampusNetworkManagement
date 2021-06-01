@@ -81,6 +81,8 @@
                                         </button>
                                         <button v-show=buttons[3] @click="agreeClick(index, date[0])">同意</button>
                                         <button v-show=buttons[4] @click="turnDownClick(index, date[0])">驳回</button>
+                                        <button v-show=buttons[5] @click="addBlackList(index, date[0])">加入黑名单</button>
+                                        <button v-show=buttons[6] @click="rmBlackList(index, date[0])">移出黑名单</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -161,6 +163,8 @@
                 4: '被驳回的申请',
                 5: '驳回的申请',
                 6: '申请列表',
+                7: '查看用户信息',
+                8: '查看黑名单用户信息'
             }
         },
         methods: {
@@ -248,6 +252,14 @@
             },
             turnDownClick(index, id) {
                 let url = 'http://localhost:8080/buttons/turnDownRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            addBlackList(index, id) {
+                let url = 'http://localhost:8080/buttons/addBlackList/' + id
+                this.buttonClick(index, id, url)
+            },
+            rmBlackList(index, id) {
+                let url = 'http://localhost:8080/buttons/rmBlackList/' + id
                 this.buttonClick(index, id, url)
             }
         },

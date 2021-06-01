@@ -3,6 +3,8 @@ package com.example.demo.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.example.demo.Enum.TypeEnum;
+import com.example.demo.Enum.UserType;
 import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
@@ -108,7 +110,7 @@ public class UserServiceImpl implements UserService {
                     .signIn(signIn)
                     .signOut(signOut)
                     .costData(costData)
-                    .type(RecordTypeEnum.userExpenses.getVal())
+                    .type(TypeEnum.userExpenses.getVal())
                     //这里的金额需要除以 1000
                     .costMoney(myUtil.calcSpend(signIn, signOut))
                     .build();
@@ -167,7 +169,7 @@ public class UserServiceImpl implements UserService {
         Record record = Record.builder()
                 .userName(user.getUserName())
                 .createTime(new Date())
-                .type(RecordTypeEnum.userRechargeSubmit.getVal())
+                .type(TypeEnum.userRechargeSubmit.getVal())
                 .rechargeAmount(new BigDecimal(rechargeAmount))
                 .build();
         int primaryKey = recordService.insertRecord(record);
@@ -220,7 +222,7 @@ public class UserServiceImpl implements UserService {
     public ResultResponse getRecords(HttpServletRequest request, Integer page, Integer size) {
         User user = getUserInfoHandler(request);
 
-        List<Record> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, RecordTypeEnum.userExpenses.getVal());
+        List<Record> records = recordService.getRecordsByUserNameForPages(user.getUserName(), (page - 1) * size, size, TypeEnum.userExpenses.getVal());
 
         if (records == null) {
             return ResultResponse.createError(-1, "查询数据库异常！");
@@ -336,7 +338,8 @@ public class UserServiceImpl implements UserService {
         user.setBalance(new BigDecimal(0));
         //设置默认的头像
         user.setAvatar(baseImageUrl + File.separator + defaultImage);
-
+        //普通用户设置为 1,管理员为 0
+        user.setType(UserType.normalUser.getVal());
         //注册用户成功过，插入数据。
         int primaryKey = userDataService.insertUser(user);
         user.setId(primaryKey);
@@ -344,5 +347,44 @@ public class UserServiceImpl implements UserService {
         log.info("UserServiceImpl#userRegisterHandler:用户注册成功，userInfo:{}", JSON.toJSONString(user));
         //返回登录处理结果。
         return loginUserLoginHandler(request, user);
+    }
+
+    /**
+     * 描述:
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/1 14:44
+     * @param: request
+     */
+    @Override
+    public ResultResponse getUserInfoByTypeHandler(HttpServletRequest request, Integer type) {
+        UserType userType = UserType.getKey(type);
+        if (userType == UserType.notFind) {
+            return ResultResponse.createError(-1, "该类型不存在！");
+        } else {
+            List<User> user = userDataService.getUserByType(type);
+            return ResultResponse.createSimpleSuccess(null, user);
+        }
+    }
+
+    @Override
+    public ResultResponse addBlackListHandler(HttpServletRequest request, Integer id) {
+        User user = User.builder()
+                .id(id)
+                .type(UserType.blacklistUser.getVal())
+                .build();
+        userDataService.updateUserById(user);
+        return ResultResponse.createSimpleSuccess(null, null);
+    }
+
+    @Override
+    public ResultResponse rmBlackListHandler(HttpServletRequest request, Integer id) {
+        User user = User.builder()
+                .id(id)
+                .type(UserType.normalUser.getVal())
+                .build();
+        userDataService.updateUserById(user);
+        return ResultResponse.createSimpleSuccess(null, null);
     }
 }
