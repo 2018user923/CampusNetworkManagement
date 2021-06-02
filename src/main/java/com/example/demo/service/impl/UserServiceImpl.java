@@ -5,9 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.example.demo.Enum.TypeEnum;
 import com.example.demo.Enum.UserType;
+import com.example.demo.domain.Chat;
 import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
+import com.example.demo.mapper.ChatMapper;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
@@ -24,6 +26,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -36,6 +39,9 @@ public class UserServiceImpl implements UserService {
     /*消费记录服务*/
     @Resource
     private RecordMapper recordService;
+
+    @Resource
+    private ChatMapper chatService;
 
     /*redis 缓存*/
     @Resource
@@ -56,6 +62,9 @@ public class UserServiceImpl implements UserService {
 
     @Value("${user.images.default}")
     private String defaultImage;
+
+    @Autowired
+    private SimpleDateFormat simpleDateFormat;
 
 
     @Autowired
@@ -386,5 +395,23 @@ public class UserServiceImpl implements UserService {
                 .build();
         userDataService.updateUserById(user);
         return ResultResponse.createSimpleSuccess(null, null);
+    }
+
+    @Override
+    public ResultResponse userSendMessageHandler(HttpServletRequest request, Chat chat) {
+        int primaryKey = chatService.insert(chat);
+        chat.setId(primaryKey);
+        chat.setCreateTime(new Date());
+        return ResultResponse.createSimpleSuccess(null, Chat.createResponseData(chat, simpleDateFormat));
+    }
+
+    @Override
+    public ResultResponse getMessageByTimeHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
+        List<Chat> chats = chatService.getChatByTime(dbInputInfo);
+        List<List<Object>> res = new ArrayList<>(chats.size());
+        chats.forEach(chat -> {
+            res.add(Chat.createResponseData(chat, simpleDateFormat));
+        });
+        return ResultResponse.createSimpleSuccess(null, res);
     }
 }

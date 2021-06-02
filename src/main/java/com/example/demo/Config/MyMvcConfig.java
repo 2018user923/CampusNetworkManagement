@@ -56,6 +56,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/netInfo").setViewName("netInfo");
+        registry.addViewController("/chatting").setViewName("chatting");
     }
 
     @Bean("random")
@@ -132,7 +133,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 "/register/**",
                 "/login/**",
                 "/vueResources/**",
-                "/test/**"
+                "/test/**",
+                "/chatting",
+                "/chatting/**"
         );
     }
 

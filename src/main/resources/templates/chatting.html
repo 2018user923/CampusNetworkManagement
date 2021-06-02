@@ -1,0 +1,305 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/chatting/css/style.min.css}">
+</head>
+<body>
+
+<div class="main px-xl-5 px-lg-4 px-3" id="main">
+    <div class="chat-body">
+        <!--聊天头-->
+        <div class="chat-header border-bottom py-xl-4 py-md-3 py-2">
+            <div class="container-xxl">
+                <div class="row align-items-center">
+                    <div class="col-6 col-xl-4">
+                        <div class="media">
+                            <div class="avatar me-3 show-user-detail" data-toggle="tooltip" title=""
+                                 data-original-title="Group details">
+                                <div class="avatar rounded-circle no-image timber">
+                                    <span>chat</span>
+                                </div>
+                            </div>
+                            <div class="media-body overflow-hidden">
+                                <div class="d-flex align-items-center mb-1">
+                                    <h6 class="text-truncate mb-0 me-auto">聊天室</h6>
+                                </div>
+                                <div class="text-truncate">遇见问题可以咨询</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--聊天体结构-->
+        <div class="chat-content">
+            <div class="container-xxl">
+                <ul class="list-unstyled py-4" v-for="message in messages">
+
+                    <li class="d-flex message">
+                        <div class="mr-lg-3 me-2">
+                            <img class="avatar sm rounded-circle" :src="message[3]" alt="avatar">
+                        </div>
+                        <div class="message-body">
+                            <span class="date-time text-muted">{{message[4]}}</span>
+                            <div class="message-row d-flex align-items-center">
+                                <div class="message-content p-3">
+                                    {{message[5]}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!--                    <li class="d-flex message">-->
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle b-orange" th:src="@{/chatting/images/6.jpg}"-->
+                    <!--                                 alt="avatar">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Martin, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Hello, Jason-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    <li class="d-flex message">-->
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle b-purple" th:src="@{/chatting/images/1.jpg}"-->
+                    <!--                                 alt="avatar">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Terry, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Hello, Jason-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    <li class="d-flex message">-->
+
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle b-pink" th:src="@{/chatting/images/4.jpg}"-->
+                    <!--                                 alt="avatar">-->
+                    <!--                        </div>-->
+
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Michelle, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Hello, please find attachment, let me know if any changes.-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    &lt;!&ndash;在右侧发言&ndash;&gt;-->
+                    <!--                    <li class="d-flex message right">-->
+                    <!--                        <div class="message-body">-->
+                    <!--                                <span class="date-time text-muted">7:19 PM-->
+                    <!--                                    <i class="zmdi zmdi-check-all text-primary"></i>-->
+                    <!--                                </span>-->
+                    <!--                            <div class="message-row d-flex align-items-center justify-content-end">-->
+                    <!--                                <div class="message-content border p-3">-->
+                    <!--                                    Hello, David-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    &lt;!&ndash;分割线，表示日期&ndash;&gt;-->
+                    <!--                    <li class="d-flex message divider mt-xl-5 mt-md-3 mb-xl-5 mb-md-3">-->
+                    <!--                        <small class="text-muted">Today</small>-->
+                    <!--                    </li>-->
+
+                    <!--                    &lt;!&ndash;左侧&ndash;&gt;-->
+                    <!--                    <li class="d-flex message">-->
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle" th:src="@{/chatting/images/5.jpg}" alt="avatar">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Jason, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Thank you for the update!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    <li class="d-flex message">-->
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle" th:src="@{/chatting/images/5.jpg}" alt="avatar">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Jason, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Thank you for the update!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    <li class="d-flex message">-->
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle" th:src="@{/chatting/images/5.jpg}" alt="avatar">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Jason, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Thank you for the update!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                    <!--                    <li class="d-flex message">-->
+                    <!--                        <div class="mr-lg-3 me-2">-->
+                    <!--                            <img class="avatar sm rounded-circle" th:src="@{/chatting/images/5.jpg}" alt="avatar">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="message-body">-->
+                    <!--                            <span class="date-time text-muted">Jason, 7:19 PM</span>-->
+                    <!--                            <div class="message-row d-flex align-items-center">-->
+                    <!--                                <div class="message-content p-3">-->
+                    <!--                                    Thank you for the update!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+
+                </ul>
+            </div>
+        </div>
+        <!--输入区-->
+        <div class="chat-footer border-top py-xl-4 py-lg-2 py-2">
+            <div class="container-xxl">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group align-items-center">
+                            <textarea class="form-control border-0 pl-0" placeholder="Type your message..." name=""
+                                      id="" cols="3" rows="2" @keyup.ctrl.enter="send" v-model="content">
+                            </textarea>
+                            <!--                            <div class="input-group-append d-none d-sm-block">-->
+                            <!--                                <span class="input-group-text border-0">-->
+                            <!--                                <button class="btn btn-sm btn-link text-muted" data-toggle="tooltip" title=""-->
+                            <!--                                        type="button"-->
+                            <!--                                        data-original-title="Refresh"><i class="zmdi zmdi-refresh font-22"></i></button>-->
+                            <!--                                </span>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="input-group-append">-->
+                            <!--                                <span class="input-group-text border-0">-->
+                            <!--                                <button class="btn btn-sm btn-link text-muted" data-toggle="tooltip" title=""-->
+                            <!--                                        type="button"-->
+                            <!--                                        data-original-title="Smaily"><i class="zmdi zmdi-mood font-22"></i></button>-->
+                            <!--                                </span>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="input-group-append">-->
+                            <!--                                <span class="input-group-text border-0">-->
+                            <!--                                <button class="btn btn-sm btn-link text-muted" data-toggle="tooltip" title=""-->
+                            <!--                                        type="button"-->
+                            <!--                                        data-original-title="Attachment"><i-->
+                            <!--                                        class="zmdi zmdi-attachment font-22"></i></button>-->
+                            <!--                                </span>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="input-group-append">-->
+                            <!--                                <span class="input-group-text border-0 pr-0">-->
+                            <!--                                <button type="submit" class="btn btn-primary">-->
+                            <!--                                <span class="d-none d-md-inline-block me-2">Send</span>-->
+                            <!--                                <i class="zmdi zmdi-mail-send"></i>-->
+                            <!--                                </button>-->
+                            <!--                                </span>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/vueResources/tools/axios.js}"></script>
+<script th:src="@{/vueResources/tools/vue.js}"></script>
+<script th:inline="javascript">
+    new Vue({
+        el: '#main',
+        data: {
+            userId: null,
+            userName: null,
+            idCard: null,
+            email: null,
+            passWord: null,
+            phone: null,
+            balance: null,
+            avatarUrl: null,
+            //如果为 true，表示不可编辑
+            isDisabled: true,
+
+            userNameText: '用户名',
+            idCardText: '身份证',
+            emailText: '邮箱',
+            passWordText: '密码',
+            phoneText: '手机号',
+            content: null,
+
+            messages: []
+        },
+        methods: {
+            getUserInfo() {
+                axios.post('http://localhost:8080/getUserInfo').then(rep => {
+                    console.log(rep.data);
+                    this.userName = rep.data.userName
+                    this.idCard = rep.data.idCard
+                    this.email = rep.data.email
+                    this.passWord = rep.data.passWord
+                    this.phone = rep.data.phone
+                    this.balance = rep.data.balance
+                    this.avatarUrl = rep.data.avatar
+                    this.userId = rep.data.id
+                    this.$refs.avatarUrl.setAttribute("src", this.avatarUrl)
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            send() {
+                let param = {
+                    'content': this.content,
+                    'userId': this.userId,
+                    'avatar': this.avatarUrl,
+                    'userName': this.userName
+                }
+                axios.post('http://localhost:8080/userSendMessage', param).then(rep => {
+                    if (rep.data.code === 200) {
+                        this.messages.push(rep.data.success.data)
+                    } else {
+
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+                this.content = null
+            },
+            loadMessage() {
+                let param = {}
+                axios.post('http://localhost:8080/getMessageByTime', param).then(rep => {
+                    if (rep.data.code === 200) {
+                        this.messages = this.messages.concat(rep.data.success.data)
+                    } else {
+
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            }
+        },
+        mounted() {
+            this.getUserInfo()
+            this.loadMessage()
+        }
+    })
+</script>
+</body>
+</html>

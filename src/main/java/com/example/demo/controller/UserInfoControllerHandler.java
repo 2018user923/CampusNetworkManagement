@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.Chat;
 import com.example.demo.domain.User;
 import com.example.demo.service.HttpService;
 import com.example.demo.service.UserService;
+import com.example.demo.util.DBInputInfo;
 import com.example.demo.util.ResultResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -96,5 +98,17 @@ public class UserInfoControllerHandler {
     @PostMapping("/userRechargeSubmit")
     ResultResponse userRechargeSubmit(HttpServletRequest request, @RequestBody Map<String, String> map) {
         return userService.userRechargeAppHandler(request, Integer.valueOf(map.get("rechargeAmount")));
+    }
+
+    @CrossOrigin
+    @RequestMapping("/userSendMessage")
+    ResultResponse userSendMessage(HttpServletRequest request, @RequestBody Chat chat) {
+        return userService.userSendMessageHandler(request, chat);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/getMessageByTime")
+    ResultResponse getMessageByTime(HttpServletRequest request, @RequestBody DBInputInfo dbInputInfo) {
+        return userService.getMessageByTimeHandler(request,dbInputInfo);
     }
 }

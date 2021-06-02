@@ -2,8 +2,10 @@ package com.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.domain.Chat;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
+import com.example.demo.mapper.ChatMapper;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.util.DBInputInfo;
@@ -20,7 +22,9 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -38,6 +42,9 @@ class DemoApplicationTests {
 
     @Autowired
     private JavaMailSenderImpl javaMailSender;
+
+    @Resource
+    private ChatMapper chatMapper;
 
     @Autowired
     private MyUtil myUtil;
@@ -126,6 +133,15 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForType() {
+
+        Chat chat = new Chat();
+        chat.setContent("666");
+
+        int insert = chatMapper.insert(chat);
+        System.out.println("primaryKey: " + insert);
+
+
+
 //        List<Record> records = recordMapper.getRecordsByUserNameAndTypesWithDate("李四", Arrays.asList(0, 1), "2021-5-20", "2021-5-29", null, null);
 //        records.forEach(System.out::println);
 

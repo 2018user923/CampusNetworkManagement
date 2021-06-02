@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Chat;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
+import com.example.demo.util.DBInputInfo;
 import com.example.demo.util.ResultResponse;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,4 +45,8 @@ public interface UserService {
     ResultResponse addBlackListHandler(HttpServletRequest request, Integer id);
 
     ResultResponse rmBlackListHandler(HttpServletRequest request, Integer id);
+
+    ResultResponse userSendMessageHandler(HttpServletRequest request, Chat chat);
+
+    ResultResponse getMessageByTimeHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
 }

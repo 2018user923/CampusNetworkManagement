@@ -4,7 +4,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="19">
+          <list size="24">
             <item index="0" class="java.lang.String" itemvalue="@click" />
             <item index="1" class="java.lang.String" itemvalue="ref" />
             <item index="2" class="java.lang.String" itemvalue=":value" />
@@ -24,6 +24,11 @@
             <item index="16" class="java.lang.String" itemvalue="@mouseleave" />
             <item index="17" class="java.lang.String" itemvalue="@mouseover" />
             <item index="18" class="java.lang.String" itemvalue="@focus" />
+            <item index="19" class="java.lang.String" itemvalue="@keyup" />
+            <item index="20" class="java.lang.String" itemvalue="@@keydown.ctrl.13" />
+            <item index="21" class="java.lang.String" itemvalue="@@keydown" />
+            <item index="22" class="java.lang.String" itemvalue="@keyup.enter.native" />
+            <item index="23" class="java.lang.String" itemvalue="@keyup.ctrl.enter" />
           </list>
         </value>
       </option>
