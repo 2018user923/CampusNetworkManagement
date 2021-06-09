@@ -19,6 +19,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -57,6 +58,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/netInfo").setViewName("netInfo");
         registry.addViewController("/chatting").setViewName("chatting");
+        registry.addViewController("/newChat").setViewName("newChat");
     }
 
     @Bean("random")
@@ -210,5 +212,16 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 Arrays.asList(false, false, false, false, false, false, true, false)
         ));
         return map;
+    }
+
+//    @Bean
+//    //注入 ServerEndpointExporter bean 对象，自动注入使用了 @ServerEndpoint 注解的bean
+//    public ServerEndpointExporter serverEndpointExporter() {
+//        return new ServerEndpointExporter();
+//    }
+
+    @Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        return new ServerEndpointExporter();
     }
 }

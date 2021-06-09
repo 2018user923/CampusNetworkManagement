@@ -106,6 +106,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:jakarta.mail:1.6.5" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-websocket:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-messaging:5.3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-websocket:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.75" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.4.5" level="project" />

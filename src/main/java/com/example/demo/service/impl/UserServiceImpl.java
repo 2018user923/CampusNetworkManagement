@@ -399,8 +399,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultResponse userSendMessageHandler(HttpServletRequest request, Chat chat) {
-        int primaryKey = chatService.insert(chat);
-        chat.setId(primaryKey);
+        chatService.insert(chat);
         chat.setCreateTime(new Date());
         return ResultResponse.createSimpleSuccess(null, Chat.createResponseData(chat, simpleDateFormat));
     }

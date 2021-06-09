@@ -20,7 +20,7 @@ import java.util.Arrays;
  */
 public class AspectOutLog {
 
-    @Pointcut(value = "execution(* com.example.demo..*(..))")
+    @Pointcut(value = "execution(* com.example.demo..*(..)) && !execution(* com.example.demo.ws..*(..))")
     public void method() {
 
     }

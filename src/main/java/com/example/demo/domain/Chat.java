@@ -27,6 +27,7 @@ public class Chat {
     private Date createTime;
     private String avatar;
     private String userName;
+    private Integer type;//按照类型来创建消息
 
     public static List<Object> createResponseData(Chat chat, SimpleDateFormat simpleDateFormat) {
         ArrayList<Object> list = new ArrayList<>();
@@ -34,9 +35,13 @@ public class Chat {
         list.add(chat.getUserId());
         list.add(chat.getUserName());
         list.add(chat.getAvatar());
-        String time = simpleDateFormat.format(chat.getCreateTime());
+        String time = null;
+        if (simpleDateFormat != null) {
+            time = simpleDateFormat.format(chat.getCreateTime());
+        }
         list.add(chat.getUserName() + "," + time);
         list.add(chat.getContent());
+        list.add(chat.getType());
         return list;
     }
 }
