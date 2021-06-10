@@ -82,12 +82,34 @@
                     <div class="panel-heading">
                         最新公告
                     </div>
-                    <div class="panel-body" v-for="msg in SystemAnnouncement">
-                        <strong>{{msg[4]}}</strong>
+                    <div class="panel-body" v-for="data in displayDate">
+                        <strong>{{data[4]}}</strong>
                         <div class="alert alert-danger">
-                            {{msg[5]}}
+                            {{data[5]}}
                         </div>
                         <hr>
+                    </div>
+
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
+                                @click="display(curPage - 1)">
+                                <a href="javascript:void(0);">上一页</a>
+                            </li>
+                            <li class="paginate_button active" @click="display(curPage)">
+                                <a href="javascript:void(0);">{{curPage}}</a>
+                            </li>
+                            <li class="paginate_button" @click="display(curPage + 1)">
+                                <a href="javascript:void(0);">{{curPage + 1}}</a>
+                            </li>
+                            <li class="paginate_button" @click="display(curPage + 2)">
+                                <a href="javascript:void(0);">{{curPage + 2}}</a>
+                            </li>
+                            <li :class="curPage * limit < SystemAnnouncement.length ? 'paginate_button next' : 'paginate_button next disabled'"
+                                @click="display(curPage + 1)">
+                                <a href="javascript:void(0);">下一页</a>
+                            </li>
+                        </ul>
                     </div>
 
                     <div v-show="type == 0">
@@ -130,7 +152,10 @@
             phoneText: '手机号',
             type: 1,
             textAnnouncement: null,
-            SystemAnnouncement: []
+            SystemAnnouncement: [],
+            displayDate: [],
+            limit: 3,
+            curPage: 1
         },
         methods: {
             userInfoUpdateClick() {
@@ -212,8 +237,9 @@
                     type: 2
                 }
                 axios.post('http://localhost:8080/saveAnnouncement', params).then(rep => {
-                    console.log(rep.data);
                     if (rep.data.code === 200) {
+                        this.SystemAnnouncement.push(rep.data.success.data)
+                        this.display()
                         this.textAnnouncement = null
                     } else {
                         alert(rep.data.error)
@@ -227,13 +253,21 @@
                 axios.post('http://localhost:8080/getMessage', param).then(rep => {
                     if (rep.data.code === 200) {
                         this.SystemAnnouncement = this.SystemAnnouncement.concat(rep.data.success.data)
-                        console.log(this.SystemAnnouncement);
+                        this.display()
                     } else {
                         console.log(rep.data.error);
                     }
                 }).catch(err => {
                     console.log(err);
                 })
+            },
+            display(index) {
+                //分页超出
+                if (index && (index - 1) * this.limit >= this.SystemAnnouncement.length) {
+                    return null
+                }
+                this.curPage = index || this.curPage
+                this.displayDate = this.SystemAnnouncement.slice((this.curPage - 1) * this.limit, this.curPage * this.limit)
             }
         },
         mounted() {

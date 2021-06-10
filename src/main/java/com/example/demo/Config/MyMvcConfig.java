@@ -48,15 +48,17 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/blank").setViewName("blank");
-        registry.addViewController("/main").setViewName("main");
         registry.addViewController("/tab").setViewName("tab");
         registry.addViewController("/table").setViewName("table");
         registry.addViewController("/form").setViewName("form");
 
         registry.addViewController("/").setViewName("index");
+        registry.addViewController("/chat").setViewName("chat");
+        registry.addViewController("/main").setViewName("form");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/netInfo").setViewName("netInfo");
-        registry.addViewController("/newChat").setViewName("newChat");
+        registry.addViewController("/ui").setViewName("ui");
+        registry.addViewController("/mm").setViewName("main");
     }
 
     @Bean("random")
@@ -131,9 +133,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 "/register/**",
                 "/login/**",
                 "/vueResources/**",
-                "/test/**",
-                "/chatting",
-                "/chatting/**"
+                "/test/**"
         );
     }
 

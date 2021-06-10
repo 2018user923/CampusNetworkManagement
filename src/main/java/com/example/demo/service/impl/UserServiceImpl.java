@@ -454,6 +454,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResultResponse saveAnnouncement(HttpServletRequest request, Chat chat) {
         chatService.insert(chat);
-        return ResultResponse.createSimpleSuccess(null, null);
+
+        DBInputInfo build = DBInputInfo.builder().id(chat.getId()).build();
+        List<Chat> chats = chatService.getChats(build);
+        if (chats == null || chats.isEmpty()) {
+            return ResultResponse.createError(-200, "发送信息失败，插入数据库失败！");
+        }
+        return ResultResponse.createSimpleSuccess(null, Chat.createResponseData(chats.get(0), simpleDateFormat));
     }
 }
