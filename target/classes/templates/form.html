@@ -76,10 +76,40 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <!--                <iframe src="http://localhost:8080/newChat" frameborder="0" style="zoom:80%" width="1450" height="700">-->
-                <!--                <iframe src="http://localhost:8080/chatting" frameborder="0" width="600" height="800">-->
-                <!--                </iframe>-->
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        最新公告
+                    </div>
+                    <div class="panel-body">
+                        <h5>
+                            <strong>时间</strong>
+                        </h5>
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </div>
+                        <hr>
+                        <h5>
+                            <strong>时间</strong>
+                        </h5>
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div v-show="type == 0">
+                    <div class="form-group">
+                        <label>Enter Message</label>
+                        <input class="form-control" type="text" style="min-height:100px;">
+                    </div>
+                    <button class="btn btn-info" @click.prevent="isDisabled = !isDisabled">
+                        发送
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -107,7 +137,8 @@
             idCardText: '身份证',
             emailText: '邮箱',
             passWordText: '密码',
-            phoneText: '手机号'
+            phoneText: '手机号',
+            type: 1
         },
         methods: {
             userInfoUpdateClick() {
@@ -132,6 +163,7 @@
             },
             getUserInfo() {
                 axios.post('http://localhost:8080/getUserInfo').then(rep => {
+                    this.type = rep.data.type
                     this.userName = rep.data.userName
                     this.idCard = rep.data.idCard
                     this.email = rep.data.email
