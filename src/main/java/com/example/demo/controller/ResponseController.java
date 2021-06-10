@@ -27,7 +27,7 @@ public class ResponseController {
     @PostMapping("/login")
     public String login(User user, HttpServletRequest request) {
         if (userService.loginHandler(user, request)) {
-            return "/main";
+            return "/form";
         } else {
             return "/index";
         }

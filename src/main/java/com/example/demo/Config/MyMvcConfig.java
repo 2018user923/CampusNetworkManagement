@@ -118,9 +118,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                     return false;
                 } else {
                     HttpSession session = request.getSession();
-                    if (session.getAttribute("user") == null) {
-                        session.setAttribute("user", user);
-                    }
+                    session.setAttribute("user", user);
                     return true;
                 }
             }

@@ -369,14 +369,17 @@
                 let param = {
                     'email': this.email,
                     'code': this.emailCode,
-                    'userName':this.userName
+                    'userName': this.userName
                 }
                 axios.post('http://localhost:8080/login/emailLogin', param).then(rep => {
-                    console.log(rep.data);
-                    if (rep.data !== 'successed') {
-                        alert(rep.data)
+                    let code = rep.data.code
+                    if (code !== 200) {
+                        this.errorText = rep.data.error.message
+                        this.isShow = true
+                    } else {
+                        let url = rep.data.success.url
+                        window.location.replace(url)
                     }
-                    window.location.replace('http://localhost:8080/main')
                 }).catch(error => {
                     alert(error)
                 })
@@ -471,7 +474,7 @@
                     alert(error)
                 })
             },
-            userRegister(){
+            userRegister() {
                 //登录提交之前验证邮箱和验证码
                 this.emailBlur()
                 this.emailCodeBlur()
@@ -480,7 +483,7 @@
                     'email': this.email,
                     'code': this.emailCode,
                     'userName': this.userName,
-                    'passWord':this.passWord
+                    'passWord': this.passWord
                 }
                 axios.post('http://localhost:8080/register/userRegister', params).then(rep => {
                     let code = rep.data.code
@@ -495,9 +498,9 @@
                     alert(error)
                 })
             },
-            passwordBlur(){
+            passwordBlur() {
                 let regex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}');
-                if(!regex.test(this.passWord)){
+                if (!regex.test(this.passWord)) {
                     this.errorText = '密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符！'
                     this.isShow = true
                     return false

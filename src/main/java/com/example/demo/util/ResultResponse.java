@@ -99,6 +99,7 @@ public class ResultResponse {
     public static ResultResponse createSuccessForTypeAndRecords(String url, Integer type, List<Record> list, Map<Integer, MappingTitleAndButtons> map, MyUtil util) {
         ResultResponse response = createSimpleSuccess(url, null);
 
+
         ArrayList<List<Object>> data = new ArrayList<>(list.size());
         switch (type) {
             case 0 -> list.forEach(r -> {
@@ -108,7 +109,7 @@ public class ResultResponse {
                 objects.add(simpleDateFormat.format(r.getSignOut()));
                 objects.add(r.getCostData());
                 objects.add(util.calcMinute(r.getSignIn(), r.getSignOut()));
-                objects.add(r.getBalance());
+                objects.add(r.getBalance().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                 objects.add(r.getCostMoney().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                 data.add(objects);
             });

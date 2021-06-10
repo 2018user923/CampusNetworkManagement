@@ -54,8 +54,8 @@ public class LoginControllerHandler {
      */
     @CrossOrigin
     @RequestMapping("/login/emailLogin")
-    String loginEmailLogin(HttpServletRequest request, @RequestBody Map<String, String> map) {
-        return userService.loginByEmailHandler(request, map.get("email"), map.get("code"), map.get("userName")) ? "successed" : "failed";
+    ResultResponse loginEmailLogin(HttpServletRequest request, @RequestBody Map<String, String> map) {
+        return userService.loginByEmailHandler(request, map.get("email"), map.get("code"), map.get("userName"));
     }
 
     /**

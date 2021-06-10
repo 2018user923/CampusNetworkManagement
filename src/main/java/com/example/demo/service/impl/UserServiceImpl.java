@@ -103,7 +103,6 @@ public class UserServiceImpl implements UserService {
             JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
             User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
             user.setAuthority(JSON.toJSONString(user.getAuthorityToSet()));
-            userDataService.updateUser(user);
             JSONObject curNetInfo = myUtil.getNetInfo();
             BigDecimal curData = curNetInfo.getBigDecimal("getData");
             //之前的流量
@@ -114,6 +113,10 @@ public class UserServiceImpl implements UserService {
             Date signIn = json.getDate("signIn");
             Date signOut = new Date();
 
+            BigDecimal costMoney = myUtil.calcSpend(signIn, signOut);
+            BigDecimal curBalance = user.getBalance().subtract(costMoney);
+            user.setBalance(curBalance);
+
             Record record = Record.builder()
                     .userName(user.getUserName())
                     .signIn(signIn)
@@ -121,9 +124,11 @@ public class UserServiceImpl implements UserService {
                     .costData(costData)
                     .type(TypeEnum.userExpenses.getVal())
                     //这里的金额需要除以 1000
-                    .costMoney(myUtil.calcSpend(signIn, signOut))
+                    .costMoney(costMoney)
+                    .balance(curBalance)
                     .build();
 
+            userDataService.updateUser(user);
             recordService.insertRecord(record);
 
             //移除该用户的信息
@@ -137,11 +142,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginByEmailHandler(HttpServletRequest request, String email, String code, String userName) {
+    public ResultResponse loginByEmailHandler(HttpServletRequest request, String email, String code, String userName) {
         User user = userDataService.getUserByUserNameAndEmail(userName, email);
         //数据库中没有查询到这个用户
         if (user == null) {
-            return false;
+            return ResultResponse.createError(-200, "用戶名不存在！");
         }
 
         //校验邮箱验证码
@@ -150,11 +155,14 @@ public class UserServiceImpl implements UserService {
 
         //验证码不正确
         if (emailCode == null || !emailCode.equals(code)) {
-            return false;
+            return ResultResponse.createError(-200, "邮箱验证码不正确！");
         }
 
         //注册用户登录
-        return loginHandler(user, request);
+        if (loginHandler(user, request)) {
+            return ResultResponse.createSimpleSuccess("http://localhost:8080/form", null);
+        }
+        return null;
     }
 
     /**
@@ -412,5 +420,22 @@ public class UserServiceImpl implements UserService {
             res.add(Chat.createResponseData(chat, simpleDateFormat));
         });
         return ResultResponse.createSimpleSuccess(null, res);
+    }
+
+    /*
+     * 描述:  如果该ip地址存在其他用户登录，那么使其下线。
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/10 11:21
+     * @param: request
+     */
+    @Override
+    public void clearOtherUser(HttpServletRequest request) {
+        String ipAddress = httpService.getIpAddress(request);
+        Object user = cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        if (user != null) {
+            logOutHandler(request);
+        }
     }
 }

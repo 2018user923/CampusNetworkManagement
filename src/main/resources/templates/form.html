@@ -69,15 +69,17 @@
                             <button type="submit" class="btn btn-info" @click.prevent="userInfoUpdateClick"
                                     :disabled="isDisabled">更新
                             </button>
-                            <button class="btn btn-info" @click.prevent="isDisabled = !isDisabled">查看修改</button>
+                            <button class="btn btn-info" @click.prevent="isDisabled = !isDisabled">
+                                {{isDisabled ? '编辑' : '锁定' }}
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
-<!--                <iframe src="http://localhost:8080/newChat" frameborder="0" style="zoom:80%" width="1450" height="700">-->
-<!--                <iframe src="http://localhost:8080/chatting" frameborder="0" width="600" height="800">-->
-<!--                </iframe>-->
+                <!--                <iframe src="http://localhost:8080/newChat" frameborder="0" style="zoom:80%" width="1450" height="700">-->
+                <!--                <iframe src="http://localhost:8080/chatting" frameborder="0" width="600" height="800">-->
+                <!--                </iframe>-->
             </div>
         </div>
     </div>
@@ -135,7 +137,7 @@
                     this.email = rep.data.email
                     this.passWord = rep.data.passWord
                     this.phone = rep.data.phone
-                    this.balance = rep.data.balance
+                    this.balance = (rep.data.balance / 1000).toFixed(3)
                     this.avatarUrl = rep.data.avatar
                     this.$refs.avatarUrl.setAttribute("src", this.avatarUrl)
                 }).catch(err => {

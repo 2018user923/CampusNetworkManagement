@@ -18,7 +18,7 @@ public interface UserService {
 
     ResultResponse logOutHandler(HttpServletRequest request);
 
-    boolean loginByEmailHandler(HttpServletRequest request, String email, String code, String userName);
+    ResultResponse loginByEmailHandler(HttpServletRequest request, String email, String code, String userName);
 
     ModelAndView form(HttpServletRequest request);
 
@@ -49,4 +49,6 @@ public interface UserService {
     ResultResponse userSendMessageHandler(HttpServletRequest request, Chat chat);
 
     ResultResponse getMessageByTimeHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
+
+    void clearOtherUser(HttpServletRequest request);
 }

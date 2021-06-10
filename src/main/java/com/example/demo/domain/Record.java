@@ -24,7 +24,7 @@ public class Record {
     private Date signIn; //登入时间，这里指代用户登录和登出的时间。
     private Date signOut; //登出时间
     private BigDecimal costData;//使用的流量
-    private Long balance; //当前的余额
+    private BigDecimal balance; //当前的余额
     private BigDecimal costMoney;//消费金额，用户在登入登出期间消费的金额
 
     private Date createTime;//该记录的创建时间

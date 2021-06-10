@@ -161,7 +161,7 @@
                     this.email = rep.data.email
                     this.passWord = rep.data.passWord
                     this.phone = rep.data.phone
-                    this.balance = rep.data.balance
+                    this.balance = (rep.data.balance / 1000).toFixed(3)
                     console.log(rep.data);
                 }).catch(err => {
                     console.log(err);
