@@ -107,7 +107,7 @@ public class UserInfoControllerHandler {
     }
 
     @CrossOrigin
-    @RequestMapping("/getMessageByTime")
+    @RequestMapping("/getMessage")
     ResultResponse getMessage(HttpServletRequest request, @RequestBody DBInputInfo dbInputInfo) {
         return userService.getMessageHandler(request, dbInputInfo);
     }

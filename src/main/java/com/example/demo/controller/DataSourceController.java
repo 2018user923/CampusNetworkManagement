@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.Chat;
 import com.example.demo.service.RecordsService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.DBInputInfo;
@@ -70,4 +71,9 @@ public class DataSourceController {
         return userService.getUserInfoByTypeHandler(request, type);
     }
 
+    @CrossOrigin
+    @RequestMapping("/saveAnnouncement")
+    ResultResponse saveAnnouncement(HttpServletRequest request, @RequestBody Chat chat) {
+        return userService.saveAnnouncement(request, chat);
+    }
 }

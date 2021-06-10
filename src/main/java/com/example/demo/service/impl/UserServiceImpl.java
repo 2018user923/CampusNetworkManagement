@@ -441,4 +441,19 @@ public class UserServiceImpl implements UserService {
             logOutHandler(request);
         }
     }
+
+    /**
+     * 描述: 存储管理员发送的系统公告。
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/10 19:49
+     * @param: request
+     * @param: chat
+     */
+    @Override
+    public ResultResponse saveAnnouncement(HttpServletRequest request, Chat chat) {
+        chatService.insert(chat);
+        return ResultResponse.createSimpleSuccess(null, null);
+    }
 }

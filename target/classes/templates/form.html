@@ -82,39 +82,29 @@
                     <div class="panel-heading">
                         最新公告
                     </div>
-                    <div class="panel-body">
-                        <h5>
-                            <strong>时间</strong>
-                        </h5>
-                        <div class="alert alert-info">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </div>
-                        <hr>
-                        <h5>
-                            <strong>时间</strong>
-                        </h5>
-                        <div class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <div class="panel-body" v-for="msg in SystemAnnouncement">
+                        <strong>{{msg[4]}}</strong>
+                        <div class="alert alert-danger">
+                            {{msg[5]}}
                         </div>
                         <hr>
                     </div>
-                </div>
-                <div v-show="type == 0">
-                    <div class="form-group">
-                        <label>Enter Message</label>
-                        <input class="form-control" type="text" style="min-height:100px;">
+
+                    <div v-show="type == 0">
+                        <div class="form-group">
+                            <label>Enter Message</label>
+                            <input class="form-control" type="text" style="min-height:100px;"
+                                   v-model="textAnnouncement">
+                        </div>
+                        <button class="btn btn-info" @click.prevent="saveAnnouncement">
+                            发送公告
+                        </button>
                     </div>
-                    <button class="btn btn-info" @click.prevent="isDisabled = !isDisabled">
-                        发送
-                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <script th:src="@{/vueResources/tools/axios.js}"></script>
 <script th:src="@{/vueResources/tools/vue.js}"></script>
@@ -138,7 +128,9 @@
             emailText: '邮箱',
             passWordText: '密码',
             phoneText: '手机号',
-            type: 1
+            type: 1,
+            textAnnouncement: null,
+            SystemAnnouncement: []
         },
         methods: {
             userInfoUpdateClick() {
@@ -212,10 +204,41 @@
                     this.idCardText = '身份证'
                     return true
                 }
+            },
+            saveAnnouncement() {
+                let params = {
+                    'content': this.textAnnouncement,
+                    'userName': this.userName,
+                    type: 2
+                }
+                axios.post('http://localhost:8080/saveAnnouncement', params).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
+                        this.textAnnouncement = null
+                    } else {
+                        alert(rep.data.error)
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            loadAnnouncement() {
+                let param = {types: [2]}
+                axios.post('http://localhost:8080/getMessage', param).then(rep => {
+                    if (rep.data.code === 200) {
+                        this.SystemAnnouncement = this.SystemAnnouncement.concat(rep.data.success.data)
+                        console.log(this.SystemAnnouncement);
+                    } else {
+                        console.log(rep.data.error);
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
             }
         },
         mounted() {
             this.getUserInfo()
+            this.loadAnnouncement()
         }
     })
 </script>
