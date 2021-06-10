@@ -199,7 +199,7 @@
 <body>
 <div id="tab">
     <ul class="tab_menu">
-        <li class="selected">学生登录</li>
+        <li class="selected">用户登录</li>
         <li class="">邮箱登录</li>
         <li class="">注册账户</li>
     </ul>
@@ -260,7 +260,7 @@
                 </div>
                 <div>
                     <label>密&nbsp;&nbsp;&nbsp;码：</label>
-                    <input type="password" placeholder="输入密码" v-model="passWord">
+                    <input type="password" placeholder="输入密码" v-model="passWord" @blur="passwordBlur">
                 </div>
                 <div>
                     <label>邮&nbsp;&nbsp;箱：</label>
@@ -494,6 +494,15 @@
                 }).catch(error => {
                     alert(error)
                 })
+            },
+            passwordBlur(){
+                let regex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}');
+                if(!regex.test(this.passWord)){
+                    this.errorText = '密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符！'
+                    this.isShow = true
+                    return false
+                }
+                this.isShow = false
             }
         }
     })
