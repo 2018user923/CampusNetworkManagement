@@ -239,7 +239,7 @@
                 axios.post('http://localhost:8080/saveAnnouncement', params).then(rep => {
                     if (rep.data.code === 200) {
                         this.SystemAnnouncement.push(rep.data.success.data)
-                        this.display()
+                        this.display(this.curPage)
                         this.textAnnouncement = null
                     } else {
                         alert(rep.data.error)
