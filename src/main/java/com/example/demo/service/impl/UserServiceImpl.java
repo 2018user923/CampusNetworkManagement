@@ -75,6 +75,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean loginHandler(User user, HttpServletRequest request) {
+        clearOtherUser(request);
         String userName = user.getUserName(), passWord = user.getPassWord();
         //todo 中级步骤需要校验是否登录成功,待编写。
         user = userDataService.getUserByUserName(userName);
@@ -143,6 +144,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultResponse loginByEmailHandler(HttpServletRequest request, String email, String code, String userName) {
+        clearOtherUser(request);
         User user = userDataService.getUserByUserNameAndEmail(userName, email);
         //数据库中没有查询到这个用户
         if (user == null) {
@@ -287,6 +289,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultResponse loginUserLoginHandler(HttpServletRequest request, User user) {
+        clearOtherUser(request);
         ResultResponse res = new ResultResponse();
 
         String userName = user.getUserName(), passWord = user.getPassWord();
@@ -413,8 +416,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultResponse getMessageByTimeHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
-        List<Chat> chats = chatService.getChatByTime(dbInputInfo);
+    public ResultResponse getMessageHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
+        List<Chat> chats = chatService.getChats(dbInputInfo);
         List<List<Object>> res = new ArrayList<>(chats.size());
         chats.forEach(chat -> {
             res.add(Chat.createResponseData(chat, simpleDateFormat));

@@ -48,7 +48,7 @@ public interface UserService {
 
     ResultResponse userSendMessageHandler(HttpServletRequest request, Chat chat);
 
-    ResultResponse getMessageByTimeHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
+    ResultResponse getMessageHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
 
     void clearOtherUser(HttpServletRequest request);
 }

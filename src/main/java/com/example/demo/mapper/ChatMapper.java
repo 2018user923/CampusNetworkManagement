@@ -17,5 +17,5 @@ public interface ChatMapper {
      */
     int insert(Chat chat);
 
-    List<Chat> getChatByTime(DBInputInfo dbInputInfo);
+    List<Chat> getChats(DBInputInfo dbInputInfo);
 }

@@ -27,7 +27,7 @@ public class Chat {
     private Date createTime;
     private String avatar;
     private String userName;
-    private Integer type;//按照类型来创建消息
+    private Integer type;//按照类型来创建消息 0 是正常发送的消息，1是用户上线消息
 
     public static List<Object> createResponseData(Chat chat, SimpleDateFormat simpleDateFormat) {
         ArrayList<Object> list = new ArrayList<>();

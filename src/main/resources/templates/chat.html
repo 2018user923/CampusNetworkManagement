@@ -125,7 +125,7 @@
                 this.content = null
             },
             loadMessage() {
-                let param = {}
+                let param = {types: [0]}
                 axios.post('http://localhost:8080/getMessageByTime', param).then(rep => {
                     if (rep.data.code === 200) {
                         this.messages = this.messages.concat(rep.data.success.data)
