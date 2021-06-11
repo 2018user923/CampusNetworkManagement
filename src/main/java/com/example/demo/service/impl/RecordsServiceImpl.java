@@ -182,6 +182,30 @@ public class RecordsServiceImpl implements RecordsService {
                     //注意，这里没有title 和 buttons ，单纯返回两种用户的信息。
                     return response;
                 }
+                case 10 -> {
+                    dbInputInfo.getTypes().set(0, 0);
+                    ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
+                    records = recordDataService.getRecords(dbInputInfo);
+                    ArrayList<List<Object>> data = new ArrayList<>(1);
+                    //Arrays.asList("使用流量（字节）", "使用流量（MB）", "使用时长（分钟）", "消费金额"),
+                    BigDecimal costData = new BigDecimal("0");
+                    BigDecimal costMinute = new BigDecimal("0");
+                    BigDecimal costMoney = new BigDecimal("0");
+                    ArrayList<Object> objects = new ArrayList<>();
+                    for (Record o : records) {
+                        costData = costData.add(o.getCostData());
+                        costMinute = costMinute.add(new BigDecimal(util.calcMinute(o.getSignIn(), o.getSignOut())));
+                        costMoney = costMoney.add(o.getCostMoney());
+                    }
+                    objects.add(costData);
+                    objects.add(costMinute);
+                    objects.add(costMoney.divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
+                    data.add(objects);
+                    response.getSuccess().setData(data);
+                    response.getSuccess().setTitles(map.get(type).getTitle());
+                    response.getSuccess().setButtons(map.get(type).getButtons());
+                    return response;
+                }
             }
         }
         records = recordDataService.getRecords(dbInputInfo);

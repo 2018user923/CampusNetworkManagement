@@ -208,6 +208,12 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 Arrays.asList("编号", "用户名", "创建时间", "电话", "邮箱", "身份证", "当前余额", "操作"),
                 Arrays.asList(false, false, false, false, false, false, true, false)
         ));
+
+        //根据传入的用户名和时间查询总的消费情况
+        map.put(10, MappingTitleAndButtons.create(
+                Arrays.asList("使用流量（bytes）", "使用时长（分钟）", "消费金额"),
+                Arrays.asList(false, false, false, false, false, false, false, false)
+        ));
         return map;
     }
 

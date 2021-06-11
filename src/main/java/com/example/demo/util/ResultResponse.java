@@ -98,8 +98,6 @@ public class ResultResponse {
 
     public static ResultResponse createSuccessForTypeAndRecords(String url, Integer type, List<Record> list, Map<Integer, MappingTitleAndButtons> map, MyUtil util) {
         ResultResponse response = createSimpleSuccess(url, null);
-
-
         ArrayList<List<Object>> data = new ArrayList<>(list.size());
         switch (type) {
             case 0 -> list.forEach(r -> {
