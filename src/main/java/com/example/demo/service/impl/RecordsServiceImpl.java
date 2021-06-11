@@ -3,9 +3,11 @@ package com.example.demo.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Enum.TypeEnum;
 import com.example.demo.Enum.UserType;
+import com.example.demo.domain.Chat;
 import com.example.demo.domain.MappingTitleAndButtons;
 import com.example.demo.domain.Record;
 import com.example.demo.domain.User;
+import com.example.demo.mapper.ChatMapper;
 import com.example.demo.mapper.RecordMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.HttpService;
@@ -52,6 +54,10 @@ public class RecordsServiceImpl implements RecordsService {
     @Autowired
     private SimpleDateFormat simpleDateFormat;
 
+
+    @Autowired
+    private ChatMapper ChatDataService;
+
     /**
      * 将该申请取消
      */
@@ -68,8 +74,12 @@ public class RecordsServiceImpl implements RecordsService {
     }
 
     @Override
-    public ResultResponse deleteSubmitHandler(Integer id) {
-        recordDataService.deleteRecordById(id);
+    public ResultResponse deleteSubmitHandler(Integer id, Integer type) {
+        if (type == 11) {
+            ChatDataService.delete(id);
+        } else {
+            recordDataService.deleteRecordById(id);
+        }
         return ResultResponse.createError(200, null);
     }
 
@@ -149,7 +159,6 @@ public class RecordsServiceImpl implements RecordsService {
 //                    List<User> user = userDataService.getUserByType(UserType.blacklistUser.getVal());
                     dbInputInfo.setTypes(Collections.singletonList(UserType.blacklistUser.getVal()));
                     List<User> user = userDataService.getUser(dbInputInfo);
-
                     ArrayList<List<Object>> data = new ArrayList<>(user.size());
                     user.forEach(o -> {
                         ArrayList<Object> objects = new ArrayList<>();
@@ -201,6 +210,25 @@ public class RecordsServiceImpl implements RecordsService {
                     objects.add(costMinute);
                     objects.add(costMoney.divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                     data.add(objects);
+                    response.getSuccess().setData(data);
+                    response.getSuccess().setTitles(map.get(type).getTitle());
+                    response.getSuccess().setButtons(map.get(type).getButtons());
+                    return response;
+                }
+                case 11 -> {
+                    //Arrays.asList("编号", "创建时间", "创建者", "内容"),
+                    dbInputInfo.getTypes().set(0, 2);
+                    ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
+                    List<Chat> chats = ChatDataService.getChats(dbInputInfo);
+                    ArrayList<List<Object>> data = new ArrayList<>(chats.size());
+                    chats.forEach(o -> {
+                        ArrayList<Object> objects = new ArrayList<>();
+                        objects.add(o.getId());
+                        objects.add(simpleDateFormat.format(o.getCreateTime()));
+                        objects.add(o.getUserName());
+                        objects.add(o.getContent());
+                        data.add(objects);
+                    });
                     response.getSuccess().setData(data);
                     response.getSuccess().setTitles(map.get(type).getTitle());
                     response.getSuccess().setButtons(map.get(type).getButtons());

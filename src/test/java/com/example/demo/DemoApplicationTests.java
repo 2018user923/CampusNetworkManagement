@@ -11,6 +11,7 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.util.DBInputInfo;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
+import org.apache.catalina.authenticator.SingleSignOnListener;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +23,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -133,12 +135,14 @@ class DemoApplicationTests {
 
     @Test
     void testRecordForType() {
-
-        Chat chat = new Chat();
-        chat.setContent("666");
-
-        int insert = chatMapper.insert(chat);
-        System.out.println("primaryKey: " + insert);
+        DBInputInfo info = DBInputInfo.builder().userName("administrator").types(Collections.singletonList(2)).build();
+        List<Chat> chats = chatMapper.getChats(info);
+        System.out.println(chats);
+//        Chat chat = new Chat();
+//        chat.setContent("666");
+//
+//        int insert = chatMapper.insert(chat);
+//        System.out.println("primaryKey: " + insert);
 
 
 

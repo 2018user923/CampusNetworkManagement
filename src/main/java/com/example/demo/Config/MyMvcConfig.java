@@ -214,6 +214,11 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 Arrays.asList("使用流量（bytes）", "使用时长（分钟）", "消费金额"),
                 Arrays.asList(false, false, false, false, false, false, false, false)
         ));
+
+        map.put(11, MappingTitleAndButtons.create(
+                Arrays.asList("编号", "创建时间", "创建者", "内容", "操作"),
+                Arrays.asList(false, true, false, false, false, false, false, false)
+        ));
         return map;
     }
 

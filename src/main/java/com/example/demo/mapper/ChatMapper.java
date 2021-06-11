@@ -18,4 +18,6 @@ public interface ChatMapper {
     int insert(Chat chat);
 
     List<Chat> getChats(DBInputInfo dbInputInfo);
+
+    int delete(Integer id);
 }

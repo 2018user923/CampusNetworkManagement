@@ -202,7 +202,8 @@
                 6: '申请列表',
                 7: '查看用户信息',
                 8: '查看黑名单用户信息',
-                10: '查询消费总额'
+                10: '查询消费总额',
+                11: '公告'
             },
             showMessage: '当前不存在任何记录！',
             userInfos: [],
@@ -288,7 +289,7 @@
                 this.buttonClick(index, id, url)
             },
             deleteClick(index, id) {
-                let url = 'http://localhost:8080/buttons/deleteRecord/' + id
+                let url = 'http://localhost:8080/buttons/deleteRecord/' + id + '/' + this.selectAuthority
                 this.buttonClick(index, id, url)
             },
             repeatedSubmitClick(index, id) {

@@ -67,9 +67,9 @@ public class ButtonControllerHandler {
      * @param: id 是 record 记录的主键
      */
     @CrossOrigin
-    @RequestMapping("/buttons/deleteRecord/{id}")
-    ResultResponse deleteRecord(@PathVariable("id") Integer id) {
-        return recordsService.deleteSubmitHandler(id);
+    @RequestMapping("/buttons/deleteRecord/{id}/{type}")
+    ResultResponse deleteRecord(@PathVariable("id") Integer id, @PathVariable("type") Integer type) {
+        return recordsService.deleteSubmitHandler(id, type);
     }
 
     /**
