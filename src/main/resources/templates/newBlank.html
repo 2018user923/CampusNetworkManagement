@@ -61,6 +61,9 @@
                                         <label v-show="type == 0">
                                             <select class="form-control input-sm"
                                                     @change="selectName">
+                                                <option value="all">
+                                                    所有用户
+                                                </option>
                                                 <option v-for="user in userInfos" :value="user[1]">
                                                     {{user[1]}}
                                                 </option>
@@ -207,7 +210,7 @@
             },
             showMessage: '当前不存在任何记录！',
             userInfos: [],
-            selectUserName: null
+            selectUserName: 'all'
         },
         methods: {
             getUserAuthorityList() {

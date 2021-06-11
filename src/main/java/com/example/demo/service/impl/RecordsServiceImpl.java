@@ -112,9 +112,12 @@ public class RecordsServiceImpl implements RecordsService {
     @Override
     public ResultResponse getListDataHandler(HttpServletRequest request, DBInputInfo dbInputInfo) {
         List<Record> records = null;
-        if (dbInputInfo.getUserName() == null || dbInputInfo.equals("null") || dbInputInfo.equals("")) {
+        if (dbInputInfo.getUserName() == null) {
             User user = userService.getUserInfoHandler(request);
             dbInputInfo.setUserName(user.getUserName());
+        }
+        if (dbInputInfo.getUserName().equals("all")) {
+            dbInputInfo.setUserName(null);
         }
         Integer type = dbInputInfo.getTypes().get(0);
         if (dbInputInfo.getTypes() != null && !dbInputInfo.getTypes().isEmpty()) {

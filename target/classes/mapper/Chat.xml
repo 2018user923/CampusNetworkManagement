@@ -16,7 +16,10 @@
                 id = #{id}
             </if>
             <if test="createTime != null">
-                create_time > #{createTime},
+                create_time > #{createTime}
+            </if>
+            <if test="userName != null">
+                user_name = #{userName}
             </if>
             <if test="types != null">
                 and type in
@@ -27,4 +30,9 @@
         </where>
     </select>
 
+    <delete id="delete">
+        delete
+        from chat_table
+        where Id = #{id}
+    </delete>
 </mapper>
