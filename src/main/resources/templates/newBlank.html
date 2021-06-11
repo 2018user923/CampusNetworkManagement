@@ -58,13 +58,21 @@
                                                 </option>
                                             </select>
                                         </label>
+                                        <label v-show="type == 0">
+                                            <select class="form-control input-sm"
+                                                    @change="selectName">
+                                                <option v-for="user in userInfos" :value="user[1]">
+                                                    {{user[1]}}
+                                                </option>
+                                            </select>
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="dataTables_filter">
                                         <label>时间：
-                                            <input type="date" v-model="signIn"/>
-                                            <input type="date" @input="getRecordsForPage" v-model="signOut"/>
+                                            <input type="date"/>
+                                            <input type="date"/>
                                         </label>
                                     </div>
                                 </div>
@@ -82,14 +90,27 @@
                                     <td class="center" v-for="v in date">{{v}}</td>
 
                                     <td v-show="buttonsIsShow">
-                                        <button v-show=buttons[0] @click="cancelClick(index,date[0])" class="btn-warning">取消</button>
-                                        <button v-show=buttons[1] @click="deleteClick(index,date[0])" class="btn-danger">删除</button>
-                                        <button v-show=buttons[2] @click="repeatedSubmitClick(index, date[0])" class="btn-success">再次提交
+                                        <button v-show=buttons[0] @click="cancelClick(index,date[0])"
+                                                class="btn-warning">取消
                                         </button>
-                                        <button v-show=buttons[3] @click="agreeClick(index, date[0])" class="btn-success">同意</button>
-                                        <button v-show=buttons[4] @click="turnDownClick(index, date[0])" class="btn-danger">驳回</button>
-                                        <button v-show=buttons[5] @click="addBlackList(index, date[0])" class="btn-danger">加入黑名单</button>
-                                        <button v-show=buttons[6] @click="rmBlackList(index, date[0])" class="btn-info">移出黑名单</button>
+                                        <button v-show=buttons[1] @click="deleteClick(index,date[0])"
+                                                class="btn-danger">删除
+                                        </button>
+                                        <button v-show=buttons[2] @click="repeatedSubmitClick(index, date[0])"
+                                                class="btn-success">再次提交
+                                        </button>
+                                        <button v-show=buttons[3] @click="agreeClick(index, date[0])"
+                                                class="btn-success">同意
+                                        </button>
+                                        <button v-show=buttons[4] @click="turnDownClick(index, date[0])"
+                                                class="btn-danger">驳回
+                                        </button>
+                                        <button v-show=buttons[5] @click="addBlackList(index, date[0])"
+                                                class="btn-danger">加入黑名单
+                                        </button>
+                                        <button v-show=buttons[6] @click="rmBlackList(index, date[0])" class="btn-info">
+                                            移出黑名单
+                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -150,8 +171,18 @@
         // 按钮类型依次为： 取消、删除、再次提交、同意、驳回
         el: '#main',
         data: {
+            type: null,
+            userName: null,
+            idCard: null,
+            email: null,
+            passWord: null,
+            phone: null,
+            balance: null,
+            avatarUrl: null,
+
+
             authorityList: [],
-            selectAuthority: 0,
+            selectAuthority: 7,
             records: [],
             limit: 10,
             curPage: 1,
@@ -169,7 +200,10 @@
                 6: '申请列表',
                 7: '查看用户信息',
                 8: '查看黑名单用户信息'
-            }
+            },
+            showMessage: '当前不存在任何记录！',
+            userInfos: [],
+            selectUserName: null
         },
         methods: {
             getUserAuthorityList() {
@@ -186,19 +220,26 @@
                     this.getRecordsForPage()
                 }
             },
+            selectName(event) {
+                if (event) {
+                    this.selectUserName = event.target.value
+                    this.getRecordsForPage()
+                }
+            },
             getRecordsForPage() {
                 this.records = []
                 this.displayDate = []
                 let params = {
-                    'types': [this.selectAuthority]
+                    'types': [this.selectAuthority],
+                    'userName': this.selectUserName
                 }
                 axios.post('http://localhost:8080/getRecords', params).then(rep => {
-                    console.log(rep.data);
                     if (rep.data.code === 200) {
                         this.records = rep.data.success.data
                         this.titles = rep.data.success.titles
                         this.buttons = rep.data.success.buttons
                         this.buttonsIsShow = false
+                        this.showMessage = '一共查询到 ' + rep.data.success.data.length + ' 条记录！'
                         for (let show of this.buttons) {
                             if (show) {
                                 this.buttonsIsShow = true
@@ -264,11 +305,39 @@
             rmBlackList(index, id) {
                 let url = 'http://localhost:8080/buttons/rmBlackList/' + id
                 this.buttonClick(index, id, url)
+            },
+            getUserInfos() {
+                let params = {'types': [9]}
+                axios.post('http://localhost:8080/getRecords', params).then(rep => {
+                    console.log('----------------------------------------------------')
+                    this.userInfos = rep.data.success.data
+                    console.log(rep.data.success.data);
+                    console.log(this.userInfos);
+                }).catch(error => {
+
+                })
+            },
+            getUserInfo() {
+                axios.post('http://localhost:8080/getUserInfo').then(rep => {
+                    this.type = rep.data.type
+                    this.userName = rep.data.userName
+                    this.idCard = rep.data.idCard
+                    this.email = rep.data.email
+                    this.passWord = rep.data.passWord
+                    this.phone = rep.data.phone
+                    this.balance = (rep.data.balance / 1000).toFixed(3)
+                    this.avatarUrl = rep.data.avatar
+                    this.$refs.avatarUrl.setAttribute("src", this.avatarUrl)
+                }).catch(err => {
+                    console.log(err);
+                })
             }
         },
         mounted() {
             this.getUserAuthorityList()
             this.getRecordsForPage()
+            this.getUserInfos()
+            this.getUserInfo()
         }
     })
 </script>

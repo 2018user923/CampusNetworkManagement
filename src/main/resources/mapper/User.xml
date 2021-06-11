@@ -3,6 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
+    <select id="getUser" resultType="User">
+        select *
+        from user_table
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="userName != null">
+                user_Name = #{userName}
+            </if>
+            <if test="email != null">
+                email = #{email}
+            </if>
+            <if test="types != null">
+                and type in
+                <foreach collection="types" item="type" index="index" open="(" close=")" separator=",">
+                    #{type}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
     <select id="getUserById" resultType="User">
         select *
         from user_table

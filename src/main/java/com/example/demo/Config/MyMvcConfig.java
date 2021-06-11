@@ -59,6 +59,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/netInfo").setViewName("netInfo");
         registry.addViewController("/ui").setViewName("ui");
         registry.addViewController("/mm").setViewName("main");
+        registry.addViewController("/newBlank").setViewName("newBlank");
     }
 
     @Bean("random")

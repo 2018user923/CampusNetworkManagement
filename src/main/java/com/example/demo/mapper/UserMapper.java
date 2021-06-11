@@ -1,12 +1,24 @@
 package com.example.demo.mapper;
 
 import com.example.demo.domain.User;
+import com.example.demo.util.DBInputInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
 public interface UserMapper {
+    /**
+     * 描述: 根据传入的自断动态查询
+     *
+     * @return
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/11 8:35
+     * @param: dbInputInfo
+     */
+    List<User> getUser(DBInputInfo dbInputInfo);
+
+
     /**
      * 描述:  根据 id 查询用户信息
      *

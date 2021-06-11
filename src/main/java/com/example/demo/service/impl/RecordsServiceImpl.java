@@ -17,11 +17,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class RecordsServiceImpl implements RecordsService {
@@ -111,13 +110,11 @@ public class RecordsServiceImpl implements RecordsService {
         if (dbInputInfo.getTypes() != null && !dbInputInfo.getTypes().isEmpty()) {
             switch (type) {
                 case 5 -> {
-                    dbInputInfo.setUserName(null);
                     dbInputInfo.getTypes().set(0, 4);
                     records = recordDataService.getRecords(dbInputInfo);
                     return ResultResponse.createSuccessForTypeAndRecords(null, 5, records, map, util);
                 }
                 case 6 -> {
-                    dbInputInfo.setUserName(null);
                     dbInputInfo.getTypes().set(0, 1);
                     records = recordDataService.getRecords(dbInputInfo);
                     return ResultResponse.createSuccessForTypeAndRecords(null, 6, records, map, util);
@@ -126,7 +123,10 @@ public class RecordsServiceImpl implements RecordsService {
                     //查询每个普通用户的信息
                     // Arrays.asList("编号", "用户名", "电话", "邮箱", "身份证", "当前余额", "操作"),
                     ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
-                    List<User> user = userDataService.getUserByType(UserType.normalUser.getVal());
+//                    List<User> user = userDataService.getUserByType(UserType.normalUser.getVal());
+                    dbInputInfo.setTypes(Collections.singletonList(UserType.normalUser.getVal()));
+                    List<User> user = userDataService.getUser(dbInputInfo);
+
                     ArrayList<List<Object>> data = new ArrayList<>(user.size());
                     user.forEach(o -> {
                         ArrayList<Object> objects = new ArrayList<>();
@@ -136,7 +136,7 @@ public class RecordsServiceImpl implements RecordsService {
                         objects.add(o.getPhone());
                         objects.add(o.getEmail());
                         objects.add(o.getIdCard());
-                        objects.add(o.getBalance());
+                        objects.add(o.getBalance().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                         data.add(objects);
                     });
                     response.getSuccess().setData(data);
@@ -146,7 +146,10 @@ public class RecordsServiceImpl implements RecordsService {
                 }
                 case 8 -> {
                     ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
-                    List<User> user = userDataService.getUserByType(UserType.blacklistUser.getVal());
+//                    List<User> user = userDataService.getUserByType(UserType.blacklistUser.getVal());
+                    dbInputInfo.setTypes(Collections.singletonList(UserType.blacklistUser.getVal()));
+                    List<User> user = userDataService.getUser(dbInputInfo);
+
                     ArrayList<List<Object>> data = new ArrayList<>(user.size());
                     user.forEach(o -> {
                         ArrayList<Object> objects = new ArrayList<>();
@@ -156,12 +159,27 @@ public class RecordsServiceImpl implements RecordsService {
                         objects.add(o.getPhone());
                         objects.add(o.getEmail());
                         objects.add(o.getIdCard());
-                        objects.add(o.getBalance());
+                        objects.add(o.getBalance().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                         data.add(objects);
                     });
                     response.getSuccess().setData(data);
                     response.getSuccess().setTitles(map.get(type).getTitle());
                     response.getSuccess().setButtons(map.get(type).getButtons());
+                    return response;
+                }
+                case 9 -> {
+                    ResultResponse response = ResultResponse.createSimpleSuccess(null, null);
+                    DBInputInfo info = DBInputInfo.builder().types(Arrays.asList(UserType.administrator.getVal(), UserType.normalUser.getVal())).build();
+                    List<User> user = userDataService.getUser(info);
+                    ArrayList<List<Object>> data = new ArrayList<>(user.size());
+                    user.forEach(o -> {
+                        ArrayList<Object> objects = new ArrayList<>();
+                        objects.add(o.getId());
+                        objects.add(o.getUserName());
+                        data.add(objects);
+                    });
+                    response.getSuccess().setData(data);
+                    //注意，这里没有title 和 buttons ，单纯返回两种用户的信息。
                     return response;
                 }
             }
