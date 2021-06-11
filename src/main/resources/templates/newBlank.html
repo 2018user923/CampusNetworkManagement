@@ -1,0 +1,286 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title></title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+    <!-- FONT AWESOME STYLE  -->
+    <link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet"/>
+    <!-- DATATABLE STYLE  -->
+    <link th:href="@{/assets/js/dataTables/dataTables.bootstrap.css}" rel="stylesheet"/>
+    <!-- CUSTOM STYLE  -->
+    <link th:href="@{/assets/css/style.css}" rel="stylesheet"/>
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div th:replace="commons/common ::LOGO_HEADER_TOP"></div>
+<div th:replace="commons/common ::LOGO_HEADER_END"></div>
+<!-- MENU SECTION END-->
+<div class="content-wrapper" id="main">
+    <div class="container">
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h4 class="header-line">历史消费记录.</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <!-- Advanced Tables -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_length">
+                                        <label>
+                                            <select class="form-control input-sm"
+                                                    @change="changeLimit">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                        </label>
+                                        <label>
+                                            <select class="form-control input-sm"
+                                                    @change="selectType">
+                                                <option v-for="authority in authorityList" :value="authority">
+                                                    {{authorityMap[authority]}}
+                                                </option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_filter">
+                                        <label>时间：
+                                            <input type="date" v-model="signIn"/>
+                                            <input type="date" @input="getRecordsForPage" v-model="signOut"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--展示每行数据-->
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th v-for="title in titles">{{title}}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd gradeX" v-for="(date, index) in displayDate">
+                                    <td class="center" v-for="v in date">{{v}}</td>
+
+                                    <td v-show="buttonsIsShow">
+                                        <button v-show=buttons[0] @click="cancelClick(index,date[0])" class="btn-warning">取消</button>
+                                        <button v-show=buttons[1] @click="deleteClick(index,date[0])" class="btn-danger">删除</button>
+                                        <button v-show=buttons[2] @click="repeatedSubmitClick(index, date[0])" class="btn-success">再次提交
+                                        </button>
+                                        <button v-show=buttons[3] @click="agreeClick(index, date[0])" class="btn-success">同意</button>
+                                        <button v-show=buttons[4] @click="turnDownClick(index, date[0])" class="btn-danger">驳回</button>
+                                        <button v-show=buttons[5] @click="addBlackList(index, date[0])" class="btn-danger">加入黑名单</button>
+                                        <button v-show=buttons[6] @click="rmBlackList(index, date[0])" class="btn-info">移出黑名单</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <!--翻页 分页操作-->
+                            <div class="row">
+                                <!--显示记录数目-->
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" role="alert"
+                                         aria-live="polite"
+                                         aria-relevant="all">{{showMessage}}
+                                    </div>
+                                </div>
+                                <!--展示 翻页 -->
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li :class="curPage == 1 ? 'paginate_button previous disabled' : 'paginate_button previous'"
+                                                @click="display(curPage - 1)">
+                                                <a href="javascript:void(0);">上一页</a>
+                                            </li>
+                                            <li class="paginate_button active" @click="display(curPage)">
+                                                <a href="javascript:void(0);">{{curPage}}</a>
+                                            </li>
+                                            <li class="paginate_button" @click="display(curPage + 1)">
+                                                <a href="javascript:void(0);">{{curPage + 1}}</a>
+                                            </li>
+                                            <li class="paginate_button" @click="display(curPage + 2)">
+                                                <a href="javascript:void(0);">{{curPage + 2}}</a>
+                                            </li>
+                                            <li :class="curPage * limit < records.length ? 'paginate_button next' : 'paginate_button next disabled'"
+                                                @click="display(curPage + 1)">
+                                                <a href="javascript:void(0);">下一页</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script th:src="@{/vueResources/tools/axios.js}"></script>
+<script th:src="@{/vueResources/tools/vue.js}"></script>
+<script th:src="@{/vueResources/tools/moment.js}"></script>
+<script>
+    new Vue({
+        // 按钮类型依次为： 取消、删除、再次提交、同意、驳回
+        el: '#main',
+        data: {
+            authorityList: [],
+            selectAuthority: 0,
+            records: [],
+            limit: 10,
+            curPage: 1,
+            titles: [],
+            buttons: [],
+            buttonsIsShow: false,
+            displayDate: [],
+            authorityMap: {
+                0: '消费记录',
+                1: '提交的申请',
+                2: '已取消的申请',
+                3: '已通过的申请',
+                4: '被驳回的申请',
+                5: '驳回的申请',
+                6: '申请列表',
+                7: '查看用户信息',
+                8: '查看黑名单用户信息'
+            }
+        },
+        methods: {
+            getUserAuthorityList() {
+                //测试按钮
+                axios.get('http://localhost:8080/getUserAuthorityList').then(rep => {
+                    this.authorityList = rep.data
+                }).catch(err => {
+                    alert(err)
+                })
+            },
+            selectType(event) {
+                if (event) {
+                    this.selectAuthority = event.target.value
+                    this.getRecordsForPage()
+                }
+            },
+            getRecordsForPage() {
+                this.records = []
+                this.displayDate = []
+                let params = {
+                    'types': [this.selectAuthority]
+                }
+                axios.post('http://localhost:8080/getRecords', params).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
+                        this.records = rep.data.success.data
+                        this.titles = rep.data.success.titles
+                        this.buttons = rep.data.success.buttons
+                        this.buttonsIsShow = false
+                        for (let show of this.buttons) {
+                            if (show) {
+                                this.buttonsIsShow = true
+                                break
+                            }
+                        }
+                        this.display(1)
+                    } else {
+                        console.log('getRecordsForPage Date is None, rep :' + rep.data)
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            changeLimit(event) {
+                this.limit = event.target.value
+                this.display(1)
+            },
+            display(index) {
+                //分页超出
+                if (index && (index - 1) * this.limit >= this.records.length) {
+                    return null
+                }
+                this.curPage = index || this.curPage
+                this.displayDate = this.records.slice((this.curPage - 1) * this.limit, this.curPage * this.limit)
+            },
+            buttonClick(index, id, url) {
+                axios.get(url).then(rep => {
+                    console.log(rep.data);
+                    if (rep.data.code === 200) {
+                        this.displayDate.splice(index, 1)
+                        this.records.splice((this.curPage - 1) * this.limit + index, 1)
+                        this.display()
+                    } else {
+                        console.log('the function response error, rep :' + rep)
+                    }
+                })
+            },
+            cancelClick(index, id) {
+                let url = 'http://localhost:8080/buttons/cancelRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            deleteClick(index, id) {
+                let url = 'http://localhost:8080/buttons/deleteRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            repeatedSubmitClick(index, id) {
+                let url = 'http://localhost:8080/buttons/repeatedSubmitRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            agreeClick(index, id) {
+                let url = 'http://localhost:8080/buttons/agreeRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            turnDownClick(index, id) {
+                let url = 'http://localhost:8080/buttons/turnDownRecord/' + id
+                this.buttonClick(index, id, url)
+            },
+            addBlackList(index, id) {
+                let url = 'http://localhost:8080/buttons/addBlackList/' + id
+                this.buttonClick(index, id, url)
+            },
+            rmBlackList(index, id) {
+                let url = 'http://localhost:8080/buttons/rmBlackList/' + id
+                this.buttonClick(index, id, url)
+            }
+        },
+        mounted() {
+            this.getUserAuthorityList()
+            this.getRecordsForPage()
+        }
+    })
+</script>
+<div th:replace="commons/common ::CONTENT-WRAPPER_SECTION_END"></div>
+<!-- CORE JQUERY  -->
+<script src="assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS  -->
+<script src="assets/js/bootstrap.js"></script>
+<!-- DATATABLE SCRIPTS  -->
+<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+<!-- CUSTOM SCRIPTS  -->
+<script src="assets/js/custom.js"></script>
+</body>
+</html>
