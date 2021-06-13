@@ -72,42 +72,25 @@ public class UserServiceImpl implements UserService {
     private Map<Integer, MappingTitleAndButtons> map;
 
     /**
-     * 用户登录服务
-     */
-    @Override
-    public ResultResponse loginHandler(User user, HttpServletRequest request) {
-        clearOtherUser(request);
-        String userName = user.getUserName(), passWord = user.getPassWord();
-        user = userDataService.getUserByUserName(userName);
-        if (user == null) {
-            return ResultResponse.createError(-1, "用户不存在！");
-        }
-        if (user.getPassWord() != null || !user.getPassWord().equals(passWord)) {
-            return ResultResponse.createError(-1, "密码错误！");
-        }
-        user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
-        }));
-        //将ip 地址作为主键，将流量数据存入缓存,
-        String ipAddress = httpService.getIpAddress(request);
-        JSONObject netInfo = myUtil.getNetInfo();
-        netInfo.put("signIn", new Date());
-        netInfo.put("userName", userName);
-        cache.hset(EncryptionKey.netData, ipAddress, netInfo);
-        cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
-        return ResultResponse.createSimpleSuccess(null, null);
-    }
-
-    /**
      * 用户退出服务
      */
     @Override
     public ResultResponse logOutHandler(HttpServletRequest request) {
+        //获取ip地址
+        String ipAddress = httpService.getIpAddress(request);
+        return logOutHandler(ipAddress);
+    }
+
+    public ResultResponse logOutHandler(String ipAddress) {
         ResultResponse response = null;
         try {
-            String ipAddress = httpService.getIpAddress(request);
+            //获取网络信息
             JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
+            //获取用户信息
             User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+            //重新设置用户权限
             user.setAuthority(JSON.toJSONString(user.getAuthorityToSet()));
+
             JSONObject curNetInfo = myUtil.getNetInfo();
             BigDecimal curData = curNetInfo.getBigDecimal("getData");
             //之前的流量
@@ -153,6 +136,7 @@ public class UserServiceImpl implements UserService {
             //移除该用户的信息
             cache.hdel(EncryptionKey.netData, ipAddress);
             cache.hdel(EncryptionKey.userLoginInfo, ipAddress);
+            cache.hdel(EncryptionKey.loginIpAddress, user.getUserName());
             response = ResultResponse.createSimpleSuccess("http://localhost:8080/", null);
         } catch (Exception e) {
             response = ResultResponse.createError(-1, "退出失败！");
@@ -160,30 +144,23 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
+
     @Override
     public ResultResponse loginByEmailHandler(HttpServletRequest request, String email, String code, String userName) {
-        clearOtherUser(request);
         User user = userDataService.getUserByUserNameAndEmail(userName, email);
         //数据库中没有查询到这个用户
         if (user == null) {
             return ResultResponse.createError(-200, "用戶名不存在！");
         }
-
         //校验邮箱验证码
         String ipAddress = httpService.getIpAddress(request);
         String emailCode = (String) cache.hget(EncryptionKey.loginEmail, ipAddress);
-
         //验证码不正确
         if (emailCode == null || !emailCode.equals(code)) {
             return ResultResponse.createError(-200, "邮箱验证码不正确！");
         }
-
         //注册用户登录
-        ResultResponse response = loginHandler(user, request);
-        if (response.getCode().equals(200)) {
-            response.getSuccess().setUrl("http://localhost:8080/form");
-        }
-        return response;
+        return loginUserHandler(request, user);
     }
 
     /**
@@ -224,10 +201,10 @@ public class UserServiceImpl implements UserService {
         if (user.getBalance() == null) {
             user.setBalance(new BigDecimal(0));
         }
+        //更新数据库中用户信息
         userDataService.updateUser(user);
         String ipAddress = httpService.getIpAddress(request);
-        int primaryKey = ((User) cache.hget(EncryptionKey.userLoginInfo, ipAddress)).getId();
-        user = userDataService.getUserById(primaryKey);
+        user = userDataService.getUserById(((User) cache.hget(EncryptionKey.userLoginInfo, ipAddress)).getId());
         user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
         }));
         cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
@@ -299,20 +276,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultResponse loginUserLoginHandler(HttpServletRequest request, User user) {
-        clearOtherUser(request);
+    public ResultResponse loginUserHandler(HttpServletRequest request, User user) {
         ResultResponse res = new ResultResponse();
 
         String userName = user.getUserName(), passWord = user.getPassWord();
-
-        //todo 中级步骤需要校验是否登录成功,待编写。
         user = userDataService.getUserByUserName(userName);
 
         if (user == null) {
             return ResultResponse.createError(-1, "用户名不存在!");
         } else if (!user.getPassWord().equals(passWord)) {
             return ResultResponse.createError(-1, "密码错误!");
+        } else if (UserType.blacklistUser.getVal().equals(user.getType())) {
+            return ResultResponse.createError(-1, "黑名单用户，不允许登录！");
         }
+        //用户名密码正确，清除登录障碍。
+        clearOtherUser(request, userName);
+
         //将用户的权限转化为 set 集合类型
         user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
         }));
@@ -321,8 +300,11 @@ public class UserServiceImpl implements UserService {
         String ipAddress = httpService.getIpAddress(request);
         JSONObject netInfo = myUtil.getNetInfo();
         netInfo.put("signIn", new Date());
-        netInfo.put("userName", user.getUserName());
-        boolean save = cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
+        netInfo.put("userName", userName);
+        request.getSession().setAttribute("user", user);
+        boolean save = cache.hset(EncryptionKey.netData, ipAddress, netInfo)
+                && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user)
+                && cache.hset(EncryptionKey.loginIpAddress, userName, httpService.getIpAddress(request));
         if (!save) {
             ResultResponse.createError(-1, "内部错误，数据存入缓存异常!");
         } else {
@@ -371,12 +353,14 @@ public class UserServiceImpl implements UserService {
         user.setAvatar(baseImageUrl + File.separator + defaultImage);
         //普通用户设置为 1,管理员为 0
         user.setType(UserType.normalUser.getVal());
+        //设置支付方式
+        user.setBillingMethod(BillingMethodEnum.timeBilling.getVal());
         //注册用户成功过，插入数据。
         userDataService.insertUser(user);
 
         log.info("UserServiceImpl#userRegisterHandler:用户注册成功，userInfo:{}", JSON.toJSONString(user));
         //返回登录处理结果。
-        return loginUserLoginHandler(request, user);
+        return loginUserHandler(request, user);
     }
 
     /**
@@ -436,7 +420,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /*
-     * 描述:  如果该ip地址存在其他用户登录，那么使其下线。
+     * 描述:  如果该ip地址存在其他用户登录，那么使其下线。如果待登录的用户在其他ip登录了，令其下线。
      *
      * @return
      * @Author: <247702560@qq.com>
@@ -444,11 +428,15 @@ public class UserServiceImpl implements UserService {
      * @param: request
      */
     @Override
-    public void clearOtherUser(HttpServletRequest request) {
+    public void clearOtherUser(HttpServletRequest request, String userName) {
         String ipAddress = httpService.getIpAddress(request);
         Object user = cache.hget(EncryptionKey.userLoginInfo, ipAddress);
         if (user != null) {
             logOutHandler(request);
+        }
+        String userIpAddress = (String) cache.hget(EncryptionKey.loginIpAddress, userName);
+        if (userIpAddress != null) {
+            logOutHandler(userIpAddress);
         }
     }
 

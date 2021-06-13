@@ -7,15 +7,12 @@ import com.example.demo.util.DBInputInfo;
 import com.example.demo.util.ResultResponse;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
 public interface UserService {
-    ResultResponse loginHandler(User user, HttpServletRequest request);
-
     ResultResponse logOutHandler(HttpServletRequest request);
 
     ResultResponse loginByEmailHandler(HttpServletRequest request, String email, String code, String userName);
@@ -34,7 +31,7 @@ public interface UserService {
 
     Set<Integer> getUserAuthorityListHandler(HttpServletRequest request);
 
-    ResultResponse loginUserLoginHandler(HttpServletRequest request, @RequestBody User user);
+    ResultResponse loginUserHandler(HttpServletRequest request, @RequestBody User user);
 
     ResultResponse userRegisterHandler(HttpServletRequest request, User user, String coe);
 
@@ -48,7 +45,7 @@ public interface UserService {
 
     ResultResponse getMessageHandler(HttpServletRequest request, DBInputInfo dbInputInfo);
 
-    void clearOtherUser(HttpServletRequest request);
+    void clearOtherUser(HttpServletRequest request, String userName);
 
     ResultResponse saveAnnouncement(HttpServletRequest request, Chat chat);
 

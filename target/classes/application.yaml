@@ -53,7 +53,9 @@ user:
   spend:
     # 每小时收费比例
     proportion: 0.18
-  newUserAuthority: '[0, 1, 2, 3, 4]'
+    # 流量收费/G
+    flow: 1
+  newUserAuthority: '[0, 1, 2, 3, 4, 10]'
 
 python:
   netWorkTraffic: src\main\resources\python\data.exe

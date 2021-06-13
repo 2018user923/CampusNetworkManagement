@@ -15,9 +15,8 @@ public enum BillingMethodEnum {
     //时间计费
     timeBilling("时间计费", 0),
     //流量计费
-    trafficBilling("流量计费", 1),
-
-    notFind("未找到", -1);
+    trafficBilling("流量计费", 1);
+//    notFind("未找到", -1);
 
     private String key;
     private Integer val;
@@ -51,6 +50,6 @@ public enum BillingMethodEnum {
         for (BillingMethodEnum billMethod : BillingMethodEnum.values()) {
             if (billMethod.getVal().equals(val)) return billMethod;
         }
-        return notFind;
+        return timeBilling;
     }
 }

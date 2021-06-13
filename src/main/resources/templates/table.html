@@ -152,7 +152,7 @@
                 }
                 axios.post('http://localhost:8080/getRecords', params).then(rep => {
                     console.log(rep.data);
-                    if (rep.data.code === 200 && rep.data.success.data.length > 0) {
+                    if (rep.data.code === 200) {
                         this.showMessage = '一共查询到 ' + rep.data.success.data.length + ' 条记录！'
                         this.records = rep.data.success.data
                         this.titles = rep.data.success.titles

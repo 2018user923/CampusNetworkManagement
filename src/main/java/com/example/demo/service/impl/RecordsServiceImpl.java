@@ -1,6 +1,8 @@
 package com.example.demo.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.example.demo.Enum.TypeEnum;
 import com.example.demo.Enum.UserType;
 import com.example.demo.domain.Chat;
@@ -87,18 +89,26 @@ public class RecordsServiceImpl implements RecordsService {
     public ResultResponse agreeRecordHandler(HttpServletRequest request, Integer id) {
         //这是管理员的信息
         String ipAddress = httpService.getIpAddress(request);
-        User updateUser = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        User administrator = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
 
         DBInputInfo dbInputInfo = DBInputInfo.builder().id(id).build();
 
         //申请信息
         Record record = recordDataService.getRecordById(id);
         //申请者
-        User submitUser = userDataService.getUserByUserName(record.getUserName());
-        submitUser.setBalance(submitUser.getBalance().add(record.getRechargeAmount()));
-        userDataService.updateUser(submitUser);
+        User user = userDataService.getUserByUserName(record.getUserName());
+        user.setBalance(user.getBalance().add(record.getRechargeAmount()));
+        userDataService.updateUser(user);
 
-        recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmitComplete.getVal(), updateUser.getUserName());
+        //判断user对象当前是否在线。
+        String userIpAddress = (String) cache.hget(EncryptionKey.loginIpAddress, user.getUserName());
+        if (userIpAddress != null) {
+            cache.hset(EncryptionKey.userLoginInfo, userIpAddress, user);
+            user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
+            }));
+        }
+
+        recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmitComplete.getVal(), administrator.getUserName());
         return ResultResponse.createError(200, null);
     }
 

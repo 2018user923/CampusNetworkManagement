@@ -69,7 +69,7 @@ public class LoginControllerHandler {
      */
     @CrossOrigin
     @RequestMapping("/login/userLogin")
-    ResultResponse loginUserLogin(HttpServletRequest request, @RequestBody User user) {
-        return userService.loginUserLoginHandler(request, user);
+    ResultResponse userLogin(HttpServletRequest request, @RequestBody User user) {
+        return userService.loginUserHandler(request, user);
     }
 }
