@@ -35,6 +35,9 @@ public class MyUtil {
     @Value("${user.spend.proportion}")
     private Double proportion;
 
+    @Value(("${user.spend.proportion}"))
+    private BigDecimal flow;
+
     @Value(("${python.netWorkTraffic}"))
     private String netWorkTrafficPath;
 
@@ -88,6 +91,10 @@ public class MyUtil {
         BigDecimal res = new BigDecimal(spend);
         log.info(signIn + " ----> " + signOut + "花费的金额为 :" + spend);
         return res;
+    }
+
+    public BigDecimal calcSpend(BigDecimal costData) {
+        return costData.divide(new BigDecimal("1073741.824")).multiply(flow);
     }
 
     public Long calcMinute(Date signIn, Date signOut) {

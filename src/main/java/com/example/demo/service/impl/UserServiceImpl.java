@@ -118,7 +118,20 @@ public class UserServiceImpl implements UserService {
             Date signIn = json.getDate("signIn");
             Date signOut = new Date();
 
-            BigDecimal costMoney = myUtil.calcSpend(signIn, signOut);
+            BigDecimal costMoney = new BigDecimal("0");
+
+            switch (BillingMethodEnum.getEnumByVal(user.getBillingMethod())) {
+                case timeBilling -> {
+                    costMoney = myUtil.calcSpend(signIn, signOut);
+                }
+                case trafficBilling -> {
+                    costMoney = myUtil.calcSpend(costData);
+                }
+                default -> {
+                    return ResultResponse.createError(-1, "支付方式不存在！");
+                }
+            }
+
             BigDecimal curBalance = user.getBalance().subtract(costMoney);
             user.setBalance(curBalance);
 
@@ -131,6 +144,7 @@ public class UserServiceImpl implements UserService {
                     //这里的金额需要除以 1000
                     .costMoney(costMoney)
                     .balance(curBalance)
+                    .billMethod(BillingMethodEnum.getEnumByVal(user.getBillingMethod()).getKey())
                     .build();
 
             userDataService.updateUser(user);
@@ -358,8 +372,7 @@ public class UserServiceImpl implements UserService {
         //普通用户设置为 1,管理员为 0
         user.setType(UserType.normalUser.getVal());
         //注册用户成功过，插入数据。
-        int primaryKey = userDataService.insertUser(user);
-        user.setId(primaryKey);
+        userDataService.insertUser(user);
 
         log.info("UserServiceImpl#userRegisterHandler:用户注册成功，userInfo:{}", JSON.toJSONString(user));
         //返回登录处理结果。

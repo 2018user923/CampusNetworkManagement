@@ -100,6 +100,7 @@
             update_Time = now(),
             <if test="rechargeAmount != null">recharge_Amount = #{rechargeAmount},</if>
             <if test="type != null">type = #{type},</if>
+            <if test="billMethod != null and billMethod != ''">bill_method = #{billMethod},</if>
         </trim>
         where Id = #{id}
     </update>
@@ -129,9 +130,9 @@
     -->
     <insert id="insertRecord" useGeneratedKeys="true" keyProperty="id">
         insert into record_table(user_Name, update_User_Name, sign_In, sign_Out, cost_Data, balance, cost_Money,
-                                 create_Time, update_Time, recharge_Amount, type)
+                                 create_Time, update_Time, recharge_Amount, type, bill_method)
         values (#{userName}, #{updateUserName}, #{signIn}, #{signOut}, #{costData}, #{balance}, #{costMoney},
-                now(), #{updateTime}, #{rechargeAmount}, #{type})
+                now(), #{updateTime}, #{rechargeAmount}, #{type}, #{billMethod})
     </insert>
 
 </mapper>

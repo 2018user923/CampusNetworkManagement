@@ -53,6 +53,8 @@ user:
   spend:
     # 每小时收费比例
     proportion: 0.18
+    flow: 1
+
   newUserAuthority: '[0, 1, 2, 3, 4]'
 
 python:

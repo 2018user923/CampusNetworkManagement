@@ -33,4 +33,6 @@ public class Record {
     private BigDecimal rechargeAmount;//充值的金额
 
     private Integer type;//该记录的类型
+
+    private String billMethod;//支付模式
 }

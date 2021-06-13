@@ -107,6 +107,7 @@ public class ResultResponse {
                 objects.add(simpleDateFormat.format(r.getSignOut()));
                 objects.add(r.getCostData());
                 objects.add(util.calcMinute(r.getSignIn(), r.getSignOut()));
+                objects.add(r.getBillMethod());
                 objects.add(r.getBalance().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                 objects.add(r.getCostMoney().divide(new BigDecimal(1000), 3, RoundingMode.HALF_UP));
                 data.add(objects);

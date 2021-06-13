@@ -162,7 +162,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         Map<Integer, MappingTitleAndButtons> map = new HashMap<>();
 
         map.put(0, MappingTitleAndButtons.create(
-                Arrays.asList("编号", "登录时间", "退出时间", "流量（bytes）", "时长（分钟）", "余额（元）", "本次消费（元）"),
+                Arrays.asList("编号", "登录时间", "退出时间", "流量（bytes）", "时长（分钟）", "支付模式", "余额（元）", "本次消费（元）"),
                 Arrays.asList(false, false, false, false, false, false, false, false)
         ));
 

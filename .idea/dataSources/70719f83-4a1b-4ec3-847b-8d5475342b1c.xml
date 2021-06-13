@@ -4565,12 +4565,12 @@ SELECT|sys.sys_config
     <column id="1112" parent="365" name="user_name">
       <Position>2</Position>
       <Comment>用户名</Comment>
-      <DataType>varchar(15)|0s</DataType>
+      <DataType>varchar(16)|0s</DataType>
     </column>
     <column id="1113" parent="365" name="update_User_Name">
       <Position>3</Position>
       <Comment>更新记录者</Comment>
-      <DataType>varchar(15)|0s</DataType>
+      <DataType>varchar(16)|0s</DataType>
     </column>
     <column id="1114" parent="365" name="sign_in">
       <Position>4</Position>
@@ -4620,109 +4620,114 @@ SELECT|sys.sys_config
       <Comment>记录的类型</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <index id="1123" parent="365" name="user_table_user_name_uindex">
+    <column id="1123" parent="365" name="bill_method">
+      <Position>13</Position>
+      <Comment>用户支付的方式</Comment>
+      <DataType>varchar(16)|0s</DataType>
+    </column>
+    <index id="1124" parent="365" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1124" parent="365" name="user_table_update_User_Name_uindex">
+    <index id="1125" parent="365" name="user_table_update_User_Name_uindex">
       <ColNames>update_User_Name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1125" parent="365" name="record_table_type_index">
+    <index id="1126" parent="365" name="record_table_type_index">
       <ColNames>type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1126" parent="365" name="PRIMARY">
+    <key id="1127" parent="365" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="1127" parent="366" name="id">
+    <column id="1128" parent="366" name="id">
       <Position>1</Position>
       <Comment>自增主键</Comment>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1128" parent="366" name="user_name">
+    <column id="1129" parent="366" name="user_name">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1129" parent="366" name="pass_word">
+    <column id="1130" parent="366" name="pass_word">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(64)|0s</DataType>
     </column>
-    <column id="1130" parent="366" name="phone">
+    <column id="1131" parent="366" name="phone">
       <Position>4</Position>
       <Comment>联系电话</Comment>
       <DataType>varchar(32)|0s</DataType>
     </column>
-    <column id="1131" parent="366" name="email">
+    <column id="1132" parent="366" name="email">
       <Position>5</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1132" parent="366" name="id_card">
+    <column id="1133" parent="366" name="id_card">
       <Position>6</Position>
       <Comment>身份证</Comment>
       <DataType>varchar(32)|0s</DataType>
     </column>
-    <column id="1133" parent="366" name="avatar">
+    <column id="1134" parent="366" name="avatar">
       <Position>7</Position>
       <Comment>头像的url</Comment>
       <DataType>varchar(256)|0s</DataType>
     </column>
-    <column id="1134" parent="366" name="balance">
+    <column id="1135" parent="366" name="balance">
       <Position>8</Position>
       <Comment>余额</Comment>
       <DataType>bigint|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="1135" parent="366" name="type">
+    <column id="1136" parent="366" name="type">
       <Position>9</Position>
       <Comment>账户权限</Comment>
       <DataType>int|0s</DataType>
     </column>
-    <column id="1136" parent="366" name="authority">
+    <column id="1137" parent="366" name="authority">
       <Position>10</Position>
       <Comment>权限</Comment>
       <DataType>varchar(256)|0s</DataType>
     </column>
-    <column id="1137" parent="366" name="create_time">
+    <column id="1138" parent="366" name="create_time">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>(CURRENT_TIMESTAMP)</DefaultExpression>
     </column>
-    <column id="1138" parent="366" name="billing_method">
+    <column id="1139" parent="366" name="billing_method">
       <Position>12</Position>
       <Comment>用户计费的方式</Comment>
       <DataType>int|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <index id="1139" parent="366" name="user_table_user_name_uindex">
+    <index id="1140" parent="366" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1140" parent="366" name="user_table_email_index">
+    <index id="1141" parent="366" name="user_table_email_index">
       <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1141" parent="366" name="user_table_type_index">
+    <index id="1142" parent="366" name="user_table_type_index">
       <ColNames>type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1142" parent="366" name="PRIMARY">
+    <key id="1143" parent="366" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="1143" parent="366" name="user_table_user_name_uindex">
+    <key id="1144" parent="366" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>user_table_user_name_uindex</UnderlyingIndexName>
     </key>
