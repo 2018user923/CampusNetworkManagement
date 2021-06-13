@@ -57,8 +57,6 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/main").setViewName("form");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/netInfo").setViewName("netInfo");
-        registry.addViewController("/ui").setViewName("ui");
-        registry.addViewController("/mm").setViewName("main");
         registry.addViewController("/newBlank").setViewName("newBlank");
     }
 
@@ -133,8 +131,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 "/register",
                 "/register/**",
                 "/login/**",
-                "/vueResources/**",
-                "/test/**"
+                "/vueResources/**"
         );
     }
 

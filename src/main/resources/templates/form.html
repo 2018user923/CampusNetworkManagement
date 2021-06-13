@@ -159,6 +159,11 @@
         },
         methods: {
             userInfoUpdateClick() {
+                let flag = this.checkEmail() && this.checkIdCard() && this.checkPhone()
+                if (!flag) {
+                    alert('存在不合法字段，请修改正确后在此提交！')
+                    return false
+                }
                 let params = new FormData()
                 let file = this.$refs.upfile.files[0]
                 params.append("userName", this.userName)

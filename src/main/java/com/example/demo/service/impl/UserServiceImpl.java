@@ -191,7 +191,7 @@ public class UserServiceImpl implements UserService {
                 .type(TypeEnum.userRechargeSubmit.getVal())
                 .rechargeAmount(new BigDecimal(rechargeAmount))
                 .build();
-        int primaryKey = recordService.insertRecord(record);
+        recordService.insertRecord(record);
         return ResultResponse.createSuccessForTypeAndRecords(null, 1, Collections.singletonList(record), map, myUtil);
     }
 
@@ -219,6 +219,8 @@ public class UserServiceImpl implements UserService {
         String ipAddress = httpService.getIpAddress(request);
         int primaryKey = ((User) cache.hget(EncryptionKey.userLoginInfo, ipAddress)).getId();
         user = userDataService.getUserById(primaryKey);
+        user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
+        }));
         cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
         request.getSession().setAttribute("user", user);
         return ResultResponse.createSimpleSuccess(null, null);
