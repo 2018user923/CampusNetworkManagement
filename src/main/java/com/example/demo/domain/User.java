@@ -36,4 +36,5 @@ public class User {
     private String authority;//权限，使用 list 存储之后再使用 json.parse 解析
     private Date createTime;
     private Set<Integer> authorityToSet;//将 authority 转化为 set 类型
+    private Integer billingMethod;//用户选择的计费方式。默认选择 0，即按照时长计费
 }

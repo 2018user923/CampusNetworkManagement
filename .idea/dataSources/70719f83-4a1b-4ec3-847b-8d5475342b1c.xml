@@ -4698,25 +4698,31 @@ SELECT|sys.sys_config
       <DataType>datetime|0s</DataType>
       <DefaultExpression>(CURRENT_TIMESTAMP)</DefaultExpression>
     </column>
-    <index id="1138" parent="366" name="user_table_user_name_uindex">
+    <column id="1138" parent="366" name="billing_method">
+      <Position>12</Position>
+      <Comment>用户计费的方式</Comment>
+      <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="1139" parent="366" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="1139" parent="366" name="user_table_email_index">
+    <index id="1140" parent="366" name="user_table_email_index">
       <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1140" parent="366" name="user_table_type_index">
+    <index id="1141" parent="366" name="user_table_type_index">
       <ColNames>type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1141" parent="366" name="PRIMARY">
+    <key id="1142" parent="366" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="1142" parent="366" name="user_table_user_name_uindex">
+    <key id="1143" parent="366" name="user_table_user_name_uindex">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>user_table_user_name_uindex</UnderlyingIndexName>
     </key>

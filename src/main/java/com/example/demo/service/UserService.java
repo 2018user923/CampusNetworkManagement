@@ -14,13 +14,11 @@ import java.util.List;
 import java.util.Set;
 
 public interface UserService {
-    boolean loginHandler(User user, HttpServletRequest request);
+    ResultResponse loginHandler(User user, HttpServletRequest request);
 
     ResultResponse logOutHandler(HttpServletRequest request);
 
     ResultResponse loginByEmailHandler(HttpServletRequest request, String email, String code, String userName);
-
-    ModelAndView form(HttpServletRequest request);
 
     ResultResponse userRechargeAppHandler(HttpServletRequest request, Integer rechargeAmount);
 
@@ -53,4 +51,6 @@ public interface UserService {
     void clearOtherUser(HttpServletRequest request);
 
     ResultResponse saveAnnouncement(HttpServletRequest request, Chat chat);
+
+    ResultResponse getBillingMethodsHandler(HttpServletRequest request);
 }

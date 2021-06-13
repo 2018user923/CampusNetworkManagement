@@ -111,4 +111,10 @@ public class UserInfoControllerHandler {
     ResultResponse getMessage(HttpServletRequest request, @RequestBody DBInputInfo dbInputInfo) {
         return userService.getMessageHandler(request, dbInputInfo);
     }
+
+    @CrossOrigin
+    @RequestMapping("/getBillingMethods")
+    ResultResponse getBillingMethods(HttpServletRequest request) {
+        return userService.getBillingMethodsHandler(request);
+    }
 }

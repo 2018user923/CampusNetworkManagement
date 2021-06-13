@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.example.demo.Enum.BillingMethodEnum;
 import com.example.demo.Enum.TypeEnum;
 import com.example.demo.Enum.UserType;
 import com.example.demo.domain.Chat;
@@ -20,7 +21,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +28,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -74,14 +75,15 @@ public class UserServiceImpl implements UserService {
      * 用户登录服务
      */
     @Override
-    public boolean loginHandler(User user, HttpServletRequest request) {
+    public ResultResponse loginHandler(User user, HttpServletRequest request) {
         clearOtherUser(request);
         String userName = user.getUserName(), passWord = user.getPassWord();
-        //todo 中级步骤需要校验是否登录成功,待编写。
         user = userDataService.getUserByUserName(userName);
-        //todo 用户名或密码不正确,后续需要区分是用户名不存在还是密码不正确
-        if (user == null || !user.getPassWord().equals(passWord)) {
-            return false;
+        if (user == null) {
+            return ResultResponse.createError(-1, "用户不存在！");
+        }
+        if (user.getPassWord() != null || !user.getPassWord().equals(passWord)) {
+            return ResultResponse.createError(-1, "密码错误！");
         }
         user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
         }));
@@ -90,7 +92,9 @@ public class UserServiceImpl implements UserService {
         JSONObject netInfo = myUtil.getNetInfo();
         netInfo.put("signIn", new Date());
         netInfo.put("userName", userName);
-        return cache.hset(EncryptionKey.netData, ipAddress, netInfo) && cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
+        cache.hset(EncryptionKey.netData, ipAddress, netInfo);
+        cache.hset(EncryptionKey.userLoginInfo, ipAddress, user);
+        return ResultResponse.createSimpleSuccess(null, null);
     }
 
     /**
@@ -161,20 +165,11 @@ public class UserServiceImpl implements UserService {
         }
 
         //注册用户登录
-        if (loginHandler(user, request)) {
-            return ResultResponse.createSimpleSuccess("http://localhost:8080/form", null);
+        ResultResponse response = loginHandler(user, request);
+        if (response.getCode().equals(200)) {
+            response.getSuccess().setUrl("http://localhost:8080/form");
         }
-        return null;
-    }
-
-    /**
-     * @param request 用户请求的 form
-     */
-    @Override
-    public ModelAndView form(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/form");
-        return modelAndView;
+        return response;
     }
 
     /**
@@ -463,5 +458,17 @@ public class UserServiceImpl implements UserService {
             return ResultResponse.createError(-200, "发送信息失败，插入数据库失败！");
         }
         return ResultResponse.createSimpleSuccess(null, Chat.createResponseData(chats.get(0), simpleDateFormat));
+    }
+
+    /**
+     * 描述: 获取所有的计费方式。
+     *
+     * @Author: <247702560@qq.com>
+     * @Date: 2021/6/13 17:39
+     * @param: request
+     */
+    @Override
+    public ResultResponse getBillingMethodsHandler(HttpServletRequest request) {
+        return ResultResponse.createSimpleSuccess(null, Arrays.stream(BillingMethodEnum.values()).collect(Collectors.toMap(BillingMethodEnum::getVal, BillingMethodEnum::getKey)));
     }
 }

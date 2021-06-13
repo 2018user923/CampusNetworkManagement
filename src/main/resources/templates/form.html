@@ -63,6 +63,17 @@
                                        @blur="checkPhone"/>
                             </div>
                             <div class="form-group">
+                                <label>计费方式</label>
+                                <label>
+                                    <select name="dataTables-example_length" class="form-control input-sm"
+                                            @change="changeBillingMethod" :disabled="isDisabled">
+                                        <option :value="key" v-for="(val, key, index) in billingMethods"
+                                                :selected="key == billingMethod">{{val}}
+                                        </option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="form-group">
                                 <input type="file" accept="image/jpeg, image/png, image/gif" ref="upfile"
                                        :disabled="isDisabled">
                             </div>
@@ -144,6 +155,7 @@
             avatarUrl: null,
             //如果为 true，表示不可编辑
             isDisabled: true,
+            billingMethod: -99,
 
             userNameText: '用户名',
             idCardText: '身份证',
@@ -155,7 +167,8 @@
             SystemAnnouncement: [],
             displayDate: [],
             limit: 3,
-            curPage: 1
+            curPage: 1,
+            billingMethods: {}
         },
         methods: {
             userInfoUpdateClick() {
@@ -172,6 +185,7 @@
                 params.append("passWord", this.passWord)
                 params.append("phone", this.phone)
                 params.append("file", file)
+                params.append("billingMethod", this.billingMethod)
                 axios.post('http://localhost:8080/userInfoUpdateSubmit', params).then(rep => {
                     if (rep.data.code === 200) {
                         alert('个人信息更新成功！')
@@ -185,6 +199,8 @@
             },
             getUserInfo() {
                 axios.post('http://localhost:8080/getUserInfo').then(rep => {
+                    console.log(rep.data);
+                    this.billingMethod = rep.data.billingMethod
                     this.type = rep.data.type
                     this.userName = rep.data.userName
                     this.idCard = rep.data.idCard
@@ -273,11 +289,27 @@
                 }
                 this.curPage = index || this.curPage
                 this.displayDate = this.SystemAnnouncement.slice((this.curPage - 1) * this.limit, this.curPage * this.limit)
+            },
+            getBillingMethods() {
+                axios.post('http://localhost:8080/getBillingMethods').then(rep => {
+                    if (rep.data.code === 200) {
+                        this.billingMethods = rep.data.success.data
+                    } else {
+                        console.log(rep.data.error);
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            changeBillingMethod(event) {
+                this.billingMethod = event.target.value
+                console.log(this.billingMethod);
             }
         },
         mounted() {
             this.getUserInfo()
             this.loadAnnouncement()
+            this.getBillingMethods()
         }
     })
 </script>
