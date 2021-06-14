@@ -35,7 +35,7 @@ public interface UserService {
 
     ResultResponse userRegisterHandler(HttpServletRequest request, User user, String coe);
 
-    ResultResponse getUserInfoByTypeHandler(HttpServletRequest request,Integer type);
+    ResultResponse getUserInfoByTypeHandler(HttpServletRequest request, Integer type);
 
     ResultResponse addBlackListHandler(HttpServletRequest request, Integer id);
 
@@ -50,4 +50,6 @@ public interface UserService {
     ResultResponse saveAnnouncement(HttpServletRequest request, Chat chat);
 
     ResultResponse getBillingMethodsHandler(HttpServletRequest request);
+
+    ResultResponse checkUserNameHandler(HttpServletRequest request, String userName);
 }

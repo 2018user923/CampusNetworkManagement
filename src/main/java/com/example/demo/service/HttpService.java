@@ -20,7 +20,7 @@ public interface HttpService {
 
     String registerSendEmail(HttpServletRequest request, String email);
 
-    String loginSendEmail(HttpServletRequest request, String email);
+    ResultResponse loginSendEmail(HttpServletRequest request, String email);
 
     List<Record> getRecordsByType(HttpServletRequest request, Integer authority);
 }

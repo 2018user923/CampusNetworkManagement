@@ -8,6 +8,7 @@ import com.example.demo.service.HttpService;
 import com.example.demo.util.EncryptionKey;
 import com.example.demo.util.MyUtil;
 import com.example.demo.util.RedisUtil;
+import com.example.demo.util.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,11 +83,11 @@ public class HttpServiceImpl implements HttpService {
     }
 
     @Override
-    public String loginSendEmail(HttpServletRequest request, String email) {
+    public ResultResponse loginSendEmail(HttpServletRequest request, String email) {
         String code = myUtil.sendMail(email, "登录账户验证码");
         String ipAddress = httpService.getIpAddress(request);
         cache.hset(EncryptionKey.loginEmail, ipAddress, code, 60);
-        return "successed";
+        return ResultResponse.createSimpleSuccess(null, null);
     }
 
     @Override

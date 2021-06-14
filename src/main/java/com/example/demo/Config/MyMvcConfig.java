@@ -131,7 +131,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 "/register",
                 "/register/**",
                 "/login/**",
-                "/vueResources/**"
+                "/vueResources/**",
+                "/test/**"
         );
     }
 

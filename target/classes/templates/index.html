@@ -256,7 +256,7 @@
             <form action="/" method="post">
                 <div>
                     <label>用户名：</label>
-                    <input type="text" placeholder="输入用户名" v-model="userName">
+                    <input type="text" placeholder="输入用户名" v-model="userName" @blur="userNameBlur">
                 </div>
                 <div>
                     <label>密&nbsp;&nbsp;&nbsp;码：</label>
@@ -327,8 +327,10 @@
                 if (!regex.test(this.email)) {
                     this.errorText = '邮箱格式不正确！'
                     this.isShow = true
+                    return false
                 } else {
                     this.isShow = false
+                    return true
                 }
             },
             emailCodeBlur() {
@@ -336,20 +338,23 @@
                 if (!regex.test(this.emailCode)) {
                     this.errorText = '验证码格式不正确！'
                     this.isShow = true
+                    return false
                 } else {
                     this.isShow = false
+                    return true
                 }
             },
             verifyMailbox() {
                 //发送邮件之前先验证邮箱
-                this.emailBlur()
-                if (this.isShow) return null
+                let flag = this.emailBlur()
+                if (!flag) return false
                 let param = {
                     'email': this.email,
                 }
                 axios.post('http://localhost:8080/login/sendEmail', param).then(rep => {
-                    if (rep.data !== 'successed') {
-                        return null
+                    if (rep.data.code !== 200) {
+                        this.errorText = rep.data.error.message
+                        this.isShow = true
                     }
                     this.t = this.defaultTime
                     this.disabledFlag = true
@@ -369,9 +374,8 @@
             },
             emailLogin() {
                 //登录提交之前验证邮箱和验证码
-                this.emailBlur()
-                this.emailCodeBlur()
-                if (this.isShow) return null
+                let flag = this.emailBlur() && this.emailCodeBlur()
+                if (!flag) return false
                 let param = {
                     'email': this.email,
                     'code': this.emailCode,
@@ -482,9 +486,8 @@
             },
             userRegister() {
                 //登录提交之前验证邮箱和验证码
-                this.emailBlur()
-                this.emailCodeBlur()
-                if (this.isShow) return null
+                let flag = this.emailBlur() && this.emailCodeBlur() && this.userNameBlur() && this.passwordBlur()
+                if (!flag) return false
                 let params = {
                     'email': this.email,
                     'code': this.emailCode,
@@ -512,6 +515,21 @@
                     return false
                 }
                 this.isShow = false
+                return true
+            },
+            userNameBlur() {
+                axios.get('http://localhost:8080/login/checkUser/' + this.userName).then(rep => {
+                    this.isShow = true
+                    if (rep.data.code === 200) {
+                        this.errorText = rep.data.success.data
+                        return true
+                    } else {
+                        this.errorText = rep.data.error.message
+                        return false
+                    }
+                }).catch(error => {
+                    console.log('userNameBlur#' + error);
+                })
             }
         }
     })

@@ -39,7 +39,7 @@ public class LoginControllerHandler {
      */
     @CrossOrigin
     @RequestMapping("/login/sendEmail")
-    String loginSendEmail(HttpServletRequest request, @RequestBody Map<String, String> map) {
+    ResultResponse loginSendEmail(HttpServletRequest request, @RequestBody Map<String, String> map) {
         return httpService.loginSendEmail(request, map.get("email"));
     }
 

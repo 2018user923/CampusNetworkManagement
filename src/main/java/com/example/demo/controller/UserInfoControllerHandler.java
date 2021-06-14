@@ -117,4 +117,10 @@ public class UserInfoControllerHandler {
     ResultResponse getBillingMethods(HttpServletRequest request) {
         return userService.getBillingMethodsHandler(request);
     }
+
+    @CrossOrigin
+    @RequestMapping("/login/checkUser/{userName}")
+    ResultResponse checkUserName(HttpServletRequest request, @PathVariable("userName") String userName) {
+        return userService.checkUserNameHandler(request,userName);
+    }
 }

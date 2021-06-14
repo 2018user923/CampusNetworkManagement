@@ -472,4 +472,13 @@ public class UserServiceImpl implements UserService {
     public ResultResponse getBillingMethodsHandler(HttpServletRequest request) {
         return ResultResponse.createSimpleSuccess(null, Arrays.stream(BillingMethodEnum.values()).collect(Collectors.toMap(BillingMethodEnum::getVal, BillingMethodEnum::getKey)));
     }
+
+    @Override
+    public ResultResponse checkUserNameHandler(HttpServletRequest request, String userName) {
+        User user = userDataService.getUserByUserName(userName);
+        if (user != null) {
+            return ResultResponse.createError(-1, "该用户名已存在！");
+        }
+        return ResultResponse.createSimpleSuccess(null, "用户名可用！");
+    }
 }
