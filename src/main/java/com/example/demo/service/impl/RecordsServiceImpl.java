@@ -97,15 +97,15 @@ public class RecordsServiceImpl implements RecordsService {
         Record record = recordDataService.getRecordById(id);
         //申请者
         User user = userDataService.getUserByUserName(record.getUserName());
-        user.setBalance(user.getBalance().add(record.getRechargeAmount()));
+        user.setBalance(user.getBalance().add(record.getRechargeAmount().multiply(new BigDecimal(1000))));
         userDataService.updateUser(user);
 
         //判断user对象当前是否在线。
         String userIpAddress = (String) cache.hget(EncryptionKey.loginIpAddress, user.getUserName());
         if (userIpAddress != null) {
-            cache.hset(EncryptionKey.userLoginInfo, userIpAddress, user);
             user.setAuthorityToSet(JSON.parseObject(user.getAuthority(), new TypeReference<>() {
             }));
+            cache.hset(EncryptionKey.userLoginInfo, userIpAddress, user);
         }
 
         recordDataService.updateRecordByIdForType(id, TypeEnum.userRechargeSubmitComplete.getVal(), administrator.getUserName());
