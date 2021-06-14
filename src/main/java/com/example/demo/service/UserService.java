@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
@@ -52,4 +53,6 @@ public interface UserService {
     ResultResponse getBillingMethodsHandler(HttpServletRequest request);
 
     ResultResponse checkUserNameHandler(HttpServletRequest request, String userName);
+
+    BigDecimal calcUserCostMoney(String ipAddress);
 }

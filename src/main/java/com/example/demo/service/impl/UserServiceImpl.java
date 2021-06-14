@@ -481,4 +481,32 @@ public class UserServiceImpl implements UserService {
         }
         return ResultResponse.createSimpleSuccess(null, "用户名可用！");
     }
+
+    @Override
+    public BigDecimal calcUserCostMoney(String ipAddress) {
+        JSONObject json = (JSONObject) cache.hget(EncryptionKey.netData, ipAddress);
+        //获取用户信息
+        User user = (User) cache.hget(EncryptionKey.userLoginInfo, ipAddress);
+        JSONObject curNetInfo = myUtil.getNetInfo();
+        BigDecimal curData = curNetInfo.getBigDecimal("getData");
+        //之前的流量
+        BigDecimal preNetData = json.getBigDecimal("getData");
+        //花费的流量
+        BigDecimal costData = curData.subtract(preNetData);
+
+        Date signIn = json.getDate("signIn");
+        Date signOut = new Date();
+
+        BigDecimal costMoney = new BigDecimal("0");
+
+        switch (BillingMethodEnum.getEnumByVal(user.getBillingMethod())) {
+            case timeBilling -> {
+                costMoney = myUtil.calcSpend(signIn, signOut);
+            }
+            case trafficBilling -> {
+                costMoney = myUtil.calcSpend(costData);
+            }
+        }
+        return costMoney;
+    }
 }
