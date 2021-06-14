@@ -40,7 +40,7 @@
                         <form>
                             <div class="form-group">
                                 <label>{{userNameText}}</label>
-                                <input class="form-control" type="text" v-model="userName" :disabled="isDisabled"/>
+                                <input class="form-control" type="text" v-model="userName" :disabled="true"/>
                             </div>
                             <div class="form-group">
                                 <label>{{idCardText}}</label>
@@ -199,6 +199,7 @@
             },
             getUserInfo() {
                 axios.post('http://localhost:8080/getUserInfo').then(rep => {
+                    console.log(rep.data);
                     this.billingMethod = rep.data.billingMethod
                     this.type = rep.data.type
                     this.userName = rep.data.userName
